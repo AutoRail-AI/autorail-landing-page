@@ -175,18 +175,6 @@ export function FlowDiagram({ className }: FlowDiagramProps) {
             transition={{ duration: 0.8, delay: 0.3 }}
           />
 
-          {/* Arrow */}
-          <motion.path
-            d="M 320 134 L 330 140 L 320 146"
-            stroke="#8134CE"
-            strokeWidth="2"
-            strokeLinecap="round"
-            strokeLinejoin="round"
-            fill="none"
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ delay: 0.8 }}
-          />
         </g>
 
         {/* Left flow particles */}
@@ -340,18 +328,6 @@ export function FlowDiagram({ className }: FlowDiagramProps) {
             transition={{ duration: 0.8, delay: 0.6 }}
           />
 
-          {/* Arrow */}
-          <motion.path
-            d="M 635 134 L 645 140 L 635 146"
-            stroke="#6E18B3"
-            strokeWidth="2"
-            strokeLinecap="round"
-            strokeLinejoin="round"
-            fill="none"
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ delay: 1.1 }}
-          />
         </g>
 
         {/* Right flow particles */}

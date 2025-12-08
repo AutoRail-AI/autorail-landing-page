@@ -48,6 +48,7 @@ export interface ButtonProps
   extends ComponentProps<"button">,
     VariantProps<typeof buttonVariants> {
   href?: string
+  onClick?: () => void
 }
 
 export function Button({
@@ -55,6 +56,7 @@ export function Button({
   variant,
   size,
   href,
+  onClick,
   children,
   ...props
 }: ButtonProps) {
@@ -62,6 +64,7 @@ export function Button({
     return (
       <a
         href={href}
+        onClick={onClick}
         className={cn(buttonVariants({ variant, size, className }))}
       >
         {children}

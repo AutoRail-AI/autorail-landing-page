@@ -69,7 +69,7 @@ export function ProblemSection() {
           whileInView="visible"
           viewport={viewportSettings}
           variants={fadeInUp}
-          className="mt-16 text-center font-[family-name:var(--font-grotesk)] text-xl font-medium text-cloud-white md:text-2xl"
+          className="mt-16 text-center font-[family-name:var(--font-grotesk)] text-xl font-semibold text-cloud-white md:text-2xl"
         >
           Vibe-coding gets you started. It doesn&apos;t get you to production.
         </motion.p>

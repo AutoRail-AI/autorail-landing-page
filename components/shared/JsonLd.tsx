@@ -15,6 +15,13 @@ export function JsonLd({ type }: JsonLdProps) {
       logo: `${SITE_CONFIG.url}/logos/autorail.svg`,
       description: SITE_CONFIG.description,
       foundingDate: "2024",
+      email: "jaswanth@autorail.dev",
+      contactPoint: {
+        "@type": "ContactPoint",
+        email: "jaswanth@autorail.dev",
+        contactType: "Customer Support",
+        availableLanguage: "English",
+      },
       sameAs: [
         `https://twitter.com/${SITE_CONFIG.twitterHandle.replace("@", "")}`,
         SITE_CONFIG.githubUrl,
@@ -48,12 +55,18 @@ export function JsonLd({ type }: JsonLdProps) {
       "@type": "WebPage",
       name: `${SITE_CONFIG.name} — ${SITE_CONFIG.tagline}`,
       description: SITE_CONFIG.description,
+      url: SITE_CONFIG.url,
+      mainEntity: {
+        "@type": "SoftwareApplication",
+        name: SITE_CONFIG.name,
+        applicationCategory: "DeveloperApplication",
+      },
       speakable: {
         "@type": "SpeakableSpecification",
         cssSelector: [
-          ".hero-description",
-          ".faq-answer",
-          ".capability-description",
+          "#hero h1",
+          "#faq .faq-question",
+          "#faq .faq-answer",
         ],
       },
     },

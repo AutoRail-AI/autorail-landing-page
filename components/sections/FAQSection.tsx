@@ -22,12 +22,14 @@ export function FAQSection() {
           viewport={viewportSettings}
           variants={fadeInUp}
           className="mt-12"
+          role="region"
+          aria-label="Frequently asked questions"
         >
           <Accordion type="single" collapsible className="w-full">
             {FAQ_ITEMS.map((item) => (
               <AccordionItem key={item.id} value={item.id}>
-                <AccordionTrigger>{item.question}</AccordionTrigger>
-                <AccordionContent>{item.answer}</AccordionContent>
+                <AccordionTrigger className="faq-question">{item.question}</AccordionTrigger>
+                <AccordionContent className="faq-answer">{item.answer}</AccordionContent>
               </AccordionItem>
             ))}
           </Accordion>

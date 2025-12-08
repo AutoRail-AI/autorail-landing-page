@@ -21,7 +21,7 @@ export function Footer() {
             >
               <Image
                 src="/logos/autorail.svg"
-                alt="AutoRail logo"
+                alt="AutoRail - Infrastructure on Autopilot for AI Agents"
                 width={48}
                 height={48}
                 className="h-12 w-12"

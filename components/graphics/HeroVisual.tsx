@@ -199,12 +199,63 @@ function DataParticle({
 
 export function HeroVisual({ className }: HeroVisualProps) {
   const [mounted, setMounted] = useState(false)
+  const [prefersReducedMotion, setPrefersReducedMotion] = useState(false)
 
   useEffect(() => {
     setMounted(true)
+    // Check for reduced motion preference
+    const mediaQuery = window.matchMedia("(prefers-reduced-motion: reduce)")
+    setPrefersReducedMotion(mediaQuery.matches)
+
+    const handleChange = (e: MediaQueryListEvent) => {
+      setPrefersReducedMotion(e.matches)
+    }
+
+    mediaQuery.addEventListener("change", handleChange)
+    return () => mediaQuery.removeEventListener("change", handleChange)
   }, [])
 
   if (!mounted) return null
+
+  // Show static version for users who prefer reduced motion
+  if (prefersReducedMotion) {
+    return (
+      <div
+        className={cn(
+          "absolute inset-0 overflow-hidden pointer-events-none",
+          className
+        )}
+        aria-hidden="true"
+      >
+        {/* Static gradient background for reduced motion */}
+        <div
+          className="absolute inset-0"
+          style={{
+            background: `
+              radial-gradient(ellipse 80% 50% at 20% 20%, rgba(129, 52, 206, 0.15) 0%, transparent 50%),
+              radial-gradient(ellipse 60% 40% at 80% 30%, rgba(110, 24, 179, 0.1) 0%, transparent 50%),
+              radial-gradient(ellipse 50% 30% at 50% 80%, rgba(0, 229, 255, 0.05) 0%, transparent 50%)
+            `,
+          }}
+        />
+        {/* Subtle noise texture */}
+        <div
+          className="absolute inset-0 opacity-[0.015]"
+          style={{
+            backgroundImage: `url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E")`,
+          }}
+        />
+        {/* Vignette */}
+        <div
+          className="absolute inset-0"
+          style={{
+            background:
+              "radial-gradient(ellipse at center, transparent 0%, rgba(10, 10, 15, 0.4) 100%)",
+          }}
+        />
+      </div>
+    )
+  }
 
   return (
     <div
