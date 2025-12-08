@@ -6,7 +6,7 @@ export const SITE_CONFIG = {
   name: "AutoRail",
   tagline: "Infrastructure on Autopilot for Vibe-Coded Apps",
   description:
-    "AutoRail automatically provisions stateful memory, workflow orchestration, and production guardrails for vibe-coded apps. Bridge the gap from prototype to production—launching in one week.",
+    "AutoRail automatically provisions stateful memory, workflow orchestration, and production guardrails for vibe-coded apps. Bridge the gap from prototype to production—launching soon.",
   url: "https://autorail.dev",
   twitterHandle: "@autorail_ai",
   twitterUrl: "https://x.com/autorail_ai",
@@ -17,7 +17,7 @@ export const SITE_CONFIG = {
 
 export const CTA_TEXT = {
   primary: "Bookmark for Launch",
-  primaryWithDate: "Bookmark for Launch — Coming in One Week",
+  primaryWithDate: "Bookmark for Launch — Coming Soon",
   secondary: "See How It Works",
 } as const
 

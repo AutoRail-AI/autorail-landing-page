@@ -26,7 +26,7 @@ export function HeroSection() {
             variants={scaleIn}
           >
             <Badge size="lg" className="mb-8">
-              Launching in One Week
+              Launching Soon
             </Badge>
           </motion.div>
 

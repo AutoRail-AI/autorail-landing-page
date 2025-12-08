@@ -44,7 +44,7 @@ export const metadata: Metadata = {
     siteName: SITE_CONFIG.name,
     title: `${SITE_CONFIG.name} — ${SITE_CONFIG.tagline}`,
     description:
-      "Frontend generation gives you momentum. AutoRail gives you the infrastructure to sustain it. Launching in one week.",
+      "Frontend generation gives you momentum. AutoRail gives you the infrastructure to sustain it. Launching soon.",
     images: [
       {
         url: `${SITE_CONFIG.url}/og-image.png`,

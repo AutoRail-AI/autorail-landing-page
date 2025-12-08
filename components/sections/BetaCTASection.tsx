@@ -27,13 +27,13 @@ export function BetaCTASection() {
             {/* Badge */}
             <motion.div variants={scaleIn}>
               <Badge size="lg" className="mb-6">
-                Launching in One Week
+                Launching Soon
               </Badge>
             </motion.div>
 
             {/* Headline */}
             <h2 className="font-[family-name:var(--font-grotesk)] text-3xl font-semibold text-cloud-white md:text-4xl">
-              Launching in One Week
+              Launching Soon
             </h2>
 
             {/* Description */}

@@ -631,7 +631,7 @@ export interface IconProps {
 // components/sections/HeroSection/HeroSection.tsx
 
 export interface HeroSectionProps {
-  /** Badge text (e.g., "Launching in One Week") */
+  /** Badge text (e.g., "Launching Soon") */
   badge: string
   /** H1 headline */
   headline: string

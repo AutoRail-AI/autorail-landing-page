@@ -311,7 +311,7 @@ All vertical measurements align to an 8px baseline for visual harmony.
 ├─────────────────────────────────────────────────────────────────────────────┤
 │ H5 (Label/Eyebrow)                                                          │
 │ Space Grotesk Medium 14px / 20px / 0.05em uppercase                         │
-│ "LAUNCHING IN ONE WEEK"                                                     │
+│ "LAUNCHING SOON"                                                     │
 ├─────────────────────────────────────────────────────────────────────────────┤
 │ Body Large (Lead Text)                                                      │
 │ Inter Regular 18px / 28px line-height / -0.011em                            │

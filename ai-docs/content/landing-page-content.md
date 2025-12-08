@@ -16,7 +16,7 @@ AutoRail | Infrastructure on Autopilot for Vibe-Coded Apps
 
 ### Meta Description
 ```
-AutoRail automatically provisions stateful memory, workflow orchestration, and production guardrails for vibe-coded apps. Bridge the gap from prototype to production—launching in one week.
+AutoRail automatically provisions stateful memory, workflow orchestration, and production guardrails for vibe-coded apps. Bridge the gap from prototype to production—launching soon.
 ```
 
 ### Meta Keywords
@@ -32,7 +32,7 @@ vibe-coded apps infrastructure, AI agent infrastructure, LLMOps, rapid app deplo
 ### Open Graph Tags
 ```html
 <meta property="og:title" content="AutoRail — Infrastructure on Autopilot for Vibe-Coded Apps">
-<meta property="og:description" content="Frontend generation gives you momentum. AutoRail gives you the infrastructure to sustain it. Launching in one week.">
+<meta property="og:description" content="Frontend generation gives you momentum. AutoRail gives you the infrastructure to sustain it. Launching soon.">
 <meta property="og:image" content="https://autorail.com/og-image.png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
@@ -85,8 +85,8 @@ Aria-label: "Bookmark this page to be notified when AutoRail launches"
 
 ### Badge
 ```
-Text: Launching in One Week
-Aria-label: "AutoRail is launching in one week"
+Text: Launching Soon
+Aria-label: "AutoRail is launching soon"
 ```
 
 ### H1 (Primary Headline)
@@ -103,8 +103,8 @@ AutoRail gives you the infrastructure to sustain it.
 
 ### Primary CTA
 ```
-Text: Bookmark for Launch — Coming in One Week
-Aria-label: "Bookmark this page to be notified when AutoRail launches in one week"
+Text: Bookmark for Launch — Coming Soon
+Aria-label: "Bookmark this page to be notified when AutoRail launches"
 ```
 
 ### Secondary CTA (Optional)
@@ -836,7 +836,7 @@ AutoRail is built for indie hackers shipping MVPs solo, startup teams scaling pr
 ### Button Labels
 | Context | Text | Aria-label |
 |---------|------|------------|
-| Hero CTA | Bookmark for Launch — Coming in One Week | Bookmark this page for AutoRail launch notification |
+| Hero CTA | Bookmark for Launch — Coming Soon | Bookmark this page for AutoRail launch notification |
 | Nav CTA | Bookmark for Launch | Bookmark for launch notification |
 | Section CTA | Bookmark for Launch | Bookmark for launch notification |
 | Secondary CTA | See How It Works | Scroll to how it works section |
@@ -844,7 +844,7 @@ AutoRail is built for indie hackers shipping MVPs solo, startup teams scaling pr
 ### Badge Labels
 | Context | Text |
 |---------|------|
-| Hero Badge | Launching in One Week |
+| Hero Badge | Launching Soon |
 | Coming Soon Links | Coming Soon |
 | Beta Status | Private Beta |
 
@@ -894,7 +894,7 @@ AutoRail is built for indie hackers shipping MVPs solo, startup teams scaling pr
 
 ### Beta-Appropriate Messaging
 - [x] Single CTA focus (Bookmark for Launch)
-- [x] Honest about timeline (one week)
+- [x] Honest about timeline (launching soon)
 - [x] No overclaiming production readiness
 - [x] Trust statements (no spam)
 - [x] Early adopter value proposition
