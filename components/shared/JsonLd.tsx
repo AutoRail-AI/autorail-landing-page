@@ -35,7 +35,7 @@ export function JsonLd({ type }: JsonLdProps) {
       applicationCategory: "DeveloperApplication",
       operatingSystem: "Cloud",
       description:
-        "Infrastructure platform that automatically provisions backend primitives for AI agents and agentic systems",
+        "Infrastructure platform that automatically provisions backend primitives for vibe-coded applications including AI agents, SaaS platforms, e-commerce tools, and internal dashboards",
       offers: {
         "@type": "Offer",
         price: "0",

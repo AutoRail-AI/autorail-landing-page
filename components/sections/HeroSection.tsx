@@ -41,9 +41,9 @@ export function HeroSection() {
               "leading-tight tracking-tight"
             )}
           >
-            Infrastructure on Autopilot
+            Infrastructure Platform for
             <br />
-            <span className="text-gradient">for Vibe-Coded Apps</span>
+            <span className="text-gradient">Vibe-Coded Applications</span>
           </motion.h1>
 
           {/* Subheadline */}
@@ -68,7 +68,7 @@ export function HeroSection() {
             className="mt-10 flex flex-col items-center justify-center gap-4 sm:flex-row"
           >
             <Button href={`#${SECTION_IDS.cta}`} size="lg">
-              {CTA_TEXT.primaryWithDate}
+              {CTA_TEXT.primary}
             </Button>
             <Button href={`#${SECTION_IDS.howItWorks}`} variant="secondary" size="lg">
               {CTA_TEXT.secondary}

@@ -33,12 +33,12 @@ export function BetaCTASection() {
 
             {/* Headline */}
             <h2 className="font-[family-name:var(--font-grotesk)] text-3xl font-semibold text-cloud-white md:text-4xl">
-              Launching Soon
+              Join the Waitlist
             </h2>
 
             {/* Description */}
             <p className="mx-auto mt-4 max-w-lg text-lg text-foreground-secondary">
-              Join the waitlist to be among the first to ship production-ready apps from vibe-coded prototypes.
+              Be among the first to provision production infrastructure for your vibe-coded applications.
             </p>
 
             <p className="mt-2 text-sm text-foreground-muted">
@@ -48,13 +48,13 @@ export function BetaCTASection() {
             {/* CTA Button */}
             <div className="mt-8">
               <Button size="lg" className="w-full sm:w-auto">
-                {CTA_TEXT.primaryWithDate}
+                {CTA_TEXT.primary}
               </Button>
             </div>
 
             {/* Trust Statement */}
             <p className="mt-6 text-sm text-foreground-muted">
-              No spam. No email required. Just bookmark and check back.
+              No spam. Updates on launch only.
             </p>
           </div>
         </motion.div>
