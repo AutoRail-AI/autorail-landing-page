@@ -14,8 +14,8 @@ export function CapabilitiesSection() {
     >
       <Container>
         <SectionHeader
-          title="What AutoRail Provisions"
-          description="Six primitives. Zero configuration. Production-ready."
+          title="Built for Production, From Day One"
+          description="Six core primitives, automatically provisioned for every vibe-coded app."
         />
 
         {/* Capabilities Grid */}

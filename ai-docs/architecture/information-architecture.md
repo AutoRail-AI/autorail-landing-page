@@ -500,9 +500,10 @@ This document defines the complete Information Architecture for the AutoRail lan
 │  ────────────────────────────────────────────────────────────────   │
 │                                                                     │
 │  Product    Resources    Connect                                    │
-│  Features   Docs*        Twitter                                    │
-│  Pricing*   Blog*        GitHub                                     │
-│  Roadmap*   Changelog*   Contact                                    │
+│  Features   Docs*        X                                          │
+│  Pricing*   Blog*        LinkedIn                                   │
+│  Roadmap*   Changelog*   GitHub                                     │
+│                          Contact                                    │
 │                                                                     │
 │  * Coming Soon                                                      │
 │                                                                     │
@@ -522,7 +523,7 @@ This document defines the complete Information Architecture for the AutoRail lan
 | **Link Columns** | 3 columns, 3-4 links each |
 | **Coming Soon Links** | Muted with asterisk, hover shows "Coming Soon" tooltip |
 | **Legal** | Standard copyright + policy links |
-| **Social Icons** | Twitter/X, GitHub — Lucide icons, Cloud White |
+| **Social Icons** | X, LinkedIn, GitHub — Lucide icons, Cloud White |
 
 ### Rationale
 | Aspect | Explanation |

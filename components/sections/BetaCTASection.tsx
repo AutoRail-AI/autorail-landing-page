@@ -27,18 +27,18 @@ export function BetaCTASection() {
             {/* Badge */}
             <motion.div variants={scaleIn}>
               <Badge size="lg" className="mb-6">
-                Coming Soon
+                Launching in One Week
               </Badge>
             </motion.div>
 
             {/* Headline */}
             <h2 className="font-[family-name:var(--font-grotesk)] text-3xl font-semibold text-cloud-white md:text-4xl">
-              Launching Soon
+              Launching in One Week
             </h2>
 
             {/* Description */}
             <p className="mx-auto mt-4 max-w-lg text-lg text-foreground-secondary">
-              We&apos;re putting the finishing touches on AutoRail. Bookmark this page to be first in line when we go live.
+              Join the waitlist to be among the first to ship production-ready apps from vibe-coded prototypes.
             </p>
 
             <p className="mt-2 text-sm text-foreground-muted">

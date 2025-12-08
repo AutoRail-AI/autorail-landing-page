@@ -39,7 +39,7 @@ export function SolutionSection() {
       <Container>
         <SectionHeader
           title="AutoRail Bridges the Gap"
-          description="We interpret your generated code and automatically provision the backend primitives your product actually needs. No configuration files. No infrastructure wrestling. Just production-ready systems, deployed."
+          description="We interpret your generated code and automatically provision the backend primitives your apps actually need. No configuration files. No infrastructure wrestling. Just production-ready systems, deployed."
         />
 
         {/* Flow Diagram */}

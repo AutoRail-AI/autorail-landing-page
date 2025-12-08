@@ -17,7 +17,7 @@ export const NAV_LINKS: NavLink[] = [
   },
   {
     label: "GitHub",
-    href: "https://github.com/autorail",
+    href: "https://github.com/AutoRail-AI",
     external: true,
   },
 ]
@@ -57,8 +57,9 @@ export const FOOTER_COLUMNS: FooterColumn[] = [
     title: "Company",
     links: [
       { label: "About", href: "/about", comingSoon: true },
-      { label: "Twitter", href: "https://x.com/autorail_ai", external: true },
-      { label: "GitHub", href: "https://github.com/autorail", external: true },
+      { label: "X", href: "https://x.com/autorail_ai", external: true },
+      { label: "LinkedIn", href: "https://linkedin.com/company/autorail_ai", external: true },
+      { label: "GitHub", href: "https://github.com/AutoRail-AI", external: true },
       { label: "Contact", href: "mailto:jaswanth@autorail.dev", external: true },
     ],
   },

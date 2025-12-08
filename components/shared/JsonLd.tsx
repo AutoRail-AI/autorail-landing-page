@@ -23,7 +23,8 @@ export function JsonLd({ type }: JsonLdProps) {
         availableLanguage: "English",
       },
       sameAs: [
-        `https://twitter.com/${SITE_CONFIG.twitterHandle.replace("@", "")}`,
+        SITE_CONFIG.twitterUrl,
+        SITE_CONFIG.linkedinUrl,
         SITE_CONFIG.githubUrl,
       ],
     },

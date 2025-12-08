@@ -6,52 +6,52 @@ export interface FAQItem {
 
 export const FAQ_ITEMS: FAQItem[] = [
   {
-    id: "what-is-autorail",
-    question: "What is AutoRail?",
+    id: "app-types",
+    question: "What types of apps does AutoRail support?",
     answer:
-      "AutoRail is an infrastructure platform that automatically provisions backend primitives for AI agents and agentic systems. It handles stateful memory, workflow orchestration, production guardrails, and observability—so you can go from prototype to production without infrastructure wrestling.",
+      "AutoRail works with any vibe-coded application—AI agents, SaaS dashboards, e-commerce platforms, internal tools, and more. If you can generate it with Bolt.new, Lovable, Replit, or write it yourself, AutoRail can provision the backend infrastructure it needs to run reliably in production.",
   },
   {
     id: "difference-from-baas",
     question: "How is AutoRail different from Supabase or Firebase?",
     answer:
-      "Traditional Backend-as-a-Service platforms provide general-purpose primitives—databases, auth, storage—but aren't optimized for AI workloads. AutoRail is purpose-built for agentic systems. We handle context persistence across sessions, multi-agent orchestration, LLM-specific rate limiting, and the unique scaling patterns of AI applications. Think of us as infrastructure that understands what AI agents actually need.",
+      "Traditional BaaS platforms like Supabase and Firebase require you to manually configure databases, auth, and storage. AutoRail interprets your code and automatically provisions the specific infrastructure your app needs—including advanced patterns like workflow orchestration, circuit breakers, and stateful memory layers that traditional BaaS doesn't handle.",
   },
   {
     id: "code-changes",
     question: "Do I need to change my existing code?",
     answer:
-      "No. AutoRail interprets your existing codebase and provisions infrastructure around it. Whether you've vibe-coded with Lovable or Bolt, built with LangChain or CrewAI, or written custom agent logic, AutoRail adapts to your stack. No SDKs to install, no code changes required.",
+      "No. AutoRail works with your code as-is. Simply connect your codebase—whether it's from Bolt.new, Lovable, Replit, or GitHub—and AutoRail analyzes it to provision the necessary backend infrastructure automatically.",
   },
   {
-    id: "frameworks",
-    question: "What frameworks and tools does AutoRail support?",
+    id: "deploy-time",
+    question: "How long does it take to deploy with AutoRail?",
     answer:
-      "AutoRail works with popular AI and agent frameworks including LangChain, CrewAI, AutoGen, LlamaIndex, and custom implementations. We support deployment from any codebase that defines agent logic—whether it's Python, TypeScript, or multi-language projects. If you can run it locally, AutoRail can provision infrastructure for it.",
+      "Initial infrastructure provisioning takes minutes. After that, any code changes you make trigger automatic infrastructure updates within seconds. There's no manual configuration or YAML files to manage.",
   },
   {
-    id: "availability",
-    question: "When will AutoRail be publicly available?",
+    id: "traffic-spikes",
+    question: "What happens if my app traffic spikes?",
     answer:
-      "AutoRail is launching soon. We're currently in the final stages of preparation, working with early testers to ensure a smooth launch. Bookmark this page to be notified the moment we go live.",
+      "AutoRail's auto-scale capability monitors your traffic patterns and provisions additional compute resources automatically. When traffic returns to normal, infrastructure scales down to optimize costs. You never over-provision or get surprise bills.",
   },
   {
-    id: "pricing",
-    question: "Is there a free tier?",
+    id: "ai-agents",
+    question: "Can AutoRail handle AI agent workflows?",
     answer:
-      "Yes. AutoRail will offer a generous free tier for indie developers and small projects. We believe infrastructure shouldn't be a barrier to building AI products. Pricing details will be announced at launch, but expect free access for individual builders and reasonable scaling for growing teams.",
+      "Yes. AutoRail is purpose-built to support AI agent architectures with specialized features like stateful memory for context persistence, workflow orchestration for multi-agent coordination, and guardrails for cost control and safety. It handles the unique scaling patterns of LLM-powered applications.",
   },
   {
     id: "security",
     question: "How does AutoRail handle security?",
     answer:
-      "Security is built into every layer of AutoRail. Infrastructure is provisioned in isolated environments with encryption at rest and in transit. We implement principle of least privilege, automated vulnerability scanning, and SOC 2 compliance practices. Your agent data stays yours—we don't train on customer workloads.",
+      "Security is built into every layer of AutoRail. Infrastructure is provisioned in isolated environments with encryption at rest and in transit. We implement principle of least privilege, automated vulnerability scanning, and SOC 2 compliance practices.",
   },
   {
     id: "self-host",
     question: "Can I self-host AutoRail?",
     answer:
-      "Self-hosted and on-premise options are on our roadmap for enterprise customers. At launch, AutoRail will be available as a managed cloud service. If you have specific deployment requirements, reach out—we're actively shaping our enterprise offering based on customer needs.",
+      "Self-hosted and on-premise options are on our roadmap for enterprise customers. At launch, AutoRail will be available as a managed cloud service.",
   },
 ]
 

@@ -1102,7 +1102,7 @@ The AutoRail name, logo, and brand assets are proprietary. All rights reserved. 
 - Educational content (with proper citation)
 - Press and media (official assets only)
 
-**Contact:** jaswanth@autorail.com
+**Contact:** jaswanth@autorail.dev
 
 ---
 

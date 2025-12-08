@@ -221,8 +221,9 @@ Unlike traditional Backend-as-a-Service platforms, AutoRail is purpose-built for
   "logo": "https://autorail.com/logos/autorail.svg",
   "description": "Infrastructure on Autopilot for AI Agents",
   "sameAs": [
-    "https://twitter.com/autorail",
-    "https://github.com/autorail"
+    "https://x.com/autorail_ai",
+    "https://linkedin.com/company/autorail_ai",
+    "https://github.com/AutoRail-AI"
   ]
 }
 ```

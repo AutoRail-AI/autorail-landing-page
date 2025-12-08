@@ -3,7 +3,7 @@
 import { motion } from "framer-motion"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle, Container, SectionHeader } from "components/ui"
 import { PERSONAS } from "data/personas"
-import { cardItem, fadeInUp, staggerContainer, viewportSettings } from "lib/animations"
+import { cardItem, staggerContainer, viewportSettings } from "lib/animations"
 import { SECTION_IDS } from "lib/constants"
 
 export function UseCasesSection() {
@@ -14,8 +14,8 @@ export function UseCasesSection() {
     >
       <Container>
         <SectionHeader
-          title="Built For"
-          description="Whether you're solo or scaling, AutoRail handles the infrastructure."
+          title="Built for Builders"
+          description="From indie hackers to product teams, AutoRail powers apps that need to scale reliably."
         />
 
         {/* Persona Cards */}
@@ -24,7 +24,7 @@ export function UseCasesSection() {
           whileInView="visible"
           viewport={viewportSettings}
           variants={staggerContainer}
-          className="mt-16 grid gap-8 md:grid-cols-3"
+          className="mt-16 grid gap-8 md:grid-cols-2 lg:grid-cols-4"
         >
           {PERSONAS.map((persona) => (
             <motion.div key={persona.title} variants={cardItem}>
@@ -46,16 +46,6 @@ export function UseCasesSection() {
           ))}
         </motion.div>
 
-        {/* Closing Statement */}
-        <motion.p
-          initial="hidden"
-          whileInView="visible"
-          viewport={viewportSettings}
-          variants={fadeInUp}
-          className="mx-auto mt-16 max-w-2xl text-center text-lg text-foreground-secondary"
-        >
-          Building a single agent or orchestrating dozens—AutoRail handles the infrastructure so you can focus on what matters.
-        </motion.p>
       </Container>
     </section>
   )

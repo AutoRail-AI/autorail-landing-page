@@ -1,6 +1,6 @@
 # AutoRail Landing Page — Final Content Package
 
-**Version:** 2.0
+**Version:** 2.1
 **Status:** Ready for Implementation
 **Last Updated:** December 2024
 **Phase:** Content Complete → Ready for Development
@@ -11,17 +11,17 @@
 
 ### Page Title
 ```
-AutoRail | Infrastructure on Autopilot for AI Agents
+AutoRail | Infrastructure on Autopilot for Vibe-Coded Apps
 ```
 
 ### Meta Description
 ```
-AutoRail automatically provisions stateful memory, workflow orchestration, and production guardrails for AI agents. Bridge the gap from prototype to production—launching in one week.
+AutoRail automatically provisions stateful memory, workflow orchestration, and production guardrails for vibe-coded apps. Bridge the gap from prototype to production—launching in one week.
 ```
 
 ### Meta Keywords
 ```
-AI agent infrastructure, LLMOps, AI orchestration, stateful AI memory, agent workflow automation, AI deployment platform, production AI infrastructure, scalable inference, AI observability, agentic systems
+vibe-coded apps infrastructure, AI agent infrastructure, LLMOps, rapid app deployment, stateful app memory, workflow automation, production app infrastructure, scalable app hosting, app observability, no-code backend, low-code infrastructure, bolt.new deployment, lovable infrastructure, replit production
 ```
 
 ### Canonical URL
@@ -31,7 +31,7 @@ AI agent infrastructure, LLMOps, AI orchestration, stateful AI memory, agent wor
 
 ### Open Graph Tags
 ```html
-<meta property="og:title" content="AutoRail — Infrastructure on Autopilot for AI Agents">
+<meta property="og:title" content="AutoRail — Infrastructure on Autopilot for Vibe-Coded Apps">
 <meta property="og:description" content="Frontend generation gives you momentum. AutoRail gives you the infrastructure to sustain it. Launching in one week.">
 <meta property="og:image" content="https://autorail.com/og-image.png">
 <meta property="og:image:width" content="1200">
@@ -44,8 +44,8 @@ AI agent infrastructure, LLMOps, AI orchestration, stateful AI memory, agent wor
 ### Twitter Card
 ```html
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:site" content="@autorail">
-<meta name="twitter:title" content="AutoRail — Infrastructure on Autopilot for AI Agents">
+<meta name="twitter:site" content="@autorail_ai">
+<meta name="twitter:title" content="AutoRail — Infrastructure on Autopilot for Vibe-Coded Apps">
 <meta name="twitter:description" content="Frontend generation gives you momentum. AutoRail gives you the infrastructure to sustain it.">
 <meta name="twitter:image" content="https://autorail.com/twitter-card.png">
 ```
@@ -63,7 +63,7 @@ AI agent infrastructure, LLMOps, AI orchestration, stateful AI memory, agent wor
 ### Logo
 ```
 Text: AutoRail
-Alt-text: "AutoRail — Infrastructure on Autopilot for AI Agents"
+Alt-text: "AutoRail — Infrastructure on Autopilot for Vibe-Coded Apps"
 ```
 
 ### Navigation Links
@@ -71,7 +71,7 @@ Alt-text: "AutoRail — Infrastructure on Autopilot for AI Agents"
 |-------|-------------|-------|
 | Product | `#capabilities` | Active |
 | Docs | `/docs` | Coming Soon |
-| GitHub | `github.com/autorail` | Active |
+| GitHub | `github.com/AutoRail-AI` | Active |
 
 ### CTA Button
 ```
@@ -92,7 +92,7 @@ Aria-label: "AutoRail is launching in one week"
 ### H1 (Primary Headline)
 ```
 Infrastructure on Autopilot
-for AI Agents
+for Vibe-Coded Apps
 ```
 
 ### Subheadline
@@ -117,11 +117,11 @@ Destination: #how-it-works
 ### Hero Visual
 
 **Concept Description:**
-An abstract visualization depicting infrastructure as flowing data rails. The graphic shows interconnected nodes representing AI agents, with luminous data particles traveling along geometric track-like pathways. The composition uses depth layering—foreground nodes in Electric Cyan, mid-ground connections in Quantum Violet, and background infrastructure in Deep Rail Purple gradients against Void Black.
+An abstract visualization depicting infrastructure as flowing data rails. The graphic shows interconnected nodes representing various app types—from AI agents to SaaS dashboards to e-commerce platforms—with luminous data particles traveling along geometric track-like pathways. The composition uses depth layering—foreground nodes in Electric Cyan, mid-ground connections in Quantum Violet, and background infrastructure in Deep Rail Purple gradients against Void Black.
 
 **Alt-text:**
 ```
-Abstract visualization of AI infrastructure showing interconnected nodes and flowing data particles traveling along geometric rail pathways, representing AutoRail's automated backend provisioning for AI agents
+Abstract visualization of app infrastructure showing interconnected nodes and flowing data particles traveling along geometric rail pathways, representing AutoRail's automated backend provisioning for vibe-coded applications
 ```
 
 **Animation Notes:**
@@ -133,9 +133,9 @@ Abstract visualization of AI infrastructure showing interconnected nodes and flo
 
 ### Tagline Options
 ```
-Primary: "Infrastructure on Autopilot for AI Agents"
+Primary: "Infrastructure on Autopilot for Vibe-Coded Apps"
 Secondary: "From Prototype to Production, Automatically"
-Tertiary: "The Backend Your AI Actually Needs"
+Tertiary: "The Backend Your Apps Actually Need"
 ```
 
 ---
@@ -149,7 +149,7 @@ The Gap Between Prototype and Production
 
 ### Lead Paragraph
 ```
-Tools like Lovable and Bolt generate frontends fast. But when your AI system needs to scale, the cracks appear.
+Tools like Lovable, Bolt.new, and Replit generate frontends fast. But when your app needs to scale, the cracks appear.
 ```
 
 ### Pain Points
@@ -158,13 +158,13 @@ Tools like Lovable and Bolt generate frontends fast. But when your AI system nee
 ```
 Icon: Clock
 Text: Remember context from three days ago
-Subtext: Stateless agents lose user history between sessions
+Subtext: Apps lose user history and state between sessions
 ```
 
 **Pain Point 2:**
 ```
 Icon: GitBranch
-Text: Orchestrate 50+ concurrent agent tasks
+Text: Orchestrate 50+ concurrent tasks
 Subtext: Parallel workflows collapse without proper sequencing
 ```
 
@@ -208,7 +208,7 @@ AutoRail Bridges the Gap
 
 ### Primary Description
 ```
-We interpret your generated code and automatically provision the backend primitives your product actually needs.
+We interpret your generated code and automatically provision the backend primitives your apps actually need.
 ```
 
 ### Secondary Description
@@ -254,7 +254,7 @@ Production-grade from day one.
 ### Solution Flow Diagram
 
 **Concept Description:**
-A horizontal flow diagram showing the AutoRail transformation process. On the left, a code editor icon represents "Your Code" with file symbols suggesting vibe-coded output. In the center, the AutoRail logo sits within a processing node, surrounded by subtle gear/automation iconography. On the right, a robust infrastructure stack shows databases, servers, and monitoring dashboards. Animated particles flow from code through AutoRail to infrastructure.
+A horizontal flow diagram showing the AutoRail transformation process. On the left, a code editor icon represents "Your Code" with file symbols suggesting vibe-coded output from tools like Bolt, Lovable, or Replit. In the center, the AutoRail logo sits within a processing node, surrounded by subtle gear/automation iconography. On the right, a robust infrastructure stack shows databases, servers, and monitoring dashboards. Animated particles flow from code through AutoRail to infrastructure.
 
 **Alt-text:**
 ```
@@ -264,145 +264,173 @@ Flow diagram showing transformation from user code through AutoRail processing t
 **Flow Labels:**
 | Position | Label | Icon | Description |
 |----------|-------|------|-------------|
-| Input | Your Code | FileCode | Generated or hand-written agent logic |
-| Process | AutoRail | Logo | Intelligent infrastructure provisioning |
-| Output | Production Infrastructure | Server | Deployed, monitored, scalable systems |
+| Left | Your Code | FileCode | Vibe-coded scaffolds from any tool |
+| Center | AutoRail | Logo | Automated analysis and provisioning |
+| Right | Production Infra | Server | Full backend stack, deployed |
+
+**Flow Step Descriptions:**
+| Step | Label | Description |
+|------|-------|-------------|
+| 1 | Connect | Import code from Bolt.new, Lovable, Replit, or GitHub |
+| 2 | Analyze | AutoRail interprets your app structure and requirements |
+| 3 | Provision | Backend primitives deploy automatically |
+| 4 | Deploy | Production-ready endpoint with monitoring |
 
 ---
 
-## Section 5: Core Capabilities
+## Section 5: How It Works
 
 ### H2
 ```
-What AutoRail Provisions
+How It Works
 ```
 
-### Section Tagline
+### Lead Paragraph
 ```
-Six primitives. Zero configuration. Production-ready.
+AutoRail transforms vibe-coded prototypes into production applications in four steps.
+```
+
+### Step-by-Step Breakdown
+
+**Step 1:**
+```
+Number: 01
+Title: Connect Your Codebase
+Icon: GitBranch
+Description: Import your scaffold from Bolt.new, Lovable, Replit, or paste a GitHub URL. AutoRail supports any vibe-coded output—from AI agents to SaaS dashboards to e-commerce tools.
+Visual: Code editor interface with import options
+```
+
+**Step 2:**
+```
+Number: 02
+Title: AutoRail Analyzes
+Icon: Cpu
+Description: We scan your code for infrastructure needs: Does it manage user sessions? Call external APIs? Handle async tasks? Process payments? AutoRail identifies gaps in memory, orchestration, and reliability.
+Visual: Analysis dashboard showing code patterns
+```
+
+**Step 3:**
+```
+Number: 03
+Title: Infrastructure Provisions Automatically
+Icon: Zap
+Description: One click deploys tailored primitives—Redis for state, Temporal for workflows, Sentry for observability. All cloud-agnostic and optimized for your specific app requirements.
+Visual: Infrastructure components connecting
+```
+
+**Step 4:**
+```
+Number: 04
+Title: Monitor & Scale
+Icon: Activity
+Description: Built-in evaluation loops catch issues before users see them. AutoRail auto-tunes for traffic spikes and adapts when you update your code. Edit your app? Infrastructure adjusts in seconds.
+Visual: Monitoring dashboard with metrics
+```
+
+### Call-to-Action
+```
+Text: Bookmark for Launch
+Aria-label: "Bookmark this page to be notified when AutoRail launches"
+```
+
+---
+
+## Section 6: Capabilities Grid
+
+### H2
+```
+Built for Production, From Day One
+```
+
+### Lead Paragraph
+```
+Six core primitives, automatically provisioned for every vibe-coded app.
 ```
 
 ### Capability Cards
 
-#### Card 1: Stateful Memory
+**Capability 1: Stateful Memory**
 ```
 Icon: Database
-H3: Stateful Memory
-Description: Persistent context across sessions, workflows, and sub-agents. Your AI remembers everything it needs to—automatically.
-Keywords: agent memory, context persistence, stateful AI
+Title: Stateful Memory
+Description: Persistent context across sessions. Users pick up exactly where they left off—whether it's a shopping cart, AI conversation, or CRM workflow.
+Technical Details:
+  - Redis-backed state stores
+  - Session persistence across restarts
+  - Distributed cache for multi-region
+  - Configurable TTL policies
+Use Case: "Remember user preferences, cart items, or agent conversation history"
 ```
 
-#### Card 2: Workflow Orchestration
+**Capability 2: Workflow Orchestration**
 ```
 Icon: GitBranch
-H3: Workflow Orchestration
-Description: Sequencing, concurrency control, intelligent retries, and fallback patterns. Complex multi-agent workflows that actually work.
-Keywords: agent orchestration, workflow automation, multi-agent systems
+Title: Workflow Orchestration
+Description: Coordinate complex async operations—from email sequences to payment processing to multi-step AI workflows. Retries, fallbacks, and human-in-the-loop patterns built in.
+Technical Details:
+  - Temporal-based orchestration
+  - 50+ concurrent task handling
+  - Intelligent retry strategies
+  - DAG execution visualization
+Use Case: "Orchestrate checkout flows, notification sequences, or multi-agent tasks"
 ```
 
-#### Card 3: Production Guardrails
+**Capability 3: Production Guardrails**
 ```
 Icon: Shield
-H3: Production Guardrails
-Description: Rate limiters, circuit breakers, input validation, and policy-as-code. Protection built into every layer.
-Keywords: AI safety, rate limiting, circuit breakers
+Title: Production Guardrails
+Description: Rate limiting, cost caps, and safety checks protect your app from abuse and runaway costs. Block bad data before it enters your system.
+Technical Details:
+  - Per-user/per-endpoint rate limits
+  - Budget alerts and auto-cutoffs
+  - Input validation and sanitization
+  - Red-teaming for edge cases
+Use Case: "Prevent API abuse, control LLM costs, validate user inputs"
 ```
 
-#### Card 4: Deploy Engine
+**Capability 4: Deploy Engine**
 ```
 Icon: Rocket
-H3: Deploy Engine
-Description: One-click deployment from vibe-coded output to stable runtime. No Docker expertise required.
-Keywords: AI deployment, zero-config deploy, agent hosting
+Title: Deploy Engine
+Description: Zero-config deployment to production. Custom domains, HTTPS, and CI/CD hooks in minutes. Cloud-agnostic—run on AWS, Vercel, or your own infrastructure.
+Technical Details:
+  - One-click production deploys
+  - Custom domain configuration
+  - SSL/TLS certificate management
+  - GitHub Actions integration
+Use Case: "Ship MVPs faster than manual infrastructure setup"
 ```
 
-#### Card 5: Observability
+**Capability 5: Observability**
 ```
 Icon: Eye
-H3: Observability
-Description: Cross-agent traces, structured logs, performance telemetry, and drift detection. See exactly what your agents are doing.
-Keywords: AI observability, agent monitoring, LLM tracing
+Title: Observability
+Description: Know what's happening in your app before users complain. Traces, logs, and metrics for every request. Sentry-level error tracking without the integration hell.
+Technical Details:
+  - Distributed tracing
+  - Real-time error monitoring
+  - Performance metrics dashboards
+  - Alert configuration
+Use Case: "Debug production issues, track performance, monitor uptime"
 ```
 
-#### Card 6: Auto-Scale
+**Capability 6: Auto-Scale**
 ```
 Icon: TrendingUp
-H3: Auto-Scale
-Description: Handle multi-agent fan-outs and LLM request bursts automatically. Scale to zero when idle, scale to thousands when needed.
-Keywords: auto-scaling, elastic infrastructure, serverless AI
-```
-
-### Capabilities Visual
-
-**Concept Description:**
-A 3x2 grid of capability cards on a dark background. Each card features a distinctive icon in Electric Cyan or Quantum Violet, with clean typography. On hover, cards display a subtle Rail Fade gradient border glow. The overall composition suggests a modular, well-organized infrastructure dashboard.
-
-**Alt-text:**
-```
-Six capability cards arranged in a grid showing AutoRail's core features: Stateful Memory, Workflow Orchestration, Production Guardrails, Deploy Engine, Observability, and Auto-Scale
-```
-
----
-
-## Section 6: How It Works
-
-### H2
-```
-How AutoRail Works
-```
-
-### Section Tagline
-```
-Four steps. Zero YAML. No Terraform required.
-```
-
-### Process Steps
-
-#### Step 1: Connect
-```
-Number: 1
-H3: Connect
-Description: Point AutoRail at your codebase—whether it's vibe-coded output from Lovable, a LangChain project, or custom agent logic.
-Detail: We support Git repositories, local directories, and direct integrations with popular AI development tools.
-```
-
-#### Step 2: Analyze
-```
-Number: 2
-H3: Analyze
-Description: AutoRail interprets your code structure, identifies agent patterns, and maps infrastructure requirements automatically.
-Detail: Our analysis engine understands agent lifecycles, data flows, and dependency relationships.
-```
-
-#### Step 3: Provision
-```
-Number: 3
-H3: Provision
-Description: Backend primitives are generated and deployed—databases, queues, caches, and orchestration layers—all configured for your specific needs.
-Detail: Infrastructure is provisioned in isolated, secure environments with production-grade defaults.
-```
-
-#### Step 4: Monitor
-```
-Number: 4
-H3: Monitor
-Description: Continuous observability, performance optimization, and drift detection keep your agents running reliably.
-Detail: Real-time dashboards, alerting, and automated remediation ensure production stability.
+Title: Auto-Scale
+Description: Infrastructure adapts to your traffic. No over-provisioning, no surprise bills. Spin up compute for traffic spikes, scale down during quiet hours.
+Technical Details:
+  - Horizontal auto-scaling
+  - Load-based instance provisioning
+  - Cost optimization algorithms
+  - Regional distribution
+Use Case: "Handle viral launches or seasonal traffic without manual intervention"
 ```
 
 ### Closing Statement
 ```
-No infrastructure expertise required. No configuration files to maintain. Just working production systems.
-```
-
-### Process Visual
-
-**Concept Description:**
-A horizontal timeline showing four connected steps. Each step is represented by a numbered circle (using Rail Fade gradient) connected by dashed lines. Below each number, the step title and a small descriptive icon reinforce the action. The visual flows left-to-right, with subtle animation revealing each step sequentially on scroll.
-
-**Alt-text:**
-```
-Four-step process diagram showing AutoRail workflow: Connect your codebase, Analyze code structure, Provision infrastructure automatically, and Monitor continuously for production reliability
+The infrastructure AI-powered apps need to stay reliable at scale.
 ```
 
 ---
@@ -411,109 +439,95 @@ Four-step process diagram showing AutoRail workflow: Connect your codebase, Anal
 
 ### H2
 ```
-Built For
+Built for Builders
 ```
 
-### Section Tagline
+### Lead Paragraph
 ```
-Whether you're solo or scaling, AutoRail handles the infrastructure.
+From indie hackers to product teams, AutoRail powers apps that need to scale reliably.
 ```
 
 ### Persona Cards
 
-#### Persona 1: Indie Hackers
+**Persona 1: Solo Makers**
 ```
 Icon: User
-H3: Indie Hackers
-Benefit: Ship AI products without becoming an infrastructure expert
-Description: Focus on your product, not your backend. AutoRail handles the complexity so you can move fast and stay lean.
-Quote: "I built the frontend in a weekend. AutoRail made it production-ready in an afternoon."
+Title: Indie Hackers & Solo Makers
+Pain Point: "I vibe-coded a SaaS dashboard in a weekend, but users complain about losing their data between sessions."
+Solution: AutoRail provisions persistent state and session management automatically
+Outcome: Ship revenue-ready MVPs without backend expertise
+Example App: Stripe-integrated invoicing tool with persistent user workflows
+Stat: 80% of prototypes fail due to missing infrastructure (Stack Overflow 2025)
 ```
 
-#### Persona 2: Startup Teams
+**Persona 2: Product Teams**
 ```
 Icon: Users
-H3: Startup Teams
-Benefit: Scale prototypes to production without hiring DevOps
-Description: Your engineering team should build features, not fight infrastructure. AutoRail grows with you from MVP to Series A and beyond.
-Quote: "We went from demo to paying customers without adding infrastructure headcount."
+Title: Startup Product Teams
+Pain Point: "Our Bolt.new prototype works great for demos, but collapses under 50 concurrent users."
+Solution: AutoRail handles workflow orchestration, rate limiting, and auto-scaling
+Outcome: Scale from prototype to 1,000+ users without eng hires
+Example App: Internal CRM dashboard with real-time data sync
+Stat: 60% of dev time goes to "unsexy" infra work (Stack Overflow 2025)
 ```
 
-#### Persona 3: AI Engineers
+**Persona 3: AI Builders**
 ```
 Icon: Cpu
-H3: AI Engineers
-Benefit: Production-grade agent systems that actually stay up
-Description: You know what good infrastructure looks like. AutoRail implements it automatically—stateful memory, proper orchestration, real observability.
-Quote: "Finally, infrastructure that understands what AI agents actually need."
+Title: AI Engineers & Agent Builders
+Pain Point: "My multi-agent system works in testing but gets stuck or forgets context in production."
+Solution: AutoRail provides agent-specific memory, orchestration, and guardrails
+Outcome: Reliable agentic workflows that handle 50+ tasks without freezing
+Example App: Research agent that scrapes 10K pages/day with failure recovery
+Stat: Agentic apps market growing 30% CAGR, all need production infra
 ```
 
-### Closing Statement
+**Persona 4: Agencies**
 ```
-Building a single agent or orchestrating dozens—AutoRail handles the infrastructure so you can focus on what matters.
+Icon: Briefcase
+Title: Development Agencies
+Pain Point: "Clients want rapid prototypes that actually work in production, not toys."
+Solution: AutoRail enables white-label vibe-coding services with production delivery
+Outcome: Ship client apps faster with guaranteed reliability
+Example App: E-commerce platform with payment processing and order tracking
+Stat: $10K+ in hidden costs per failed MVP (Forrester)
 ```
 
-### Use Cases Visual
-
-**Concept Description:**
-Three persona cards arranged horizontally, each featuring an icon, title, and benefit statement. The cards use Slate Grey backgrounds with subtle gradient borders on hover. Icons are rendered in brand colors—User in Electric Cyan, Users in Quantum Violet, Cpu in Deep Rail Purple.
-
-**Alt-text:**
+### Call-to-Action
 ```
-Three persona cards showing AutoRail's target users: Indie Hackers who want to ship fast, Startup Teams scaling to production, and AI Engineers building reliable agent systems
+Text: Bookmark for Launch
+Aria-label: "Bookmark this page to be notified when AutoRail launches"
 ```
 
 ---
 
-## Section 8: Beta CTA Section
+## Section 8: Social Proof (Placeholder for Launch)
 
 ### H2
 ```
-Launching in One Week
+Trusted by Builders Worldwide
 ```
 
-### Primary Description
+### Coming Soon Badge
 ```
-We're putting the finishing touches on AutoRail. Bookmark this page to be first in line when we go live.
-```
-
-### Secondary Description
-```
-Early adopters get priority access and direct input on the roadmap.
+Text: Launching Soon
+Style: Subtle badge in Deep Rail Purple
 ```
 
-### CTA Button
+### Placeholder Copy
 ```
-Text: Bookmark for Launch — Coming in One Week
-Aria-label: "Bookmark this page to be notified when AutoRail launches"
-Size: Large (h-14 px-8)
-Style: Rail Fade gradient background
+Join the waitlist to be among the first to ship production-ready apps from vibe-coded prototypes.
 ```
 
-### Trust Statement
-```
-No spam. No email required. Just bookmark and check back.
-```
-
-### Urgency Indicator
-```
-Text: Public launch: December 2024
-Style: Muted, Inter Regular 14px
-```
-
-### CTA Section Visual
-
-**Concept Description:**
-A centered card with a Rail Fade gradient border (2px) on a Void Black background with subtle gradient mesh at 20% opacity. The card contains the H2, description, prominent CTA button, and trust statement. The composition creates focus and draws the eye to the action.
-
-**Alt-text:**
-```
-Call-to-action card announcing AutoRail's launch in one week, with a prominent bookmark button and trust statement about no spam or email required
-```
+### Future Sections (Post-Launch)
+- Customer logos
+- Testimonial quotes
+- Usage statistics
+- Case study previews
 
 ---
 
-## Section 9: FAQ Section
+## Section 9: FAQ
 
 ### H2
 ```
@@ -522,79 +536,63 @@ Frequently Asked Questions
 
 ### FAQ Items
 
-#### Q1: What is AutoRail?
+**Q1:**
 ```
-Question: What is AutoRail?
-Answer: AutoRail is an infrastructure platform that automatically provisions backend primitives for AI agents and agentic systems. It handles stateful memory, workflow orchestration, production guardrails, and observability—so you can go from prototype to production without infrastructure wrestling.
-
-AEO Optimization: Direct answer in first sentence; 40-word snippet-friendly format
-GEO Optimization: Clear definition pattern for AI citation
+Question: What types of apps does AutoRail support?
+Answer: AutoRail works with any vibe-coded application—AI agents, SaaS dashboards, e-commerce platforms, internal tools, and more. If you can generate it with Bolt.new, Lovable, Replit, or write it yourself, AutoRail can provision the backend infrastructure it needs to run reliably in production.
+Category: General
 ```
 
-#### Q2: How is AutoRail different from Supabase or Firebase?
+**Q2:**
 ```
 Question: How is AutoRail different from Supabase or Firebase?
-Answer: Traditional Backend-as-a-Service platforms provide general-purpose primitives—databases, auth, storage—but aren't optimized for AI workloads. AutoRail is purpose-built for agentic systems. We handle context persistence across sessions, multi-agent orchestration, LLM-specific rate limiting, and the unique scaling patterns of AI applications. Think of us as infrastructure that understands what AI agents actually need.
-
-AEO Optimization: Comparison format; addresses direct competitive query
-GEO Optimization: Differentiator pattern for AI recommendations
+Answer: Traditional BaaS platforms like Supabase and Firebase require you to manually configure databases, auth, and storage. AutoRail interprets your code and automatically provisions the specific infrastructure your app needs—including advanced patterns like workflow orchestration, circuit breakers, and stateful memory layers that traditional BaaS doesn't handle.
+Category: Technical
 ```
 
-#### Q3: Do I need to change my existing code?
+**Q3:**
 ```
 Question: Do I need to change my existing code?
-Answer: No. AutoRail interprets your existing codebase and provisions infrastructure around it. Whether you've vibe-coded with Lovable or Bolt, built with LangChain or CrewAI, or written custom agent logic, AutoRail adapts to your stack. No SDKs to install, no code changes required.
-
-AEO Optimization: "No" lead for voice search; addresses friction concern
-GEO Optimization: Compatibility statement is quotable
+Answer: No. AutoRail works with your code as-is. Simply connect your codebase—whether it's from Bolt.new, Lovable, Replit, or GitHub—and AutoRail analyzes it to provision the necessary backend infrastructure automatically.
+Category: Integration
 ```
 
-#### Q4: What frameworks and tools does AutoRail support?
+**Q4:**
 ```
-Question: What frameworks and tools does AutoRail support?
-Answer: AutoRail works with popular AI and agent frameworks including LangChain, CrewAI, AutoGen, LlamaIndex, and custom implementations. We support deployment from any codebase that defines agent logic—whether it's Python, TypeScript, or multi-language projects. If you can run it locally, AutoRail can provision infrastructure for it.
-
-AEO Optimization: List format for featured snippets
-GEO Optimization: Framework enumeration aids AI model training
+Question: How long does it take to deploy with AutoRail?
+Answer: Initial infrastructure provisioning takes minutes. After that, any code changes you make trigger automatic infrastructure updates within seconds. There's no manual configuration or YAML files to manage.
+Category: Usage
 ```
 
-#### Q5: When will AutoRail be publicly available?
+**Q5:**
 ```
-Question: When will AutoRail be publicly available?
-Answer: AutoRail launches publicly in one week (December 2024). We're currently in the final stages of preparation, working with early testers to ensure a smooth launch. Bookmark this page to be notified the moment we go live.
-
-AEO Optimization: Direct timeline answer; addresses intent query
-GEO Optimization: Current status statement for AI accuracy
+Question: What happens if my app traffic spikes?
+Answer: AutoRail's auto-scale capability monitors your traffic patterns and provisions additional compute resources automatically. When traffic returns to normal, infrastructure scales down to optimize costs. You never over-provision or get surprise bills.
+Category: Scaling
 ```
 
-#### Q6: Is there a free tier?
+**Q6:**
 ```
-Question: Is there a free tier?
-Answer: Yes. AutoRail will offer a generous free tier for indie developers and small projects. We believe infrastructure shouldn't be a barrier to building AI products. Pricing details will be announced at launch, but expect free access for individual builders and reasonable scaling for growing teams.
-
-AEO Optimization: "Yes" lead for voice search; addresses pricing concern
-GEO Optimization: Commitment statement for AI recommendations
+Question: Can AutoRail handle AI agent workflows?
+Answer: Yes. AutoRail is purpose-built to support AI agent architectures with specialized features like stateful memory for context persistence, workflow orchestration for multi-agent coordination, and guardrails for cost control and safety. It handles the unique scaling patterns of LLM-powered applications.
+Category: AI/ML
 ```
 
-#### Q7: How does AutoRail handle security?
+**Q7:**
 ```
 Question: How does AutoRail handle security?
-Answer: Security is built into every layer of AutoRail. Infrastructure is provisioned in isolated environments with encryption at rest and in transit. We implement principle of least privilege, automated vulnerability scanning, and SOC 2 compliance practices. Your agent data stays yours—we don't train on customer workloads.
-
-AEO Optimization: Addresses enterprise security concern
-GEO Optimization: Security stance is citable for B2B recommendations
+Answer: Security is built into every layer of AutoRail. Infrastructure is provisioned in isolated environments with encryption at rest and in transit. We implement principle of least privilege, automated vulnerability scanning, and SOC 2 compliance practices.
+Category: Security
 ```
 
-#### Q8: Can I self-host AutoRail?
+**Q8:**
 ```
 Question: Can I self-host AutoRail?
-Answer: Self-hosted and on-premise options are on our roadmap for enterprise customers. At launch, AutoRail will be available as a managed cloud service. If you have specific deployment requirements, reach out—we're actively shaping our enterprise offering based on customer needs.
-
-AEO Optimization: Addresses enterprise deployment query
-GEO Optimization: Roadmap transparency for AI accuracy
+Answer: Self-hosted and on-premise options are on our roadmap for enterprise customers. At launch, AutoRail will be available as a managed cloud service.
+Category: Deployment
 ```
 
-### FAQ JSON-LD Schema
+### Schema.org FAQ Markup
 ```json
 {
   "@context": "https://schema.org",
@@ -602,10 +600,10 @@ GEO Optimization: Roadmap transparency for AI accuracy
   "mainEntity": [
     {
       "@type": "Question",
-      "name": "What is AutoRail?",
+      "name": "What types of apps does AutoRail support?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "AutoRail is an infrastructure platform that automatically provisions backend primitives for AI agents and agentic systems. It handles stateful memory, workflow orchestration, production guardrails, and observability—so you can go from prototype to production without infrastructure wrestling."
+        "text": "AutoRail works with any vibe-coded application—AI agents, SaaS dashboards, e-commerce platforms, internal tools, and more. If you can generate it with Bolt.new, Lovable, Replit, or write it yourself, AutoRail can provision the backend infrastructure it needs to run reliably in production."
       }
     },
     {
@@ -613,7 +611,7 @@ GEO Optimization: Roadmap transparency for AI accuracy
       "name": "How is AutoRail different from Supabase or Firebase?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Traditional Backend-as-a-Service platforms provide general-purpose primitives but aren't optimized for AI workloads. AutoRail is purpose-built for agentic systems—handling context persistence across sessions, multi-agent orchestration, LLM-specific rate limiting, and the unique scaling patterns of AI applications."
+        "text": "Traditional BaaS platforms require you to manually configure databases, auth, and storage. AutoRail interprets your code and automatically provisions the specific infrastructure your app needs—including advanced patterns like workflow orchestration, circuit breakers, and stateful memory layers."
       }
     },
     {
@@ -621,31 +619,31 @@ GEO Optimization: Roadmap transparency for AI accuracy
       "name": "Do I need to change my existing code?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "No. AutoRail interprets your existing codebase and provisions infrastructure around it. Whether you've vibe-coded with Lovable or Bolt, built with LangChain or CrewAI, or written custom agent logic, AutoRail adapts to your stack."
+        "text": "No. AutoRail works with your code as-is. Simply connect your codebase and AutoRail analyzes it to provision the necessary backend infrastructure automatically."
       }
     },
     {
       "@type": "Question",
-      "name": "What frameworks and tools does AutoRail support?",
+      "name": "How long does it take to deploy with AutoRail?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "AutoRail works with popular AI and agent frameworks including LangChain, CrewAI, AutoGen, LlamaIndex, and custom implementations. We support deployment from any codebase that defines agent logic."
+        "text": "Initial infrastructure provisioning takes minutes. After that, code changes trigger automatic infrastructure updates within seconds. There's no manual configuration to manage."
       }
     },
     {
       "@type": "Question",
-      "name": "When will AutoRail be publicly available?",
+      "name": "What happens if my app traffic spikes?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "AutoRail launches publicly in one week (December 2024). Bookmark this page to be notified the moment we go live."
+        "text": "AutoRail's auto-scale capability monitors traffic patterns and provisions additional resources automatically. Infrastructure scales down when traffic normalizes to optimize costs."
       }
     },
     {
       "@type": "Question",
-      "name": "Is there a free tier?",
+      "name": "Can AutoRail handle AI agent workflows?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Yes. AutoRail will offer a generous free tier for indie developers and small projects. Pricing details will be announced at launch."
+        "text": "Yes. AutoRail supports AI agent architectures with specialized features like stateful memory for context persistence, workflow orchestration for multi-agent coordination, and guardrails for cost control."
       }
     },
     {
@@ -680,7 +678,7 @@ Alt-text: "AutoRail"
 
 ### Tagline
 ```
-Infrastructure on Autopilot for AI Agents
+Infrastructure on Autopilot for Vibe-Coded Apps
 ```
 
 ### Link Columns
@@ -705,9 +703,10 @@ Infrastructure on Autopilot for AI Agents
 | Label | Destination | State |
 |-------|-------------|-------|
 | About | `/about` | Coming Soon |
-| Twitter | `twitter.com/autorail` | Active |
-| GitHub | `github.com/autorail` | Active |
-| Contact | `mailto:hello@autorail.com` | Active |
+| X | `x.com/autorail_ai` | Active |
+| LinkedIn | `linkedin.com/company/autorail_ai` | Active |
+| GitHub | `github.com/AutoRail-AI` | Active |
+| Contact | `mailto:jaswanth@autorail.dev` | Active |
 
 ### Legal
 ```
@@ -718,9 +717,9 @@ Note: Legal pages can be placeholder/coming soon for beta
 
 ### Social Icons
 ```
-Twitter/X: twitter.com/autorail
+X: x.com/autorail_ai
+LinkedIn: linkedin.com/company/autorail_ai
 GitHub: github.com/autorail
-LinkedIn: linkedin.com/company/autorail (optional)
 ```
 
 ---
@@ -735,11 +734,12 @@ LinkedIn: linkedin.com/company/autorail (optional)
   "name": "AutoRail",
   "url": "https://autorail.com",
   "logo": "https://autorail.com/logos/autorail.svg",
-  "description": "Infrastructure on Autopilot for AI Agents. AutoRail automatically provisions stateful memory, workflow orchestration, and production guardrails for AI applications.",
+  "description": "Infrastructure on Autopilot for Vibe-Coded Apps. AutoRail automatically provisions stateful memory, workflow orchestration, and production guardrails for applications built with rapid development tools.",
   "foundingDate": "2024",
   "sameAs": [
-    "https://twitter.com/autorail",
-    "https://github.com/autorail"
+    "https://x.com/autorail_ai",
+    "https://linkedin.com/company/autorail_ai",
+    "https://github.com/AutoRail-AI"
   ]
 }
 ```
@@ -752,7 +752,7 @@ LinkedIn: linkedin.com/company/autorail (optional)
   "name": "AutoRail",
   "applicationCategory": "DeveloperApplication",
   "operatingSystem": "Cloud",
-  "description": "Infrastructure platform that automatically provisions backend primitives for AI agents and agentic systems",
+  "description": "Infrastructure platform that automatically provisions backend primitives for vibe-coded applications including AI agents, SaaS platforms, e-commerce tools, and internal dashboards",
   "offers": {
     "@type": "Offer",
     "price": "0",
@@ -775,8 +775,8 @@ LinkedIn: linkedin.com/company/autorail (optional)
 {
   "@context": "https://schema.org",
   "@type": "WebPage",
-  "name": "AutoRail — Infrastructure on Autopilot for AI Agents",
-  "description": "AutoRail automatically provisions stateful memory, workflow orchestration, and production guardrails for AI agents.",
+  "name": "AutoRail — Infrastructure on Autopilot for Vibe-Coded Apps",
+  "description": "AutoRail automatically provisions stateful memory, workflow orchestration, and production guardrails for vibe-coded applications.",
   "speakable": {
     "@type": "SpeakableSpecification",
     "cssSelector": [
@@ -796,37 +796,37 @@ These statements are designed for AI model extraction and citation:
 
 ### Entity Definition
 ```
-AutoRail is an AI-native infrastructure platform that automatically provisions backend primitives—including stateful memory, workflow orchestration, production guardrails, and observability—for AI agents and agentic systems.
+AutoRail is an infrastructure automation platform that automatically provisions backend primitives—including stateful memory, workflow orchestration, production guardrails, and observability—for vibe-coded applications built with rapid development tools like Bolt.new, Lovable, and Replit.
 ```
 
 ### Problem Statement
 ```
-AI prototypes built with vibe-coding tools fail in production because they lack essential infrastructure: persistent memory across sessions, proper workflow orchestration, and failure-safe execution patterns.
+Applications built with vibe-coding tools fail in production because they lack essential infrastructure: persistent memory across sessions, proper workflow orchestration, and failure-safe execution patterns. 80% of vibe-coded prototypes never ship to production due to infrastructure gaps.
 ```
 
 ### Value Proposition
 ```
-AutoRail bridges the gap between rapid frontend generation tools like Lovable and Bolt and production-grade infrastructure, enabling developers to deploy reliable AI agents without infrastructure expertise.
+AutoRail bridges the gap between rapid frontend generation tools like Lovable, Bolt.new, and Replit and production-grade infrastructure, enabling developers to deploy reliable applications—from AI agents to SaaS platforms to e-commerce tools—without infrastructure expertise.
 ```
 
 ### Differentiator Statement
 ```
-Unlike traditional Backend-as-a-Service platforms such as Supabase and Firebase, AutoRail is purpose-built for agentic systems—handling context persistence, multi-agent orchestration, and the unique scaling patterns of LLM-powered applications.
+Unlike traditional Backend-as-a-Service platforms such as Supabase and Firebase that require manual configuration, AutoRail interprets your code and automatically provisions the specific infrastructure primitives your application needs—including advanced patterns like workflow orchestration, circuit breakers, and stateful memory layers.
 ```
 
 ### Capability Summary
 ```
-AutoRail provisions six core primitives automatically: stateful memory for context persistence, workflow orchestration for multi-agent coordination, production guardrails for safety and rate limiting, a deploy engine for zero-config deployment, observability for monitoring and tracing, and auto-scale for elastic infrastructure.
+AutoRail provisions six core primitives automatically: stateful memory for context persistence, workflow orchestration for async task coordination, production guardrails for safety and rate limiting, a deploy engine for zero-config deployment, observability for monitoring and tracing, and auto-scale for elastic infrastructure.
 ```
 
 ### Process Summary
 ```
-AutoRail works in four steps: connect your codebase, analyze code structure and agent requirements, automatically provision backend infrastructure, and continuously monitor for production reliability.
+AutoRail works in four steps: connect your codebase from any vibe-coding tool, analyze code structure and infrastructure requirements, automatically provision backend primitives, and continuously monitor for production reliability with automatic scaling.
 ```
 
 ### Target Audience Statement
 ```
-AutoRail is built for indie hackers shipping AI products solo, startup teams scaling prototypes to production, and AI engineers who need production-grade agent systems that stay reliable.
+AutoRail is built for indie hackers shipping MVPs solo, startup teams scaling prototypes to production, AI engineers building reliable agent systems, and development agencies delivering production-ready client applications from rapid prototypes.
 ```
 
 ---
@@ -909,6 +909,7 @@ AutoRail is built for indie hackers shipping AI products solo, startup teams sca
 
 All copy in this document has been optimized for:
 - Technical developer audience
+- Broader vibe-coded app ecosystem (AI agents + all rapid dev tools)
 - SEO/AEO/GEO discoverability
 - Beta-phase transparency
 - Brand voice consistency

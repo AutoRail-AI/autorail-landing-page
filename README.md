@@ -91,4 +91,4 @@ MIT
 
 ## Contact
 
-jaswanth@autorail.com
+jaswanth@autorail.dev

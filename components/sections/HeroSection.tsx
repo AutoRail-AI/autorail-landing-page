@@ -26,7 +26,7 @@ export function HeroSection() {
             variants={scaleIn}
           >
             <Badge size="lg" className="mb-8">
-              Launching Soon
+              Launching in One Week
             </Badge>
           </motion.div>
 
@@ -43,7 +43,7 @@ export function HeroSection() {
           >
             Infrastructure on Autopilot
             <br />
-            <span className="text-gradient">for AI Agents</span>
+            <span className="text-gradient">for Vibe-Coded Apps</span>
           </motion.h1>
 
           {/* Subheadline */}

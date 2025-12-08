@@ -10,11 +10,11 @@ const painPoints = [
   {
     icon: Clock,
     title: "Remember context from three days ago",
-    description: "Stateless agents lose user history between sessions",
+    description: "Apps lose user history and state between sessions",
   },
   {
     icon: GitBranch,
-    title: "Orchestrate 50+ concurrent agent tasks",
+    title: "Orchestrate 50+ concurrent tasks",
     description: "Parallel workflows collapse without proper sequencing",
   },
   {
@@ -33,7 +33,7 @@ export function ProblemSection() {
       <Container>
         <SectionHeader
           title="The Gap Between Prototype and Production"
-          description="Tools like Lovable and Bolt generate frontends fast. But when your AI system needs to scale, the cracks appear."
+          description="Tools like Lovable, Bolt.new, and Replit generate frontends fast. But when your app needs to scale, the cracks appear."
         />
 
         {/* Pain Points Grid */}
