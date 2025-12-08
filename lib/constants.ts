@@ -8,7 +8,8 @@ export const SITE_CONFIG = {
   description:
     "AutoRail automatically provisions stateful memory, workflow orchestration, and production guardrails for AI agents. Bridge the gap from prototype to production.",
   url: "https://autorail.dev",
-  twitterHandle: "@autorail",
+  twitterHandle: "@autorail_ai",
+  twitterUrl: "https://x.com/autorail_ai",
   githubUrl: "https://github.com/autorail",
 } as const
 
