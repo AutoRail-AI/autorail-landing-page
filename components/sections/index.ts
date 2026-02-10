@@ -1,8 +1,0 @@
-export { HeroSection } from "./HeroSection"
-export { ProblemSection } from "./ProblemSection"
-export { SolutionSection } from "./SolutionSection"
-export { CapabilitiesSection } from "./CapabilitiesSection"
-export { HowItWorksSection } from "./HowItWorksSection"
-export { UseCasesSection } from "./UseCasesSection"
-export { BetaCTASection } from "./BetaCTASection"
-export { FAQSection } from "./FAQSection"

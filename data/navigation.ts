@@ -1,3 +1,5 @@
+import { SECTION_IDS } from "lib/constants"
+
 export interface NavLink {
   label: string
   href: string
@@ -7,8 +9,12 @@ export interface NavLink {
 
 export const NAV_LINKS: NavLink[] = [
   {
-    label: "Product",
-    href: "#capabilities",
+    label: "code synapse",
+    href: `#${SECTION_IDS.codeSynapse}`,
+  },
+  {
+    label: "necroma",
+    href: `#${SECTION_IDS.necroma}`,
   },
   {
     label: "Docs",
@@ -36,14 +42,16 @@ export interface FooterColumn {
 
 export const FOOTER_COLUMNS: FooterColumn[] = [
   {
-    title: "Products",
+    title: "Product",
     links: [
-      { label: "Code Synapse", href: "#synapse" },
-      { label: "Necroma", href: "#necroma" },
+      { label: "code synapse", href: "/code-synapse" },
+      { label: "necroma", href: "/necroma" },
+      { label: "Safety Rating", href: `#${SECTION_IDS.safetyRating}` },
+      { label: "Ecosystem", href: `#${SECTION_IDS.ecosystem}` },
     ],
   },
   {
-    title: "Ecosystem",
+    title: "Resources",
     links: [
       { label: "Documentation", href: "/docs", comingSoon: true },
       { label: "GitHub", href: "https://github.com/AutoRail-AI", external: true },

@@ -1,7 +1,7 @@
 import type { Variants } from "framer-motion"
 
 /**
- * Framer Motion animation presets for AutoRail landing page
+ * Framer Motion animation presets for autorail landing page
  * Following visual-design-system.md specifications
  */
 

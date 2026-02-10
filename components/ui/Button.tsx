@@ -49,6 +49,8 @@ export interface ButtonProps
     VariantProps<typeof buttonVariants> {
   href?: string
   onClick?: () => void
+  target?: string
+  rel?: string
 }
 
 export function Button({
@@ -58,6 +60,8 @@ export function Button({
   href,
   onClick,
   children,
+  target,
+  rel,
   ...props
 }: ButtonProps) {
   if (href) {
@@ -66,6 +70,8 @@ export function Button({
         href={href}
         onClick={onClick}
         className={cn(buttonVariants({ variant, size, className }))}
+        target={target}
+        rel={rel}
       >
         {children}
       </a>

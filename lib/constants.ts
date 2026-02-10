@@ -1,32 +1,32 @@
 /**
- * Site-wide constants for AutoRail landing page
+ * Site-wide constants for autorail landing page
  */
 
 export const SITE_CONFIG = {
-  name: "AutoRail",
-  tagline: "Infrastructure Platform for Vibe-Coded Applications",
+  name: "autorail",
+  tagline: "Vibe Coding, Industrialized.",
   description:
-    "Infrastructure platform that automatically provisions backend primitives for vibe-coded applications including AI agents, SaaS platforms, e-commerce tools, and internal dashboards. Frontend generation gives you momentum—AutoRail gives you the infrastructure to sustain it.",
+    "The Context and Verification layers that make AI-powered development safe for the enterprise. code synapse for pattern enforcement, necroma for autonomous legacy reclamation.",
   url: "https://autorail.dev",
   twitterHandle: "@autorail_ai",
   twitterUrl: "https://x.com/autorail_ai",
   linkedinUrl: "https://linkedin.com/company/autorail_ai",
   githubUrl: "https://github.com/AutoRail-AI",
   contactEmail: "jaswanth@autorail.dev",
+  footerTagline: "Build Fast. Don't Crash.",
 } as const
 
 export const CTA_TEXT = {
-  primary: "Join Waitlist",
-  secondary: "See How It Works",
+  primary: "Install the Safety Kit",
+  secondary: "Secure Your Legacy",
 } as const
 
 export const SECTION_IDS = {
   hero: "hero",
-  problem: "problem",
-  solution: "solution",
-  capabilities: "capabilities",
-  howItWorks: "how-it-works",
-  useCases: "use-cases",
+  day2Problem: "day2-problem",
+  codeSynapse: "code-synapse",
+  necroma: "necroma",
+  safetyRating: "safety-rating",
+  ecosystem: "ecosystem",
   cta: "cta",
-  faq: "faq",
 } as const

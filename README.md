@@ -1,38 +1,38 @@
-# AutoRail
+# autorail
 
-**Infrastructure on Autopilot for AI Agents**
+**Industrial Safety for Vibe Coding**
 
 <p align="center">
-  <img src="public/logos/autorail.svg" alt="AutoRail Logo" width="200" />
+  <img src="public/icon.svg" alt="autorail logo" width="200" />
 </p>
 
-## The Problem
+autorail is the nervous system for the next generation of software engineering—where code is not just written, but **understood**, **evolved**, and **resurrected**.
 
-Building a real product requires more than great UI and frontend code. It's a coordinated effort across architecture, backend systems, state management, design patterns, and operational tooling.
+---
+/plugin marketplace add anthropics/claude-code
+/plugin install frontend-design@claude-code-plugins
 
-But vibe-coding shortcuts these decisions. It produces something that works on day one, but collapses when confronted with real-world scale, reliability, and complexity.
+## Products
 
-Tools like Lovable and Bolt are excellent for rapidly generating frontend scaffolds. But when your system needs to:
-- Remember a user from three days ago
-- Orchestrate 50+ concurrent tasks
-- Guarantee failure-safe execution
+### 🧠 code synapse — *The Cognitive Engine*
 
-...vibe-coding breaks down.
+A living knowledge graph that turns your codebase into structured memory for AI agents. Eliminate "Alien Code" with hyper-personalized generation that respects your team's patterns.
 
-## The Solution
+- **MCP-Native** — Works with Cursor, Claude, Windsurf
+- **Living Knowledge Graph** — Business intent, not just syntax
+- **Persistent Team Memory** — Context that survives across sessions
 
-**AutoRail eliminates this gap.**
+> `npm install code-synapse` • [GitHub](https://github.com/AutoRail-AI)
 
-It continuously interprets your generated code and automatically provisions the backend primitives your product actually needs:
-- Stateful memory layers
-- Workflow orchestration
-- Guardrails
-- Rate limiters
-- Circuit-breaker patterns
+### 💀 necroma — *The Autonomous Workforce*
 
-The result: agents and applications that run on a stable, scalable, production-grade track from day one.
+The "legacy code necromancer." An autonomous agentic platform that transmutes legacy systems into modern, test-verified applications. Preserves behavior, not just syntax.
 
-> Frontend generation gives you momentum. AutoRail gives you the infrastructure to sustain it.
+- **Glass Brain Dashboard** — Full-cognition visibility
+- **Vertical Slice Migration** — Incremental, safe modernization
+- **Self-Healing Verification** — Auditable, trust-first output
+
+> Enterprise • Invite Only • [Request Access](mailto:enterprise@autorail.dev)
 
 ---
 
@@ -45,45 +45,70 @@ The result: agents and applications that run on a stable, scalable, production-g
 ### Getting Started
 
 ```bash
-# Install dependencies
-pnpm install
-
-# Start development server
-pnpm dev
-
-# Run tests
-pnpm test
-
-# Build for production
-pnpm build
+pnpm install        # Install dependencies
+pnpm dev            # Start dev server (Turbopack)
+pnpm build          # Production build
+pnpm test           # Run unit tests
 ```
 
 ### Tech Stack
 
-- **Framework**: Next.js 15 (App Router)
-- **Styling**: Tailwind CSS v4
-- **Components**: Radix UI + CVA (Class Variance Authority)
-- **Testing**: Vitest + React Testing Library + Playwright
-- **Type Safety**: Strict TypeScript with ts-reset
+| Layer | Technology |
+|-------|-----------|
+| Framework | Next.js 16 (App Router) |
+| Styling | Tailwind CSS v4 + CVA |
+| Components | Radix UI primitives |
+| Animation | Framer Motion, GSAP |
+| Icons | Lucide React |
+| Testing | Vitest + Playwright |
+| Type Safety | Strict TypeScript |
 
-### Available Scripts
+### Available Commands
 
 | Command | Description |
 |---------|-------------|
-| `pnpm dev` | Start dev server with Turbopack |
+| `pnpm dev` | Dev server with Turbopack |
 | `pnpm build` | Production build |
-| `pnpm test` | Run unit tests |
-| `pnpm e2e:headless` | Run E2E tests |
+| `pnpm test` | Unit tests (Vitest) |
+| `pnpm e2e:headless` | E2E tests (Playwright) |
 | `pnpm storybook` | Component development |
-| `pnpm lint` | Check code quality |
+| `pnpm lint` | Code quality check |
+
+---
 
 ## Brand
 
-AutoRail uses a distinctive purple gradient brand identity. See `ai-docs/brand/brand.md` for complete brand guidelines including:
+| Token | Value | Usage |
+|-------|-------|-------|
+| Void Black | `#0A0A0F` | Background |
+| Electric Cyan | `#00E5FF` | code synapse |
+| Rail Purple | `#6E18B3` | necroma |
+| Quantum Violet | `#8134CE` | Accents |
+| Cloud White | `#FAFAFA` | Text |
 
-- **Colors**: Deep Rail Purple (`#6E18B3`), Electric Cyan (`#00E5FF`), Quantum Violet (`#8134CE`)
-- **Typography**: Space Grotesk (headlines), Inter (body), JetBrains Mono (code)
-- **Logo**: `public/logos/autorail.svg`
+**Typography**: Space Grotesk (headlines) · Inter (body) · JetBrains Mono (code)
+
+See [`docs/brand/brand.md`](docs/brand/brand.md) for full guidelines.
+
+---
+
+## Architecture
+
+```
+app/                    # Next.js App Router
+components/
+├── landing/            # Page sections (Hero, ProductSplit, etc.)
+├── layout/             # NavBar, Footer
+├── ui/                 # Button, Badge, Card, Container, etc.
+├── graphics/           # HeroVisual, FlowDiagram, GradientMesh
+└── shared/             # GradientText, JsonLd
+data/                   # Navigation, capabilities, content
+docs/                   # Brand guidelines, improvement plans
+public/                 # Logo assets (autorail.svg, icon.svg), manifest icons
+styles/                 # Tailwind CSS entry point
+```
+
+---
 
 ## License
 
@@ -91,4 +116,4 @@ MIT
 
 ## Contact
 
-jaswanth@autorail.dev
+[jaswanth@autorail.dev](mailto:jaswanth@autorail.dev) · [GitHub](https://github.com/AutoRail-AI)

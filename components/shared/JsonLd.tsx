@@ -1,8 +1,7 @@
-import { generateFAQSchema } from "data/faq"
 import { SITE_CONFIG } from "lib/constants"
 
 interface JsonLdProps {
-  type: "organization" | "software" | "webpage" | "faq"
+  type: "organization" | "software" | "webpage"
 }
 
 export function JsonLd({ type }: JsonLdProps) {
@@ -12,7 +11,7 @@ export function JsonLd({ type }: JsonLdProps) {
       "@type": "Organization",
       name: SITE_CONFIG.name,
       url: SITE_CONFIG.url,
-      logo: `${SITE_CONFIG.url}/logos/autorail.svg`,
+      logo: `${SITE_CONFIG.url}/autorail.svg`,
       description: SITE_CONFIG.description,
       foundingDate: "2024",
       email: "jaswanth@autorail.dev",
@@ -31,24 +30,20 @@ export function JsonLd({ type }: JsonLdProps) {
     software: {
       "@context": "https://schema.org",
       "@type": "SoftwareApplication",
-      name: SITE_CONFIG.name,
+      name: "code synapse",
       applicationCategory: "DeveloperApplication",
-      operatingSystem: "Cloud",
-      description:
-        "Infrastructure platform that automatically provisions backend primitives for vibe-coded applications including AI agents, SaaS platforms, e-commerce tools, and internal dashboards",
+      operatingSystem: "Any",
+      description: SITE_CONFIG.description,
       offers: {
         "@type": "Offer",
         price: "0",
         priceCurrency: "USD",
-        description: "Free tier available for indie developers",
+        description: "Open source — npm install code-synapse",
       },
       featureList: [
-        "Stateful Memory",
-        "Workflow Orchestration",
-        "Production Guardrails",
-        "Deploy Engine",
-        "Observability",
-        "Auto-Scale",
+        "Pattern Enforcement",
+        "Self-Reinforcing Knowledge Graph",
+        "Drift Prevention",
       ],
     },
     webpage: {
@@ -64,14 +59,9 @@ export function JsonLd({ type }: JsonLdProps) {
       },
       speakable: {
         "@type": "SpeakableSpecification",
-        cssSelector: [
-          "#hero h1",
-          "#faq .faq-question",
-          "#faq .faq-answer",
-        ],
+        cssSelector: ["#hero h1"],
       },
     },
-    faq: generateFAQSchema(),
   }
 
   return (

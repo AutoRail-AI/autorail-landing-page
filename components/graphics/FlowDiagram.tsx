@@ -203,7 +203,7 @@ export function FlowDiagram({ className }: FlowDiagramProps) {
           </motion.circle>
         ))}
 
-        {/* === CENTER NODE: AutoRail === */}
+        {/* === CENTER NODE: autorail === */}
         <g>
           {/* Outer pulse rings */}
           {[0, 1, 2].map((i) => (
@@ -254,7 +254,7 @@ export function FlowDiagram({ className }: FlowDiagramProps) {
             style={{ filter: "url(#glow)" }}
           />
 
-          {/* AutoRail logo/icon - layered boxes */}
+          {/* autorail logo/icon - layered boxes */}
           <motion.g
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
@@ -297,7 +297,7 @@ export function FlowDiagram({ className }: FlowDiagramProps) {
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.6 }}
           >
-            AutoRail
+            autorail
           </motion.text>
           <motion.text
             x="400"

@@ -42,8 +42,7 @@ export const metadata: Metadata = {
     url: SITE_CONFIG.url,
     siteName: SITE_CONFIG.name,
     title: `${SITE_CONFIG.name} — ${SITE_CONFIG.tagline}`,
-    description:
-      "Infrastructure platform that automatically provisions backend primitives for vibe-coded applications including AI agents, SaaS platforms, e-commerce tools, and internal dashboards.",
+    description: SITE_CONFIG.description,
     images: [
       {
         url: `${SITE_CONFIG.url}/og-image.png`,
@@ -58,7 +57,7 @@ export const metadata: Metadata = {
     site: SITE_CONFIG.twitterHandle,
     title: `${SITE_CONFIG.name} — ${SITE_CONFIG.tagline}`,
     description:
-      "Frontend generation gives you momentum. AutoRail gives you the infrastructure to sustain it.",
+      "Frontend generation gives you momentum. autorail gives you the infrastructure to sustain it.",
     images: [`${SITE_CONFIG.url}/twitter-card.png`],
   },
   robots: {

@@ -2,12 +2,16 @@
 
 import { motion } from "framer-motion"
 import { Container } from "components/ui"
+import { SECTION_IDS } from "lib/constants"
 
 const TECH_STACK = ["Model Context Protocol", "CozoDB", "LangGraph", "OpenHands", "Gemini 2.0"]
 
 export function Ecosystem() {
-    return (
-        <section className="py-20 bg-void-black border-t border-white/5">
+  return (
+    <section
+      id={SECTION_IDS.ecosystem}
+      className="py-20 bg-void-black border-t border-white/5 scroll-mt-20"
+    >
             <Container>
                 <div className="text-center mb-10">
                     <span className="text-sm font-mono text-white/40 uppercase tracking-widest">Built on the Agentic Stack</span>

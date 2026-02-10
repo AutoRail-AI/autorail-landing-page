@@ -20,7 +20,7 @@ export function ProductSplit() {
         <section className="py-24 bg-void-black relative overflow-hidden">
             <Container>
                 <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12">
-                    {/* Left Card: Code Synapse */}
+                    {/* Left Card: code synapse */}
                     <motion.div
                         initial={{ opacity: 0, x: -50 }}
                         whileInView={{ opacity: 1, x: 0 }}
@@ -98,7 +98,7 @@ export function ProductSplit() {
                         </div>
                     </motion.div>
 
-                    {/* Right Card: Necroma */}
+                    {/* Right Card: necroma */}
                     <motion.div
                         initial={{ opacity: 0, x: 50 }}
                         whileInView={{ opacity: 1, x: 0 }}
@@ -125,7 +125,7 @@ export function ProductSplit() {
                                 <h3 className="text-rail-purple font-mono text-sm tracking-wider uppercase mb-2">The Autonomous Workforce</h3>
                                 <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">Reincarnate Your Software</h2>
                                 <p className="text-white/70 leading-relaxed">
-                                    The "Legacy Code Necromancer." An autonomous agentic platform that transmutes legacy systems
+                                    The "legacy code necromancer." An autonomous agentic platform that transmutes legacy systems
                                     into modern, test-verified applications. Preserves behavior, not just syntax.
                                 </p>
                             </div>

@@ -19,9 +19,9 @@ export function Footer() {
               href="/"
               className="inline-flex items-center gap-3 font-[family-name:var(--font-grotesk)] text-3xl font-bold"
             >
-              <Image
-                src="/logos/autorail.svg"
-                alt="AutoRail - Infrastructure on Autopilot for AI Agents"
+            <Image
+              src="/autorail.svg"
+              alt="autorail — Industrial Safety for Vibe Coding"
                 width={48}
                 height={48}
                 className="h-12 w-12"
@@ -29,7 +29,7 @@ export function Footer() {
               <span className="text-gradient">{SITE_CONFIG.name}</span>
             </Link>
             <p className="mt-4 max-w-xs text-sm text-foreground-secondary leading-relaxed">
-              {SITE_CONFIG.tagline}. Bridge the gap from prototype to production.
+              {SITE_CONFIG.footerTagline}
             </p>
           </div>
 
@@ -53,7 +53,7 @@ export function Footer() {
         {/* Bottom Bar */}
         <div className="mt-12 flex flex-col items-center justify-between gap-4 border-t border-border-default pt-8 md:flex-row">
           <p className="text-xs text-foreground-muted">
-            &copy; {currentYear} {SITE_CONFIG.name}. All rights reserved.
+            &copy; {currentYear} {SITE_CONFIG.name} Inc.
           </p>
           <div className="flex items-center gap-6">
             <a

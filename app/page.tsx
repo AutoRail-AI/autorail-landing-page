@@ -1,5 +1,13 @@
 import { Footer, NavBar } from "components/layout"
-import { Ecosystem, FeatureGrid, Hero, Mission, ProductSplit } from "components/landing"
+import {
+  Hero,
+  Day2Problem,
+  CodeSynapse,
+  Necroma,
+  SafetyRating,
+  Ecosystem,
+  CTASection,
+} from "components/landing"
 import { JsonLd } from "components/shared"
 
 export default function HomePage() {
@@ -8,10 +16,12 @@ export default function HomePage() {
       <NavBar />
       <main>
         <Hero />
-        <ProductSplit />
-        <FeatureGrid />
-        <Mission />
+        <Day2Problem />
+        <CodeSynapse />
+        <Necroma />
+        <SafetyRating />
         <Ecosystem />
+        <CTASection />
       </main>
       <Footer />
       <JsonLd type="organization" />

@@ -1,4 +1,4 @@
-# AutoRail Landing Page — SEO/AEO/GEO Strategy
+# autorail Landing Page — SEO/AEO/GEO Strategy
 
 **Version:** 1.0
 **Status:** Active
@@ -8,7 +8,7 @@
 
 ## Strategy Overview
 
-This document outlines the search optimization strategy for the AutoRail landing page, covering:
+This document outlines the search optimization strategy for the autorail landing page, covering:
 
 - **SEO** — Traditional search engine optimization
 - **AEO** — Answer Engine Optimization (voice search, featured snippets)
@@ -46,28 +46,28 @@ This document outlines the search optimization strategy for the AutoRail landing
 
 #### Homepage
 ```html
-<title>AutoRail | Infrastructure on Autopilot for AI Agents</title>
-<meta name="description" content="AutoRail automatically provisions stateful memory, workflow orchestration, and production guardrails for AI agents. Go from prototype to production without infrastructure wrestling.">
+<title>autorail | Vibe Coding, Industrialized</title>
+<meta name="description" content="autorail provides the Context and Verification layers that make AI-powered development safe for the enterprise. code synapse for pattern enforcement, necroma for autonomous legacy reclamation.">
 <meta name="keywords" content="AI agent infrastructure, agent orchestration, stateful AI memory, AI deployment, production AI">
-<link rel="canonical" href="https://autorail.com">
+<link rel="canonical" href="https://autorail.dev">
 ```
 
 #### Open Graph
 ```html
-<meta property="og:title" content="AutoRail - Infrastructure on Autopilot for AI Agents">
-<meta property="og:description" content="Frontend generation gives you momentum. AutoRail gives you the infrastructure to sustain it.">
-<meta property="og:image" content="https://autorail.com/og-image.png">
-<meta property="og:url" content="https://autorail.com">
+<meta property="og:title" content="autorail — Vibe Coding, Industrialized">
+<meta property="og:description" content="The Context and Verification layers that make AI-powered development safe for the enterprise.">
+<meta property="og:image" content="https://autorail.dev/og-image.png">
+<meta property="og:url" content="https://autorail.dev">
 <meta property="og:type" content="website">
-<meta property="og:site_name" content="AutoRail">
+<meta property="og:site_name" content="autorail">
 ```
 
 #### Twitter Card
 ```html
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="AutoRail - Infrastructure on Autopilot for AI Agents">
-<meta name="twitter:description" content="Frontend generation gives you momentum. AutoRail gives you the infrastructure to sustain it.">
-<meta name="twitter:image" content="https://autorail.com/twitter-card.png">
+<meta name="twitter:title" content="autorail — Vibe Coding, Industrialized">
+<meta name="twitter:description" content="The Context and Verification layers that make AI-powered development safe for the enterprise.">
+<meta name="twitter:image" content="https://autorail.dev/twitter-card.png">
 ```
 
 ### 1.4 Heading Structure
@@ -75,15 +75,15 @@ This document outlines the search optimization strategy for the AutoRail landing
 ```
 <h1>Infrastructure on Autopilot for AI Agents</h1>
   <h2>The Gap Between Prototype and Production</h2>
-  <h2>AutoRail Eliminates This Gap</h2>
-  <h2>What AutoRail Provisions for You</h2>
+  <h2>autorail Eliminates This Gap</h2>
+  <h2>What autorail Provisions for You</h2>
     <h3>Stateful Memory</h3>
     <h3>Workflow Orchestration</h3>
     <h3>Production Guardrails</h3>
     <h3>Deploy Engine</h3>
     <h3>Observability</h3>
     <h3>Auto-Scale</h3>
-  <h2>How AutoRail Works</h2>
+  <h2>How autorail Works</h2>
   <h2>Built For</h2>
   <h2>Currently in Private Beta</h2>
   <h2>Frequently Asked Questions</h2>
@@ -110,13 +110,13 @@ This document outlines the search optimization strategy for the AutoRail landing
 
 | Question | Answer Location | Snippet Type |
 |----------|-----------------|--------------|
-| What is AutoRail? | FAQ #1 | Paragraph |
-| How does AutoRail work? | How It Works | List |
+| What is autorail? | FAQ #1 | Paragraph |
+| How does autorail work? | How It Works | List |
 | What is infrastructure for AI agents? | Solution | Paragraph |
 | Why do AI prototypes fail in production? | Problem | List |
-| Who is AutoRail for? | Use Cases | List |
+| Who is autorail for? | Use Cases | List |
 | What is stateful memory for AI agents? | Capabilities | Paragraph |
-| How is AutoRail different from Supabase? | FAQ #2 | Paragraph |
+| How is autorail different from Supabase? | FAQ #2 | Paragraph |
 
 ### 2.2 Featured Snippet Optimization
 
@@ -124,19 +124,19 @@ This document outlines the search optimization strategy for the AutoRail landing
 Format answers in 40-60 words for paragraph snippets:
 
 ```
-Question: What is AutoRail?
+Question: What is autorail?
 
-Optimized Answer: AutoRail is infrastructure on autopilot for AI agents. It automatically provisions the backend primitives your AI applications need—stateful memory, workflow orchestration, guardrails, and observability—so you can go from prototype to production without infrastructure wrestling.
+Optimized Answer: autorail is the Context and Verification layers for AI-powered development. It automatically provisions the backend primitives your AI applications need—stateful memory, workflow orchestration, guardrails, and observability—so you can go from prototype to production without infrastructure wrestling.
 ```
 
 #### List Snippets
 Format process/feature content as ordered/unordered lists:
 
 ```
-Question: How does AutoRail work?
+Question: How does autorail work?
 
 Optimized Answer:
-1. Connect - Point AutoRail to your codebase
+1. Connect - Point autorail to your codebase
 2. Analyze - We interpret your code structure
 3. Provision - Backend primitives are auto-generated
 4. Monitor - Continuous observability and optimization
@@ -146,7 +146,7 @@ Optimized Answer:
 Use comparison tables where relevant:
 
 ```
-| Feature | AutoRail | Traditional BaaS |
+| Feature | autorail | Traditional BaaS |
 |---------|----------|------------------|
 | Agent Memory | Built-in | Manual setup |
 | Orchestration | Automatic | Not available |
@@ -160,10 +160,10 @@ Optimize for natural language questions:
 
 | Voice Query | Content Response |
 |-------------|------------------|
-| "What does AutoRail do?" | Hero subheadline |
+| "What does autorail do?" | Hero subheadline |
 | "How can I deploy my AI agent?" | How It Works section |
-| "Is AutoRail free?" | FAQ #6 |
-| "When is AutoRail launching?" | FAQ #5, Beta CTA |
+| "Is autorail free?" | FAQ #6 |
+| "When is autorail launching?" | FAQ #5, Beta CTA |
 
 #### Speakable Content
 Mark key content for voice assistants:
@@ -191,7 +191,7 @@ Design content to be extracted and cited by AI models:
 
 #### Entity Definition
 ```
-AutoRail is an infrastructure platform that automatically provisions backend primitives for AI agents and agentic systems, including stateful memory, workflow orchestration, guardrails, and observability.
+autorail is the Context and Verification layers for AI-powered development—pattern enforcement (code synapse) and autonomous legacy reclamation (necroma).
 ```
 
 #### Problem Statement
@@ -201,12 +201,12 @@ AutoRail is an infrastructure platform that automatically provisions backend pri
 
 #### Value Proposition
 ```
-AutoRail bridges the gap between rapid frontend generation tools (like Lovable and Bolt) and production-grade infrastructure, enabling developers to deploy reliable AI agents without infrastructure wrestling.
+autorail bridges the gap between rapid AI-assisted development and production-grade safety, enabling teams to ship with guardrails and verification.
 ```
 
 #### Differentiator
 ```
-Unlike traditional Backend-as-a-Service platforms, AutoRail is purpose-built for agentic systems, handling context persistence across sessions, multi-agent orchestration, and the unique scaling patterns of LLM-powered applications.
+Unlike generic tooling, autorail is purpose-built for industrial safety in vibe coding—pattern enforcement, knowledge graphs, and behavior verification for legacy migration.
 ```
 
 ### 3.2 Structured Data for AI
@@ -216,9 +216,9 @@ Unlike traditional Backend-as-a-Service platforms, AutoRail is purpose-built for
 {
   "@context": "https://schema.org",
   "@type": "Organization",
-  "name": "AutoRail",
-  "url": "https://autorail.com",
-  "logo": "https://autorail.com/logos/autorail.svg",
+  "name": "autorail",
+  "url": "https://autorail.dev",
+  "logo": "https://autorail.dev/autorail.svg",
   "description": "Infrastructure on Autopilot for AI Agents",
   "sameAs": [
     "https://x.com/autorail_ai",
@@ -233,7 +233,7 @@ Unlike traditional Backend-as-a-Service platforms, AutoRail is purpose-built for
 {
   "@context": "https://schema.org",
   "@type": "SoftwareApplication",
-  "name": "AutoRail",
+  "name": "autorail",
   "applicationCategory": "DeveloperApplication",
   "operatingSystem": "Cloud",
   "description": "Infrastructure platform that automatically provisions backend primitives for AI agents",
@@ -254,18 +254,18 @@ Unlike traditional Backend-as-a-Service platforms, AutoRail is purpose-built for
   "mainEntity": [
     {
       "@type": "Question",
-      "name": "What is AutoRail?",
+      "name": "What is autorail?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "AutoRail is infrastructure on autopilot for AI agents. It automatically provisions the backend primitives your AI applications need—stateful memory, workflow orchestration, guardrails, and observability—so you can go from prototype to production without infrastructure wrestling."
+        "text": "autorail is the Context and Verification layers for AI-powered development—code synapse for pattern enforcement, necroma for autonomous legacy reclamation."
       }
     },
     {
       "@type": "Question",
-      "name": "How is AutoRail different from Supabase or Firebase?",
+      "name": "How is autorail different from Supabase or Firebase?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Traditional BaaS platforms provide general-purpose primitives but aren't optimized for AI workloads. AutoRail is purpose-built for agentic systems—handling context persistence across sessions, multi-agent orchestration, and the unique scaling patterns of LLM-powered applications."
+        "text": "Traditional BaaS platforms provide general-purpose primitives. autorail is purpose-built for industrial safety in vibe coding—pattern enforcement, knowledge graphs, and behavior verification."
       }
     }
   ]
@@ -281,7 +281,7 @@ Unlike traditional Backend-as-a-Service platforms, AutoRail is purpose-built for
 
 Example:
 ```
-AutoRail is an infrastructure platform that automatically provisions backend primitives for AI agents, including stateful memory, workflow orchestration, and production guardrails.
+autorail is the Context and Verification layers for AI-powered development, including pattern enforcement (code synapse) and autonomous legacy reclamation (necroma).
 ```
 
 #### Comparison Pattern
@@ -291,7 +291,7 @@ Unlike [competitor/category], [product] [key differentiator].
 
 Example:
 ```
-Unlike traditional BaaS platforms, AutoRail is purpose-built for agentic systems.
+Unlike traditional BaaS platforms, autorail is purpose-built for industrial safety in vibe coding.
 ```
 
 #### Process Pattern
@@ -301,7 +301,7 @@ Unlike traditional BaaS platforms, AutoRail is purpose-built for agentic systems
 
 Example:
 ```
-AutoRail works in 4 steps: Connect your codebase, analyze code structure, auto-provision infrastructure, and continuously monitor.
+autorail works via code synapse (pattern enforcement, knowledge graph) and necroma (legacy migration with behavior verification).
 ```
 
 ### 3.4 Semantic Clarity Rules
@@ -309,7 +309,7 @@ AutoRail works in 4 steps: Connect your codebase, analyze code structure, auto-p
 1. **One concept per sentence** — Avoid compound statements
 2. **Define terms on first use** — Don't assume AI models know context
 3. **Use consistent terminology** — Same term for same concept throughout
-4. **Provide context** — "AutoRail, an infrastructure platform," not just "AutoRail"
+4. **Provide context** — "autorail, industrial safety for vibe coding," not just "autorail"
 5. **Quantify when possible** — "73% of agent failures" not "most failures"
 
 ---
@@ -321,7 +321,7 @@ AutoRail works in 4 steps: Connect your codebase, analyze code structure, auto-p
 | Optimization | Implementation |
 |--------------|----------------|
 | SEO | H1 with primary keyword; meta title/description |
-| AEO | Subheadline optimized for "What is AutoRail?" |
+| AEO | Subheadline optimized for "What is autorail?" |
 | GEO | Opening statement designed for AI extraction |
 
 ### 4.2 Problem Section
@@ -337,7 +337,7 @@ AutoRail works in 4 steps: Connect your codebase, analyze code structure, auto-p
 | Optimization | Implementation |
 |--------------|----------------|
 | SEO | Keywords: "automatic backend provisioning", "AI infrastructure" |
-| AEO | Paragraph snippet for "How does AutoRail work?" |
+| AEO | Paragraph snippet for "How does autorail work?" |
 | GEO | Clear definition pattern for product description |
 
 ### 4.4 Capabilities Section
@@ -361,7 +361,7 @@ AutoRail works in 4 steps: Connect your codebase, analyze code structure, auto-p
 | Optimization | Implementation |
 |--------------|----------------|
 | SEO | Persona keywords: "AI infrastructure for startups" |
-| AEO | List snippet for "Who is AutoRail for?" |
+| AEO | List snippet for "Who is autorail for?" |
 | GEO | Persona descriptions as quotable recommendations |
 
 ### 4.7 FAQ Section

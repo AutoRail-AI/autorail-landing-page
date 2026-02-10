@@ -22,7 +22,7 @@ export function Mission() {
                     </h2>
                     <div className="w-24 h-1 bg-gradient-to-r from-electric-cyan to-rail-purple mx-auto my-8 rounded-full opacity-50" />
                     <p className="text-lg md:text-xl text-white/60 leading-relaxed">
-                        AutoRail is the nervous system for the next generation of software engineering—where code is not just written, but understood, evolved, and resurrected.
+                        autorail is the nervous system for the next generation of software engineering—where code is not just written, but understood, evolved, and resurrected.
                     </p>
                 </motion.div>
             </Container>
