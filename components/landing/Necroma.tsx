@@ -2,10 +2,11 @@
 
 import { motion } from "framer-motion"
 import { ArrowRight } from "lucide-react"
-import { Button, Container } from "components/ui"
+import { Container } from "components/ui"
 import { SECTION_IDS } from "lib/constants"
 import { NECROMA } from "data/products"
 import { staggerContainer, cardItem } from "lib/animations"
+import { cn } from "lib/utils"
 
 const NECROMA_STEPS = [
   "Plan: Analyze legacy",
@@ -19,7 +20,11 @@ export function Necroma() {
       id={SECTION_IDS.necroma}
       className="py-24 bg-void-black relative overflow-hidden scroll-mt-20"
     >
-      <div className="absolute inset-0 bg-rail-purple/5 blur-[120px] pointer-events-none" />
+      {/* Crisp radial glow — not full-screen wash */}
+      <div
+        className="absolute top-1/2 right-1/3 translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] pointer-events-none"
+        style={{ background: "radial-gradient(circle, rgba(110,24,179,0.06) 0%, transparent 70%)" }}
+      />
 
       <Container className="relative">
         <motion.div
@@ -29,7 +34,7 @@ export function Necroma() {
           viewport={{ once: true, margin: "-80px" }}
           className="max-w-5xl mx-auto"
         >
-          <p className="text-sm font-mono tracking-wider text-rail-purple uppercase mb-2">
+          <p className="text-label text-rail-purple mb-2">
             {NECROMA.name}
           </p>
           <motion.p variants={cardItem} className="text-rail-purple/90 text-lg mb-4">
@@ -37,13 +42,13 @@ export function Necroma() {
           </motion.p>
           <motion.h2
             variants={cardItem}
-            className="text-3xl md:text-4xl font-bold text-white mb-6 font-grotesk"
+            className="text-display-m text-white mb-6"
           >
             {NECROMA.headline}
           </motion.h2>
           <motion.p
             variants={cardItem}
-            className="text-white/70 text-lg mb-10 max-w-2xl"
+            className="text-gray-300 text-lg mb-10 max-w-2xl"
           >
             {NECROMA.pitch}
           </motion.p>
@@ -53,7 +58,7 @@ export function Necroma() {
             {NECROMA.badges.map((badge) => (
               <span
                 key={badge}
-                className="px-3 py-1 rounded-full text-xs font-medium bg-rail-purple/10 text-rail-purple border border-rail-purple/20"
+                className="px-3 py-1 rounded-lg text-xs font-medium bg-rail-purple/10 text-rail-purple border border-rail-purple/20"
               >
                 {badge}
               </span>
@@ -66,12 +71,12 @@ export function Necroma() {
               <motion.div
                 key={feature.title}
                 variants={cardItem}
-                className="p-6 rounded-2xl border border-rail-purple/10 bg-white/[0.02] hover:border-rail-purple/20 transition-colors"
+                className="p-6 rounded-xl glass-card hover:border-rail-purple/30 transition-all"
               >
                 <h3 className="text-lg font-semibold text-white mb-2 font-grotesk">
                   {feature.title}
                 </h3>
-                <p className="text-white/60 text-sm leading-relaxed">
+                <p className="text-gray-300 text-sm leading-relaxed">
                   {feature.description}
                 </p>
               </motion.div>
@@ -91,24 +96,31 @@ export function Necroma() {
                   whileInView={{ x: 0, opacity: 1 }}
                   viewport={{ once: true }}
                   transition={{ delay: 0.2 + i * 0.1 }}
-                  className="p-3 rounded-lg border border-rail-purple/30 bg-rail-purple/10 backdrop-blur-md flex items-center gap-3"
+                  className="p-3 rounded-lg border border-rail-purple/30 bg-white/[0.03] flex items-center gap-3"
                 >
                   <div className="w-2 h-2 rounded-full bg-rail-purple animate-pulse" />
-                  <span className="text-xs font-mono text-white/90">{step}</span>
+                  <span className="text-xs font-mono text-gray-300">{step}</span>
                 </motion.div>
               ))}
+              {/* Circuit connector between steps */}
+              <div className="absolute left-[18px] top-[24px] bottom-[24px] w-px bg-white/10" />
             </div>
           </motion.div>
 
-          {/* CTA */}
+          {/* CTA — transparent+border style */}
           <motion.div variants={cardItem}>
-            <Button
+            <a
               href={`#${SECTION_IDS.cta}`}
-              className="w-full sm:w-auto bg-gradient-to-r from-rail-purple to-quantum-violet text-white hover:shadow-[0_0_30px_rgba(110,24,179,0.4)] hover:brightness-110 group/btn"
+              className={cn(
+                "inline-flex items-center gap-2 px-6 py-3 rounded-lg font-medium text-sm",
+                "bg-transparent border border-rail-purple text-rail-purple",
+                "hover:bg-rail-purple/10 hover:shadow-[0_0_20px_rgba(110,24,179,0.2)]",
+                "transition-all group/btn"
+              )}
             >
               {NECROMA.cta.primary}
-              <ArrowRight className="w-4 h-4 ml-2 group-hover/btn:translate-x-1 transition-transform" aria-hidden />
-            </Button>
+              <ArrowRight className="w-4 h-4 group-hover/btn:translate-x-1 transition-transform" aria-hidden />
+            </a>
           </motion.div>
         </motion.div>
       </Container>

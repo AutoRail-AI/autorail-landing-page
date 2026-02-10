@@ -6,7 +6,7 @@ import { cn } from "lib/utils"
 
 const buttonVariants = cva(
   [
-    "inline-flex items-center justify-center",
+    "inline-flex items-center justify-center rounded-lg",
     "font-medium font-[family-name:var(--font-grotesk)]",
     "transition-all duration-200",
     "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-electric-cyan focus-visible:ring-offset-2 focus-visible:ring-offset-void-black",
@@ -16,25 +16,25 @@ const buttonVariants = cva(
     variants: {
       variant: {
         primary: [
-          "bg-rail-fade text-pure-white",
-          "hover:scale-[1.02] hover:shadow-[0_0_20px_rgba(129,52,206,0.3)]",
+          "bg-transparent border border-electric-cyan text-electric-cyan",
+          "hover:bg-electric-cyan/10 hover:shadow-[0_0_20px_rgba(0,229,255,0.2)]",
           "active:scale-[0.98]",
         ],
         secondary: [
-          "bg-transparent text-cloud-white",
-          "border border-cloud-white/20",
-          "hover:bg-cloud-white/5 hover:border-cloud-white/40",
+          "bg-transparent text-rail-purple",
+          "border border-rail-purple",
+          "hover:bg-rail-purple/10 hover:shadow-[0_0_20px_rgba(110,24,179,0.2)]",
           "active:scale-[0.98]",
         ],
         ghost: [
           "bg-transparent text-cloud-white/80",
-          "hover:text-cloud-white hover:bg-cloud-white/5",
+          "hover:text-cloud-white hover:bg-white/[0.03]",
         ],
       },
       size: {
-        sm: "h-9 px-4 text-sm rounded-md",
-        md: "h-11 px-6 text-base rounded-lg",
-        lg: "h-14 px-8 text-lg rounded-lg",
+        sm: "h-8 px-3 text-xs",
+        md: "h-10 px-5 text-sm",
+        lg: "h-12 px-8 text-base",
       },
     },
     defaultVariants: {

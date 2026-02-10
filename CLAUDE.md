@@ -5,7 +5,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 ## Project Overview
 
 Landing page for **autorail** — **Industrial Safety for Vibe Coding**. Positioning: the structural engineering for the AI gold mine. Two core products:
-1. **code synapse** (cyan `#00E5FF`): The Institutional Memory Layer — pattern enforcement so AI doesn’t write “alien code.”
+1. **code-synapse** (cyan `#00E5FF`): The Institutional Memory Layer — pattern enforcement so AI doesn’t write “alien code.”
 2. **necroma** (purple `#6E18B3`): Autonomous Legacy Reclamation — verify behavior, not just syntax.
 
 ## Commands
@@ -59,7 +59,7 @@ NavBar → Hero → Day2Problem → CodeSynapse → Necroma → SafetyRating →
 
 - **Dark theme only**: Background is `#0A0A0F` (void-black), never use light backgrounds
 - **Typography**: Space Grotesk for headings (`font-grotesk`), Inter for body (`font-sans`), JetBrains Mono for code (`font-mono`)
-- **Color coding**: Cyan = code synapse, Purple = necroma — maintain this association throughout
+- **Color coding**: Cyan = code-synapse, Purple = necroma — maintain this association throughout
 - **Icons**: Use `lucide-react` exclusively
 - **Animations**: Use Framer Motion; presets available in `lib/animations.ts`. Respect `prefers-reduced-motion`
 - **Glassmorphism**: Prefer glass panels with backdrop blur for card-like elements

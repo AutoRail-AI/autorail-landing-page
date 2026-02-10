@@ -1,7 +1,8 @@
 import { Footer, NavBar } from "components/layout"
 import {
-  Hero,
+  HeroSphere,
   Day2Problem,
+  BentoGrid,
   CodeSynapse,
   Necroma,
   SafetyRating,
@@ -15,8 +16,9 @@ export default function HomePage() {
     <>
       <NavBar />
       <main>
-        <Hero />
+        <HeroSphere />
         <Day2Problem />
+        <BentoGrid />
         <CodeSynapse />
         <Necroma />
         <SafetyRating />

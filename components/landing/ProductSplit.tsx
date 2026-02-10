@@ -20,7 +20,7 @@ export function ProductSplit() {
         <section className="py-24 bg-void-black relative overflow-hidden">
             <Container>
                 <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12">
-                    {/* Left Card: code synapse */}
+                    {/* Left Card: code-synapse */}
                     <motion.div
                         initial={{ opacity: 0, x: -50 }}
                         whileInView={{ opacity: 1, x: 0 }}
@@ -85,7 +85,7 @@ export function ProductSplit() {
                             <div className="mt-auto">
                                 <button
                                     onClick={copyCommand}
-                                    className="w-full flex items-center justify-between px-4 py-3 rounded-lg bg-slate-grey/50 border border-white/10 hover:border-electric-cyan/50 transition-colors group/cmd"
+                                    className="w-full flex items-center justify-between px-4 py-3 rounded-lg bg-white/5 border border-white/10 hover:border-electric-cyan/50 transition-colors group/cmd"
                                 >
                                     <code className="text-electric-cyan font-mono text-sm">npm install code-synapse</code>
                                     {copied ? (

@@ -30,7 +30,7 @@ export function JsonLd({ type }: JsonLdProps) {
     software: {
       "@context": "https://schema.org",
       "@type": "SoftwareApplication",
-      name: "code synapse",
+      name: "code-synapse",
       applicationCategory: "DeveloperApplication",
       operatingSystem: "Any",
       description: SITE_CONFIG.description,
@@ -38,7 +38,7 @@ export function JsonLd({ type }: JsonLdProps) {
         "@type": "Offer",
         price: "0",
         priceCurrency: "USD",
-        description: "Open source — npm install code-synapse",
+        description: "Open source institutional memory layer for AI-assisted development",
       },
       featureList: [
         "Pattern Enforcement",

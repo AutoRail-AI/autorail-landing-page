@@ -9,7 +9,7 @@ export interface NavLink {
 
 export const NAV_LINKS: NavLink[] = [
   {
-    label: "code synapse",
+    label: "code-synapse",
     href: `#${SECTION_IDS.codeSynapse}`,
   },
   {
@@ -23,7 +23,7 @@ export const NAV_LINKS: NavLink[] = [
   },
   {
     label: "GitHub",
-    href: "https://github.com/AutoRail-AI",
+    href: "https://github.com/AutoRail-AI/code-synapse",
     external: true,
   },
 ]
@@ -44,7 +44,7 @@ export const FOOTER_COLUMNS: FooterColumn[] = [
   {
     title: "Product",
     links: [
-      { label: "code synapse", href: "/code-synapse" },
+      { label: "code-synapse", href: "/code-synapse" },
       { label: "necroma", href: "/necroma" },
       { label: "Safety Rating", href: `#${SECTION_IDS.safetyRating}` },
       { label: "Ecosystem", href: `#${SECTION_IDS.ecosystem}` },
@@ -54,7 +54,7 @@ export const FOOTER_COLUMNS: FooterColumn[] = [
     title: "Resources",
     links: [
       { label: "Documentation", href: "/docs", comingSoon: true },
-      { label: "GitHub", href: "https://github.com/AutoRail-AI", external: true },
+      { label: "GitHub", href: "https://github.com/AutoRail-AI/code-synapse", external: true },
       { label: "Status", href: "https://status.autorail.com", comingSoon: true, external: true },
     ],
   },

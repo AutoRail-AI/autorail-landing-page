@@ -35,17 +35,17 @@ export function FlowDiagram({ className }: FlowDiagramProps) {
           <linearGradient id="cyanGradient" x1="0%" y1="0%" x2="100%" y2="0%">
             <stop offset="0%" stopColor="#00E5FF" stopOpacity="0.2" />
             <stop offset="50%" stopColor="#00E5FF" stopOpacity="0.8" />
-            <stop offset="100%" stopColor="#8134CE" stopOpacity="0.8" />
+            <stop offset="100%" stopColor="#6E18B3" stopOpacity="0.8" />
           </linearGradient>
 
           <linearGradient id="purpleGradient" x1="0%" y1="0%" x2="100%" y2="0%">
-            <stop offset="0%" stopColor="#8134CE" stopOpacity="0.8" />
-            <stop offset="50%" stopColor="#8134CE" stopOpacity="0.8" />
+            <stop offset="0%" stopColor="#6E18B3" stopOpacity="0.8" />
+            <stop offset="50%" stopColor="#6E18B3" stopOpacity="0.8" />
             <stop offset="100%" stopColor="#6E18B3" stopOpacity="0.2" />
           </linearGradient>
 
           <linearGradient id="centerGradient" x1="0%" y1="0%" x2="0%" y2="100%">
-            <stop offset="0%" stopColor="#8134CE" />
+            <stop offset="0%" stopColor="#6E18B3" />
             <stop offset="100%" stopColor="#6E18B3" />
           </linearGradient>
 
@@ -213,7 +213,7 @@ export function FlowDiagram({ className }: FlowDiagramProps) {
               cy="140"
               r="70"
               fill="none"
-              stroke="#8134CE"
+              stroke="#6E18B3"
               strokeWidth="1"
               initial={{ scale: 0.8, opacity: 0 }}
               animate={{
@@ -234,7 +234,7 @@ export function FlowDiagram({ className }: FlowDiagramProps) {
             cx="400"
             cy="140"
             r="65"
-            fill="#8134CE"
+            fill="#6E18B3"
             fillOpacity="0.15"
           />
 
@@ -246,7 +246,7 @@ export function FlowDiagram({ className }: FlowDiagramProps) {
             height="130"
             rx="20"
             fill="url(#centerGradient)"
-            stroke="#8134CE"
+            stroke="#6E18B3"
             strokeWidth="2"
             initial={{ opacity: 0, scale: 0.8 }}
             animate={{ opacity: 1, scale: 1 }}
@@ -335,7 +335,7 @@ export function FlowDiagram({ className }: FlowDiagramProps) {
           <motion.circle
             key={`right-particle-${i}`}
             r="3"
-            fill="#8134CE"
+            fill="#6E18B3"
             filter="url(#glow)"
             initial={{ opacity: 0 }}
             animate={{ opacity: [0, 1, 1, 0] }}
@@ -364,7 +364,7 @@ export function FlowDiagram({ className }: FlowDiagramProps) {
             cy="140"
             r="58"
             fill="none"
-            stroke="#8134CE"
+            stroke="#6E18B3"
             strokeWidth="1"
             strokeOpacity="0.3"
             initial={{ scale: 0.9, opacity: 0 }}
@@ -378,7 +378,7 @@ export function FlowDiagram({ className }: FlowDiagramProps) {
             cy="140"
             r="50"
             fill="#1A1A2E"
-            stroke="#8134CE"
+            stroke="#6E18B3"
             strokeWidth="2"
             initial={{ opacity: 0, scale: 0.8 }}
             animate={{ opacity: 1, scale: 1 }}
@@ -399,12 +399,12 @@ export function FlowDiagram({ className }: FlowDiagramProps) {
               height="30"
               rx="3"
               fill="none"
-              stroke="#8134CE"
+              stroke="#6E18B3"
               strokeWidth="2"
             />
             {/* Server lights */}
-            <circle cx="690" cy="135" r="2" fill="#8134CE" />
-            <circle cx="698" cy="135" r="2" fill="#8134CE" />
+            <circle cx="690" cy="135" r="2" fill="#6E18B3" />
+            <circle cx="698" cy="135" r="2" fill="#6E18B3" />
             <circle cx="706" cy="135" r="2" fill="#00E5FF" />
             {/* Base line */}
             <line
@@ -412,7 +412,7 @@ export function FlowDiagram({ className }: FlowDiagramProps) {
               y1="155"
               x2="710"
               y2="155"
-              stroke="#8134CE"
+              stroke="#6E18B3"
               strokeWidth="2"
               strokeLinecap="round"
             />

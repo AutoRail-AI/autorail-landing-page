@@ -48,7 +48,7 @@ export function FeatureGrid() {
                             transition={{ delay: idx * 0.1, duration: 0.5 }}
                             className="group p-8 rounded-2xl border border-white/5 bg-white/[0.02] hover:bg-white/[0.04] transition-colors"
                         >
-                            <div className="mb-6 inline-flex p-3 rounded-lg bg-slate-grey/50 text-white/80 group-hover:text-white group-hover:scale-110 transition-all duration-300">
+                            <div className="mb-6 inline-flex p-3 rounded-lg bg-white/5 text-white/80 group-hover:text-white group-hover:scale-110 transition-all duration-300">
                                 <feature.icon className="w-6 h-6" />
                             </div>
                             <h3 className="text-xl font-bold text-white mb-3 font-grotesk">{feature.title}</h3>

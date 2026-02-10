@@ -4,16 +4,16 @@ import { cn } from "lib/utils"
 
 const badgeVariants = cva(
   [
-    "inline-flex items-center justify-center",
+    "inline-flex items-center justify-center rounded-md",
     "font-medium font-[family-name:var(--font-grotesk)]",
-    "uppercase tracking-[0.05em]",
+    "uppercase tracking-widest text-[10px]",
   ],
   {
     variants: {
       variant: {
-        default: "bg-quantum-violet text-pure-white",
-        outline: "bg-transparent border border-quantum-violet/50 text-quantum-violet",
-        muted: "bg-slate-grey text-cloud-white/80",
+        default: "bg-rail-purple/20 text-rail-purple border border-rail-purple/50",
+        outline: "bg-transparent border border-white/10 text-muted-foreground",
+        cyan: "bg-electric-cyan/10 text-electric-cyan border border-electric-cyan/50",
       },
       size: {
         sm: "px-2 py-0.5 text-[10px] rounded",

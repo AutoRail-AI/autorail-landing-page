@@ -88,7 +88,7 @@ function PulsingNode({
   cy,
   r,
   delay,
-  color = "#8134CE",
+  color = "#6E18B3",
 }: {
   cx: number
   cy: number
@@ -338,22 +338,22 @@ export function HeroVisual({ className }: HeroVisualProps) {
           {/* Sophisticated gradients */}
           <linearGradient id="lineGradient" x1="0%" y1="0%" x2="100%" y2="0%">
             <stop offset="0%" stopColor="#6E18B3" stopOpacity="0" />
-            <stop offset="20%" stopColor="#8134CE" stopOpacity="0.5" />
-            <stop offset="50%" stopColor="#8134CE" stopOpacity="0.8" />
-            <stop offset="80%" stopColor="#8134CE" stopOpacity="0.5" />
+            <stop offset="20%" stopColor="#6E18B3" stopOpacity="0.5" />
+            <stop offset="50%" stopColor="#6E18B3" stopOpacity="0.8" />
+            <stop offset="80%" stopColor="#6E18B3" stopOpacity="0.5" />
             <stop offset="100%" stopColor="#6E18B3" stopOpacity="0" />
           </linearGradient>
 
           <linearGradient id="lineGradientVertical" x1="0%" y1="0%" x2="0%" y2="100%">
-            <stop offset="0%" stopColor="#8134CE" stopOpacity="0" />
-            <stop offset="30%" stopColor="#8134CE" stopOpacity="0.4" />
-            <stop offset="70%" stopColor="#8134CE" stopOpacity="0.4" />
-            <stop offset="100%" stopColor="#8134CE" stopOpacity="0" />
+            <stop offset="0%" stopColor="#6E18B3" stopOpacity="0" />
+            <stop offset="30%" stopColor="#6E18B3" stopOpacity="0.4" />
+            <stop offset="70%" stopColor="#6E18B3" stopOpacity="0.4" />
+            <stop offset="100%" stopColor="#6E18B3" stopOpacity="0" />
           </linearGradient>
 
           <radialGradient id="nodeGradient" cx="50%" cy="50%" r="50%">
             <stop offset="0%" stopColor="#00E5FF" stopOpacity="1" />
-            <stop offset="60%" stopColor="#8134CE" stopOpacity="0.8" />
+            <stop offset="60%" stopColor="#6E18B3" stopOpacity="0.8" />
             <stop offset="100%" stopColor="#6E18B3" stopOpacity="0" />
           </radialGradient>
 
@@ -551,24 +551,24 @@ export function HeroVisual({ className }: HeroVisualProps) {
         <g filter="url(#strongGlow)">
           {/* Top row */}
           <PulsingNode cx={200} cy={150} r={3} delay={0} color="#6E18B3" />
-          <PulsingNode cx={500} cy={180} r={4} delay={0.2} color="#8134CE" />
+          <PulsingNode cx={500} cy={180} r={4} delay={0.2} color="#6E18B3" />
           <PulsingNode cx={800} cy={150} r={3} delay={0.4} color="#00E5FF" />
-          <PulsingNode cx={1100} cy={200} r={4} delay={0.6} color="#8134CE" />
+          <PulsingNode cx={1100} cy={200} r={4} delay={0.6} color="#6E18B3" />
           <PulsingNode cx={1400} cy={160} r={3} delay={0.8} color="#6E18B3" />
 
           {/* Middle row */}
           <PulsingNode cx={150} cy={500} r={3} delay={1} color="#00E5FF" />
-          <PulsingNode cx={400} cy={450} r={5} delay={0.3} color="#8134CE" />
-          <PulsingNode cx={700} cy={520} r={4} delay={0.5} color="#8134CE" />
-          <PulsingNode cx={1000} cy={480} r={5} delay={0.7} color="#8134CE" />
+          <PulsingNode cx={400} cy={450} r={5} delay={0.3} color="#6E18B3" />
+          <PulsingNode cx={700} cy={520} r={4} delay={0.5} color="#6E18B3" />
+          <PulsingNode cx={1000} cy={480} r={5} delay={0.7} color="#6E18B3" />
           <PulsingNode cx={1300} cy={530} r={4} delay={0.9} color="#00E5FF" />
           <PulsingNode cx={1550} cy={500} r={3} delay={1.1} color="#6E18B3" />
 
           {/* Bottom row */}
-          <PulsingNode cx={250} cy={800} r={3} delay={1.2} color="#8134CE" />
+          <PulsingNode cx={250} cy={800} r={3} delay={1.2} color="#6E18B3" />
           <PulsingNode cx={550} cy={750} r={4} delay={1.4} color="#00E5FF" />
           <PulsingNode cx={850} cy={820} r={3} delay={1.6} color="#6E18B3" />
-          <PulsingNode cx={1150} cy={780} r={4} delay={1.8} color="#8134CE" />
+          <PulsingNode cx={1150} cy={780} r={4} delay={1.8} color="#6E18B3" />
           <PulsingNode cx={1450} cy={850} r={3} delay={2} color="#00E5FF" />
         </g>
 
@@ -589,7 +589,7 @@ export function HeroVisual({ className }: HeroVisualProps) {
               pathId="flowPath2"
               delay={i * 2 + 0.5}
               duration={6}
-              color="#8134CE"
+              color="#6E18B3"
             />
           ))}
           {[0, 1, 2, 3].map((i) => (
@@ -616,7 +616,7 @@ export function HeroVisual({ className }: HeroVisualProps) {
               pathId="flowPath5"
               delay={i * 2.5 + 1}
               duration={6}
-              color="#8134CE"
+              color="#6E18B3"
             />
           ))}
         </g>
@@ -626,7 +626,7 @@ export function HeroVisual({ className }: HeroVisualProps) {
           {/* Top left */}
           <motion.path
             d="M 30 80 L 30 30 L 80 30"
-            stroke="#8134CE"
+            stroke="#6E18B3"
             strokeWidth="2"
             fill="none"
             initial={{ pathLength: 0 }}
@@ -636,7 +636,7 @@ export function HeroVisual({ className }: HeroVisualProps) {
           {/* Top right */}
           <motion.path
             d="M 1520 30 L 1570 30 L 1570 80"
-            stroke="#8134CE"
+            stroke="#6E18B3"
             strokeWidth="2"
             fill="none"
             initial={{ pathLength: 0 }}
@@ -646,7 +646,7 @@ export function HeroVisual({ className }: HeroVisualProps) {
           {/* Bottom left */}
           <motion.path
             d="M 30 920 L 30 970 L 80 970"
-            stroke="#8134CE"
+            stroke="#6E18B3"
             strokeWidth="2"
             fill="none"
             initial={{ pathLength: 0 }}
@@ -656,7 +656,7 @@ export function HeroVisual({ className }: HeroVisualProps) {
           {/* Bottom right */}
           <motion.path
             d="M 1520 970 L 1570 970 L 1570 920"
-            stroke="#8134CE"
+            stroke="#6E18B3"
             strokeWidth="2"
             fill="none"
             initial={{ pathLength: 0 }}
@@ -670,7 +670,7 @@ export function HeroVisual({ className }: HeroVisualProps) {
           <motion.polygon
             points="120,120 150,170 90,170"
             fill="none"
-            stroke="#8134CE"
+            stroke="#6E18B3"
             strokeWidth="1"
             animate={{
               rotate: [0, 360],
@@ -715,7 +715,7 @@ export function HeroVisual({ className }: HeroVisualProps) {
           <motion.polygon
             points="1500,750 1530,800 1470,800"
             fill="none"
-            stroke="#8134CE"
+            stroke="#6E18B3"
             strokeWidth="1"
             animate={{
               rotate: [0, -360],
@@ -749,7 +749,7 @@ export function HeroVisual({ className }: HeroVisualProps) {
             cy="450"
             r="35"
             fill="none"
-            stroke="#8134CE"
+            stroke="#6E18B3"
             strokeWidth="1"
             animate={{
               scale: [1, 1.15, 1],
@@ -785,7 +785,7 @@ export function HeroVisual({ className }: HeroVisualProps) {
             cy="700"
             r="28"
             fill="none"
-            stroke="#8134CE"
+            stroke="#6E18B3"
             strokeWidth="1"
             animate={{
               scale: [1, 1.18, 1],

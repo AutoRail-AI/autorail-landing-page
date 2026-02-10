@@ -10,7 +10,7 @@
 *"Go ahead, let your teams use AI. Let them run fast. We are the safety infrastructure that ensures the code they generate doesn't bury you in technical debt."*
 
 **Analogy framework:**
-- *code synapse* = **Lane Keep Assist** (keeps you on the road/standard)
+- *code-synapse* = **Lane Keep Assist** (keeps you on the road/standard)
 - *necroma* = **Collision Avoidance System** (brakes/steers when a crash is imminent)
 - *autorail* = **The adult in the room** of AI coding tools
 
@@ -24,7 +24,7 @@ Landing page has been restructured to the new "Industrial Safety" narrative. New
 |---------|-----------|------|--------|
 | Hero | `Hero.tsx` | **"Permission to Run"** — Validate speed, sell safety | ✅ Done |
 | Day 2 Problem | `Day2Problem.tsx` | **"The Day 2 Hangover"** (3 Collapses) | ✅ Done |
-| code synapse | `CodeSynapse.tsx` | **"The Institutional Memory Layer"** (full-width) | ✅ Done |
+| code-synapse | `CodeSynapse.tsx` | **"The Institutional Memory Layer"** (full-width) | ✅ Done |
 | necroma | `Necroma.tsx` | **"Autonomous Legacy Reclamation"** (full-width) | ✅ Done |
 | Safety Rating | `SafetyRating.tsx` | **"Engineering Rigor"** (3 trust pillars) | ✅ Done |
 | Ecosystem | `Ecosystem.tsx` | **"Built on the Agentic Stack"** | ✅ Done (id + scroll-mt) |
@@ -65,11 +65,11 @@ NavBar
   - `SITE_CONFIG.footerTagline` → `"Build Fast. Don't Crash."` (new)
   - `CTA_TEXT.primary` → `"Install the Safety Kit"`, `CTA_TEXT.secondary` → `"Secure Your Legacy"`
   - `SECTION_IDS` → `hero`, `day2Problem`, `codeSynapse`, `necroma`, `safetyRating`, `ecosystem`, `cta`
-- [x] Update `data/navigation.ts` — `NAV_LINKS` (code synapse, necroma, Docs, GitHub) and `FOOTER_COLUMNS` use `SECTION_IDS` for hrefs; Product column includes Safety Rating and Ecosystem
+- [x] Update `data/navigation.ts` — `NAV_LINKS` (code-synapse, necroma, Docs, GitHub) and `FOOTER_COLUMNS` use `SECTION_IDS` for hrefs; Product column includes Safety Rating and Ecosystem
 - [x] Create `data/products.ts` — `CODE_SYNAPSE` and `NECROMA` with taglines, headlines, pitch, features, badges, CTAs, `npmPackage` (Synapse)
 
 ### 1.3 Update NavBar
-- [x] Navigation links from `NAV_LINKS`: code synapse, necroma, Docs, GitHub (external)
+- [x] Navigation links from `NAV_LINKS`: code-synapse, necroma, Docs, GitHub (external)
 - [x] CTA button: `"Get the Safety Kit"` linking to `#cta`
 - [x] NavBar uses `SITE_CONFIG` and `SECTION_IDS` from `lib/constants`; scroll state implemented with local `useState` + `useEffect` (no `@uidotdev/usehooks`)
 
@@ -110,12 +110,12 @@ NavBar
 - [x] **Eyebrow:** "The Problem"
 - [x] **Headline:** "The 'Day 2' Hangover."
 - [x] **Subhead:** As specified
-- [x] **3 Collapses** from `COLLAPSES`: Amnesia (BrainCog, code synapse), Context (Layers, knowledge graph), Verification (ShieldX, necroma)
+- [x] **3 Collapses** from `COLLAPSES`: Amnesia (BrainCog, code-synapse), Context (Layers, knowledge graph), Verification (ShieldX, necroma)
 - [x] Each card: product-colored top bar (cyan/purple), icon, "Solved by {product}"
 - [x] Stagger animation via `staggerContainerSlow` / `cardItem`
 - [x] Bottom connector line
 
-### 2.3 code synapse — "The Structural Support" ✅
+### 2.3 code-synapse — "The Structural Support" ✅
 
 **New full-width section `CodeSynapse.tsx`; copy from `data/products.ts` (CODE_SYNAPSE).**
 
@@ -164,7 +164,7 @@ NavBar
 **Implemented in `components/landing/CTASection.tsx`** — placed before Footer.
 
 - [x] Two-column split (responsive grid):
-  - **Left (Cyan):** code synapse — terminal `npm install code-synapse` with copy button, "Start in 30 seconds", "View on GitHub" link
+  - **Left (Cyan):** code-synapse — terminal `npm install code-synapse` with copy button, "Start in 30 seconds", "View on GitHub" link
   - **Right (Purple):** necroma — email input, "Secure your legacy systems", "Join Waitlist" submit
 - [x] Background: `GradientMesh` with `variant="cta"`
 - [x] Heading: "Ready to Industrialize?"
@@ -197,7 +197,7 @@ NavBar
 - [ ] Parallax effects on background gradients
 
 ### 4.3 Product Section Visuals
-- [ ] **code synapse:** Animated knowledge graph (nodes + edges pulsing in cyan)
+- [ ] **code-synapse:** Animated knowledge graph (nodes + edges pulsing in cyan)
 - [ ] **necroma:** Glass Brain dashboard mockup with Plan/Execute/Verify flow animation
 - [ ] 3D tilt effect on hover for product feature cards
 - [ ] Styled terminal component for `npm install` (with cursor blink, syntax highlighting)
@@ -223,10 +223,10 @@ NavBar
 ### 5.2 SEO
 - [ ] Update `app/layout.tsx` metadata:
   - Title: `"autorail — Vibe Coding, Industrialized"`
-  - Description: `"The Context and Verification layers that make AI-powered development safe for the enterprise. code synapse for pattern enforcement, necroma for autonomous legacy reclamation."`
+  - Description: `"The Context and Verification layers that make AI-powered development safe for the enterprise. code-synapse for pattern enforcement, necroma for autonomous legacy reclamation."`
 - [ ] Update OpenGraph/Twitter Card images and meta
 - [ ] Update `JsonLd` structured data
-- [ ] Add `JsonLd` for SoftwareApplication (code synapse)
+- [ ] Add `JsonLd` for SoftwareApplication (code-synapse)
 - [ ] Review `docs/seo-aeo-geo-strategy.md` — add "vibe coding", "AI safety", "technical debt prevention", "Day 2 AI" keywords
 
 ### 5.3 Accessibility
@@ -331,13 +331,13 @@ Applied so that **`pnpm build`** and **`pnpm dev`** / **`pnpm start`** run witho
 | Route | Type | Description |
 |-------|------|-------------|
 | `/` | Static | Home — single-page landing with all sections (Hero → Day2Problem → CodeSynapse → Necroma → SafetyRating → Ecosystem → CTASection). |
-| `/code-synapse` | Static | Dedicated product page for code synapse. |
+| `/code-synapse` | Static | Dedicated product page for code-synapse. |
 | `/necroma` | Static | Dedicated product page for necroma, including Glass Brain view showcase. |
 | `/api/health` | Dynamic | Health check endpoint. |
 
 ### Product pages (dedicated routes)
 
-**code synapse — `/code-synapse`**
+**code-synapse — `/code-synapse`**
 
 - **Files:** `app/code-synapse/page.tsx` (route + metadata), `app/code-synapse/code-synapse-product-page.tsx` (client content).
 - **Layout:** NavBar + main + Footer (same as home).
@@ -379,16 +379,16 @@ Implementation follows **`docs/GLASS_BRAIN_VIEW.md`** (Void Black + Rail Purple,
 
 ### Navigation and links
 
-- **NavBar:** “code synapse” and “necroma” links go to **`#code-synapse`** and **`#necroma`** on the **home page** (in-page scroll). “Get the Safety Kit” → `#cta`.
-- **Footer (Product column):** “code synapse” → **`/code-synapse`**, “necroma” → **`/necroma`** (dedicated product pages). “Safety Rating” → `#safety-rating`, “Ecosystem” → `#ecosystem` (home anchors).
-- **Product page CTAs:** “Back to home” → `/`. code synapse: GitHub and npm copy. necroma: “Join Waitlist” / “Secure your legacy systems” → `/#cta`.
+- **NavBar:** “code-synapse” and “necroma” links go to **`#code-synapse`** and **`#necroma`** on the **home page** (in-page scroll). “Get the Safety Kit” → `#cta`.
+- **Footer (Product column):** “code-synapse” → **`/code-synapse`**, “necroma” → **`/necroma`** (dedicated product pages). “Safety Rating” → `#safety-rating`, “Ecosystem” → `#ecosystem` (home anchors).
+- **Product page CTAs:** “Back to home” → `/`. code-synapse: GitHub and npm copy. necroma: “Join Waitlist” / “Secure your legacy systems” → `/#cta`.
 
 ### File inventory (product pages & Glass Brain)
 
 | Path | Purpose |
 |------|---------|
-| `app/code-synapse/page.tsx` | Route + metadata for code synapse. |
-| `app/code-synapse/code-synapse-product-page.tsx` | Client UI for code synapse page. |
+| `app/code-synapse/page.tsx` | Route + metadata for code-synapse. |
+| `app/code-synapse/code-synapse-product-page.tsx` | Client UI for code-synapse page. |
 | `app/necroma/page.tsx` | Route + metadata for necroma. |
 | `app/necroma/necroma-product-page.tsx` | Client UI for necroma page (includes GlassBrainShowcase). |
 | `components/glass-brain/breathing-glow.tsx` | Confidence-based ambient glow wrapper. |
@@ -396,7 +396,7 @@ Implementation follows **`docs/GLASS_BRAIN_VIEW.md`** (Void Black + Rail Purple,
 | `components/glass-brain/glass-brain-showcase.tsx` | Demo dashboard (header + 3-pane layout, mock data). |
 | `components/glass-brain/index.ts` | Barrel export. |
 
-**Modified for product pages:** `data/navigation.ts` — Footer Product links for “code synapse” and “necroma” now point to `/code-synapse` and `/necroma` instead of home anchors.
+**Modified for product pages:** `data/navigation.ts` — Footer Product links for “code-synapse” and “necroma” now point to `/code-synapse` and `/necroma` instead of home anchors.
 
 ---
 
@@ -407,7 +407,7 @@ Implementation follows **`docs/GLASS_BRAIN_VIEW.md`** (Void Black + Rail Purple,
 | P0 | Phase 1 | Foundation Cleanup | Delete legacy, update constants |
 | P0 | Phase 2.1 | Hero Rewrite | New copy + badge + CTAs |
 | P0 | Phase 2.2 | Day 2 Problem | The 3 Collapses section |
-| P0 | Phase 2.3–2.4 | Product Sections | code synapse + necroma as full-width |
+| P0 | Phase 2.3–2.4 | Product Sections | code-synapse + necroma as full-width |
 | P0 | Phase 2.5 | Safety Rating | Trust pillars section |
 | P1 | Phase 3.1 | CTA Section | Split terminal + waitlist |
 | P1 | Phase 4 | Visual Polish | Animations, transitions, micro-interactions |
@@ -428,9 +428,9 @@ Quick-access copy for implementation:
 | Hero subhead | "Your team is already using AI agents to move fast. But speed without standards is just a faster path to technical debt. autorail provides the Context and Verification layers that make autonomous development safe for the enterprise." |
 | Day 2 headline | "The 'Day 2' Hangover." |
 | Day 2 subhead | "AI agents are incredible at Day 1 creation. They are terrible at Day 2 maintenance. Without guardrails, the gold mine collapses:" |
-| code synapse tagline | "The Institutional Memory Layer." |
-| code synapse headline | "Stop AI From Writing 'Alien Code.'" |
-| code synapse pitch | "You wouldn't let a contractor build without blueprints. Don't let AI build without Context." |
+| code-synapse tagline | "The Institutional Memory Layer." |
+| code-synapse headline | "Stop AI From Writing 'Alien Code.'" |
+| code-synapse pitch | "You wouldn't let a contractor build without blueprints. Don't let AI build without Context." |
 | necroma tagline | "Autonomous Legacy Reclamation." |
 | necroma headline | "Verify Behavior, Not Just Syntax." |
 | necroma pitch | "Legacy migration is the most dangerous part of the mine. necroma is the autonomous unit that goes in, verifies the structural integrity, and reinforces it." |
@@ -446,7 +446,7 @@ Quick-access copy for implementation:
 | Phase | Status | Notes |
 |-------|--------|------|
 | Phase 1 | ✅ Complete | Legacy cleanup, constants, navigation, products data, NavBar, Footer, CLAUDE.md |
-| Phase 2 | ✅ Complete | Hero, Day2Problem, code synapse, necroma, SafetyRating, Ecosystem (minimal polish) |
+| Phase 2 | ✅ Complete | Hero, Day2Problem, code-synapse, necroma, SafetyRating, Ecosystem (minimal polish) |
 | Phase 3.1 | ✅ Complete | CTASection with terminal + waitlist, GradientMesh |
 | Product pages | ✅ Complete | `/code-synapse`, `/necroma` with full product content; necroma includes Glass Brain showcase |
 | Glass Brain | ✅ Complete | BreathingGlow, BootSequence, GlassBrainShowcase per `docs/GLASS_BRAIN_VIEW.md`; used on `/necroma` |

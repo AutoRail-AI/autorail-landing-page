@@ -11,10 +11,10 @@ export function Card({ className, children, hover = true, gradient = false, ...p
   return (
     <div
       className={cn(
-        "rounded-xl bg-void-black border border-border-default",
+        "rounded-xl bg-void-black border-hud",
         "transition-all duration-200",
-        hover && "hover:border-border-hover hover:glow-purple",
-        gradient && "border-gradient",
+        hover && "hover:border-electric-cyan/30 hover:glow-purple",
+        gradient && "bg-grid-pattern",
         className
       )}
       {...props}

@@ -30,7 +30,7 @@ export function AccordionTrigger({ className, children, ...props }: AccordionTri
         className={cn(
           "flex flex-1 items-center justify-between py-5 text-left",
           "text-lg font-medium text-cloud-white font-[family-name:var(--font-grotesk)]",
-          "transition-all hover:text-quantum-violet",
+          "transition-all hover:text-electric-cyan",
           "[&[data-state=open]>svg]:rotate-180",
           className
         )}

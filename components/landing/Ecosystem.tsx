@@ -10,11 +10,11 @@ export function Ecosystem() {
   return (
     <section
       id={SECTION_IDS.ecosystem}
-      className="py-20 bg-void-black border-t border-white/5 scroll-mt-20"
+      className="py-20 bg-void-black bg-grid-pattern border-t border-white/5 scroll-mt-20"
     >
             <Container>
                 <div className="text-center mb-10">
-                    <span className="text-sm font-mono text-white/40 uppercase tracking-widest">Built on the Agentic Stack</span>
+                    <span className="text-label text-white/40">Built on the Agentic Stack</span>
                 </div>
 
                 <div className="relative overflow-hidden">

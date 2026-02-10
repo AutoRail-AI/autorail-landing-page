@@ -1,359 +1,562 @@
-@import 'tailwindcss';
+# Project Lazarus Brand Guidelines
 
-/* ============================================================================
-   Project Lazarus Design System
-   Tailwind CSS v4 + shadcn/ui compatible
-   Theme: Void Black + Rail Purple (Glass Brain Aesthetic)
-   ============================================================================ */
+**"The Legacy Code Necromancer"**
 
-@theme {
-  /* ==========================================================================
-     Color Primitives
-     ========================================================================== */
-  --color-void-black: #0A0A0F;
-  --color-slate-grey: #1E1E28;
-  --color-cloud-white: #FAFAFA;
-  --color-pure-white: #FFFFFF;
-  --color-obsidian: #050507; /* Darker background for depth */
+This document defines the visual identity for **Project Lazarus**. The aesthetic is "Void Black + Rail Purple"—utilizing a deep void-black palette with rail purple and electric cyan accents to create a "Glass Brain" aesthetic that conveys autonomous intelligence, transmutation, and modern software engineering.
 
-  /* ==========================================================================
-     Brand Colors
-     ========================================================================== */
-  --color-rail-purple: #6E18B3;
-  --color-quantum-violet: #8134CE;
-  --color-deep-purple: #5B0B96;
-  --color-electric-cyan: #00E5FF;
-  --color-neon-blue: #2979FF; /* For active states */
+---
 
-  /* ==========================================================================
-     Status Colors
-     ========================================================================== */
-  --color-success: #00FF88;
-  --color-warning: #FFB800;
-  --color-error: #FF3366;
-  --color-info: #00E5FF;
+## Primary UI Palette (Enterprise Rule)
 
-  /* ==========================================================================
-     shadcn/ui Semantic Colors (mapped to design system)
-     ========================================================================== */
-  --color-background: var(--color-void-black);
-  --color-foreground: var(--color-cloud-white);
+**Use only a couple of colors so the website looks professional and enterprise-grade.**
 
-  --color-card: rgba(30, 30, 40, 0.4); /* Glass effect base */
-  --color-card-foreground: var(--color-cloud-white);
+| Role | Color | Usage |
+| :--- | :--- | :--- |
+| **Background** | **Void Black** (`#0A0A0F`) | **Always.** All page and section backgrounds use Void Black. |
+| **Fonts & components** | **Rail Purple** (`#6E18B3`) **or** **Electric Cyan** (`#00E5FF`) | All accents: buttons, borders, icons, links, highlights, and non-text UI. Use Cloud White for body text. |
 
-  --color-popover: var(--color-slate-grey);
-  --color-popover-foreground: var(--color-cloud-white);
+- **Do not** introduce extra accent colors (e.g. avoid standalone Quantum Violet, Slate Grey, or other hues for UI).
+- **Text:** Primary reading text = Cloud White (`#FAFAFA`). Muted text = `rgba(250, 250, 250, 0.6)`.
+- **Focus / ring:** Electric Cyan for consistency and accessibility.
 
-  --color-primary: var(--color-rail-purple);
-  --color-primary-foreground: var(--color-pure-white);
+This limited palette is implemented in `styles/tailwind.css` and across all landing and UI components.
 
-  --color-secondary: var(--color-slate-grey);
-  --color-secondary-foreground: var(--color-cloud-white);
+---
 
-  --color-muted: rgba(30, 30, 40, 0.5);
-  --color-muted-foreground: rgba(250, 250, 250, 0.6);
+## 1. Brand Core
 
-  --color-accent: var(--color-electric-cyan);
-  --color-accent-foreground: var(--color-void-black);
+| Element | Definition |
+| :--- | :--- |
+| **Name** | Project Lazarus |
+| **Tagline** | The Legacy Code Necromancer |
+| **Concept** | Autonomous AI platform that transmutes legacy software into modern web applications |
+| **Vibe** | Void Black, Glass Brain, Rail Purple, Electric Cyan, Transmutation |
 
-  --color-destructive: var(--color-error);
-  --color-destructive-foreground: var(--color-pure-white);
+---
 
-  --color-border: rgba(250, 250, 250, 0.1);
-  --color-input: rgba(250, 250, 250, 0.15);
-  --color-ring: var(--color-quantum-violet);
+## 2. Brand Voice: The "Civilized Alchemist"
 
-  /* Chart colors */
-  --color-chart-1: var(--color-rail-purple);
-  --color-chart-2: var(--color-quantum-violet);
-  --color-chart-3: var(--color-electric-cyan);
-  --color-chart-4: var(--color-success);
-  --color-chart-5: var(--color-warning);
+We use the language of **transmutation**, with the tone of a **structural engineer**—so we don't scare off the bank manager.
 
-  /* Sidebar */
-  --color-sidebar: var(--color-obsidian);
-  --color-sidebar-foreground: var(--color-cloud-white);
-  --color-sidebar-primary: var(--color-rail-purple);
-  --color-sidebar-primary-foreground: var(--color-pure-white);
-  --color-sidebar-accent: #16161F;
-  --color-sidebar-accent-foreground: var(--color-cloud-white);
-  --color-sidebar-border: rgba(250, 250, 250, 0.08);
-  --color-sidebar-ring: var(--color-quantum-violet);
+| Don't say | Do say |
+| :--- | :--- |
+| "We use magic to fix your code." | "We transmute legacy debt into modern assets using deterministic verification." |
+| "The AI guesses the fix." | "The agent diagnoses the root cause and synthesizes a correction." |
 
-  /* ==========================================================================
-     Font Families (Tailwind v4: --font-* creates font-* utility)
-     ========================================================================== */
-  --font-grotesk: var(--font-space-grotesk), 'Space Grotesk', sans-serif;
-  --font-sans: var(--font-inter-var), 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
-  --font-mono: var(--font-jetbrains), 'JetBrains Mono', 'Fira Code', monospace;
+**Keywords:** *Transmute, Synthesize, Verify, Ground Truth, Deterministic, Reincarnate.*
 
-  /* ==========================================================================
-     Border Radius
-     ========================================================================== */
-  --radius-sm: 4px;
-  --radius-md: 8px;
-  --radius-lg: 12px;
-  --radius-xl: 16px;
-  --radius-2xl: 24px;
-  --radius-full: 9999px;
+---
 
-  /* ==========================================================================
-     Spacing
-     ========================================================================== */
-  --spacing-18: 4.5rem;
-  --spacing-22: 5.5rem;
+## 3. Color Philosophy
 
-  /* ==========================================================================
-     Animations
-     ========================================================================== */
-  --animate-fade-in: fade-in 0.5s ease-out;
-  --animate-slide-up: slide-up 0.5s ease-out;
-  --animate-pulse-glow: pulse-glow 2s ease-in-out infinite;
-  --animate-accordion-down: accordion-down 0.2s ease-out;
-  --animate-accordion-up: accordion-up 0.2s ease-out;
-  --animate-shimmer: shimmer 2s linear infinite;
-  --animate-float: float 6s ease-in-out infinite;
-  --animate-glitch: glitch 0.4s ease-out;
-  --animate-breathing-glow: breathing-glow 4s ease-in-out infinite;
-  --animate-particle-flow: particle-flow 1.5s linear infinite;
+### The "Glass Brain" Aesthetic
 
-  @keyframes particle-flow {
-    0% { transform: translateX(0); opacity: 0; }
-    10% { opacity: 1; }
-    90% { opacity: 1; }
-    100% { transform: translateX(var(--flow-distance, 100px)); opacity: 0; }
-  }
+Our color system creates a deep, immersive environment where **void black backgrounds** provide high contrast for **rail purple** and **electric cyan** elements. The "Glass Brain" concept visualizes the AI's cognition (Plan, Work, Thoughts) through translucent panels and glowing accents.
 
-  @keyframes breathing-glow {
-    0%, 100% { box-shadow: inset 0 0 20px rgba(0,229,255,0.03); }
-    50% { box-shadow: inset 0 0 40px rgba(0,229,255,0.08); }
-  }
+**Why this works for Project Lazarus:**
+- **Void Black (#0A0A0F)**: Represents the "void" from which legacy code is brought back to life.
+- **Rail Purple (#6E18B3)**: Represents the "rail" or guided path of transmutation.
+- **Electric Cyan (#00E5FF)**: Represents the spark of intelligence and modern technology.
 
-  @keyframes fade-in {
-    from { opacity: 0; }
-    to { opacity: 1; }
-  }
+#### The "Bicameral" Color Logic
 
-  @keyframes slide-up {
-    from { opacity: 0; transform: translateY(20px); }
-    to { opacity: 1; transform: translateY(0); }
-  }
+To communicate the **Two Brains** architecture instantly, we separate color usage by function—every color has a *cognitive, engineering purpose*:
 
-  @keyframes pulse-glow {
-    0%, 100% { opacity: 0.5; }
-    50% { opacity: 1; }
-  }
+| Color | Represents | Use for |
+| :--- | :--- | :--- |
+| **Electric Cyan (`#00E5FF`)** | **New Intelligence** — Code Synapse, Generation, Forward Momentum | Primary buttons, active cursors, generated code, "Ship Ready" confidence |
+| **Rail Purple (`#6E18B3`)** | **Deep Context** — Necroma, Legacy Analysis, Structure | Background borders, knowledge-graph nodes, "Self-Healing" diagnosis, historical logs |
 
-  @keyframes accordion-down {
-    from { height: 0; }
-    to { height: var(--radix-accordion-content-height); }
-  }
+**Rule:** *Cyan is the Spark. Purple is the Wire.*
 
-  @keyframes accordion-up {
-    from { height: var(--radix-accordion-content-height); }
-    to { height: 0; }
-  }
+For the full **Glass Brain View** design and UX patterns (boot sequence, breathing glow, event colors, animations), see **Section 10**.
 
-  @keyframes shimmer {
-    from { background-position: 0 0; }
-    to { background-position: -200% 0; }
-  }
+---
 
-  @keyframes glitch {
-    0% { transform: translateX(0); opacity: 1; }
-    15% { transform: translateX(-2px); opacity: 0.85; }
-    30% { transform: translateX(2px); opacity: 0.9; }
-    45% { transform: translateX(-1px); opacity: 0.95; }
-    60% { transform: translateX(1px); }
-    100% { transform: translateX(0); opacity: 1; }
-  }
+## 4. Color Palette Quick Reference
 
-  @keyframes float {
-    0%, 100% { transform: translateY(0); }
-    50% { transform: translateY(-10px); }
-  }
+### Background Colors
+
+| Color | Hex | RGB | Role |
+| :---: | :--- | :--- | :--- |
+| ![#0A0A0F](https://via.placeholder.com/16/0A0A0F/0A0A0F?text=+) | `#0A0A0F` | (10, 10, 15) | **Void Black** (Main Background) |
+| ![#1E1E28](https://via.placeholder.com/16/1E1E28/1E1E28?text=+) | `#1E1E28` | (30, 30, 40) | **Slate Grey** (Secondary/Muted) |
+| ![#050507](https://via.placeholder.com/16/050507/050507?text=+) | `#050507` | (5, 5, 7) | **Obsidian** (Darker Depth) |
+
+### Foreground Colors
+
+| Color | Hex | RGB | Role |
+| :---: | :--- | :--- | :--- |
+| ![#6E18B3](https://via.placeholder.com/16/6E18B3/6E18B3?text=+) | `#6E18B3` | (110, 24, 179) | **Rail Purple** (Primary Brand) |
+| ![#8134CE](https://via.placeholder.com/16/8134CE/8134CE?text=+) | `#8134CE` | (129, 52, 206) | **Quantum Violet** (Lighter Purple) |
+| ![#00E5FF](https://via.placeholder.com/16/00E5FF/00E5FF?text=+) | `#00E5FF` | (0, 229, 255) | **Electric Cyan** (Accent/Intelligence) |
+| ![#FAFAFA](https://via.placeholder.com/16/FAFAFA/FAFAFA?text=+) | `#FAFAFA` | (250, 250, 250) | **Cloud White** (Primary Text) |
+
+---
+
+## 5. Background Palette (Void Black & Glass)
+
+These are the structural colors—the canvas on which Project Lazarus operates.
+
+| Token | Hex | Role |
+| :--- | :--- | :--- |
+| **Background** | `#0A0A0F` | Main canvas, page background |
+| **Card** | `rgba(30, 30, 40, 0.4)` | Glass panels (Glass Brain panes) |
+| **Muted** | `rgba(30, 30, 40, 0.5)` | Secondary backgrounds, inputs |
+| **Border** | `rgba(250, 250, 250, 0.1)` | Borders, dividers (subtle) |
+
+### Usage Guidelines
+
+```css
+/* Page background */
+background: #0A0A0F;
+
+/* Glass Card */
+background: rgba(30, 30, 40, 0.4);
+backdrop-filter: blur(12px);
+border: 1px solid rgba(250, 250, 250, 0.1);
+```
+
+### ⚠️ Accessibility & Usage Rules (Strict)
+
+*   **Rail Purple (#6E18B3)**: Use **ONLY** for graphics, backgrounds, borders, icons, and gradients. **NEVER** use for body text or small labels (Contrast 3.5:1 fails WCAG AA).
+*   **Electric Cyan (#00E5FF)**: Safe for text and icons (Contrast 13:1). Use for active states, links, and "intelligence" accents.
+*   **Cloud White (#FAFAFA)**: Use for all primary reading text.
+*   **Quantum Violet (#8134CE)**: Use only inside the Rail Fade gradient, not as a standalone UI color.
+
+---
+
+## 6. Foreground Palette (Rail & Spark)
+
+The gradients represent the flow of data and the transformation process.
+
+| Token | Hex | Role |
+| :--- | :--- | :--- |
+| **Rail Purple** | `#6E18B3` | Primary actions, brand identity |
+| **Electric Cyan** | `#00E5FF` | Active states, code execution, "intelligence" |
+| **Success** | `#00FF88` | Successful transmutation/test (semantic only) |
+| **Warning** | `#FFB800` | Issues requiring attention (semantic only) |
+| **Error** | `#FF3366` | Critical failures (semantic only) |
+
+### Gradient Definition
+
+```css
+/* Rail Fade (Primary Brand Gradient) */
+background: linear-gradient(135deg, #8134CE 0%, #6E18B3 100%);
+
+/* Automation Flow (Hero/CTA) */
+background: linear-gradient(90deg, #00E5FF 0%, #8134CE 50%, #6E18B3 100%);
+```
+
+---
+
+## 6.1 Confidence Glows (Framing)
+
+Use these glows for clear, beautiful framing across the landing page (e.g. confidence tiers, status indicators, or progress states).
+
+| Range   | Hex     | Effect                          | Tailwind / Usage                                      |
+| :---    | :---    | :---                            | :---                                                  |
+| **40–70%**  | `#FFB800` | Subtle yellow glow              | `glow-yellow`                                         |
+| **70–85%**  | `#00E5FF` | Cyan glow                       | `glow-cyan`                                           |
+| **≥ 85%**   | `#00FF88` | Green glow + pulse              | `glow-success-pulse` (green glow + `animate-pulse-glow`) |
+
+### Usage
+
+- **40–70%:** Caution or in-progress state; soft yellow keeps the frame visible without dominating.
+- **70–85%:** Strong confidence; Electric Cyan aligns with brand “intelligence” and stays on-palette.
+- **≥ 85%:** High confidence / success; green glow with `animate-pulse-glow` for a clear, positive signal.
+
+Implement in `styles/tailwind.css` via `.glow-yellow`, `.glow-cyan`, and `.glow-success-pulse`.
+
+---
+
+## 7. Typography System — Enterprise Guide
+
+**"The Industrial Terminal Aesthetic"**
+
+Our typography is the voice of the machine. It must be precise, engineered, and readable. We avoid decorative fonts in favor of functional, high-performance typefaces that feel native to a developer's environment (IDEs, terminals, documentation). The system conveys **Technical Rigor**, **Safety**, and **Intelligence**.
+
+### 7.1 Typeface Selection
+
+We use a three-font stack: **Brand Voice** (headlines), **Utility** (UI/body), and **Data** (code).
+
+| Role | Font Family | Weight | Why we use it |
+| :--- | :--- | :--- | :--- |
+| **HEADLINES** | **Space Grotesk** | Bold (700), SemiBold (600) | Geometric sans that feels "engineered" and "manufactured." Anchors the "Industrial" vibe. |
+| **INTERFACE** | **Inter** | Regular (400), Medium (500) | Enterprise standard for legibility. Invisible, frictionless, and safe. |
+| **DATA & CODE** | **JetBrains Mono** | Regular (400) | Gold standard for code. Signals immediately: "This is a developer tool." |
+
+Sources: [Space Grotesk](https://fonts.google.com/specimen/Space+Grotesk), [Inter](https://fonts.google.com/specimen/Inter), [JetBrains Mono](https://fonts.google.com/specimen/JetBrains+Mono).
+
+### 7.2 Type Hierarchy & Scaling
+
+A distinct scale ensures hero messages feel massive and confident, while documentation stays dense and scannable.
+
+#### Display Levels (Space Grotesk)
+
+*Hero sections, huge statements, landing impact.*
+
+| Token | Size (Mobile / Desktop) | Weight | Tracking | Usage |
+| :--- | :--- | :--- | :--- | :--- |
+| **Display XL** | `48px` / `72px` | Bold (700) | `-0.04em` | Main landing hero ("Vibe Coding, Industrialized") |
+| **Display L** | `36px` / `56px` | Bold (700) | `-0.03em` | Major section headers ("The Day 2 Hangover") |
+| **Display M** | `30px` / `48px` | SemiBold (600) | `-0.02em` | Feature block headers |
+
+#### Heading Levels (Space Grotesk)
+
+*Cards, articles, product interfaces.*
+
+| Token | Size | Weight | Tracking | Usage |
+| :--- | :--- | :--- | :--- | :--- |
+| **H1** | `32px` | SemiBold (600) | `-0.02em` | Page titles (dashboard/docs) |
+| **H2** | `24px` | SemiBold (600) | `-0.01em` | Section dividers, large cards |
+| **H3** | `20px` | Medium (500) | `0` | Card titles, modal headers |
+| **H4** | `16px` | Medium (500) | `0` | Small labels, sub-sections |
+
+#### Body & UI (Inter)
+
+*All reading text, buttons, inputs.*
+
+| Token | Size | Weight | Line Height | Usage |
+| :--- | :--- | :--- | :--- | :--- |
+| **Body Large** | `18px` | Regular (400) | `1.6` | Hero subtext, intros |
+| **Body Base** | `16px` | Regular (400) | `1.6` | Standard blog/docs text |
+| **Body Small** | `14px` | Regular (400) | `1.5` | Dashboard UI, cards, inputs |
+| **Caption** | `12px` | Medium (500) | `1.4` | Metadata, timestamps, footnotes |
+
+#### Code & Technical (JetBrains Mono)
+
+*Terminal streams, code blocks, logs, technical badges.*
+
+| Token | Size | Color | Usage |
+| :--- | :--- | :--- | :--- |
+| **Code Base** | `14px` | Cloud White | Code snippets, main terminal output |
+| **Code Small** | `12px` | Muted / Electric Cyan | Inline code (`npm install`), badges |
+| **Code Tiny** | `10px` | Muted | Line numbers, subtle logs |
+
+### 7.3 Styling & Effects
+
+#### The "Industrial" Gradient Text
+
+Use only for high-impact keywords (e.g. "Industrialized", "Ground Truth"). Do not overuse.
+
+```css
+/* Tailwind: text-gradient */
+background: linear-gradient(135deg, #8134CE 0%, #6E18B3 100%);
+-webkit-background-clip: text;
+-webkit-text-fill-color: transparent;
+background-clip: text;
+```
+
+#### The "Terminal" Glow
+
+For code blocks or Electric Cyan text to suggest an active terminal / CRT.
+
+```css
+/* Tailwind: text-glow-cyan */
+color: #00E5FF;
+text-shadow: 0 0 10px rgba(0, 229, 255, 0.5);
+```
+
+See `styles/tailwind.css` for `.text-glow-cyan` and `.text-glow-purple`.
+
+#### Selection State
+
+Keep selection on-brand and immersive.
+
+```css
+::selection {
+  background: rgba(0, 229, 255, 0.3);
+  color: #FAFAFA;
 }
+```
 
-/* =============================================================================
-   Base Styles
-   ============================================================================= */
+### 7.4 Tailwind Implementation
 
-@layer base {
-  *,
-  ::after,
-  ::before,
-  ::backdrop,
-  ::file-selector-button {
-    border-color: var(--color-border);
-  }
+Display and glow utilities are defined in `styles/tailwind.css`:
 
-  html {
-    scroll-behavior: smooth;
-    -webkit-text-size-adjust: 100%;
-  }
+- **Display:** `.text-display-xl` (48px → 72px at `md`), `.text-display-lg` (36px → 56px at `md`), `.text-display-m` (30px → 48px at `md`).
+- **Glow:** `.text-glow-cyan`, `.text-glow-purple`.
 
-  body {
-    font-family: var(--font-sans);
-    background-color: var(--color-void-black);
-    color: var(--color-cloud-white);
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-    font-feature-settings: "cv02", "cv03", "cv04", "cv11"; /* Enterprise Inter settings */
-  }
+Use `font-grotesk`, `font-sans`, and `font-mono` for the three roles. Theme variables: `--font-grotesk`, `--font-sans`, `--font-mono`.
 
-  h1, h2, h3, h4, h5, h6 {
-    font-family: var(--font-grotesk);
-    font-weight: 600;
-    line-height: 1.2;
-    letter-spacing: -0.02em;
-  }
+### 7.5 Usage Rules (Do's & Don'ts)
 
-  code, pre {
-    font-family: var(--font-mono);
-  }
-}
+| Do | Don't |
+| :--- | :--- |
+| Use **Space Grotesk** in ALL CAPS with wide tracking (`tracking-widest`) for small labels like "ENTERPRISE" or "BETA". | Use **Space Grotesk** for paragraphs — it becomes hard to read at small sizes. |
+| Use **JetBrains Mono** for specific technical terms inside body text (e.g. "The `agent_events` table…"). | Use **JetBrains Mono** for long paragraphs — it creates eye strain. |
+| Use **Cloud White (`#FAFAFA`)** for headlines and body on Void Black. | Use pure white (`#FFFFFF`) for large headlines — it can "vibrate" against the black background. |
+| Use **muted** (`rgba(250,250,250,0.6)`) strictly for metadata, captions, footnotes. | Use accent colors for long-form body text. |
 
-/* Reduced Motion Support */
+### 7.6 The "Flight Deck" Rule (Data Density)
+
+Enterprise tools are defined by **information density**. Labels and numbers must be scannable and stable.
+
+| Element | Rule | Example |
+| :--- | :--- | :--- |
+| **Labels** | Uppercase, `text-[10px]`, `tracking-widest`, `font-grotesk`, `text-muted-foreground`. Use `.text-label`. | `CONFIDENCE SCORE`, `LATENCY` |
+| **Numbers** | Always `font-mono` (JetBrains), `tabular-nums` so numbers don't jitter when changing. | Counters, metrics, timers |
+| **Logs** | `text-xs`, `leading-tight`, `opacity-80`. | Terminal output, event streams |
+| **Glow** | Apply only to *changing* data (the delta), never to static data. | Live confidence %, active cursor |
+
+---
+
+## 8. Logo & Brand Assets
+
+Project Lazarus assets are located in `public/logos/` and `app/`.
+
+### Logo Files
+
+| File | Format | Usage |
+| :--- | :--- | :--- |
+| `app/icon.svg` | SVG | Primary App Icon / Favicon |
+| `public/autorail.svg` | SVG | Brand graphic (Rail concept) |
+| `public/logos/*` | SVG/PNG | (If available) Full logos |
+
+### Logo Specifications
+* **Primary Icon:** Geometric "L" or Brain/Rail symbol.
+* **Colors:** Rail Purple (`#6E18B3`) and Electric Cyan (`#00E5FF`).
+
+### Using Logos in Code
+
+```tsx
+import Image from "next/image"
+
+// App Icon
+<Image src="/icon.svg" alt="Project Lazarus" width={32} height={32} />
+
+// Brand Graphic
+<Image src="/autorail.svg" alt="AutoRail" width={120} height={40} />
+```
+
+---
+
+## 9. UI Principles
+
+1. **Void Black Canvas:** Always start with `#0A0A0F`.
+2. **Limited Accents:** Use only Rail Purple and Electric Cyan for fonts (accents), buttons, borders, icons, and glows—with **Bicameral** logic: Cyan = New Intelligence / Spark; Purple = Deep Context / Wire.
+3. **Industrial Glass (HUD Style):** Avoid soft, pillow-like glass. Our glass is structural.
+   - **Borders:** All glass panels must have a `1px` border. Use `border-white/10` for passive, `border-electric-cyan/30` for active.
+   - **Corners:** Use tighter radii (`rounded-lg` or `rounded-xl`). Never `rounded-3xl` (pill shapes are for consumers, not engineers).
+   - **Texture:** Use a subtle grid overlay on the deepest backgrounds (e.g. `bg-grid-pattern`) for a sense of "spatial mapping."
+4. **Motion Physics: Machine Precision:** Animations should feel like high-end machinery, not organic fluid.
+   - **The Snap:** Use `ease-out` (fast → slow) for entrances. It shows responsiveness.
+   - **The Pulse:** Status lights (e.g. Project Pulse) should use a "heartbeat" rhythm (double beat) rather than a sine wave—more biological/alive.
+   - **The Glitch:** Use `animate-glitch` *only* for "Transformation Events" (Legacy → Modern) or "Self-Healing" triggers. It visualizes the Necromancy—breaking the old reality to form the new.
+5. **Information Density:** High density (dashboard style), `text-sm` base size. CTOs want data; see **§7.6 The Flight Deck Rule**.
+6. **Glow Effects:** Use `glow-purple` or `glow-cyan` for active states/focus. For confidence/framing tiers use the **Confidence Glows** (§6.1): `glow-yellow` (40–70%), `glow-cyan` (70–85%), `glow-success-pulse` (≥ 85%).
+
+---
+
+## 10. Glass Brain View — Design & UX
+
+*Reference: `docs/GLASS_BRAIN_VIEW.md`*
+
+The Glass Brain is our production-grade, immersive dashboard aesthetic: Void Black + Rail Purple + Electric Cyan, with translucent panels and confidence-reactive glows. Use these patterns for any agent-facing or build-monitoring UI to keep the experience consistent and spectacular.
+
+### 10.1 Theatrical Entry (Boot & First Impression)
+
+**Boot sequence** establishes the “brain coming online” feel. A short, staged intro (e.g. 3–4 seconds) builds anticipation:
+
+| Phase | Visual |
+| :--- | :--- |
+| 0 | Pulsing cyan dot (opacity oscillates) |
+| 1 | Dot grows + radial lines (e.g. 6 lines, 60° apart) |
+| 2 | “Neural Link Established” (Electric Cyan, letter-spacing) |
+| 3 | “Materializing panes…” (muted, smaller) |
+| 4 | Overlay fades out; main content appears |
+
+Respect `prefers-reduced-motion`: skip to final state immediately.
+
+### 10.2 Breathing Glow (Confidence-Reactive Framing)
+
+Wrap key content in an **ambient glow** that reacts to state (e.g. confidence 0–1):
+
+- **Inset box-shadow** intensity scales with value (e.g. blur 20px→60px, alpha 5%→15%).
+- **Animation:** 3-keyframe loop (half → full → half), ~4s ease-in-out infinite.
+- Use **Electric Cyan** for the glow color to stay on-palette.
+
+This creates a living, reactive frame that makes the UI feel alive without distraction.
+
+### 10.3 Layout & Panes
+
+- **Grid:** Three-column layout, e.g. `grid-cols-[1fr_2fr_1fr]`, with `gap-3` and `p-3`.
+- **Panes:** Use `glass-panel` or `glass-card` for each column; stagger entrance (e.g. 0.15s delay per column) for a materializing effect.
+- **Density:** High information density, `text-sm` base; keep the “terminal/dashboard” feel.
+
+### 10.4 Event Type Colors (Logs & Badges)
+
+Use consistent colors for event types in logs, badges, and status indicators:
+
+| Event / State   | Color        | Hex       | Use |
+| :---            | :---         | :---      | :--- |
+| thought         | Grey         | `#888888` | AI reasoning |
+| tool_call       | Electric Cyan| `#00E5FF` | MCP / tools |
+| code_write      | Cloud White  | `#FAFAFA` | Code changes |
+| test_run        | Warning      | `#FFB800` | Tests running |
+| test_result pass| Success      | `#00FF88` | Pass |
+| test_result fail| Error        | `#FF3366` | Fail |
+| self_heal       | Quantum Violet | `#8134CE` | Self-healing |
+| confidence_update | Electric Cyan | `#00E5FF` | Confidence |
+| app_start       | Mint / Success | `#30D158` / `#00FF88` | Start |
+
+### 10.5 Animation Catalog
+
+**CSS keyframes** (in `styles/tailwind.css`):
+
+| Name | Purpose |
+| :--- | :--- |
+| `pulse-glow` | Opacity 0.5 ↔ 1; use for status dots and success glow |
+| `breathing-glow` | Inset cyan glow pulse |
+| `particle-flow` | Horizontal drift + fade (particles, progress) |
+| `shimmer` | Background position shift (loading) |
+| `float` | Gentle vertical drift |
+| `fade-in` / `slide-up` | Entry transitions |
+
+**Framer Motion patterns:**
+
+| Pattern | Use | Config |
+| :--- | :--- | :--- |
+| Pane stagger | Dashboard columns | `delay: i * 0.15`, `y: 20→0`, ~0.4s ease-out |
+| Status pulse | Live indicator dot | `scale: [1, 1.3, 1]`, `opacity: [0.7, 1, 0.7]`, ~1.5s repeat |
+| Expanding ring | Around status dot | `scale: [1, 2.5]`, `opacity: [0.4, 0]`, ~1.5s repeat |
+| Card scale-in | Overlays, cards | `scale: 0.8→1`, spring, optional stagger |
+| Fade + scale | View/page transitions | `opacity: 0→1`, `scale: 0.98→1` |
+
+**Counters:** Use rAF (requestAnimationFrame) with cubic ease-out for number changes (e.g. LOC, tests, timer). Avoid CSS transitions on width/transform for numbers.
+
+### 10.6 Key Design Decisions
+
+1. **No heavy charting library** — Sparklines as hand-rolled SVG; keeps bundle small.
+2. **No syntax-highlighting library** — Regex-based tokenization for code display is sufficient for our use case.
+3. **All numeric counters use rAF** — Smooth 60fps number animation; respect `prefers-reduced-motion` (snap to value).
+4. **Glass via utility classes** — `.glass-panel` and `.glass-card` everywhere; no inline backdrop-filter.
+5. **Event-driven UI** — Every visual change traces back to data/events; no purely decorative state.
+6. **Sound optional** — If used, map 1:1 to event types and make togglable.
+7. **Reduced motion everywhere** — Every animation has a `prefers-reduced-motion` escape hatch.
+
+### 10.7 Self-Heal / Status Semantics
+
+For self-heal or multi-step status flows, use a clear three-step story with consistent colors:
+
+| Step              | Background tint      | Border / glow      | Icon   |
+| :---              | :---                 | :---               | :---   |
+| Failure Detected  | `rgba(255,51,102,0.08)` | Error red          | XCircle |
+| Root Cause / Analysis | `rgba(110,24,179,0.08)` | Rail Purple        | Brain  |
+| Fix Applied       | `rgba(0,255,136,0.08)`  | Success green      | CheckCircle |
+
+Stagger card entrance (e.g. 0.8s between cards); use flowing particles or a simple connector between steps.
+
+### 10.8 Scrollbar & Polish
+
+Use a thin, minimal scrollbar so content stays primary:
+
+```css
+.custom-scrollbar::-webkit-scrollbar        { width: 6px; height: 6px; }
+.custom-scrollbar::-webkit-scrollbar-track  { background: transparent; }
+.custom-scrollbar::-webkit-scrollbar-thumb  { background: rgba(255,255,255,0.1); border-radius: 3px; }
+.custom-scrollbar::-webkit-scrollbar-thumb:hover { background: rgba(255,255,255,0.2); }
+```
+
+---
+
+## 11. Color Combinations
+
+| Background | Foreground | Use Case |
+| :--- | :--- | :--- |
+| `#0A0A0F` | `#FAFAFA` | Default page content |
+| `#0A0A0F` | `#6E18B3` | Primary brand elements |
+| `#0A0A0F` | `#00E5FF` | Active/Intelligence accents |
+| `rgba(30, 30, 40, 0.4)` | `#FAFAFA` | Card content |
+
+---
+
+## 12. Data Visualization Palette
+
+Use only Rail Purple and Electric Cyan for charts where possible.
+
+| Series | Color | Hex | Purpose |
+| :--- | :--- | :--- | :--- |
+| **Series A** | Rail Purple | `#6E18B3` | Primary metric |
+| **Series B** | Electric Cyan | `#00E5FF` | Secondary metric |
+| **Success** | Green | `#00FF88` | Success/Pass rate (semantic) |
+| **Error** | Red | `#FF3366` | Failure/Error rate (semantic) |
+
+---
+
+## 13. Favicons & PWA Icons
+
+| File | Purpose |
+| :--- | :--- |
+| `app/favicon.ico` | Browser tab icon |
+| `app/icon.svg` | Modern vector icon |
+| `app/apple-icon.png` | iOS touch icon |
+| `public/web-app-manifest-*.png` | PWA icons |
+
+---
+
+## 14. Enterprise Standards & Accessibility
+
+**Target:** WCAG 2.1 Level AA compliance. Enterprise-grade, production-ready UI.
+
+### Contrast Ratios (WCAG AA)
+
+| Foreground | Background | Ratio | Pass |
+| :--- | :--- | :--- | :--- |
+| Cloud White (#FAFAFA) | Void Black (#0A0A0F) | ~16:1 | AAA |
+| Electric Cyan (#00E5FF) | Void Black (#0A0A0F) | ~13:1 | AAA |
+| Quantum Violet (#8134CE) | Void Black (#0A0A0F) | ~5:1 | AA |
+| Rail Purple (#6E18B3) | Void Black (#0A0A0F) | ~3.5:1 | **FAIL** (text) |
+
+**Rule:** Rail Purple is for graphics/icons/borders only. Never for body text or small labels.
+
+### Focus States
+
+All interactive elements must have visible focus indicators. Use **Electric Cyan** for focus ring:
+
+```css
+focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-electric-cyan focus-visible:ring-offset-2 focus-visible:ring-offset-void-black
+```
+
+Never remove focus outline without providing an alternative.
+
+### Reduced Motion
+
+Support `prefers-reduced-motion: reduce`:
+
+```css
 @media (prefers-reduced-motion: reduce) {
-  *,
-  *::before,
-  *::after {
-    animation-duration: 0.01ms !important;
-    animation-iteration-count: 1 !important;
-    transition-duration: 0.01ms !important;
-    scroll-behavior: auto !important;
-  }
+  * { animation-duration: 0.01ms !important; transition-duration: 0.01ms !important; }
 }
+```
 
-/* =============================================================================
-   Gradient & Glass Utilities
-   ============================================================================= */
+The design system already includes this in `styles/tailwind.css`.
 
-@layer utilities {
-  /* Brand gradients */
-  .bg-rail-fade {
-    background: linear-gradient(135deg, #8134CE 0%, #6E18B3 100%);
-  }
+### Text Selection
 
-  .bg-automation-flow {
-    background: linear-gradient(90deg, #00E5FF 0%, #8134CE 50%, #6E18B3 100%);
-  }
+Maintain brand immersion with styled selection:
 
-  .bg-infra-depth {
-    background: linear-gradient(180deg, #0A0A0F 0%, #1E1E28 100%);
-  }
-
-  /* Text gradient */
-  .text-gradient {
-    background: linear-gradient(135deg, #8134CE 0%, #6E18B3 100%);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-  }
-
-  /* Border gradient */
-  .border-gradient {
-    position: relative;
-    background: var(--color-slate-grey);
-    border-radius: var(--radius-xl);
-  }
-
-  .border-gradient::before {
-    content: '';
-    position: absolute;
-    inset: -1px;
-    border-radius: calc(var(--radius-xl) + 1px);
-    background: linear-gradient(135deg, rgba(129, 52, 206, 0.5), rgba(110, 24, 179, 0.5));
-    z-index: -1;
-  }
-
-  /* Glow effects */
-  .glow-purple {
-    box-shadow: 0 0 20px rgba(129, 52, 206, 0.2);
-  }
-
-  .glow-purple-strong {
-    box-shadow: 0 0 40px rgba(129, 52, 206, 0.3);
-  }
-
-  .glow-cyan {
-    box-shadow: 0 0 20px rgba(0, 229, 255, 0.2);
-  }
-
-  /* Glassmorphism */
-  .glass-panel {
-    background: rgba(30, 30, 40, 0.4);
-    backdrop-filter: blur(12px);
-    -webkit-backdrop-filter: blur(12px);
-    border: 1px solid rgba(250, 250, 250, 0.08);
-  }
-
-  .glass-card {
-    background: rgba(30, 30, 40, 0.3);
-    backdrop-filter: blur(8px);
-    -webkit-backdrop-filter: blur(8px);
-    border: 1px solid rgba(250, 250, 250, 0.05);
-    transition: all 0.2s ease-in-out;
-  }
-
-  .glass-card:hover {
-    background: rgba(30, 30, 40, 0.5);
-    border-color: rgba(250, 250, 250, 0.15);
-  }
-
-  /* Scrollbar */
-  .scrollbar-hide::-webkit-scrollbar {
-    display: none;
-  }
-
-  .scrollbar-hide {
-    -ms-overflow-style: none;
-    scrollbar-width: none;
-  }
-
-  .custom-scrollbar::-webkit-scrollbar {
-    width: 6px;
-    height: 6px;
-  }
-
-  .custom-scrollbar::-webkit-scrollbar-track {
-    background: transparent;
-  }
-
-  .custom-scrollbar::-webkit-scrollbar-thumb {
-    background: rgba(255, 255, 255, 0.1);
-    border-radius: 3px;
-  }
-
-  .custom-scrollbar::-webkit-scrollbar-thumb:hover {
-    background: rgba(255, 255, 255, 0.2);
-  }
-
-  /* Font utilities (enterprise typography per UI_UX_GUIDE.md) */
-  .font-grotesk {
-    font-family: var(--font-grotesk);
-  }
-
-  .font-mono {
-    font-family: var(--font-mono);
-  }
-
-  /* Red glow effects (self-heal / error) */
-  .glow-red {
-    box-shadow: 0 0 20px rgba(255, 51, 102, 0.2);
-  }
-
-  .glow-red-strong {
-    box-shadow: 0 0 40px rgba(255, 51, 102, 0.3);
-  }
-
-  /* Glass Brain success glow */
-  .glow-success {
-    box-shadow: 0 0 30px rgba(0,255,136,0.2);
-  }
-
-  .glow-success-strong {
-    box-shadow: 0 0 60px rgba(0,255,136,0.3);
-  }
+```css
+::selection {
+  background: rgba(0, 229, 255, 0.3);
+  color: #FAFAFA;
 }
+```
+
+### Keyboard Navigation
+
+- All interactive elements must be reachable via Tab
+- Focus order must follow visual order
+- Modals/dropdowns must trap focus and support Escape to close
+
+### Semantic HTML & ARIA
+
+- Use `<label>` for all form inputs (or `aria-label` when visible label is not appropriate)
+- Use `aria-describedby` for helper text
+- Use `aria-live` for dynamic content (e.g., confidence updates)
+- Icon-only buttons must have `aria-label`
+
+---
+
+*Project Lazarus Brand Guidelines — The Legacy Code Necromancer*

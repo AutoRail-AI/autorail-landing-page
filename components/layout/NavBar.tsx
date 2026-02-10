@@ -115,7 +115,7 @@ export function NavBar() {
           {/* Desktop Actions */}
           <div className="hidden md:flex items-center gap-4">
             <Link
-              href="https://github.com/AutoRail-AI"
+              href="https://github.com/AutoRail-AI/code-synapse"
               target="_blank"
               rel="noopener noreferrer"
               className="text-white/70 hover:text-white transition-colors"

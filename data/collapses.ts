@@ -16,7 +16,7 @@ export const COLLAPSES: Collapse[] = [
     title: "The Amnesia Collapse",
     description:
       "Agents forget your architectural decisions. They re-introduce patterns you banned years ago.",
-    solvedBy: "code synapse",
+    solvedBy: "code-synapse",
     productId: "code-synapse",
     icon: BrainCog,
   },

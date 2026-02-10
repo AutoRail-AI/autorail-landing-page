@@ -17,18 +17,22 @@ export function SafetyRating() {
       id={SECTION_IDS.safetyRating}
       className="py-24 bg-void-black relative overflow-hidden scroll-mt-20"
     >
-      <div className="absolute inset-0 bg-rail-purple/5 blur-[100px] pointer-events-none" />
+      {/* Crisp radial glow behind heading — not full-screen wash */}
+      <div
+        className="absolute top-24 left-1/2 -translate-x-1/2 w-[400px] h-[400px] pointer-events-none"
+        style={{ background: "radial-gradient(circle, rgba(110,24,179,0.06) 0%, transparent 70%)" }}
+      />
 
       <Container className="relative">
         <div className="text-center mb-16">
-          <p className="text-sm font-mono tracking-wider text-rail-purple uppercase mb-3">
+          <p className="text-label text-rail-purple mb-3">
             {SAFETY.eyebrow}
           </p>
           <motion.h2
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="text-2xl md:text-3xl lg:text-4xl font-bold text-white font-grotesk"
+            className="text-display-m text-white"
           >
             {SAFETY.headline}
           </motion.h2>
@@ -45,7 +49,7 @@ export function SafetyRating() {
             <motion.article
               key={pillar.id}
               variants={cardItem}
-              className="glass-card rounded-2xl p-8 border border-white/10 bg-white/[0.02] hover:bg-white/[0.04] transition-colors"
+              className="glass-card rounded-xl p-8 hover:border-white/20 transition-colors"
             >
               <div className="mb-6 inline-flex p-3 rounded-lg bg-rail-purple/10 text-rail-purple">
                 <pillar.icon className="w-6 h-6" aria-hidden />
@@ -53,7 +57,7 @@ export function SafetyRating() {
               <h3 className="text-xl font-bold text-white mb-3 font-grotesk">
                 {pillar.title}
               </h3>
-              <p className="text-white/60 leading-relaxed">
+              <p className="text-gray-300 leading-relaxed">
                 {pillar.description}
               </p>
             </motion.article>

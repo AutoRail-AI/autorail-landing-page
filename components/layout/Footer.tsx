@@ -26,7 +26,7 @@ export function Footer() {
                 height={48}
                 className="h-12 w-12"
               />
-              <span className="text-gradient">{SITE_CONFIG.name}</span>
+              <span className="text-cloud-white">{SITE_CONFIG.name}</span>
             </Link>
             <p className="mt-4 max-w-xs text-sm text-foreground-secondary leading-relaxed">
               {SITE_CONFIG.footerTagline}
@@ -87,7 +87,7 @@ function FooterLink({ label, href, comingSoon, external }: FooterLinkProps) {
     return (
       <span className="flex items-center gap-1 text-sm text-foreground-muted cursor-not-allowed">
         {label}
-        <span className="text-[10px] text-quantum-violet uppercase tracking-wider">(Soon)</span>
+        <span className="text-[10px] text-electric-cyan uppercase tracking-wider">(Soon)</span>
       </span>
     )
   }

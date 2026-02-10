@@ -37,9 +37,9 @@ const MOCK_LOG = [
   { time: "14:32:01", label: "THINK", text: "Analyzing DataGrid component...", color: "text-muted-foreground" },
   { time: "14:32:02", label: "TOOL", text: "read_file components/DataGrid.tsx", color: "text-electric-cyan" },
   { time: "14:32:03", label: "WRITE", text: "Normalized column types in DataGrid.tsx", color: "text-foreground" },
-  { time: "14:32:05", label: "TEST", text: "Running unit tests...", color: "text-warning" },
-  { time: "14:32:07", label: "PASS", text: "All 12 tests passed", color: "text-success" },
-  { time: "14:32:08", label: "HEAL", text: "Self-heal cycle complete", color: "text-quantum-violet" },
+  { time: "14:32:05", label: "TEST", text: "Running unit tests...", color: "text-electric-cyan" },
+  { time: "14:32:07", label: "PASS", text: "All 12 tests passed", color: "text-electric-cyan" },
+  { time: "14:32:08", label: "HEAL", text: "Self-heal cycle complete", color: "text-rail-purple" },
 ]
 
 const MOCK_CHAT = [
@@ -73,7 +73,7 @@ export function GlassBrainShowcase() {
                   transition={{ duration: 1.5, repeat: Infinity }}
                   className="relative"
                 >
-                  <Circle className="w-2.5 h-2.5 fill-quantum-violet text-quantum-violet" />
+                  <Circle className="w-2.5 h-2.5 fill-rail-purple text-rail-purple" />
                 </motion.div>
                 <span className="text-sm font-mono text-white/90">
                   {MOCK_STATS.status}
@@ -81,11 +81,11 @@ export function GlassBrainShowcase() {
               </div>
               <div className="flex items-center gap-6 font-mono text-xs text-white/70">
                 <span>LOC {MOCK_STATS.loc}</span>
-                <span className="text-warning">
+                <span className="text-electric-cyan">
                   Tests {MOCK_STATS.testsPassed}/{MOCK_STATS.testsTotal}
                 </span>
                 <span className="text-electric-cyan">Tools {MOCK_STATS.toolsUsed}</span>
-                <span className="text-quantum-violet">Heals {MOCK_STATS.selfHeals}</span>
+                <span className="text-rail-purple">Heals {MOCK_STATS.selfHeals}</span>
                 <span className="flex items-center gap-1">
                   <Clock className="w-3.5 h-3.5" />
                   {MOCK_STATS.timer}
@@ -140,10 +140,10 @@ export function GlassBrainShowcase() {
                 <div className="flex-1 overflow-auto custom-scrollbar p-4 font-mono text-xs leading-relaxed">
                   <pre className="text-white/80">
                     <code>
-                      <span className="text-quantum-violet">const</span>{" "}
+                      <span className="text-rail-purple">const</span>{" "}
                       <span className="text-electric-cyan">columns</span>{" "}
                       <span className="text-white/60">=</span>{" "}
-                      <span className="text-success">&quot;normalized&quot;</span>
+                      <span className="text-electric-cyan">&quot;normalized&quot;</span>
                       {"\n"}
                       <span className="text-muted-foreground/50">// Filter API unchanged</span>
                     </code>

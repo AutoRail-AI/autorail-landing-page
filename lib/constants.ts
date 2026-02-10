@@ -6,12 +6,12 @@ export const SITE_CONFIG = {
   name: "autorail",
   tagline: "Vibe Coding, Industrialized.",
   description:
-    "The Context and Verification layers that make AI-powered development safe for the enterprise. code synapse for pattern enforcement, necroma for autonomous legacy reclamation.",
+    "The Context and Verification layers that make AI-powered development safe for the enterprise. code-synapse for pattern enforcement, necroma for autonomous legacy reclamation.",
   url: "https://autorail.dev",
   twitterHandle: "@autorail_ai",
   twitterUrl: "https://x.com/autorail_ai",
   linkedinUrl: "https://linkedin.com/company/autorail_ai",
-  githubUrl: "https://github.com/AutoRail-AI",
+  githubUrl: "https://github.com/AutoRail-AI/code-synapse",
   contactEmail: "jaswanth@autorail.dev",
   footerTagline: "Build Fast. Don't Crash.",
 } as const

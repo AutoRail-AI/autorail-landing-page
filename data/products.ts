@@ -4,7 +4,7 @@
 
 export const CODE_SYNAPSE = {
   id: "code-synapse",
-  name: "code synapse",
+  name: "code-synapse",
   tagline: "The Institutional Memory Layer.",
   headline: "Stop AI From Writing 'Alien Code.'",
   pitch:
