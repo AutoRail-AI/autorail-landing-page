@@ -10,24 +10,14 @@ import { cn } from "lib/utils"
 /* ─────────────────────────────────────────────────────────────────────────────
    HeroSphere — Enterprise hero with WebGL Antigravity neural cloud.
 
-   Brand enforcement (docs/brand/brand.md):
-     Palette:    Void Black canvas, Electric Cyan + Rail Purple accents,
-                 Success Green for status indicators only.
-     Typography: Display XL (Space Grotesk 700, -0.03em),
-                 Body Large (Inter 400, text-muted-foreground),
-                 Code Small (JetBrains Mono 400).
-     Glass:      Industrial HUD — border-hud, rounded-lg (never pill).
-     Labels:     text-label utility (10px, uppercase, tracking-widest).
-     Motion:     Machine precision — ease-out snap, blur-to-sharp materialise.
-     Glows:      Confidence Glows (brand.md §6.1):
-                   glow-success-pulse on status badge (≥85% confidence)
-                   glow-cyan on CTA hover (70–85% confidence)
+   Composition — Cinematic Asymmetry (brand.md §9):
+     The headline is SACRED. No tokens may enter the text zone.
+     Cloud is a distinct object on the right — a counterweight, not wallpaper.
 
-   Composition (back → front):
-     1. WebGL Canvas    — AntigravityCloud (dynamic, ssr:false), z-0
-     2. Radial gradient — edge mask + vignette, z-[1]
-     3. Bottom fade     — seamless section transition, z-[1]
-     4. HUD content     — framed with corner brackets, z-10
+     1. WebGL Canvas    — Right 65% on desktop, full bleed on mobile, z-0
+        └ Safety mask   — Left-edge gradient erasing tokens near the headline
+     2. Bottom fade     — Seamless section transition, z-[1]
+     3. HUD content     — Left-aligned on desktop, centered on mobile, z-10
    ───────────────────────────────────────────────────────────────────────────── */
 
 // Dynamic import — no SSR for WebGL (Three.js needs browser APIs)
@@ -51,28 +41,52 @@ export function HeroSphere() {
   return (
     <section
       id={SECTION_IDS.hero}
-      className="relative min-h-screen flex items-center justify-center overflow-hidden bg-void-black"
+      className="relative min-h-screen flex items-center overflow-hidden bg-void-black"
     >
-      {/* ── Layer 1: WebGL Canvas — full-bleed background ── */}
-      <div className="absolute inset-0 z-0">
-        <AntigravityCloud count={4096} />
+      {/* ── Layer 1: WebGL Canvas — right-biased, no tokens behind headline ── */}
+      <div className="absolute top-0 right-0 w-full h-full md:w-[70%] z-0 overflow-hidden">
+        <div className="relative w-full h-full">
+          <AntigravityCloud count={4096} />
+
+          {/* Safety fade — gradual dissolve protecting headline readability */}
+          <div
+            className="absolute inset-y-0 left-0 w-[480px] z-10 pointer-events-none hidden md:block"
+            style={{
+              background:
+                "linear-gradient(to right, #0A0A0F 0%, rgba(10,10,15,0.85) 30%, rgba(10,10,15,0.4) 60%, transparent 100%)",
+            }}
+          />
+
+          {/* Mobile radial vignette — soft edges when canvas is full-bleed */}
+          <div
+            className="absolute inset-0 z-10 pointer-events-none md:hidden"
+            style={{
+              background:
+                "radial-gradient(circle at 50% 50%, transparent 20%, #0A0A0F 80%)",
+            }}
+          />
+
+          {/* Top/bottom edge fade for seamless blending */}
+          <div className="absolute top-0 inset-x-0 h-32 z-10 pointer-events-none bg-gradient-to-b from-void-black to-transparent" />
+          <div className="absolute bottom-0 inset-x-0 h-32 z-10 pointer-events-none bg-gradient-to-t from-void-black to-transparent" />
+
+          {/* Right edge fade — soft bleed off screen */}
+          <div
+            className="absolute inset-y-0 right-0 w-24 z-10 pointer-events-none hidden md:block"
+            style={{
+              background:
+                "linear-gradient(to left, #0A0A0F 0%, transparent 100%)",
+            }}
+          />
+        </div>
       </div>
 
-      {/* ── Layer 2: Radial gradient — vignette + edge mask ── */}
-      <div
-        className="absolute inset-0 z-[1] pointer-events-none"
-        style={{
-          background:
-            "radial-gradient(circle at 50% 50%, transparent 0%, #0A0A0F 70%)",
-        }}
-      />
-
-      {/* ── Layer 3: Bottom section fade ── */}
+      {/* ── Layer 2: Bottom section fade ── */}
       <div className="absolute bottom-0 inset-x-0 h-40 z-[1] bg-gradient-to-t from-void-black to-transparent pointer-events-none" />
 
-      {/* ── Layer 4: Content ── */}
+      {/* ── Layer 3: Content — left-aligned on desktop, centered on mobile ── */}
       <Container className="relative z-10 py-32 md:py-40">
-        <div className="relative flex flex-col items-center text-center max-w-3xl mx-auto">
+        <div className="relative flex flex-col items-center text-center md:items-start md:text-left max-w-2xl">
 
           {/* HUD corner brackets — structural framing (brand.md §9.3) */}
           <div
@@ -141,7 +155,7 @@ export function HeroSphere() {
             initial={{ opacity: 0, y: 20, filter: "blur(4px)" }}
             animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
             transition={{ duration: 0.8, delay: 0.36, ease: snap }}
-            className="flex flex-col sm:flex-row items-center gap-4 mb-5"
+            className="flex flex-col sm:flex-row items-center md:items-start gap-4 mb-5"
           >
             <a
               href={`#${SECTION_IDS.cta}`}
@@ -197,7 +211,7 @@ export function HeroSphere() {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ delay: 0.85, duration: 0.4 }}
-            className="flex flex-col items-center gap-2 text-white/[0.12] hover:text-electric-cyan/40 transition-colors"
+            className="flex flex-col items-center md:items-start gap-2 text-white/[0.12] hover:text-electric-cyan/40 transition-colors"
             aria-label="Scroll to next section"
           >
             <span

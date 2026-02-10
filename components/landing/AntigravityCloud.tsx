@@ -7,31 +7,30 @@ import { Suspense, useEffect, useMemo, useRef, useState } from "react"
 import * as THREE from "three"
 
 /* ─────────────────────────────────────────────────────────────────────────────
-   AntigravityCloud — WebGL neural cloud with post-processing Bloom.
+   AntigravityCloud — WebGL neural cloud with cinematic depth + neon glow.
 
-   Renders ~80 code tokens on a Fibonacci sphere via React Three Fiber.
-   Accent tokens (cyan, yellow, purple, green) emit overbright color that
-   triggers Bloom post-processing for an HDR glow effect.
+   Renders code tokens on a Fibonacci sphere via React Three Fiber.
+   Three visual systems create the "expensive" look:
 
-   Features:
-     - Fibonacci sphere distribution for even token placement
-     - Window-level mouse-reactive 3D parallax with slow auto-rotation
-     - Sine-wave "breathing" scale oscillation (0.94 ↔ 1.06)
-     - Float (drei) for organic group drift (4 clusters)
-     - Fog-based depth fade into void-black
-     - Bloom post-processing (luminanceThreshold 0.1, intensity 1.5)
-     - Seeded PRNG (Lehmer, seed=42) for deterministic layout
-     - Respects prefers-reduced-motion
+   1. CINEMATIC BOKEH — Exponential opacity curve. Background tokens are
+      ghost-like wisps (opacity 0.03), midground is transitional, foreground
+      is sharp and bright. The Bloom pass turns faint distant tokens into
+      soft luminous blobs — real bokeh circles.
 
-   Color System (brand.md §6.1 Confidence Glows):
-     Cloud White   (#FAFAFA)  — 72%, neutral substrate, ×1
-     Electric Cyan (#00E5FF)  — 10%, intelligence spark, emissive ×3
-     Warning Yellow(#FFB800)  — 8%, caution glow, emissive ×2.5
-     Rail Purple   (#6E18B3)  — 7%, deep context, emissive ×2.5
-     Success Green (#00FF88)  — 3%, high confidence, emissive ×3
+   2. WHITE-HOT NEON — Accent tokens use extreme emissive multipliers (×5–6)
+      so RGB channels clip to white at the center. The Bloom pass then bleeds
+      the original color outward, creating a "white core + colored halo" —
+      exactly how real neon tubes work.
 
-   Bicameral Rule: Cyan & Purple never blend in gradients — they remain
-   separate accent populations.
+   3. BICAMERAL CLUSTERING — Cyan tokens concentrate in the inner core
+      (Intelligence = Center). Purple tokens concentrate at the outer
+      perimeter (Legacy = Edge). Creates a visible "core glow" topology.
+
+   Motion: Glacially slow. Enterprise motion is heavy and confident.
+     - Auto-rotation: 0.008 rad/s
+     - Breathing: ±3% scale at 0.2 Hz
+     - Mouse parallax: ±0.15 rad, lerp factor 0.02
+     - Float drift: speed 0.6–0.9, near-zero rotation
    ───────────────────────────────────────────────────────────────────────────── */
 
 const FONT_URL = "/fonts/jetbrains-mono-latin-400-normal.woff"
@@ -87,13 +86,17 @@ function generateTokens(count: number): TokenData[] {
   const rng = seededRandom(42)
   const tokens: TokenData[] = []
 
+  const MIN_R = 9.6
+  const MAX_R = 14.4
+  const R_RANGE = MAX_R - MIN_R
+
   for (let i = 0; i < count; i++) {
     // Fibonacci sphere — evenly distributed points on sphere surface
     const theta = (2 * Math.PI * i) / GOLDEN_RATIO
     const phi = Math.acos(1 - (2 * (i + 0.5)) / count)
 
-    // Randomize radius for organic depth variation (9.6–14.4 units)
-    const r = 9.6 + rng() * 4.8
+    // Randomize radius for organic depth variation
+    const r = MIN_R + rng() * R_RANGE
     const x = r * Math.sin(phi) * Math.cos(theta)
     const y = r * Math.sin(phi) * Math.sin(theta)
     const z = r * Math.cos(phi)
@@ -104,31 +107,65 @@ function generateTokens(count: number): TokenData[] {
         ? SINGLE_TOKENS[Math.floor(rng() * SINGLE_TOKENS.length)]!
         : MULTI_TOKENS[Math.floor(rng() * MULTI_TOKENS.length)]!
 
-    // Color distribution: 72% white, 10% cyan, 8% yellow, 7% purple, 3% green
+    // ── Cinematic Bokeh Depth ──────────────────────────────────────────
+    // z ranges from -MAX_R to +MAX_R in local sphere space.
+    // Camera is at z=20, so positive z = closer to camera = foreground.
+    // Normalize: 0 = deepest background, 1 = nearest foreground.
+    const depth = (z + MAX_R) / (2 * MAX_R)
+
+    // Exponential opacity — harsh falloff for cinematic depth separation
+    let baseOpacity: number
+    if (depth < 0.15) {
+      // Deep background: ghost-like bokeh wisps
+      baseOpacity = 0.02 + rng() * 0.03
+    } else if (depth < 0.35) {
+      // Far mid-range: faint but present
+      baseOpacity = 0.05 + (depth - 0.15) * 0.5 + rng() * 0.05
+    } else if (depth < 0.6) {
+      // Mid-range: clearly visible
+      baseOpacity = 0.15 + (depth - 0.35) * 0.6 + rng() * 0.1
+    } else {
+      // Foreground: sharp and bright
+      baseOpacity = 0.3 + (depth - 0.6) * 0.7 + rng() * 0.15
+    }
+
+    // ── Bicameral Color Clustering ─────────────────────────────────────
+    // radialDepth: 0 = inner core, 1 = outer edge
+    const radialDepth = (r - MIN_R) / R_RANGE
+
     const roll = rng()
     let colorHex = CLOUD_WHITE
     let emissiveMultiplier = 1
-    let opacity = 0.3 + rng() * 0.2 // 0.3–0.5 for white tokens
+    let opacity = baseOpacity
 
     if (roll < 0.03) {
+      // Success Green — rare sparks, white-hot neon
       colorHex = SUCCESS_GREEN
-      emissiveMultiplier = 3
-      opacity = 0.9
+      emissiveMultiplier = 5
+      opacity = Math.min(baseOpacity * 3, 0.95)
     } else if (roll < 0.11) {
+      // Warning Yellow — distributed evenly, white-hot neon
       colorHex = WARNING_YELLOW
-      emissiveMultiplier = 2.5
-      opacity = 0.85
+      emissiveMultiplier = 4
+      opacity = Math.min(baseOpacity * 2.5, 0.9)
     } else if (roll < 0.21) {
-      colorHex = ELECTRIC_CYAN
-      emissiveMultiplier = 3
-      opacity = 0.9
+      // Electric Cyan — biased toward inner core (Intelligence = Core)
+      if (radialDepth < 0.6) {
+        colorHex = ELECTRIC_CYAN
+        emissiveMultiplier = 5
+        opacity = Math.min(baseOpacity * 3, 0.95)
+      }
     } else if (roll < 0.28) {
-      colorHex = RAIL_PURPLE
-      emissiveMultiplier = 2.5
-      opacity = 0.8
+      // Rail Purple — biased toward outer perimeter (Legacy = Edge)
+      if (radialDepth > 0.4) {
+        colorHex = RAIL_PURPLE
+        emissiveMultiplier = 4
+        opacity = Math.min(baseOpacity * 2.5, 0.9)
+      }
     }
 
-    // Overbright color triggers Bloom on accent tokens (multiplier > 1)
+    // White-hot neon: extreme multiplier makes RGB clip to white at center,
+    // while Bloom bleeds the original color outward as a colored halo.
     const color = new THREE.Color(colorHex).multiplyScalar(emissiveMultiplier)
 
     tokens.push({
@@ -139,7 +176,7 @@ function generateTokens(count: number): TokenData[] {
       opacity,
       fontSize: 0.07 + rng() * 0.07, // 0.07–0.14
       rotation: (rng() - 0.5) * 0.5,
-      group: i % 4, // 4 Float clusters
+      group: i % 4,
     })
   }
 
@@ -170,28 +207,26 @@ function TokenCloud({
   }, [reducedMotion])
 
   useFrame((state) => {
-    if (!groupRef.current) return
-
-    if (reducedMotion) return
+    if (!groupRef.current || reducedMotion) return
 
     const t = state.clock.elapsedTime
 
-    // Breathing: sine-wave scale (0.94 ↔ 1.06)
-    groupRef.current.scale.setScalar(1 + Math.sin(t * 0.4) * 0.06)
+    // Breathing: slow & heavy sine-wave scale (0.97 ↔ 1.03)
+    groupRef.current.scale.setScalar(1 + Math.sin(t * 0.2) * 0.03)
 
-    // Auto-rotation (slow) + mouse parallax (gentle tilt)
-    const targetY = mouse.current.x * 0.3 + t * 0.02
-    const targetX = -mouse.current.y * 0.2
+    // Auto-rotation: glacially slow + mouse parallax
+    const targetY = mouse.current.x * 0.15 + t * 0.008
+    const targetX = -mouse.current.y * 0.1
 
     groupRef.current.rotation.y = THREE.MathUtils.lerp(
       groupRef.current.rotation.y,
       targetY,
-      0.03,
+      0.02,
     )
     groupRef.current.rotation.x = THREE.MathUtils.lerp(
       groupRef.current.rotation.x,
       targetX,
-      0.03,
+      0.02,
     )
   })
 
@@ -202,6 +237,7 @@ function TokenCloud({
     return g
   }, [tokens])
 
+  // Centered in the canvas — HeroSphere positions the canvas on the right
   return (
     <group ref={groupRef} position={[0, 0, 0]}>
       {groups.map((groupTokens, gi) =>
@@ -214,9 +250,9 @@ function TokenCloud({
         ) : (
           <Float
             key={gi}
-            speed={1.5 + gi * 0.3}
-            rotationIntensity={0.3 + gi * 0.1}
-            floatIntensity={0.8 + gi * 0.15}
+            speed={0.6 + gi * 0.1}
+            rotationIntensity={0.08 + gi * 0.03}
+            floatIntensity={0.3 + gi * 0.08}
           >
             {groupTokens.map((t) => (
               <TokenMesh key={t.id} data={t} />
@@ -272,8 +308,6 @@ export function AntigravityCloud({
   }, [])
 
   // Delay mount until after React Strict Mode's unmount/remount cycle completes.
-  // Without this, Strict Mode destroys the WebGL context mid-setup, causing a
-  // blank canvas. The one-frame delay lets the final mount proceed cleanly.
   const [mounted, setMounted] = useState(false)
   useEffect(() => {
     setMounted(true)
@@ -298,7 +332,6 @@ export function AntigravityCloud({
         camera={{ position: [0, 0, 20], fov: 35 }}
       >
         <color attach="background" args={[VOID_BLACK]} />
-        <fog attach="fog" args={[VOID_BLACK, 6, 38]} />
 
         {/* Suspense catches font-loading suspension from drei Text */}
         <Suspense fallback={null}>
