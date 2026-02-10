@@ -19,14 +19,6 @@ export const metadata: Metadata = {
     template: `%s | ${SITE_CONFIG.name}`,
   },
   description: SITE_CONFIG.description,
-  icons: {
-    icon: [
-      { url: "/logos/favicons/autorail-32x32.png", sizes: "32x32", type: "image/png" },
-      { url: "/logos/favicons/autorail-48x48.png", sizes: "48x48", type: "image/png" },
-    ],
-    shortcut: "/logos/favicons/autorail-48x48.png",
-    apple: "/logos/favicons/autorail-48x48.png",
-  },
   keywords: [
     "vibe-coded apps infrastructure",
     "backend primitives automation",
@@ -102,7 +94,7 @@ export default function RootLayout({
         <JsonLd type="software" />
         <JsonLd type="webpage" />
       </head>
-      <body className="min-h-screen bg-void-black font-[family-name:var(--font-inter)] text-cloud-white antialiased">
+      <body className="min-h-screen bg-background text-foreground font-sans antialiased">
         <MotionProvider>{children}</MotionProvider>
       </body>
     </html>

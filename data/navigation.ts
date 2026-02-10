@@ -36,20 +36,17 @@ export interface FooterColumn {
 
 export const FOOTER_COLUMNS: FooterColumn[] = [
   {
-    title: "Product",
+    title: "Products",
     links: [
-      { label: "Features", href: "#capabilities" },
-      { label: "How It Works", href: "#how-it-works" },
-      { label: "Pricing", href: "/pricing", comingSoon: true },
-      { label: "Roadmap", href: "/roadmap", comingSoon: true },
+      { label: "Code Synapse", href: "#synapse" },
+      { label: "Necroma", href: "#necroma" },
     ],
   },
   {
-    title: "Resources",
+    title: "Ecosystem",
     links: [
       { label: "Documentation", href: "/docs", comingSoon: true },
-      { label: "Blog", href: "/blog", comingSoon: true },
-      { label: "Changelog", href: "/changelog", comingSoon: true },
+      { label: "GitHub", href: "https://github.com/AutoRail-AI", external: true },
       { label: "Status", href: "https://status.autorail.com", comingSoon: true, external: true },
     ],
   },
@@ -57,9 +54,7 @@ export const FOOTER_COLUMNS: FooterColumn[] = [
     title: "Company",
     links: [
       { label: "About", href: "/about", comingSoon: true },
-      { label: "X", href: "https://x.com/autorail_ai", external: true },
-      { label: "LinkedIn", href: "https://linkedin.com/company/autorail_ai", external: true },
-      { label: "GitHub", href: "https://github.com/AutoRail-AI", external: true },
+      { label: "Enterprise", href: "mailto:enterprise@autorail.dev", external: true },
       { label: "Contact", href: "mailto:jaswanth@autorail.dev", external: true },
     ],
   },

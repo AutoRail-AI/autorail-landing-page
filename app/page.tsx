@@ -1,14 +1,5 @@
 import { Footer, NavBar } from "components/layout"
-import {
-  BetaCTASection,
-  CapabilitiesSection,
-  FAQSection,
-  HeroSection,
-  HowItWorksSection,
-  ProblemSection,
-  SolutionSection,
-  UseCasesSection,
-} from "components/sections"
+import { Ecosystem, FeatureGrid, Hero, Mission, ProductSplit } from "components/landing"
 import { JsonLd } from "components/shared"
 
 export default function HomePage() {
@@ -16,17 +7,14 @@ export default function HomePage() {
     <>
       <NavBar />
       <main>
-        <HeroSection />
-        <ProblemSection />
-        <SolutionSection />
-        <CapabilitiesSection />
-        <HowItWorksSection />
-        <UseCasesSection />
-        <BetaCTASection />
-        <FAQSection />
+        <Hero />
+        <ProductSplit />
+        <FeatureGrid />
+        <Mission />
+        <Ecosystem />
       </main>
       <Footer />
-      <JsonLd type="faq" />
+      <JsonLd type="organization" />
     </>
   )
 }
