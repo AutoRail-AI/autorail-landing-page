@@ -8,22 +8,26 @@ import { SECTION_IDS } from "lib/constants"
 import { cn } from "lib/utils"
 
 /* ─────────────────────────────────────────────────────────────────────────────
-   HeroSphere — Deep-tech enterprise hero with Antigravity cloud.
+   HeroSphere — Enterprise hero with Antigravity neural cloud.
 
    Brand enforcement (docs/brand/brand.md):
-     Palette:    Void Black canvas, Electric Cyan + Rail Purple accents only.
-     Typography: Display XL (Space Grotesk 700), Body Large (Inter 400),
+     Palette:    Void Black canvas, Electric Cyan + Rail Purple accents,
+                 Success Green for status indicators only.
+     Typography: Display XL (Space Grotesk 700, -0.03em),
+                 Body Large (Inter 400, text-muted-foreground),
                  Code Small (JetBrains Mono 400).
-     Glass:      Industrial HUD style — border-hud, rounded-lg (never pill).
+     Glass:      Industrial HUD — border-hud, rounded-lg (never pill).
      Labels:     text-label utility (10px, uppercase, tracking-widest).
      Motion:     Machine precision — ease-out snap, blur-to-sharp materialise.
      Grid:       bg-grid-pattern at low opacity for spatial mapping.
-     Glow:       Cyan for intelligence/active, Purple for deep context.
+     Glows:      Confidence Glows (brand.md §6.1):
+                   glow-success-pulse on status badge (≥85% confidence)
+                   glow-cyan on CTA hover (70–85% confidence)
 
    Composition (back → front):
      1. bg-grid-pattern    — spatial mapping texture
      2. Ambient glow       — faint radial gradient behind cloud
-     3. AntigravityCloud   — organic floating code tokens, top-right, bleeds off edge
+     3. AntigravityCloud   — organic floating code tokens, top-right
      4. Radial vignette    — focus attention toward content area
      5. Bottom fade        — seamless section transition
      6. HUD content        — framed with corner brackets
@@ -43,24 +47,24 @@ export function HeroSphere() {
 
       {/* ── Layer 2: Ambient glow behind cloud ── */}
       <div
-        className="absolute top-0 right-0 w-[500px] h-[500px] md:w-[750px] md:h-[750px] translate-x-[30%] -translate-y-[10%] pointer-events-none"
+        className="absolute top-[5%] right-[-5%] w-[500px] h-[500px] md:w-[700px] md:h-[700px] pointer-events-none"
         style={{
           background:
-            "radial-gradient(circle, rgba(0,229,255,0.05) 0%, rgba(110,24,179,0.03) 40%, transparent 70%)",
+            "radial-gradient(circle, rgba(0,229,255,0.07) 0%, rgba(110,24,179,0.04) 40%, transparent 70%)",
         }}
       />
 
-      {/* ── Layer 3: Antigravity Cloud — top-right, bleeds off viewport edge ── */}
-      <div className="absolute top-0 right-0 w-[500px] h-[500px] md:w-[800px] md:h-[800px] lg:w-[900px] lg:h-[900px] translate-x-[30%] -translate-y-[8%] pointer-events-none">
-        <AntigravityCloud count={50} />
+      {/* ── Layer 3: Antigravity Cloud — top-right, partially bleeds off edge ── */}
+      <div className="absolute top-[2%] right-[-8%] w-[420px] h-[420px] md:w-[650px] md:h-[650px] lg:w-[780px] lg:h-[780px] pointer-events-none">
+        <AntigravityCloud count={60} />
       </div>
 
-      {/* ── Layer 4: Vignette — shifted left to keep cloud visible ── */}
+      {/* ── Layer 4: Vignette — gentle fade that preserves cloud visibility ── */}
       <div
         className="absolute inset-0 pointer-events-none"
         style={{
           background:
-            "radial-gradient(ellipse 85% 80% at 42% 50%, transparent 28%, #0A0A0F 100%)",
+            "radial-gradient(ellipse 90% 85% at 50% 50%, transparent 35%, #0A0A0F 100%)",
         }}
       />
 
@@ -82,7 +86,7 @@ export function HeroSphere() {
             <div className="absolute bottom-0 right-0 w-8 h-8 border-r border-b border-white/[0.06]" />
           </div>
 
-          {/* ── Eyebrow ── */}
+          {/* ── Eyebrow — Live status indicator with Success Pulse ── */}
           <motion.div
             initial={{ opacity: 0, filter: "blur(4px)" }}
             animate={{ opacity: 1, filter: "blur(0px)" }}
@@ -92,13 +96,13 @@ export function HeroSphere() {
             <div
               className={cn(
                 "inline-flex items-center gap-3 px-4 py-2 rounded-lg",
-                "bg-white/[0.02] border border-white/[0.08] backdrop-blur-sm",
+                "bg-white/[0.02] backdrop-blur-sm glow-success-pulse",
               )}
             >
-              {/* Live dot with expanding ring (brand.md §10.5) */}
+              {/* Live dot — Success Green (brand.md §6.1: ≥85% confidence) */}
               <span className="relative flex h-1.5 w-1.5 shrink-0">
-                <span className="absolute inline-flex h-full w-full rounded-full bg-electric-cyan opacity-60 animate-ping" />
-                <span className="relative inline-flex h-1.5 w-1.5 rounded-full bg-electric-cyan" />
+                <span className="absolute inline-flex h-full w-full rounded-full bg-success opacity-60 animate-ping" />
+                <span className="relative inline-flex h-1.5 w-1.5 rounded-full bg-success" />
               </span>
               <span className="text-label">
                 Industrial Safety for AI Development
@@ -106,12 +110,12 @@ export function HeroSphere() {
             </div>
           </motion.div>
 
-          {/* ── Headline ── */}
+          {/* ── Headline — Space Grotesk, tight tracking ── */}
           <motion.h1
             initial={{ opacity: 0, y: 32, filter: "blur(10px)" }}
             animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
             transition={{ duration: 1.1, delay: 0.06, ease: snap }}
-            className="text-display-xl mb-6 leading-[0.95]"
+            className="text-display-xl tracking-[-0.03em] mb-6 leading-[0.95]"
           >
             <span className="block text-cloud-white">Vibe Coding,</span>
             <span className="block text-electric-cyan">
@@ -119,12 +123,12 @@ export function HeroSphere() {
             </span>
           </motion.h1>
 
-          {/* ── Subhead ── */}
+          {/* ── Subhead — Inter, high readability ── */}
           <motion.p
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.2, ease: snap }}
-            className="text-lg text-muted-foreground max-w-xl mb-10 leading-relaxed"
+            className="font-sans text-lg text-muted-foreground max-w-xl mb-10 leading-relaxed"
           >
             Speed without standards is just technical debt. AutoRail provides
             the{" "}
@@ -133,7 +137,7 @@ export function HeroSphere() {
             layers that make autonomous development safe for the enterprise.
           </motion.p>
 
-          {/* ── Primary CTA ── */}
+          {/* ── Primary CTA — glow-cyan on hover ── */}
           <motion.div
             initial={{ opacity: 0, y: 20, filter: "blur(4px)" }}
             animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
@@ -144,9 +148,9 @@ export function HeroSphere() {
               href={`#${SECTION_IDS.cta}`}
               className={cn(
                 "inline-flex items-center gap-2 px-6 py-3 rounded-lg font-medium text-sm",
-                "bg-transparent border border-electric-cyan text-electric-cyan",
-                "hover:bg-electric-cyan/10 hover:shadow-[0_0_20px_rgba(0,229,255,0.2)]",
-                "transition-all group",
+                "bg-transparent border border-electric-cyan/30 text-electric-cyan",
+                "hover:glow-cyan hover:bg-electric-cyan/5",
+                "transition-all duration-300 group",
               )}
             >
               Get Early Access

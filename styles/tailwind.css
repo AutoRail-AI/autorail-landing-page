@@ -185,6 +185,14 @@
     50% { transform: translateY(-10px); }
   }
 
+  /* Confidence success glow — pulses box-shadow only, not element opacity */
+  --animate-success-glow-pulse: success-glow-pulse 3s ease-in-out infinite;
+
+  @keyframes success-glow-pulse {
+    0%, 100% { box-shadow: 0 0 15px rgba(0,255,136,0.12); }
+    50% { box-shadow: 0 0 30px rgba(0,255,136,0.35); }
+  }
+
   /* Antigravity hero: industrial "lock into place" settle */
   --animate-antigravity-settle: antigravity-settle 0.5s cubic-bezier(0.22, 0.61, 0.36, 1) forwards;
 
@@ -300,18 +308,20 @@
     box-shadow: 0 0 40px rgba(110, 24, 179, 0.3);
   }
 
-  /* Confidence / framing glows (see docs/brand/brand.md §5.1) */
+  /* Confidence / framing glows (see docs/brand/brand.md §6.1) */
   .glow-yellow {
-    box-shadow: 0 0 20px rgba(255, 184, 0, 0.25);
+    box-shadow: 0 0 15px rgba(255, 184, 0, 0.15);
+    border: 1px solid rgba(255, 184, 0, 0.3);
   }
 
   .glow-cyan {
     box-shadow: 0 0 20px rgba(0, 229, 255, 0.2);
+    border: 1px solid rgba(0, 229, 255, 0.4);
   }
 
   .glow-success-pulse {
-    box-shadow: 0 0 24px rgba(0, 255, 136, 0.3);
-    animation: pulse-glow 2s ease-in-out infinite;
+    border: 1px solid rgba(0, 255, 136, 0.4);
+    animation: success-glow-pulse 3s ease-in-out infinite;
   }
 
   /* Industrial Glass — Hard Glass material (brand.md §9) */
