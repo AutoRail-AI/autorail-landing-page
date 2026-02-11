@@ -24,7 +24,7 @@ export const COLLAPSES: Collapse[] = [
     id: "context",
     title: "The Context Collapse",
     description:
-      "As your codebase grows, rules files break. The AI starts hallucinating because it can't see the whole mine.",
+      "As your codebase grows, rules files break. The AI starts hallucinating because it can't see the full system architecture.",
     solvedBy: "knowledge graph",
     productId: "knowledge-graph",
     icon: Layers,

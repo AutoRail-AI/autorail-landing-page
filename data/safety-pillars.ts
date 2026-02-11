@@ -13,7 +13,7 @@ export const SAFETY_PILLARS: SafetyPillar[] = [
     id: "audit",
     title: "Audit Trails — The Change Ledger",
     description:
-      "Every AI decision is logged. If the mine collapses, you have the black box.",
+      "Every AI decision is logged. If the system fails, you have the black box.",
     icon: ScrollText,
   },
   {

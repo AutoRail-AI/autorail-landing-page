@@ -17,8 +17,8 @@ export const SITE_CONFIG = {
 } as const
 
 export const CTA_TEXT = {
-  primary: "Get early Access",
-  secondary: "Get early Access",
+  primary: "Get Early Access",
+  secondary: "Get Early Access",
 } as const
 
 export const SECTION_IDS = {

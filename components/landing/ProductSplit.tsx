@@ -170,7 +170,7 @@ export function ProductSplit() {
                                         "transition-all group/btn"
                                     )}
                                 >
-                                    Get early Access
+                                    Get Early Access
                                     <ArrowRight className="w-4 h-4 group-hover/btn:translate-x-1 transition-transform" />
                                 </button>
                             </div>

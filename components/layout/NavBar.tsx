@@ -113,7 +113,7 @@ export function NavBar() {
               alt="autorail"
               width={233}
               height={77}
-              className="h-14 w-auto"
+              className="h-16 w-auto"
               priority
             />
           </Link>
@@ -156,7 +156,7 @@ export function NavBar() {
               {...calTriggerProps}
               className="inline-flex items-center justify-center h-9 px-4 rounded-lg text-sm font-medium font-[family-name:var(--font-grotesk)] bg-transparent border border-electric-cyan/30 text-electric-cyan transition-all duration-200 hover:glow-yellow hover:text-warning hover:border-warning/50 hover:bg-warning/5 active:scale-[0.98] cursor-pointer"
             >
-              Get early Access
+              Get Early Access
             </button>
           </div>
 
@@ -242,7 +242,7 @@ export function NavBar() {
                   onClick={closeMobileMenu}
                   className="flex-1 inline-flex items-center justify-center h-11 px-4 rounded-lg text-sm font-medium font-[family-name:var(--font-grotesk)] bg-transparent border border-electric-cyan/30 text-electric-cyan transition-all duration-200 hover:glow-yellow hover:text-warning hover:border-warning/50 hover:bg-warning/5 active:scale-[0.98] cursor-pointer"
                 >
-                  Get early Access
+                  Get Early Access
                 </button>
               </motion.div>
             </div>

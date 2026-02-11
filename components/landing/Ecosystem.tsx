@@ -4,7 +4,7 @@ import { motion } from "framer-motion"
 import { Container } from "components/ui"
 import { SECTION_IDS } from "lib/constants"
 
-const TECH_STACK = ["Model Context Protocol", "CozoDB", "LangGraph", "OpenHands", "Gemini 2.0"]
+const TECH_STACK = ["MCP", "CozoDB", "LangGraph", "OpenHands", "Gemini 3.0", "Temporal", "Supabase"]
 
 export function Ecosystem() {
   return (

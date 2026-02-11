@@ -93,8 +93,8 @@ export function BentoGrid() {
               The Institutional Memory Layer
             </h3>
             <p className="text-gray-300 mb-6 max-w-lg">
-              Context. Memory. Intelligence. Stop AI from writing alien code — give it your team&apos;s
-              blueprints, conventions, and hard-won knowledge.
+              Meet Code-Synapse. The intelligent CLI sidecar that teaches IDE agents (Cursor, Claude)
+              your team&apos;s specific patterns to stop the generation of &apos;Alien Code&apos;.
             </p>
             {/* Code snippet with brand-colored syntax */}
             <div className="rounded-lg bg-void-black border border-white/10 p-4 overflow-x-auto">
@@ -181,8 +181,8 @@ export function BentoGrid() {
                 Autonomous Legacy Reclamation
               </h3>
               <p className="text-gray-300 mb-6 max-w-lg">
-                Verification. Legacy. Structure. The autonomous agent that migrates your legacy code
-                while preserving every behavior.
+                Meet Necroma. The autonomous agent portal that watches how your legacy app behaves and
+                rebuilds it perfectly in modern tech. It translates user intent, not just broken syntax.
               </p>
               {/* Terminal output with purple-accented scanning */}
               <div className="rounded-lg bg-void-black border border-white/10 p-4 overflow-x-auto">

@@ -11,7 +11,7 @@ const DAY2 = {
   eyebrow: "The Problem",
   headline: "The 'Day 2' Hangover.",
   subhead:
-    "AI agents are incredible at Day 1 creation. They are terrible at Day 2 maintenance. Without guardrails, the gold mine collapses:",
+    "AI agents are incredible at Day 1 creation. They are terrible at Day 2 maintenance. Without guardrails, your infrastructure derails:",
 }
 
 export function Day2Problem() {
@@ -49,11 +49,11 @@ export function Day2Problem() {
               className={cn(
                 "group relative p-8 rounded-xl glass-card transition-colors",
                 collapse.productId === "code-synapse" &&
-                  "hover:border-electric-cyan/30 hover:glow-cyan",
+                "hover:border-electric-cyan/30 hover:glow-cyan",
                 collapse.productId === "knowledge-graph" &&
-                  "hover:border-electric-cyan/30 hover:glow-cyan",
+                "hover:border-electric-cyan/30 hover:glow-cyan",
                 collapse.productId === "necroma" &&
-                  "hover:border-rail-purple/30 hover:glow-purple"
+                "hover:border-rail-purple/30 hover:glow-purple"
               )}
             >
               {/* Product indicator bar */}

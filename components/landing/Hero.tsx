@@ -4,6 +4,7 @@ import { motion } from "framer-motion"
 import { ArrowDown, Check, Copy, Shield } from "lucide-react"
 import { useState } from "react"
 import { GradientText } from "components/shared/GradientText"
+import { calTriggerProps } from "components/providers"
 import { Button, Container } from "components/ui"
 import { cardItem, staggerContainer } from "lib/animations"
 import { SECTION_IDS } from "lib/constants"
@@ -13,9 +14,9 @@ const HERO = {
   badge: "Industrial Safety for AI Development",
   headline: "Vibe Coding, Industrialized.",
   subhead:
-    "Your team is already using AI agents to move fast. But speed without standards is just a faster path to technical debt. autorail provides the Context and Verification layers that make autonomous development safe for the enterprise.",
+    "Scale your AI engineering without compounding technical debt. autorail provides the Context (Left Brain) and Verification (Right Brain) required for enterprise-grade autonomous development.",
   primaryCommand: "npm install code-synapse",
-  secondaryCta: "Get early Access",
+  secondaryCta: "Get Early Access",
   scrollHint: "See what breaks without guardrails",
 }
 
@@ -99,7 +100,7 @@ export function Hero() {
             </button>
 
             <Button
-              href={`#${SECTION_IDS.necroma}`}
+              {...calTriggerProps}
               size="lg"
               className="bg-gradient-to-r from-rail-purple to-quantum-violet text-white hover:shadow-[0_0_30px_rgba(110,24,179,0.4)] hover:brightness-110"
             >

@@ -17,11 +17,6 @@ export const NAV_LINKS: NavLink[] = [
     href: `#${SECTION_IDS.necroma}`,
   },
   {
-    label: "docs",
-    href: "/docs",
-    comingSoon: true,
-  },
-  {
     label: "GitHub",
     href: "https://github.com/AutoRail-AI/code-synapse",
     external: true,

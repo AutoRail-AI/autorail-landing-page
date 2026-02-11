@@ -131,9 +131,9 @@ export function HeroSphere() {
             transition={{ duration: 1.1, delay: 0.06, ease: snap }}
             className="text-display-xl tracking-[-0.03em] mb-6 leading-[0.95]"
           >
-            <span className="block text-rail-purple">Vibe Coding,</span>
-            <span className="block text-electric-cyan">
-              Industrialized.
+            <span className="block text-electric-cyan">Autonomous Engineering</span>
+            <span className="block text-rail-purple">
+              Infrastructure.
             </span>
           </motion.h1>
 
@@ -144,11 +144,7 @@ export function HeroSphere() {
             transition={{ duration: 0.8, delay: 0.2, ease: snap }}
             className="font-sans text-lg text-muted-foreground max-w-xl mb-10 leading-relaxed"
           >
-            Speed without standards is just technical debt. AutoRail provides
-            the{" "}
-            <span className="text-cloud-white font-medium">Context</span> and{" "}
-            <span className="text-cloud-white font-medium">Verification</span>{" "}
-            layers that make autonomous development safe for the enterprise.
+            AI needs more than basic memory and syntax to build software. autorail is the first engineering intelligence platform equipped with a living code context for human-agent coding, paired with API and visual behavior parity to guarantee production readiness.
           </motion.p>
 
           {/* ── Primary CTA — single, prominent, glow-cyan on hover ── */}
@@ -167,7 +163,7 @@ export function HeroSphere() {
                 "transition-all duration-300 group",
               )}
             >
-              Get early Access
+              Get Early Access
               <ArrowRight className="w-4 h-4 group-hover:translate-x-0.5 transition-transform" />
             </button>
           </motion.div>

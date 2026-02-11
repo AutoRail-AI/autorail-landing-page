@@ -18,8 +18,8 @@ export default function HomePage() {
         <HeroSphere />
         <Day2Problem />
         <BentoGrid />
-        <CodeSynapse />
-        <Necroma />
+        {/* <CodeSynapse /> */}
+        {/* <Necroma /> */}
         <SafetyRating />
         <Ecosystem />
       </main>
