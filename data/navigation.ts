@@ -17,7 +17,7 @@ export const NAV_LINKS: NavLink[] = [
     href: `#${SECTION_IDS.necroma}`,
   },
   {
-    label: "Docs",
+    label: "docs",
     href: "/docs",
     comingSoon: true,
   },

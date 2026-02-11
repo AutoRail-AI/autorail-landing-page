@@ -150,59 +150,25 @@ export function HeroSphere() {
             layers that make autonomous development safe for the enterprise.
           </motion.p>
 
-          {/* ── Primary CTA — glow-cyan on hover ── */}
+          {/* ── Primary CTA — single, prominent, glow-cyan on hover ── */}
           <motion.div
             initial={{ opacity: 0, y: 20, filter: "blur(4px)" }}
             animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
             transition={{ duration: 0.8, delay: 0.36, ease: snap }}
-            className="flex flex-col sm:flex-row items-center md:items-start gap-4 mb-5"
+            className="mb-14"
           >
             <a
               href={`#${SECTION_IDS.cta}`}
               className={cn(
-                "inline-flex items-center gap-2 px-6 py-3 rounded-lg font-medium text-sm",
+                "inline-flex items-center gap-2 px-8 py-3 rounded-lg font-medium text-sm",
                 "bg-transparent border border-electric-cyan/30 text-electric-cyan",
                 "hover:glow-cyan hover:bg-electric-cyan/5",
                 "transition-all duration-300 group",
               )}
             >
-              Get Early Access
+              Get early Access
               <ArrowRight className="w-4 h-4 group-hover:translate-x-0.5 transition-transform" />
             </a>
-          </motion.div>
-
-          {/* ── Secondary CTA ── */}
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ duration: 0.5, delay: 0.5, ease: snap }}
-            className="mb-14"
-          >
-            <a
-              href={`#${SECTION_IDS.necroma}`}
-              className={cn(
-                "group inline-flex items-center gap-2",
-                "text-sm text-white/40 hover:text-white/70",
-                "transition-colors duration-200",
-              )}
-            >
-              Secure Legacy Systems
-              <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-0.5 transition-transform" />
-            </a>
-          </motion.div>
-
-          {/* ── Technical credibility strip ── */}
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ delay: 0.62, duration: 0.4 }}
-            className="flex items-center gap-3 font-mono text-[11px] text-white/[0.18] tracking-wider uppercase mb-14"
-          >
-            <span>Open Source</span>
-            <span className="w-px h-3 bg-white/[0.08]" aria-hidden />
-            <span>MCP-Native</span>
-            <span className="w-px h-3 bg-white/[0.08]" aria-hidden />
-            <span>TypeScript</span>
           </motion.div>
 
           {/* ── Scroll indicator ── */}

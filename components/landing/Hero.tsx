@@ -15,7 +15,7 @@ const HERO = {
   subhead:
     "Your team is already using AI agents to move fast. But speed without standards is just a faster path to technical debt. autorail provides the Context and Verification layers that make autonomous development safe for the enterprise.",
   primaryCommand: "npm install code-synapse",
-  secondaryCta: "Secure Your Legacy Systems",
+  secondaryCta: "Get early Access",
   scrollHint: "See what breaks without guardrails",
 }
 

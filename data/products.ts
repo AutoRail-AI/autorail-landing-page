@@ -45,8 +45,8 @@ export const NECROMA = {
   color: "purple" as const,
   badges: ["Enterprise", "Invite Only"],
   cta: {
-    primary: "Join Waitlist",
-    secondary: "Request Access",
+    primary: "Get early Access",
+    secondary: "Get early Access",
   },
   features: [
     {

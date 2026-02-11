@@ -17,14 +17,18 @@ export function Footer() {
           <div className="lg:col-span-2">
             <Link
               href="/"
-              className="inline-flex items-center"
+              className="inline-flex items-center px-4 py-2 rounded-xl transition-opacity hover:opacity-80"
+              style={{
+                background:
+                  "radial-gradient(ellipse at center, rgba(255,255,255,0.08) 0%, transparent 70%)",
+              }}
             >
               <Image
                 src="/icon-wordmark.svg"
                 alt="autorail"
                 width={233}
                 height={77}
-                className="h-18 w-auto"
+                className="h-14 w-auto"
               />
             </Link>
             <p className="mt-4 max-w-xs text-sm text-foreground-secondary leading-relaxed">

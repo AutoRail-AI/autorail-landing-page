@@ -17,8 +17,8 @@ export const SITE_CONFIG = {
 } as const
 
 export const CTA_TEXT = {
-  primary: "Install the Safety Kit",
-  secondary: "Secure Your Legacy",
+  primary: "Get early Access",
+  secondary: "Get early Access",
 } as const
 
 export const SECTION_IDS = {

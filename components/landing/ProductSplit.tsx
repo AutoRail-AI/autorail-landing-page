@@ -162,7 +162,7 @@ export function ProductSplit() {
                             {/* Action */}
                             <div className="mt-auto">
                                 <Button variant="primary" className="w-full justify-between group/btn bg-gradient-to-r from-rail-purple to-quantum-violet hover:opacity-90">
-                                    Join Waitlist
+                                    Get early Access
                                     <ArrowRight className="w-4 h-4 group-hover/btn:translate-x-1 transition-transform" />
                                 </Button>
                             </div>
