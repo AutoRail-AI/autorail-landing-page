@@ -3,10 +3,10 @@
 import { motion } from "framer-motion"
 import { ArrowDown, Check, Copy, Shield } from "lucide-react"
 import { useState } from "react"
-import { Button, Container } from "components/ui"
 import { GradientText } from "components/shared/GradientText"
+import { Button, Container } from "components/ui"
+import { cardItem, staggerContainer } from "lib/animations"
 import { SECTION_IDS } from "lib/constants"
-import { staggerContainer, cardItem } from "lib/animations"
 import { cn } from "lib/utils"
 
 const HERO = {

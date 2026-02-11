@@ -218,7 +218,7 @@ Unlike generic tooling, autorail is purpose-built for industrial safety in vibe 
   "@type": "Organization",
   "name": "autorail",
   "url": "https://autorail.dev",
-  "logo": "https://autorail.dev/autorail.svg",
+  "logo": "https://autorail.dev/icon-wordmark.svg",
   "description": "Infrastructure on Autopilot for AI Agents",
   "sameAs": [
     "https://x.com/autorail_ai",

@@ -11,7 +11,7 @@ export function JsonLd({ type }: JsonLdProps) {
       "@type": "Organization",
       name: SITE_CONFIG.name,
       url: SITE_CONFIG.url,
-      logo: `${SITE_CONFIG.url}/autorail.svg`,
+      logo: `${SITE_CONFIG.url}/icon-wordmark.svg`,
       description: SITE_CONFIG.description,
       foundingDate: "2024",
       email: "jaswanth@autorail.dev",

@@ -130,7 +130,7 @@ export function HeroSphere() {
             transition={{ duration: 1.1, delay: 0.06, ease: snap }}
             className="text-display-xl tracking-[-0.03em] mb-6 leading-[0.95]"
           >
-            <span className="block">Vibe Coding,</span>
+            <span className="block text-rail-purple">Vibe Coding,</span>
             <span className="block text-electric-cyan">
               Industrialized.
             </span>

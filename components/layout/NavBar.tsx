@@ -9,7 +9,7 @@ import { Button } from "components/ui/Button"
 import { Container } from "components/ui/Container"
 import { cn } from "lib/utils"
 
-import { SITE_CONFIG, SECTION_IDS } from "lib/constants"
+import { SECTION_IDS } from "lib/constants"
 import { NAV_LINKS } from "data/navigation"
 
 export function NavBar() {
@@ -79,20 +79,17 @@ export function NavBar() {
           {/* Logo */}
           <Link
             href="/"
-            className="flex items-center gap-3 font-[family-name:var(--font-grotesk)] text-2xl font-bold text-white group"
+            className="flex items-center group"
             onClick={closeMobileMenu}
           >
             <Image
-              src="/autorail.svg"
+              src="/icon-wordmark.svg"
               alt="autorail"
-              width={32}
-              height={32}
-              className="h-8 w-8 transition-transform group-hover:scale-110"
+              width={233}
+              height={77}
+              className="h-14 w-auto transition-transform group-hover:scale-[1.02]"
               priority
             />
-            <span className="bg-gradient-to-r from-white via-white to-white/70 bg-clip-text text-transparent">
-              {SITE_CONFIG.name}
-            </span>
           </Link>
 
           {/* Desktop Navigation */}

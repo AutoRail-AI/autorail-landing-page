@@ -17,16 +17,15 @@ export function Footer() {
           <div className="lg:col-span-2">
             <Link
               href="/"
-              className="inline-flex items-center gap-3 font-[family-name:var(--font-grotesk)] text-3xl font-bold"
+              className="inline-flex items-center"
             >
-            <Image
-              src="/autorail.svg"
-              alt="autorail — Industrial Safety for Vibe Coding"
-                width={48}
-                height={48}
-                className="h-12 w-12"
+              <Image
+                src="/icon-wordmark.svg"
+                alt="autorail"
+                width={233}
+                height={77}
+                className="h-18 w-auto"
               />
-              <span className="text-cloud-white">{SITE_CONFIG.name}</span>
             </Link>
             <p className="mt-4 max-w-xs text-sm text-foreground-secondary leading-relaxed">
               {SITE_CONFIG.footerTagline}

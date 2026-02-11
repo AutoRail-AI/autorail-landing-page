@@ -304,31 +304,54 @@ Enterprise tools are defined by **information density**. Labels and numbers must
 
 ## 8. Logo & Brand Assets
 
-Project Lazarus assets are located in `public/logos/` and `app/`.
+### 8.1 Logo System
 
-### Logo Files
+The AutoRail logo system has three tiers — **Icon**, **Wordmark**, and **Icon + Wordmark** — each designed for different contexts. All assets live in `public/` and `app/`.
 
-| File | Format | Usage |
-| :--- | :--- | :--- |
-| `app/icon.svg` | SVG | Primary App Icon / Favicon |
-| `public/autorail.svg` | SVG | Brand graphic (Rail concept) |
-| `public/logos/*` | SVG/PNG | (If available) Full logos |
+| File | Format | Contains | Usage |
+| :--- | :--- | :--- | :--- |
+| `app/icon.svg` | SVG | Icon only | Favicon, browser tab, PWA icon |
+| `public/autorail.svg` | SVG | Icon only | Standalone brand mark (e.g. loading states, small spaces) |
+| `public/autorail-wordmark.svg` | SVG | Wordmark only | Text-only logo — "autorail" in JetBrains Mono, Rail Purple (`#6E18B3`), with purple glow drop shadow. Use where the icon is not needed or space is constrained. |
+| `public/icon-wordmark.svg` | SVG | Icon + Wordmark | **Primary lockup.** Icon and "autorail" wordmark side-by-side with matching purple glow. Use for NavBar, Footer, and any context where the full brand identity is needed. |
 
-### Logo Specifications
-* **Primary Icon:** Geometric "L" or Brain/Rail symbol.
-* **Colors:** Rail Purple (`#6E18B3`) and Electric Cyan (`#00E5FF`).
+### 8.2 Logo Specifications
 
-### Using Logos in Code
+- **Icon:** Geometric turbine/flower symbol rendered with a Rail Purple gradient (`#8333D2` → `#5C0B96`) and purple glow drop shadow.
+- **Wordmark:** "autorail" typeset in **JetBrains Mono Bold**, filled Rail Purple (`#6E18B3`), with a matching purple glow drop shadow (`stdDeviation: 8`, `opacity: 0.5`).
+- **Naming:** Always use lowercase **autorail** in the wordmark. Never "AutoRail.dev" — the `.dev` is for the URL, not the brand. See §8.4.
+
+### 8.3 Using Logos in Code
 
 ```tsx
 import Image from "next/image"
 
-// App Icon
-<Image src="/icon.svg" alt="Project Lazarus" width={32} height={32} />
+// Icon + Wordmark (NavBar, Footer — primary usage)
+<Image src="/icon-wordmark.svg" alt="autorail" width={233} height={77} className="h-10 w-auto" />
 
-// Brand Graphic
-<Image src="/autorail.svg" alt="AutoRail" width={120} height={40} />
+// Wordmark only (inline references, compact layouts)
+<Image src="/autorail-wordmark.svg" alt="autorail" width={178} height={58} className="h-8 w-auto" />
+
+// Icon only (favicon, small spaces)
+<Image src="/autorail.svg" alt="autorail" width={32} height={32} />
 ```
+
+### 8.4 Naming Convention
+
+| Context | Format | Example |
+| :--- | :--- | :--- |
+| **Logo / Wordmark** | Lowercase `autorail` | `> autorail` |
+| **Legal / Copyright** | Title case with "Inc." | `© 2026 autorail Inc.` |
+| **URL** | `autorail.dev` | `https://autorail.dev` |
+| **GitHub org** | PascalCase | `AutoRail-AI` |
+
+**Rule:** The brand name is **autorail** — lowercase, monospace, no `.dev` suffix. The URL is the address; the name is the infrastructure.
+
+### 8.5 Clear Space & Minimum Size
+
+- **Clear space:** Maintain at least 1× the icon height of padding around the full lockup.
+- **Minimum size:** Icon-wordmark lockup should not be rendered smaller than `h-8` (32px height). Icon-only should not be smaller than 16×16px.
+- **Background:** Always place on Void Black (`#0A0A0F`) or sufficiently dark backgrounds. The purple glow effect requires dark contrast to read correctly.
 
 ---
 

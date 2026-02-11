@@ -194,6 +194,11 @@ function TokenCloud({
 }) {
   const groupRef = useRef<THREE.Group>(null!)
   const mouse = useRef({ x: 0, y: 0 })
+  // Accumulate auto-rotation via clamped delta to survive tab switches.
+  // Using absolute elapsed time would cause a massive jump when returning
+  // from another tab (browser pauses rAF but clock keeps ticking).
+  const autoRotY = useRef(0)
+  const breathPhase = useRef(0)
 
   // Window-level mouse tracking (works even with HTML content over canvas)
   useEffect(() => {
@@ -206,16 +211,19 @@ function TokenCloud({
     return () => window.removeEventListener("mousemove", onMove)
   }, [reducedMotion])
 
-  useFrame((state) => {
+  useFrame((_state, delta) => {
     if (!groupRef.current || reducedMotion) return
 
-    const t = state.clock.elapsedTime
+    // Clamp delta to ~60fps max — prevents huge jumps after tab switch
+    const dt = Math.min(delta, 0.05)
 
-    // Breathing: slow & heavy sine-wave scale (0.97 ↔ 1.03)
-    groupRef.current.scale.setScalar(1 + Math.sin(t * 0.2) * 0.03)
+    // Breathing: accumulate phase via clamped delta
+    breathPhase.current += dt * 0.2
+    groupRef.current.scale.setScalar(1 + Math.sin(breathPhase.current) * 0.03)
 
-    // Auto-rotation: glacially slow + mouse parallax
-    const targetY = mouse.current.x * 0.15 + t * 0.008
+    // Auto-rotation: accumulate via clamped delta + mouse parallax
+    autoRotY.current += dt * 0.008
+    const targetY = mouse.current.x * 0.15 + autoRotY.current
     const targetX = -mouse.current.y * 0.1
 
     groupRef.current.rotation.y = THREE.MathUtils.lerp(
