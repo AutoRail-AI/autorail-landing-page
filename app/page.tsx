@@ -7,7 +7,6 @@ import {
   Necroma,
   SafetyRating,
   Ecosystem,
-  CTASection,
 } from "components/landing"
 import { JsonLd } from "components/shared"
 
@@ -23,7 +22,6 @@ export default function HomePage() {
         <Necroma />
         <SafetyRating />
         <Ecosystem />
-        <CTASection />
       </main>
       <Footer />
       <JsonLd type="organization" />

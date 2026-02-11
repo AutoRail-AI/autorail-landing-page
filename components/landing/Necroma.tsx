@@ -3,6 +3,7 @@
 import { motion } from "framer-motion"
 import { ArrowRight } from "lucide-react"
 import { Container } from "components/ui"
+import { calTriggerProps } from "components/providers"
 import { SECTION_IDS } from "lib/constants"
 import { NECROMA } from "data/products"
 import { staggerContainer, cardItem } from "lib/animations"
@@ -109,10 +110,10 @@ export function Necroma() {
 
           {/* CTA — transparent+border style */}
           <motion.div variants={cardItem}>
-            <a
-              href={`#${SECTION_IDS.cta}`}
+            <button
+              {...calTriggerProps}
               className={cn(
-                "inline-flex items-center gap-2 px-6 py-3 rounded-lg font-medium text-sm",
+                "inline-flex items-center gap-2 px-6 py-3 rounded-lg font-medium text-sm cursor-pointer",
                 "bg-transparent border border-rail-purple text-rail-purple",
                 "hover:bg-rail-purple/10 hover:shadow-[0_0_20px_rgba(110,24,179,0.2)]",
                 "transition-all group/btn"
@@ -120,7 +121,7 @@ export function Necroma() {
             >
               {NECROMA.cta.primary}
               <ArrowRight className="w-4 h-4 group-hover/btn:translate-x-1 transition-transform" aria-hidden />
-            </a>
+            </button>
           </motion.div>
         </motion.div>
       </Container>

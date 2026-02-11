@@ -8,6 +8,7 @@ import { useEffect, useRef, useState } from "react"
 import { Container } from "components/ui/Container"
 import { NAV_LINKS } from "data/navigation"
 import { SECTION_IDS, SITE_CONFIG } from "lib/constants"
+import { calTriggerProps } from "components/providers"
 import { cn } from "lib/utils"
 
 /** Nav link config — glowing at rest, clean glass on hover */
@@ -150,13 +151,13 @@ export function NavBar() {
               <Github className="w-4 h-4" />
             </Link>
 
-            {/* CTA — Yellow glow on hover */}
-            <a
-              href={`#${SECTION_IDS.cta}`}
-              className="inline-flex items-center justify-center h-9 px-4 rounded-lg text-sm font-medium font-[family-name:var(--font-grotesk)] bg-transparent border border-electric-cyan/30 text-electric-cyan transition-all duration-200 hover:glow-yellow hover:text-warning hover:border-warning/50 hover:bg-warning/5 active:scale-[0.98]"
+            {/* CTA — Cal.com booking trigger */}
+            <button
+              {...calTriggerProps}
+              className="inline-flex items-center justify-center h-9 px-4 rounded-lg text-sm font-medium font-[family-name:var(--font-grotesk)] bg-transparent border border-electric-cyan/30 text-electric-cyan transition-all duration-200 hover:glow-yellow hover:text-warning hover:border-warning/50 hover:bg-warning/5 active:scale-[0.98] cursor-pointer"
             >
               Get early Access
-            </a>
+            </button>
           </div>
 
           {/* Mobile Menu Toggle */}
@@ -236,13 +237,13 @@ export function NavBar() {
                   <Github className="w-5 h-5" />
                 </Link>
 
-                <a
-                  href={`#${SECTION_IDS.cta}`}
+                <button
+                  {...calTriggerProps}
                   onClick={closeMobileMenu}
-                  className="flex-1 inline-flex items-center justify-center h-11 px-4 rounded-lg text-sm font-medium font-[family-name:var(--font-grotesk)] bg-transparent border border-electric-cyan/30 text-electric-cyan transition-all duration-200 hover:glow-yellow hover:text-warning hover:border-warning/50 hover:bg-warning/5 active:scale-[0.98]"
+                  className="flex-1 inline-flex items-center justify-center h-11 px-4 rounded-lg text-sm font-medium font-[family-name:var(--font-grotesk)] bg-transparent border border-electric-cyan/30 text-electric-cyan transition-all duration-200 hover:glow-yellow hover:text-warning hover:border-warning/50 hover:bg-warning/5 active:scale-[0.98] cursor-pointer"
                 >
                   Get early Access
-                </a>
+                </button>
               </motion.div>
             </div>
           </motion.div>

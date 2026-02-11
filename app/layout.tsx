@@ -7,7 +7,7 @@ import "@fontsource/space-grotesk/400.css"
 import "@fontsource/space-grotesk/500.css"
 import "@fontsource/space-grotesk/600.css"
 import "@fontsource/space-grotesk/700.css"
-import { MotionProvider } from "components/providers"
+import { CalProvider, MotionProvider } from "components/providers"
 import { JsonLd } from "components/shared"
 import { SITE_CONFIG } from "lib/constants"
 import "styles/tailwind.css"
@@ -94,7 +94,9 @@ export default function RootLayout({
         <JsonLd type="webpage" />
       </head>
       <body className="min-h-screen bg-background text-foreground font-sans antialiased">
-        <MotionProvider>{children}</MotionProvider>
+        <CalProvider>
+          <MotionProvider>{children}</MotionProvider>
+        </CalProvider>
       </body>
     </html>
   )

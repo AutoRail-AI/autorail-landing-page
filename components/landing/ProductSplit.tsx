@@ -1,10 +1,10 @@
 "use client"
 
 import { motion } from "framer-motion"
-import { ArrowRight, Brain, Check, Copy, Sparkles, Zap } from "lucide-react"
+import { ArrowRight, Brain, Check, Copy, Sparkles } from "lucide-react"
 import { useState } from "react"
-import { Button, Container } from "components/ui"
-import { GradientText } from "components/shared/GradientText"
+import { Container } from "components/ui"
+import { calTriggerProps } from "components/providers"
 import { cn } from "lib/utils"
 
 export function ProductSplit() {
@@ -161,10 +161,18 @@ export function ProductSplit() {
 
                             {/* Action */}
                             <div className="mt-auto">
-                                <Button variant="primary" className="w-full justify-between group/btn bg-gradient-to-r from-rail-purple to-quantum-violet hover:opacity-90">
+                                <button
+                                    {...calTriggerProps}
+                                    className={cn(
+                                        "w-full flex items-center justify-between px-4 py-3 rounded-lg font-medium text-sm cursor-pointer",
+                                        "bg-transparent border border-rail-purple text-rail-purple",
+                                        "hover:bg-rail-purple/10 hover:shadow-[0_0_20px_rgba(110,24,179,0.2)]",
+                                        "transition-all group/btn"
+                                    )}
+                                >
                                     Get early Access
                                     <ArrowRight className="w-4 h-4 group-hover/btn:translate-x-1 transition-transform" />
-                                </Button>
+                                </button>
                             </div>
                         </div>
                     </motion.div>
