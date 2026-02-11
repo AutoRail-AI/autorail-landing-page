@@ -1,16 +1,16 @@
 "use client"
 
-import { motion, AnimatePresence } from "framer-motion"
-import { Menu, X, Github } from "lucide-react"
+import { AnimatePresence, motion } from "framer-motion"
+import { Github, Menu, X } from "lucide-react"
 import Image from "next/image"
 import Link from "next/link"
 import { useEffect, useRef, useState } from "react"
 import { Button } from "components/ui/Button"
 import { Container } from "components/ui/Container"
+import { NAV_LINKS } from "data/navigation"
+import { SECTION_IDS } from "lib/constants"
 import { cn } from "lib/utils"
 
-import { SECTION_IDS } from "lib/constants"
-import { NAV_LINKS } from "data/navigation"
 
 export function NavBar() {
   const [scrollY, setScrollY] = useState(0)
