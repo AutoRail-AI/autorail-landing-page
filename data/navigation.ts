@@ -9,14 +9,6 @@ export interface NavLink {
 
 export const NAV_LINKS: NavLink[] = [
   {
-    label: "code-synapse",
-    href: `#${SECTION_IDS.codeSynapse}`,
-  },
-  {
-    label: "necroma",
-    href: `#${SECTION_IDS.necroma}`,
-  },
-  {
     label: "GitHub",
     href: "https://github.com/AutoRail-AI/code-synapse",
     external: true,

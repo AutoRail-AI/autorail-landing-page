@@ -249,15 +249,31 @@
 
 > Same as main landing page footer.
 
+
 ---
 
-## Market Positioning
+## Engineering & Design Specs
 
-| Dimension | Competitors | Necroma (Web Portal) |
+> **Reference:** See `docs/GLASS_BRAIN_VIEW.md` for full implementation details.
+
+### 1. Visual Language: "Industrial Glass" (Verification Mode)
+- **Base Material:** `bg-rail-purple/[0.05]` + `backdrop-blur-[12px]`
+- **Border:** `border-white/10` (default) → `border-rail-purple/40` (active/focus)
+- **Color Palette:** **Rail Purple** (`#6E18B3`) & **Quantum Violet** (`#8134CE`). Used for "Right Brain" verification.
+- **Typography:** `Space Grotesk` (Headlines), `JetBrains Mono` (Logs/Data), `Inter` (Body).
+
+### 2. Animation Library: `framer-motion`
+Use the presets from `lib/animations.ts` and `GLASS_BRAIN_VIEW.md`:
+- **Boot Sequence:** 3.4s intro (Dot → Radial Lines → "Neural Link").
+- **Scanlines:** `track-scanline` animation for legacy code analysis.
+- **Particles:** Exploding particles (40 count) for "Victory Lap" (successful migration).
+- **Breathing Glow:** `box-shadow` pulse based on confidence score (0-100%).
+
+### 3. Key Graphics & Effects
+| Component | Visual Metaphor | Implementation |
 |---|---|---|
-| **War** | Syntax War (Code A → Code B) | Behavioral War (preserve intent) |
-| **Input** | Source code only | Source code + Video + DOM events |
-| **Migration** | Big Bang (all-or-nothing) | Vertical Slices (incremental) |
-| **Failure** | You get paged | Self-healing airbag |
-| **Verification** | Syntax checks | Behavioral parity via temporal graph |
-| **Market** | $46.5B Legacy Modernization | Same — but differentiated approach |
+| **Hero Background** | **The Glass Brain** | Interactive dashboard shell with `BootSequence` entry. Shows live analysis steps. |
+| **Self-Heal Arc** | **The Airbag** | 3-card stagger: Failure (Red) → Diagnosis (Purple) → Fix (Green). Connected by flowing particles. |
+| **Code Comparison** | **Temporal Graph** | Diff view with `layoutId` animations for code transforming from Legacy → Modern. |
+| **Confidence Gauge** | **Trust Meter** | Gradient bar (Red → Yellow → Cyan → Green) reacting to live events. |
+| **Terminal** | **Build Console** | Auto-scrolling log with colored event labels (THINK, TOOL, HEAL, PASS). |

@@ -6,6 +6,8 @@ import { SECTION_IDS } from "lib/constants"
 import { staggerContainer, cardItem } from "lib/animations"
 import { cn } from "lib/utils"
 
+/* BentoGrid uses SECTION_IDS.twoBrains as its anchor for nav scroll-to */
+
 /* ─────────────────────────────────────────────────────────────────────────────
    BentoGrid — Asymmetrical glass-card feature grid.
 
@@ -45,7 +47,7 @@ const NECROMA_CODE = `> necroma scan --target legacy-auth
 
 export function BentoGrid() {
   return (
-    <section className="py-24 bg-void-black relative overflow-hidden">
+    <section id={SECTION_IDS.twoBrains} className="py-24 bg-void-black relative overflow-hidden scroll-mt-20">
       {/* Spatially separated glows — Cyan left, Purple right */}
       <div
         className="absolute top-1/2 left-[20%] -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] pointer-events-none"

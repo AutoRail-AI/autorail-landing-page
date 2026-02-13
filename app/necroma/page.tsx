@@ -5,11 +5,11 @@ import { SITE_CONFIG } from "lib/constants"
 import { NecromaProductPage } from "./necroma-product-page"
 
 export const metadata: Metadata = {
-  title: `${NECROMA.name} | ${SITE_CONFIG.name}`,
+  title: `${NECROMA.name} — Revive Legacy Systems | ${SITE_CONFIG.name}`,
   description: `${NECROMA.tagline} ${NECROMA.pitch}`,
   openGraph: {
-    title: `${NECROMA.name} — ${SITE_CONFIG.name}`,
-    description: NECROMA.pitch,
+    title: `${NECROMA.name} — Revive Legacy Systems | ${SITE_CONFIG.name}`,
+    description: NECROMA.tagline,
   },
 }
 

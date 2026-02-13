@@ -5,32 +5,47 @@
 export const CODE_SYNAPSE = {
   id: "code-synapse",
   name: "code-synapse",
-  tagline: "The Institutional Memory Layer.",
-  headline: "Stop AI From Writing 'Alien Code.'",
+  tagline: "The CLI sidecar that teaches Cursor and Claude your coding standards.",
+  headline: "Memory for Agents.",
   pitch:
-    "You wouldn't let a contractor build without blueprints. Don't let AI build without Context.",
+    "Code-Synapse is not another rules file that gets ignored after 5 messages. It's a living knowledge graph that persists across every session, every agent, and every developer on your team.",
   color: "cyan" as const,
   npmPackage: "code-synapse",
-  badges: ["Open Source", "MCP-Native"],
+  badges: ["Open Source", "CLI Sidecar"],
   cta: {
-    primary: "npm install code-synapse",
+    primary: "Get Early Access",
     secondary: "View on GitHub",
   },
   features: [
     {
-      title: "Pattern Enforcement",
+      title: "Universal Knowledge Graph",
       description:
-        "Forces agents (Cursor, Windsurf, Claude) to use your internal libraries and conventions, not generic public code.",
+        "Works with any agentic IDE. Whether you use Cursor, Claude Desktop, or Windsurf — Code-Synapse runs as a silent sidecar, feeding context via MCP.",
     },
     {
-      title: "Self-Reinforcing",
+      title: "Cure Context Rot",
       description:
-        "When a senior dev corrects the AI, Synapse learns the rule and distributes it to the whole team instantly.",
+        "Stop relying on static rules files that AI forgets after five messages. Code-Synapse acts as a persistent memory layer that survives across every conversation and tool.",
+    },
+    {
+      title: "Understands Business Intent",
+      description:
+        "It goes beyond codebase structure to understand the actual business intent of your software. Why does this module exist? What constraint drove this pattern?",
+    },
+    {
+      title: "Hyper-Personalized Generation",
+      description:
+        "AI finally writes code that looks like a senior developer on your team wrote it. Not generic Stack Overflow code. Your patterns. Your conventions. Your architecture.",
+    },
+    {
+      title: "Pattern Enforcement",
+      description:
+        "Forces agents to use your internal libraries and conventions, not generic public code.",
     },
     {
       title: "Drift Prevention",
       description:
-        'Catches "Alien Code" (inconsistent patterns) before it merges to main.',
+        'Catches "Alien Code" (inconsistent patterns) before it merges to main. Your codebase stays coherent.',
     },
   ],
 } as const
@@ -38,12 +53,12 @@ export const CODE_SYNAPSE = {
 export const NECROMA = {
   id: "necroma",
   name: "necroma",
-  tagline: "Autonomous Legacy Reclamation.",
-  headline: "Verify Behavior, Not Just Syntax.",
+  tagline: "Autonomous migration with 100% video-verified behavioral parity.",
+  headline: "Revive Legacy Systems.",
   pitch:
-    "Legacy migration is the most dangerous part of the mine. necroma is the autonomous unit that goes in, verifies the structural integrity, and reinforces it.",
+    "Necroma is a Behavior-to-Code reconstructor. It feeds Code, Video, and DOM Events into a temporal graph to guarantee 100% behavioral parity.",
   color: "purple" as const,
-  badges: ["Enterprise", "Invite Only"],
+  badges: ["Enterprise", "Public Beta"],
   cta: {
     primary: "Get Early Access",
     secondary: "Get Early Access",
@@ -57,12 +72,12 @@ export const NECROMA = {
     {
       title: "The Airbag (Self-Healing)",
       description:
-        "If the modernized code crashes, necroma detects it, diagnoses the root cause, and fixes it automatically. You don't get paged; the system catches itself.",
+        "If the modernized code crashes, Necroma detects it, diagnoses the root cause, and fixes it automatically. You don't get paged; the system catches itself.",
     },
     {
-      title: "Vertical Slice Safety",
+      title: "Vertical Slice Migration",
       description:
-        "We don't blow up the whole mine. We modernize one safe \"vertical slice\" at a time.",
+        "Instead of risky \"Big Bang\" migrations, Necroma delivers working features one \"Vertical Slice\" at a time. Working feature delivered in Week 1, autonomously verified through self-healing test loops.",
     },
   ],
 } as const

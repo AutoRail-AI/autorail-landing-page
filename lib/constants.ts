@@ -24,6 +24,7 @@ export const CTA_TEXT = {
 export const SECTION_IDS = {
   hero: "hero",
   day2Problem: "day2-problem",
+  twoBrains: "two-brains",
   codeSynapse: "code-synapse",
   necroma: "necroma",
   safetyRating: "safety-rating",

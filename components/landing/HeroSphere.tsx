@@ -115,10 +115,10 @@ export function HeroSphere() {
             >
               {/* Live dot — Success Green (brand.md §6.1: ≥85% confidence) */}
               <span className="relative flex h-1.5 w-1.5 shrink-0">
-                <span className="absolute inline-flex h-full w-full rounded-full bg-success opacity-60 animate-ping" />
-                <span className="relative inline-flex h-1.5 w-1.5 rounded-full bg-success" />
+                <span className="absolute inline-flex h-full w-full rounded-full text-warning opacity-60 animate-ping" />
+                <span className="relative inline-flex h-1.5 w-1.5 rounded-full text-warning" />
               </span>
-              <span className="text-label text-warning">
+              <span className="text-label ">
                 Industrial Safety for AI Development
               </span>
             </div>
@@ -144,7 +144,8 @@ export function HeroSphere() {
             transition={{ duration: 0.8, delay: 0.2, ease: snap }}
             className="font-sans text-lg text-muted-foreground max-w-xl mb-10 leading-relaxed"
           >
-            AI needs more than basic memory and syntax to build software. autorail is the first engineering intelligence platform equipped with a living code context for human-agent coding, paired with API and visual behavior parity to guarantee production readiness.
+            beyond basic memory and syntax. autorail pairs living code context for human-agent coding with API
+            and visual behavior parity to guarantee production readiness.
           </motion.p>
 
           {/* ── Primary CTA — single, prominent, glow-cyan on hover ── */}

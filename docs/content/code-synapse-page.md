@@ -45,9 +45,9 @@
 │  your coding standards.                                             │
 │                                                                     │
 │  ┌──────────────────────────────┐  ┌────────────────────────────┐   │
-│  │ $ npm install code-synapse 📋│  │  View on GitHub →          │   │
+│  │  Get Early Access            │  │  View on GitHub →          │   │
 │  └──────────────────────────────┘  └────────────────────────────┘   │
-│           ↑ copy button                     ↑ external link         │
+│           ↑ cal.com trigger                 ↑ external link         │
 │                                                                     │
 └─────────────────────────────────────────────────────────────────────┘
 ```
@@ -61,7 +61,7 @@
 | **Product name** | `code-synapse` |
 | **Headline** | Memory for Agents. |
 | **Subhead** | The CLI sidecar that teaches Cursor and Claude your coding standards. |
-| **CTA 1** | `npm install code-synapse` (with copy button) |
+| **CTA 1** | `Get Early Access` (Triggers Cal.com booking modal) |
 | **CTA 2** | `View on GitHub →` (external link) |
 
 ---
@@ -182,14 +182,14 @@
 │                                                                     │
 │  ╔═══════════════════════════════════════════════════════════════╗   │
 │  ║                                                               ║   │
-│  ║  Start in 30 seconds.                               headline ║   │
+│  ║  Get Early Access.                               headline    ║   │
 │  ║                                                               ║   │
-│  ║  Install the safety kit and connect your IDE.                 ║   │
+│  ║  Join the waitlist for the enterprise CLI sidecar.            ║   │
 │  ║  No backend required.                                  desc  ║   │
 │  ║                                                               ║   │
 │  ║  ┌──────────────────────────────┐                             ║   │
-│  ║  │ $ npm install code-synapse 📋│  ← copy button             ║   │
-│  ║  └──────────────────────────────┘                             ║   │
+│  ║  │  Get Early Access            │  ← CTA                     ║   │
+│  ║  └──────────────────────────────┘    (triggers Cal.com)       ║   │
 │  ║                                                               ║   │
 │  ╚═══════════════════════════════════════════════════════════════╝   │
 │                                                                     │
@@ -200,12 +200,38 @@
 
 | Element | Content |
 |---|---|
-| **Headline** | Start in 30 seconds. |
-| **Description** | Install the safety kit and connect your IDE. No backend required. |
-| **CTA** | `npm install code-synapse` (with copy button) |
+| **Headline** | Get Early Access. |
+| **Description** | Join the waitlist for the enterprise CLI sidecar. No backend required. |
+| **CTA** | `Get Early Access` (Triggers Cal.com booking modal) |
 
 ---
 
 ## Section 5 — Footer
 
-> Same as main landing page footer.
+
+---
+
+## Engineering & Design Specs
+
+> **Reference:** See `components/landing/HeroSphere.tsx` and `BentoGrid.tsx` for implementation.
+
+### 1. Visual Language: "Industrial Glass"
+- **Base Material:** `bg-white/[0.03]` + `backdrop-blur-[12px]`
+- **Border:** `border-white/10` (default) → `border-electric-cyan/30` (hover/active)
+- **Color Palette:** Strictly **Electric Cyan** (`#00E5FF`) on **Void Black** (`#0A0A0F`). No purple blending.
+- **Typography:** `Space Grotesk` (Headlines), `JetBrains Mono` (Code/Technical), `Inter` (Body).
+
+### 2. Animation Library: `framer-motion`
+Use the presets from `lib/animations.ts`:
+- **Entrance:** `staggerContainer` (parent) + `cardItem` (children) for grids/lists.
+- **Typing Effect:** Use mechanical easing `[0.16, 1, 0.3, 1]` ("The Snap") for text reveals.
+- **Glows:** `box-shadow: 0 0 20px rgba(0, 229, 255, 0.4)` on key interactions.
+
+### 3. Key Graphics & Effects
+| Component | Visual Metaphor | Implementation |
+|---|---|---|
+| **Hero Background** | **Neural Constellation** | Minimal WebGL or SVG nodes connecting in cyan. Represents the "Knowledge Graph". |
+| **Code Blocks** | **Live Terminal** | Dark container (`bg-void-black`), cyan syntax highlighting (`text-electric-cyan`), typing cursor blink. |
+| **Feature Cards** | **Data Plate** | Glass card with 1px rigid borders. On hover, the border lights up cyan instantly (no soft fade). |
+| **Icons** | **Holographic** | Lucide icons inside a `bg-electric-cyan/10` container with `text-electric-cyan`. |
+

@@ -17,7 +17,7 @@ export function Footer() {
           <div className="lg:col-span-2">
             <Link
               href="/"
-              className="inline-flex items-center px-4 py-2 rounded-xl transition-opacity hover:opacity-80"
+              className="inline-flex items-center px-4 py-2 -ml-8 rounded-xl transition-opacity hover:opacity-80"
               style={{
                 background:
                   "radial-gradient(ellipse at center, rgba(255,255,255,0.08) 0%, transparent 70%)",
