@@ -119,7 +119,7 @@ export function HeroSphere() {
                 <span className="relative inline-flex h-1.5 w-1.5 rounded-full text-warning" />
               </span>
               <span className="text-label ">
-                Industrial Safety for AI Development
+                Autonomous Engineering Infrastructure
               </span>
             </div>
           </motion.div>
@@ -144,8 +144,9 @@ export function HeroSphere() {
             transition={{ duration: 0.8, delay: 0.2, ease: snap }}
             className="font-sans text-lg text-muted-foreground max-w-xl mb-10 leading-relaxed"
           >
-            beyond basic memory and syntax. autorail pairs living code context for human-agent coding with API
-            and visual behavior parity to guarantee production readiness.
+            AI editors generate syntax. AutoRail provides the execution infrastructure to
+            test, verify, and reliably ship it — persistent context, behavioral parity,
+            and self-healing so autonomous engineering works at enterprise scale.
           </motion.p>
 
           {/* ── Primary CTA — single, prominent, glow-cyan on hover ── */}

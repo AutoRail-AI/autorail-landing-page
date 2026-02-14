@@ -1,6 +1,8 @@
 "use client"
 
+import Link from "next/link"
 import { motion } from "framer-motion"
+import { ArrowRight } from "lucide-react"
 import { Container } from "components/ui"
 import { SECTION_IDS } from "lib/constants"
 import { staggerContainer, cardItem } from "lib/animations"
@@ -11,9 +13,9 @@ import { cn } from "lib/utils"
 /* ─────────────────────────────────────────────────────────────────────────────
    BentoGrid — Asymmetrical glass-card feature grid.
 
-   "Two Brains" layout: Code Synapse (Cyan, left) and Necroma (Purple, right)
-   presented side-by-side with strict color separation. No cyan-to-purple
-   blending anywhere. Connectors use rigid white/10 circuit lines.
+   "Two Layers. One Stack." layout: Code Synapse (Cyan, Context Layer) and
+   Necroma (Purple, Migration Layer) presented side-by-side with strict color
+   separation. No cyan-to-purple blending anywhere.
 
    Industrial Glass material:
      Background:  rgba(255, 255, 255, 0.03)
@@ -22,28 +24,28 @@ import { cn } from "lib/utils"
      Hover:       Border lights up strictly Cyan OR Purple, never a mix.
    ───────────────────────────────────────────────────────────────────────────── */
 
-const SYNAPSE_CODE = `// code-synapse enforces your patterns
-import { loadContext } from "code-synapse"
+const SYNAPSE_CODE = `# code-synapse runs alongside your IDE
+$ code-synapse start --watch
 
-const ctx = await loadContext({
-  project: "payments-api",
-  rules:   "strict",
-})
+  ■ MCP server running on stdio
+  ■ Knowledge graph: 1,247 nodes
+  ■ Watching commits for updates...
+  ■ Skill libraries: 3 active
 
-// AI agents now follow YOUR conventions
-const result = agent.generate({
-  context: ctx,
-})`
+# Agents connect via MCP — zero config
+  ✓ Cursor connected
+  ✓ Pattern enforcement: ON
+  ✓ Drift detection: ARMED`
 
 const NECROMA_CODE = `> necroma scan --target legacy-auth
-  ■ Analyzing 147 modules...
-  ■ Mapping behavior signatures...
+  ■ Recording DOM events + user flows...
+  ■ Generating Playwright test suite...
   ■ 3 vertical slices identified
 
-> necroma migrate --slice auth-core
-  ✓ Tests generated from behavior
+> necroma migrate --verify
+  ✓ Behavioral tests generated
   ✓ Migrated:  COBOL → TypeScript
-  ✓ Self-heal: ARMED`
+  ✓ Guardrails: ARMED`
 
 export function BentoGrid() {
   return (
@@ -60,15 +62,18 @@ export function BentoGrid() {
 
       <Container className="relative">
         <div className="text-center mb-16">
-          <p className="text-label text-white/40 mb-3">Two Products. One Mission.</p>
+          <p className="text-label text-white/40 mb-3">The Infrastructure</p>
           <motion.h2
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="text-display-m text-white"
+            className="text-display-m text-white mb-4"
           >
-            The Two Brains of AutoRail
+            Two Layers. One Stack.
           </motion.h2>
+          <p className="max-w-2xl mx-auto text-muted-foreground text-lg leading-relaxed">
+            Autonomous engineering needs infrastructure underneath — or it collapses on Day 2.
+          </p>
         </div>
 
         <motion.div
@@ -89,23 +94,36 @@ export function BentoGrid() {
           >
             <div className="flex items-center gap-3 mb-4">
               <div className="w-2 h-2 rounded-full bg-electric-cyan" />
-              <span className="text-label text-electric-cyan">code-synapse</span>
+              <span className="text-label text-electric-cyan">code-synapse · CLI Sidecar</span>
             </div>
             <h3 className="text-2xl font-bold text-white mb-2 font-grotesk">
-              The Institutional Memory Layer
+              The Context Layer
             </h3>
             <p className="text-gray-300 mb-6 max-w-lg">
-              Meet Code-Synapse. The intelligent CLI sidecar that teaches IDE agents (Cursor, Claude)
-              your team&apos;s specific patterns to stop the generation of &apos;Alien Code&apos;.
+              Persistent memory infrastructure for agents. An AST-backed knowledge graph
+              injected directly into your IDE agent via MCP — teaching it your patterns,
+              conventions, and business intent across every session and every developer.
             </p>
             {/* Code snippet with brand-colored syntax */}
-            <div className="rounded-lg bg-void-black border border-white/10 p-4 overflow-x-auto">
+            <div className="rounded-lg bg-void-black border border-white/10 p-4 overflow-x-auto mb-6">
               <pre className="font-mono text-xs leading-relaxed">
                 {SYNAPSE_CODE.split("\n").map((line, i) => (
                   <SynapseLine key={i} line={line} />
                 ))}
               </pre>
             </div>
+            <Link
+              href="/code-synapse"
+              className={cn(
+                "inline-flex items-center gap-2 px-6 py-2.5 rounded-lg font-medium text-sm",
+                "bg-transparent border border-electric-cyan/30 text-electric-cyan",
+                "hover:glow-cyan hover:bg-electric-cyan/5",
+                "transition-all duration-300 group",
+              )}
+            >
+              Explore Code-Synapse
+              <ArrowRight className="w-4 h-4 group-hover:translate-x-0.5 transition-transform" />
+            </Link>
           </motion.div>
 
           {/* ── Card C: Stats / Metrics ── */}
@@ -177,23 +195,36 @@ export function BentoGrid() {
             <div className="relative">
               <div className="flex items-center gap-3 mb-4">
                 <div className="w-2 h-2 rounded-full bg-rail-purple" />
-                <span className="text-label text-rail-purple">necroma</span>
+                <span className="text-label text-rail-purple">necroma · Web Portal</span>
               </div>
               <h3 className="text-2xl font-bold text-white mb-2 font-grotesk">
-                Autonomous Legacy Reclamation
+                The Migration Layer
               </h3>
               <p className="text-gray-300 mb-6 max-w-lg">
-                Meet Necroma. The autonomous agent portal that watches how your legacy app behaves and
-                rebuilds it perfectly in modern tech. It translates user intent, not just broken syntax.
+                Autonomous legacy reclamation. Records DOM events and user flows,
+                generates Playwright tests from observed behavior, and forces the AI to write
+                code until the tests pass. Not syntax translation — behavioral reconstruction.
               </p>
               {/* Terminal output with purple-accented scanning */}
-              <div className="rounded-lg bg-void-black border border-white/10 p-4 overflow-x-auto">
+              <div className="rounded-lg bg-void-black border border-white/10 p-4 overflow-x-auto mb-6">
                 <pre className="font-mono text-xs leading-relaxed">
                   {NECROMA_CODE.split("\n").map((line, i) => (
                     <NecromaLine key={i} line={line} />
                   ))}
                 </pre>
               </div>
+              <Link
+                href="/necroma"
+                className={cn(
+                  "inline-flex items-center gap-2 px-6 py-2.5 rounded-lg font-medium text-sm",
+                  "bg-transparent border border-rail-purple/30 text-rail-purple",
+                  "hover:glow-purple hover:bg-rail-purple/5",
+                  "transition-all duration-300 group",
+                )}
+              >
+                Explore Necroma
+                <ArrowRight className="w-4 h-4 group-hover:translate-x-0.5 transition-transform" />
+              </Link>
             </div>
           </motion.div>
         </motion.div>

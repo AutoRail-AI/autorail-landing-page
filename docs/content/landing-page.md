@@ -1,11 +1,13 @@
 # Main Landing Page — `/`
 
-> **Goal:** Establish AutoRail as the "Industrialized Autonomous Engineering" category leader.
-> Introduce the two-hemisphere philosophy, route users to product sub-pages, close with enterprise trust.
+> **Goal:** Establish AutoRail as the **Autonomous Engineering Infrastructure** category leader.
+> The platform that makes autonomous engineering seamless — persistent context, behavioral verification, and self-healing built into the development lifecycle.
 >
 > **Products:**
-> - Code-Synapse (CLI Sidecar for IDEs)
-> - Necroma (Web Portal for Legacy) — *Replaces "Project Lazarus"*
+> - Code-Synapse (CLI Sidecar for IDEs) — The Context Layer
+> - Necroma (Web Portal for Legacy) — The Migration Layer
+>
+> **Audience:** Engineering leaders evaluating AI-assisted development at scale. They've tried Cursor/Copilot and hit the "Day 2" wall.
 
 ---
 
@@ -15,7 +17,7 @@
 ┌─────────────────────────────────────────────────────────────────────┐
 │  1. HERO                                                            │
 │  2. THE PROBLEM — "The 'Day 2' Hangover"                            │
-│  3. THE SOLUTION / ROUTER — "The Two Brains of AutoRail"            │
+│  3. THE SOLUTION / ROUTER — "The Infrastructure Stack"              │
 │  4. ENTERPRISE TRUST — "Engineering Rigor for the Agentic Age"      │
 │  5. TECH STACK MARQUEE                                              │
 │  6. FOOTER                                                          │
@@ -26,75 +28,25 @@
 
 ## Section 1 — Hero
 
-```
-┌─────────────────────────────────────────────────────────────────────┐
-│                                                                     │
-│  ┌─────────────────────────────────────────────┐                    │
-│  │ 🟢 Industrial Safety for AI Development     │  ← eyebrow badge  │
-│  └─────────────────────────────────────────────┘    (live pulse)    │
-│                                                                     │
-│  ╔═══════════════════════════════════════════════════════════════╗   │
-│  ║  Industrialize AI Code.                                      ║   │
-│  ╚═══════════════════════════════════════════════════════════════╝   │
-│                                                                     │
-│  Bring Context and Verification to your                             │
-│  autonomous engineering workflow.                                   │
-│                                                                     │
-│                  ┌──────────────────────┐                           │
-│                  │  Get Early Access    │  ← primary CTA         │
-│                  └──────────────────────┘    (triggers Cal.com)     │
-│                                                                     │
-└─────────────────────────────────────────────────────────────────────┘
-```
-
 ### Copy
 
 | Element | Content |
 |---|---|
-| **Eyebrow badge** | `Industrial Safety for AI Development` (with live pulse dot) |
-| **Headline** | Autonomous Engineering Infrastructure. |
-| **Sub-headline** | AI needs more than basic memory and syntax to build software. AutoRail is the first engineering intelligence platform equipped with a living code context for human-agent coding, paired with API and visual behavior parity to guarantee production readiness. |
+| **Eyebrow badge** | `Autonomous Engineering Infrastructure` (with live pulse dot) |
+| **Headline** | **Autonomous Engineering** (cyan) **Infrastructure** (purple) — bicameral split headline |
+| **Sub-headline** | AI editors generate syntax. AutoRail provides the execution infrastructure to test, verify, and reliably ship it — persistent context, behavioral parity, and self-healing so autonomous engineering works at enterprise scale. |
 | **CTA** | `Get Early Access` (Triggers Cal.com booking modal) |
+
+### WebGL Hero: AntigravityCloud
+- ~4096 code tokens on a Fibonacci sphere via React Three Fiber
+- Full brand palette: cyan (inner core), purple (outer edge), yellow, green (rare sparks), white
+- Cinematic bokeh depth with exponential opacity falloff
+- Bloom postprocessing for white-hot neon effect
+- Right-biased (65-70% desktop), full-bleed mobile with radial vignette
 
 ---
 
 ## Section 2 — The Problem: "The 'Day 2' Hangover"
-
-> **Action:** Keep exactly as-is. This section is brilliant — proves we understand the enterprise problem before pitching products.
-
-```
-┌─────────────────────────────────────────────────────────────────────┐
-│                                                                     │
-│  THE PROBLEM                                           ← eyebrow   │
-│                                                                     │
-│  The 'Day 2' Hangover.                                 ← headline  │
-│                                                                     │
-│  AI agents are incredible at Day 1 creation.                        │
-│  They are terrible at Day 2 maintenance.                            │
-│  Without guardrails, your infrastructure derails:      ← sub-head  │
-│                                                                     │
-│  ┌──────────────────┐  ┌──────────────────┐  ┌──────────────────┐  │
-│  │   ◆ CYAN CARD    │  │   ◆ CYAN CARD    │  │   ◆ PURPLE CARD  │  │
-│  │                  │  │                  │  │                  │  │
-│  │  The Amnesia     │  │  The Context     │  │  The Verification│  │
-│  │  Collapse        │  │  Collapse        │  │  Collapse        │  │
-│  │                  │  │                  │  │                  │  │
-│  │  Agents forget   │  │  As your         │  │  Agents write    │  │
-│  │  your arch       │  │  codebase grows, │  │  code that       │  │
-│  │  decisions.      │  │  rules files     │  │  passes syntax   │  │
-│  │  They re-        │  │  break. The AI   │  │  checks but      │  │
-│  │  introduce       │  │  patterns you    │  │  breaks business │  │
-│  │  banned years    │  │  hallucinating   │  │  logic.          │  │
-│  │  ago.            │  │  because it      │  │  You merge bugs  │  │
-│  │                  │  │  can't see the   │  │  faster than     │  │
-│  │                  │  │  full system     │  │  ever.           │  │
-│  │                  │  │  architecture.   │  │                  │  │
-│  │  → code-synapse  │  │  → knowledge     │  │  → necroma       │  │
-│  │                  │  │    graph         │  │                  │  │
-│  └──────────────────┘  └──────────────────┘  └──────────────────┘  │
-│                                                                     │
-└─────────────────────────────────────────────────────────────────────┘
-```
 
 ### Copy
 
@@ -102,181 +54,82 @@
 |---|---|
 | **Eyebrow** | `The Problem` |
 | **Headline** | The 'Day 2' Hangover. |
-| **Sub-head** | AI agents are incredible at Day 1 creation. They are terrible at Day 2 maintenance. Without guardrails, your infrastructure derails: |
+| **Sub-head** | Autonomous engineering is happening — agents are shipping real code to real production systems. But there's no infrastructure underneath to catch what breaks: |
 
 **Problem Cards (3-column grid):**
 
 | # | Color | Title | Description | Solved By |
 |---|---|---|---|---|
-| 1 | Cyan | The Amnesia Collapse | Agents forget your architectural decisions. They re-introduce patterns you banned years ago. | `code-synapse` |
-| 2 | Cyan | The Context Collapse | As your codebase grows, rules files break. The AI starts hallucinating because it can't see the full system architecture. | `knowledge graph` |
-| 3 | Purple | The Verification Collapse | Agents write code that passes syntax checks but breaks business logic. You merge bugs faster than ever. | `necroma` |
+| 1 | Cyan | The Amnesia Collapse | Agents forget your architectural decisions. Every session is a clean slate. Patterns get reinvented. Conventions drift. Your developers spend more time fixing AI-generated code than they saved by using AI. | `context layer` |
+| 2 | Cyan | Context Rot | As the codebase grows, static rules files break down. Agents can't see the full system architecture. They hallucinate solutions that don't compose with anything around them. | `knowledge graph` |
+| 3 | Purple | The Verification Collapse | Agents write code that passes syntax checks but breaks business behavior. Migrations look correct but feel wrong to users. You merge regressions faster than ever before. | `migration layer` |
 
 ---
 
-## Section 3 — The Solution: "The Two Brains of AutoRail"
+## Section 3 — The Solution: "The Infrastructure Stack"
 
-> **Action:** Keep existing BentoGrid content + ADD routing CTAs. This is the critical routing junction.
-
-```
-┌─────────────────────────────────────────────────────────────────────┐
-│                                                                     │
-│  TWO PRODUCTS. ONE MISSION.                            ← eyebrow   │
-│                                                                     │
-│  The Two Brains of AutoRail                            ← headline  │
-│                                                                     │
-│  True autonomy requires two hemispheres.               ← sub-head  │
-│                                                                     │
-│  ┌──────────────────────────────────────────┐  ┌──────────────────┐ │
-│  │  ◆ CYAN — LEFT BRAIN  (spans 2 cols)    │  │  ◇ Stats Card    │ │
-│  │                                          │  │  (1 col)         │ │
-│  │  code-synapse (CLI Sidecar)     label    │  │                  │ │
-│  │                                          │  │  By the Numbers  │ │
-│  │  Title: The Institutional Memory Layer   │  │                  │ │
-│  │                                          │  │  90%  less alien │ │
-│  │  "Meet Code-Synapse. The intelligent     │  │       code (cy)  │ │
-│  │   CLI sidecar that teaches IDE agents    │  │  3x   faster     │ │
-│  │   your team's specific patterns to stop  │  │       onboard    │ │
-│  │   the generation of 'Alien Code'."       │  │       (cyan)     │ │
-│  │                                          │  │  0    Day-2      │ │
-│  │  ┌─────────────────────────────────┐     │  │       surprises  │ │
-│  │  │  // code snippet (JS import)    │     │  │       (white)    │ │
-│  │  │  import { Synapse } from        │     │  │  ─────────────── │ │
-│  │  │    'code-synapse';              │     │  │  147  modules    │ │
-│  │  └─────────────────────────────────┘     │  │       scanned    │ │
-│  │                                          │  │       (purple)   │ │
-│  │  ┌──────────────────────────────┐        │  │  99.7% behavior  │ │
-│  │  │  Explore Code-Synapse →      │  CTA  │  │       preserved  │ │
-│  │  └──────────────────────────────┘        │  │       (purple)   │ │
-│  └──────────────────────────────────────────┘  └──────────────────┘ │
-│                                                                     │
-│  ┌──────────────────┐  ┌──────────────────────────────────────────┐ │
-│  │  ◇ Tech Stack    │  │  ◆ PURPLE — RIGHT + LEFT BRAIN           │ │
-│  │  Card (1 col)    │  │  (spans 2 cols)                          │ │
-│  │                  │  │                                          │ │
-│  │  Built On        │  │  necroma (Web Portal)           label    │ │
-│  │                  │  │                                          │ │
-│  │  • MCP           │  │  Title: Autonomous Legacy Reclamation    │ │
-│  │  • CozoDB        │  │                                          │ │
-│  │  • LangGraph     │  │  "Meet Necroma. The autonomous agent     │ │
-│  │  • TypeScript    │  │   portal that watches how your legacy    │ │
-│  │  • OpenHands     │  │   app behaves and rebuilds it perfectly. │ │
-│  │                  │  │   It translates user intent, not just    │ │
-│  │                  │  │   broken syntax."                        │ │
-│  │                  │  │                                          │ │
-│  │                  │  │  ┌─────────────────────────────────┐     │ │
-│  │                  │  │  │  // terminal output example     │     │ │
-│  │                  │  │  │  $ necroma migrate --verify     │     │ │
-│  │                  │  │  └─────────────────────────────────┘     │ │
-│  │                  │  │                                          │ │
-│  │                  │  │  ┌──────────────────────────────┐        │ │
-│  │                  │  │  │  Explore Necroma →           │  CTA  │ │
-│  │                  │  │  └──────────────────────────────┘        │ │
-│  └──────────────────┘  └──────────────────────────────────────────┘ │
-│                                                                     │
-└─────────────────────────────────────────────────────────────────────┘
-```
+> **Purpose:** Position the two products as layers of a unified infrastructure stack. Code-Synapse is the low-friction wedge (individual devs install it today). Necroma is the enterprise expansion play (CIO buys it for a $5M migration).
 
 ### Copy
 
 | Element | Content |
 |---|---|
-| **Eyebrow** | `Two Products. One Mission.` |
-| **Headline** | The Two Brains of AutoRail |
-| **Sub-head** | True autonomy requires two hemispheres. |
+| **Eyebrow** | `The Infrastructure` |
+| **Headline** | Two Layers. One Stack. |
+| **Sub-head** | Autonomous engineering needs infrastructure underneath — or it collapses on Day 2. |
 
 **BentoGrid Cards:**
 
-| Card | Grid | Color | Label | Title | Description | CTA |
-|---|---|---|---|---|---|---|
-| Code-Synapse | 2 cols | Cyan | `code-synapse` (CLI Sidecar) | The Institutional Memory Layer | Meet Code-Synapse. The intelligent CLI sidecar that teaches IDE agents your team's specific patterns **to stop the generation of 'Alien Code'.** | `Explore Code-Synapse →` → `/code-synapse` |
-| Stats | 1 col | Mixed | `By the Numbers` | *(stats list)* | 90% less alien code · 3x faster onboarding · 0 Day-2 surprises · 147 modules scanned · 99.7% behavior preserved | — |
-| Tech Stack | 1 col | Neutral | `Built On` | *(logos)* | MCP, CozoDB, LangGraph, TypeScript, OpenHands | — |
-| Necroma | 2 cols | Purple | `necroma` (Web Portal) | Autonomous Legacy Reclamation | Meet Necroma. The autonomous agent portal that watches how your legacy app behaves and rebuilds it perfectly in modern tech. **It translates user intent, not just broken syntax.** | `Explore Necroma →` → `/necroma` |
+| Card | Grid | Color | Label | Title | Description | Code Snippet | CTA |
+|---|---|---|---|---|---|---|---|
+| Code-Synapse | 2 cols | Cyan | `code-synapse` (CLI Sidecar) | The Context Layer | Persistent memory infrastructure for agents. A CLI sidecar that builds an AST-backed knowledge graph and serves it to any agent via MCP — with skill libraries that teach your patterns, conventions, and business intent. | CLI terminal output: `code-synapse start --watch` showing MCP server, knowledge graph stats, skill libraries active, agent connections | `Explore Code-Synapse →` → `/code-synapse` (page navigation, NOT Cal.com) |
+| Stats | 1 col | Mixed | `By the Numbers` | *(stats list)* | 90% less alien code · 3x faster onboarding · 0 Day-2 surprises · 147 modules scanned · 99.7% behavior preserved | — | — |
+| Tech Stack | 1 col | Neutral | `Built On` | *(logos)* | MCP, CozoDB, LangGraph, TypeScript, OpenHands | — | — |
+| Necroma | 2 cols | Purple | `necroma` (Web Portal) | The Migration Layer | Autonomous legacy reclamation. Records DOM events and user flows, generates Playwright tests from observed behavior, and forces the AI to write code until the tests pass. Not syntax translation — behavioral reconstruction. | Terminal output: `necroma migrate --verify` | `Explore Necroma →` → `/necroma` (page navigation, NOT Cal.com) |
 
 ---
 
 ## Section 4 — Enterprise Trust: "Engineering Rigor for the Agentic Age"
 
-> **Action:** Keep as-is. This is a platform-wide benefit closing out the main page.
-
-```
-┌─────────────────────────────────────────────────────────────────────┐
-│                                                                     │
-│  ENTERPRISE GRADE                                      ← eyebrow   │
-│                                                                     │
-│  Engineering Rigor for the Agentic Age.                ← headline  │
-│                                                                     │
-│  ┌──────────────────────────────────────────────────────────────┐   │
-│  │  ◆ Pillar 1                                                  │   │
-│  │  Audit Trails — The Change Ledger                            │   │
-│  │  Every AI decision is logged. If the system fails,           │   │
-│  │  you have the black box.                                     │   │
-│  ├──────────────────────────────────────────────────────────────┤   │
-│  │  ◆ Pillar 2                                                  │   │
-│  │  Privacy-First — Local Processing                            │   │
-│  │  The blueprints of your proprietary architecture never       │   │
-│  │  leave your perimeter.                                       │   │
-│  ├──────────────────────────────────────────────────────────────┤   │
-│  │  ◆ Pillar 3                                                  │   │
-│  │  Explainability — Thought Signatures                         │   │
-│  │  See exactly why the agent made a decision—complete with     │   │
-│  │  confidence scores and logic trails—before you approve       │   │
-│  │  a single line of code.                                      │   │
-│  └──────────────────────────────────────────────────────────────┘   │
-│                                                                     │
-└─────────────────────────────────────────────────────────────────────┘
-```
-
 ### Copy
 
 | Element | Content |
 |---|---|
-| **Eyebrow** | `Enterprise Grade` |
+| **Eyebrow** | `Enterprise Infrastructure` |
 | **Headline** | Engineering Rigor for the Agentic Age. |
+| **Sub-head** | AutoRail keeps the human in the loop as the reviewer and orchestrator. Agents propose. Your team approves. |
 
 **Trust Pillars:**
 
 | # | Title | Description |
 |---|---|---|
-| 1 | Audit Trails — The Change Ledger | Every AI decision is logged. If the system fails, you have the black box. |
-| 2 | Privacy-First — Local Processing | The blueprints of your proprietary architecture never leave your perimeter. |
-| 3 | Explainability — Thought Signatures | See exactly why the agent made a decision—complete with confidence scores and logic trails—before you approve a single line of code. |
+| 1 | Audit Trails — The Change Ledger | Every autonomous decision is logged with full provenance. If the system fails, you have the black box — not a shrug and a "the AI did it." |
+| 2 | Privacy-First — Local Processing | Your proprietary architecture never leaves your perimeter. The infrastructure runs where your code lives. No data exfiltration. No third-party model training on your IP. |
+| 3 | Explainability — Thought Signatures | See exactly why the agent made a decision — complete with confidence scores and logic trails — before a single line of code reaches production. No black-box deployments. |
 
 ---
 
 ## Section 5 — Tech Stack Marquee
 
-> **Action:** Keep as-is.
-
 ```
-┌─────────────────────────────────────────────────────────────────────┐
-│                                                                     │
-│  ←← MCP · CozoDB · LangGraph · OpenHands · Gemini 3.0 ··→→        │
-│  ←← Temporal · Supabase · MCP · CozoDB · LangGraph ·····→→        │
-│                                                  (infinite scroll)  │
-└─────────────────────────────────────────────────────────────────────┘
+←← MCP · CozoDB · LangGraph · OpenHands · Playwright ··→→
+←← Temporal · Supabase · TypeScript · AST · MCP ·······→→
+                                          (infinite scroll)
 ```
 
 ---
 
 ## Section 6 — Footer
 
-> **Action:** Keep as-is.
-
 ```
-┌─────────────────────────────────────────────────────────────────────┐
-│                                                                     │
-│  AutoRail — Industrialized Autonomous Engineering                   │
-│                                                                     │
-│  Products          Resources          Company                       │
-│  Code-Synapse      Documentation      About                        │
-│  Necroma           Blog               Careers                      │
-│                    GitHub             Contact                       │
-│                                                                     │
-│  © 2025 AutoRail. All rights reserved.                              │
-│                                                                     │
-└─────────────────────────────────────────────────────────────────────┘
+AutoRail — Autonomous Engineering Infrastructure
+
+Products          Resources          Company
+Code-Synapse      Documentation      About
+Necroma           Blog               Careers
+                  GitHub             Contact
+
+© 2026 AutoRail. All rights reserved.
 ```
 
 ---
@@ -284,14 +137,16 @@
 ## Narrative Flow Summary
 
 ```
-┌──────────────────────────────────────────────────────┐
-│  1. HERO         →  We do Industrialized Auto-Eng    │
-│  2. PROBLEM      →  Standard AI breaks on "Day 2"    │
-│  3. ROUTER       →  Two Brains fix it                │
-│                     ├─ Code-Synapse (CLI) (click →)  │
-│                     └─ Necroma (Portal) (click →)    │
-│  4. TRUST        →  Built with Engineering Rigor     │
-│  5. MARQUEE      →  Our tech stack                   │
-│  6. FOOTER       →  Links & legal                    │
-└──────────────────────────────────────────────────────┘
+┌──────────────────────────────────────────────────────────────────┐
+│  1. HERO         →  "Autonomous Engineering Infrastructure"      │
+│  2. PROBLEM      →  No infra underneath = Day 2 collapse         │
+│  3. STACK        →  Two layers solve it                          │
+│                     ├─ Code-Synapse = Context Layer               │
+│                     │  CTA: "Explore Code-Synapse →" → /code-synapse│
+│                     └─ Necroma = Migration Layer                  │
+│                        CTA: "Explore Necroma →" → /necroma        │
+│  4. TRUST        →  Enterprise-grade: audit, privacy, explain    │
+│  5. MARQUEE      →  Real tech stack (MCP, CozoDB, Playwright)   │
+│  6. FOOTER       →  Links & legal                                │
+└──────────────────────────────────────────────────────────────────┘
 ```

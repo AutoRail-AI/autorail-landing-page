@@ -5,10 +5,10 @@ import { SITE_CONFIG } from "lib/constants"
 import { CodeSynapseProductPage } from "./code-synapse-product-page"
 
 export const metadata: Metadata = {
-  title: `${CODE_SYNAPSE.name} — Memory for Agents | ${SITE_CONFIG.name}`,
+  title: `${CODE_SYNAPSE.name} — The Context Layer | ${SITE_CONFIG.name}`,
   description: `${CODE_SYNAPSE.tagline} ${CODE_SYNAPSE.pitch}`,
   openGraph: {
-    title: `${CODE_SYNAPSE.name} — Memory for Agents | ${SITE_CONFIG.name}`,
+    title: `${CODE_SYNAPSE.name} — The Context Layer | ${SITE_CONFIG.name}`,
     description: CODE_SYNAPSE.tagline,
   },
 }

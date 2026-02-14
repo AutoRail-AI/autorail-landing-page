@@ -11,7 +11,7 @@ const DAY2 = {
   eyebrow: "The Problem",
   headline: "The 'Day 2' Hangover.",
   subhead:
-    "AI agents are incredible at Day 1 creation. They are terrible at Day 2 maintenance. Without guardrails, your infrastructure derails:",
+    "Autonomous engineering is happening — agents are shipping real code to real production systems. But there's no infrastructure underneath to catch what breaks:",
 }
 
 export function Day2Problem() {

@@ -7,8 +7,10 @@ import { SAFETY_PILLARS } from "data/safety-pillars"
 import { staggerContainer, cardItem } from "lib/animations"
 
 const SAFETY = {
-  eyebrow: "Enterprise Grade",
+  eyebrow: "Enterprise Infrastructure",
   headline: "Engineering Rigor for the Agentic Age.",
+  subhead:
+    "AutoRail keeps the human in the loop as the reviewer and orchestrator. Agents propose. Your team approves.",
 }
 
 export function SafetyRating() {
@@ -32,10 +34,13 @@ export function SafetyRating() {
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="text-display-m text-white"
+            className="text-display-m text-white mb-4"
           >
             {SAFETY.headline}
           </motion.h2>
+          <p className="max-w-2xl mx-auto text-muted-foreground text-lg leading-relaxed">
+            {SAFETY.subhead}
+          </p>
         </div>
 
         <motion.div

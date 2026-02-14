@@ -5,47 +5,48 @@
 export const CODE_SYNAPSE = {
   id: "code-synapse",
   name: "code-synapse",
-  tagline: "The CLI sidecar that teaches Cursor and Claude your coding standards.",
-  headline: "Memory for Agents.",
+  tagline:
+    "Persistent memory infrastructure for agents — so they write code that belongs in your codebase, not code that compiles and violates everything.",
+  headline: "The Context Layer.",
   pitch:
-    "Code-Synapse is not another rules file that gets ignored after 5 messages. It's a living knowledge graph that persists across every session, every agent, and every developer on your team.",
+    "Code-Synapse is a CLI sidecar that runs alongside your IDE. It builds a living knowledge graph from your AST, commit history, and architectural decisions — then serves it to any agent via an MCP server. Pre-built skill libraries let agents go further: enforcing patterns, preventing drift, and understanding business intent. Zero manual upkeep. It watches your commits and updates the graph in real-time.",
   color: "cyan" as const,
-  npmPackage: "code-synapse",
+  cli: "code-synapse",
   badges: ["Open Source", "CLI Sidecar"],
   cta: {
-    primary: "Get Early Access",
+    primary: "Connect Your Repo",
     secondary: "View on GitHub",
   },
   features: [
     {
       title: "Universal Knowledge Graph",
       description:
-        "Works with any agentic IDE. Whether you use Cursor, Claude Desktop, or Windsurf — Code-Synapse runs as a silent sidecar, feeding context via MCP.",
+        "Runs as a CLI sidecar alongside any agentic IDE — Cursor, Claude Desktop, Windsurf. Agents connect via an MCP server that exposes your codebase's knowledge graph. No vendor lock-in.",
     },
     {
       title: "Cure Context Rot",
       description:
-        "Stop relying on static rules files that AI forgets after five messages. Code-Synapse acts as a persistent memory layer that survives across every conversation and tool.",
+        "Static rules files get ignored after five messages. Code-Synapse maintains a persistent knowledge graph that auto-updates on every commit. Zero manual maintenance — the sidecar watches your repo.",
     },
     {
       title: "Understands Business Intent",
       description:
-        "It goes beyond codebase structure to understand the actual business intent of your software. Why does this module exist? What constraint drove this pattern?",
+        "Goes beyond codebase structure to understand the actual business intent of your software. Why does this module exist? What constraint drove this pattern? What happens if you violate this convention?",
     },
     {
       title: "Hyper-Personalized Generation",
       description:
-        "AI finally writes code that looks like a senior developer on your team wrote it. Not generic Stack Overflow code. Your patterns. Your conventions. Your architecture.",
+        "Agents write code that looks like a senior developer on your team wrote it. Pre-built skill libraries teach them your internal patterns, naming conventions, and architectural decisions.",
     },
     {
       title: "Pattern Enforcement",
       description:
-        "Forces agents to use your internal libraries and conventions, not generic public code.",
+        "Skill libraries ensure agents use your internal modules and conventions, not generic public alternatives. The agent knows you have a DateUtils module — it won't import moment.js.",
     },
     {
       title: "Drift Prevention",
       description:
-        'Catches "Alien Code" (inconsistent patterns) before it merges to main. Your codebase stays coherent.',
+        "Catches architectural drift before it merges to main. Your codebase stays coherent as agents and developers scale. Alien Code gets flagged, not merged.",
     },
   ],
 } as const
@@ -53,31 +54,32 @@ export const CODE_SYNAPSE = {
 export const NECROMA = {
   id: "necroma",
   name: "necroma",
-  tagline: "Autonomous migration with 100% video-verified behavioral parity.",
-  headline: "Revive Legacy Systems.",
+  tagline:
+    "Infrastructure for autonomous legacy migration. See your first modernized, production-ready feature in days, not quarters.",
+  headline: "The Migration Layer.",
   pitch:
-    "Necroma is a Behavior-to-Code reconstructor. It feeds Code, Video, and DOM Events into a temporal graph to guarantee 100% behavioral parity.",
+    "Necroma records DOM events, network calls, and user flows from the live legacy application. It generates Playwright tests from observed behavior, then forces the AI to write modern code until every test passes. This isn't magic. It's test-driven reconstruction: the infrastructure generates the acceptance criteria by watching the application work, then holds the AI accountable to those criteria automatically.",
   color: "purple" as const,
   badges: ["Enterprise", "Public Beta"],
   cta: {
-    primary: "Get Early Access",
-    secondary: "Get Early Access",
+    primary: "Request a Migration Pilot",
+    secondary: "Request a Migration Pilot",
   },
   features: [
     {
       title: "Dual-Stream Verification",
       description:
-        "Doesn't just rewrite code; watches video of the user behavior to guarantee the new system works exactly like the old one.",
+        "Doesn't just rewrite code; watches video of actual user behavior to guarantee the new system works exactly like the old one. Records DOM events and generates behavioral test suites automatically.",
     },
     {
-      title: "The Airbag (Self-Healing)",
+      title: "Automated Guardrails",
       description:
-        "If the modernized code crashes, Necroma detects it, diagnoses the root cause, and fixes it automatically. You don't get paged; the system catches itself.",
+        "If a generated slice fails the behavioral test, the infrastructure doesn't crash the pipeline. It hits the brakes, reads the error, and self-heals the code until the test turns green. No 3am pages. The system catches itself.",
     },
     {
-      title: "Vertical Slice Migration",
+      title: "Vertical Slice Delivery",
       description:
-        "Instead of risky \"Big Bang\" migrations, Necroma delivers working features one \"Vertical Slice\" at a time. Working feature delivered in Week 1, autonomously verified through self-healing test loops.",
+        "Instead of risky \"Big Bang\" rewrites, the infra autonomously provisions vertical migration slices — one working feature at a time. See your first modernized, production-ready feature in days, not quarters. Autonomously verified through self-healing test loops.",
     },
   ],
 } as const

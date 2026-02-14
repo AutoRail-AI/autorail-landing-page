@@ -54,6 +54,28 @@ export const slideInRight: Variants = {
   },
 }
 
+// Blur reveal — opacity 0→1, y 24→0, blur 8px→0px (for headlines)
+export const blurReveal: Variants = {
+  hidden: { opacity: 0, y: 24, filter: "blur(8px)" },
+  visible: {
+    opacity: 1,
+    y: 0,
+    filter: "blur(0px)",
+    transition: { duration: 0.8, ease: [0.16, 1, 0.3, 1] },
+  },
+}
+
+// Slide in with blur — opacity 0→1, x 40→0, blur 8px→0px (for WebGL panels)
+export const slideInBlur: Variants = {
+  hidden: { opacity: 0, x: 40, filter: "blur(8px)" },
+  visible: {
+    opacity: 1,
+    x: 0,
+    filter: "blur(0px)",
+    transition: { duration: 0.8, ease: [0.16, 1, 0.3, 1] },
+  },
+}
+
 // Stagger children container
 export const staggerContainer: Variants = {
   hidden: { opacity: 0 },

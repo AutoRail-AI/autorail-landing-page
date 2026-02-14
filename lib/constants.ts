@@ -4,16 +4,16 @@
 
 export const SITE_CONFIG = {
   name: "autorail",
-  tagline: "Vibe Coding, Industrialized.",
+  tagline: "Autonomous Engineering Infrastructure.",
   description:
-    "The Context and Verification layers that make AI-powered development safe for the enterprise. code-synapse for pattern enforcement, necroma for autonomous legacy reclamation.",
+    "The infrastructure layer for autonomous engineering. code-synapse provides persistent context via AST-backed knowledge graphs. necroma provides behavioral verification for autonomous legacy reclamation.",
   url: "https://autorail.dev",
   twitterHandle: "@autorail_ai",
   twitterUrl: "https://x.com/autorail_ai",
   linkedinUrl: "https://linkedin.com/company/autorail_ai",
   githubUrl: "https://github.com/AutoRail-AI/code-synapse",
   contactEmail: "jaswanth@autorail.dev",
-  footerTagline: "Build Fast. Don't Crash.",
+  footerTagline: "Autonomous Engineering Infrastructure",
 } as const
 
 export const CTA_TEXT = {

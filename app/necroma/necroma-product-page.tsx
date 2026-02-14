@@ -1,5 +1,6 @@
 "use client"
 
+import dynamic from "next/dynamic"
 import { motion } from "framer-motion"
 import {
   ArrowRight,
@@ -9,7 +10,6 @@ import {
   Layers,
   Monitor,
   Shield,
-  Terminal,
   Video,
   X,
   Zap,
@@ -18,164 +18,153 @@ import { Container } from "components/ui"
 import { calTriggerProps } from "components/providers"
 import { GlassBrainShowcase } from "components/glass-brain"
 import { NECROMA } from "data/products"
-import { staggerContainer, cardItem } from "lib/animations"
+import {
+  staggerContainer,
+  cardItem,
+  blurReveal,
+} from "lib/animations"
 import { cn } from "lib/utils"
 
 const FEATURE_ICONS = [Eye, Zap, Layers]
 
-/* ── Terminal output for hero visual ──────────────────────────────────────── */
-
-const HERO_TERMINAL = `> necroma scan --target legacy-auth
-  ■ Analyzing 147 modules...
-  ■ Recording video snapshots...
-  ■ Mapping behavior signatures...
-  ■ 3 vertical slices identified
-
-> necroma migrate --slice auth-core
-  ✓ Video behaviors captured:  47
-  ✓ DOM events recorded:       312
-  ✓ Tests generated from behavior
-  ✓ Migrated:  COBOL → TypeScript
-  ✓ Self-heal: ARMED
-  ✓ Behavioral parity: 100%`
-
+// Machine-precision easing
 const snap = [0.16, 1, 0.3, 1] as const
+
+// Dynamic import — no SSR for WebGL
+const BehavioralPipeline = dynamic(
+  () =>
+    import("components/graphics/BehavioralPipeline").then((mod) => ({
+      default: mod.BehavioralPipeline,
+    })),
+  {
+    ssr: false,
+    loading: () => (
+      <div className="absolute inset-0 bg-void-black" aria-hidden />
+    ),
+  },
+)
 
 export function NecromaProductPage() {
   return (
     <>
-      {/* ── Section 1: Hero — Cinematic with terminal preview ── */}
-      <section className="relative overflow-hidden pt-24 pb-20 min-h-[85vh] flex items-center">
-        {/* Layered background effects */}
-        <div className="absolute inset-0 bg-grid-pattern opacity-40" />
-        <div
-          className="absolute inset-0 pointer-events-none"
-          style={{
-            background:
-              "radial-gradient(ellipse at 70% 30%, rgba(110,24,179,0.08) 0%, transparent 50%)",
-          }}
-        />
-        <div
-          className="absolute inset-0 pointer-events-none"
-          style={{
-            background:
-              "radial-gradient(ellipse at 20% 80%, rgba(110,24,179,0.04) 0%, transparent 50%)",
-          }}
-        />
-        {/* Top gradient line */}
-        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full max-w-4xl h-[1px] bg-gradient-to-r from-transparent via-rail-purple/20 to-transparent" />
-        {/* Bottom fade */}
-        <div className="absolute bottom-0 inset-x-0 h-40 bg-gradient-to-t from-void-black to-transparent pointer-events-none" />
+      {/* ── Section 1: Hero — WebGL Behavioral Pipeline ── */}
+      <section className="relative overflow-hidden min-h-screen flex items-center bg-void-black">
+        {/* WebGL Canvas — right-biased */}
+        <div className="absolute top-0 right-0 w-full h-full md:w-[65%] z-0 overflow-hidden">
+          <div className="relative w-full h-full">
+            <BehavioralPipeline />
 
-        <Container className="relative">
-          <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
-            {/* Left: Copy */}
+            {/* Safety fade */}
+            <div
+              className="absolute inset-y-0 left-0 w-[480px] z-10 pointer-events-none hidden md:block"
+              style={{
+                background:
+                  "linear-gradient(to right, #0A0A0F 0%, rgba(10,10,15,0.85) 30%, rgba(10,10,15,0.4) 60%, transparent 100%)",
+              }}
+            />
+
+            {/* Mobile radial vignette */}
+            <div
+              className="absolute inset-0 z-10 pointer-events-none md:hidden"
+              style={{
+                background:
+                  "radial-gradient(circle at 50% 50%, transparent 20%, #0A0A0F 80%)",
+              }}
+            />
+
+            {/* Edge fades */}
+            <div className="absolute top-0 inset-x-0 h-32 z-10 pointer-events-none bg-gradient-to-b from-void-black to-transparent" />
+            <div className="absolute bottom-0 inset-x-0 h-32 z-10 pointer-events-none bg-gradient-to-t from-void-black to-transparent" />
+            <div
+              className="absolute inset-y-0 right-0 w-24 z-10 pointer-events-none hidden md:block"
+              style={{
+                background:
+                  "linear-gradient(to left, #0A0A0F 0%, transparent 100%)",
+              }}
+            />
+          </div>
+        </div>
+
+        {/* Bottom section fade */}
+        <div className="absolute bottom-0 inset-x-0 h-40 z-[1] bg-gradient-to-t from-void-black to-transparent pointer-events-none" />
+
+        {/* Content */}
+        <Container className="relative z-10 py-32 md:py-40">
+          <div className="relative flex flex-col items-center text-center md:items-start md:text-left max-w-2xl">
+            {/* Badges */}
             <motion.div
-              variants={staggerContainer}
-              initial="hidden"
-              animate="visible"
+              initial={{ opacity: 0, filter: "blur(4px)" }}
+              animate={{ opacity: 1, filter: "blur(0px)" }}
+              transition={{ duration: 0.5, ease: snap }}
+              className="flex flex-wrap gap-2 mb-6"
             >
-              <motion.div
-                variants={cardItem}
-                className="flex flex-wrap gap-2 mb-6"
-              >
-                {NECROMA.badges.map((badge) => (
-                  <span
-                    key={badge}
-                    className="px-3 py-1 rounded-full text-xs font-medium bg-rail-purple/10 text-rail-purple border border-rail-purple/20"
-                  >
-                    {badge}
-                  </span>
-                ))}
-              </motion.div>
-              <motion.p
-                variants={cardItem}
-                className="text-rail-purple font-mono text-sm tracking-wider uppercase mb-4"
-              >
-                {NECROMA.name}
-              </motion.p>
-              <motion.h1
-                variants={cardItem}
-                className="text-display-lg tracking-[-0.03em] mb-6"
-              >
-                <span className="text-rail-purple">{NECROMA.headline}</span>
-              </motion.h1>
-              <motion.p
-                variants={cardItem}
-                className="text-lg text-white/60 mb-10 leading-relaxed max-w-lg"
-              >
-                {NECROMA.tagline}
-              </motion.p>
-              <motion.div variants={cardItem}>
-                <button
-                  type="button"
-                  {...calTriggerProps}
-                  className={cn(
-                    "inline-flex items-center gap-2 px-8 py-3 rounded-lg font-medium text-sm cursor-pointer",
-                    "bg-transparent border border-rail-purple/30 text-rail-purple",
-                    "hover:bg-rail-purple/10 hover:shadow-[0_0_20px_rgba(110,24,179,0.2)]",
-                    "transition-all duration-300 group/btn",
-                  )}
+              {NECROMA.badges.map((badge) => (
+                <span
+                  key={badge}
+                  className="px-3 py-1 rounded-full text-xs font-medium bg-rail-purple/10 text-rail-purple border border-rail-purple/20"
                 >
-                  {NECROMA.cta.primary}
-                  <ArrowRight className="w-4 h-4 group-hover/btn:translate-x-0.5 transition-transform" />
-                </button>
-              </motion.div>
+                  {badge}
+                </span>
+              ))}
             </motion.div>
 
-            {/* Right: Terminal preview panel */}
-            <motion.div
-              initial={{ opacity: 0, x: 30, filter: "blur(8px)" }}
-              animate={{ opacity: 1, x: 0, filter: "blur(0px)" }}
-              transition={{ duration: 0.8, delay: 0.3, ease: snap }}
-              className="relative"
+            {/* Product name */}
+            <motion.p
+              initial={{ opacity: 0, y: 16, filter: "blur(6px)" }}
+              animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
+              transition={{ duration: 0.6, delay: 0.05, ease: snap }}
+              className="text-rail-purple font-mono text-sm tracking-wider uppercase mb-4"
             >
-              {/* HUD corner brackets */}
-              <div className="absolute -inset-4 pointer-events-none hidden lg:block" aria-hidden>
-                <div className="absolute top-0 left-0 w-6 h-6 border-l border-t border-rail-purple/20" />
-                <div className="absolute top-0 right-0 w-6 h-6 border-r border-t border-rail-purple/20" />
-                <div className="absolute bottom-0 left-0 w-6 h-6 border-l border-b border-rail-purple/20" />
-                <div className="absolute bottom-0 right-0 w-6 h-6 border-r border-b border-rail-purple/20" />
-              </div>
+              {NECROMA.name}
+            </motion.p>
 
-              <div className="rounded-xl bg-white/[0.03] border border-white/10 backdrop-blur-[12px] overflow-hidden group relative">
-                {/* Scanline effect */}
-                <div className="absolute inset-0 pointer-events-none overflow-hidden opacity-0 group-hover:opacity-100 transition-opacity duration-500">
-                  <motion.div
-                    className="absolute left-0 right-0 h-px bg-rail-purple/40"
-                    animate={{ top: ["0%", "100%"] }}
-                    transition={{ duration: 3, repeat: Infinity, ease: "linear" }}
-                  />
-                </div>
-                {/* Terminal header */}
-                <div className="px-4 py-3 border-b border-white/5 flex items-center gap-3 relative">
-                  <Terminal className="w-4 h-4 text-rail-purple/60" />
-                  <span className="text-xs font-mono text-white/40">necroma-cli</span>
-                  <div className="ml-auto flex gap-1.5">
-                    <div className="w-2 h-2 rounded-full bg-white/10" />
-                    <div className="w-2 h-2 rounded-full bg-white/10" />
-                    <div className="w-2 h-2 rounded-full bg-rail-purple/30" />
-                  </div>
-                </div>
-                {/* Terminal content */}
-                <div className="p-5 overflow-x-auto relative">
-                  <pre className="font-mono text-xs leading-relaxed">
-                    {HERO_TERMINAL.split("\n").map((line, i) => (
-                      <NecromaLine key={i} line={line} />
-                    ))}
-                  </pre>
-                </div>
-              </div>
+            {/* Headline */}
+            <motion.h1
+              initial={{ opacity: 0, y: 32, filter: "blur(10px)" }}
+              animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
+              transition={{ duration: 1.1, delay: 0.1, ease: snap }}
+              className="text-display-xl tracking-[-0.03em] mb-6 leading-[0.95]"
+            >
+              <span className="text-rail-purple">{NECROMA.headline}</span>
+            </motion.h1>
+
+            {/* Tagline */}
+            <motion.p
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.2, ease: snap }}
+              className="font-sans text-lg text-muted-foreground max-w-xl mb-10 leading-relaxed"
+            >
+              {NECROMA.tagline}
+            </motion.p>
+
+            {/* CTA */}
+            <motion.div
+              initial={{ opacity: 0, y: 20, filter: "blur(4px)" }}
+              animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
+              transition={{ duration: 0.8, delay: 0.35, ease: snap }}
+            >
+              <button
+                type="button"
+                {...calTriggerProps}
+                className={cn(
+                  "inline-flex items-center gap-2 px-8 py-3 rounded-lg font-medium text-sm cursor-pointer",
+                  "bg-transparent border border-rail-purple/30 text-rail-purple",
+                  "hover:bg-rail-purple/10 hover:shadow-[0_0_20px_rgba(110,24,179,0.2)]",
+                  "transition-all duration-300 group/btn",
+                )}
+              >
+                {NECROMA.cta.primary}
+                <ArrowRight className="w-4 h-4 group-hover/btn:translate-x-0.5 transition-transform" />
+              </button>
             </motion.div>
           </div>
         </Container>
       </section>
 
-      {/* ── Section 2: The Unfair Advantage ── */}
+      {/* ── Section 2: The Infrastructure Gap ── */}
       <section className="py-24 relative overflow-hidden">
-        {/* Section divider */}
         <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full max-w-4xl h-[1px] bg-gradient-to-r from-transparent via-white/10 to-transparent" />
-
         <div
           className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[600px] pointer-events-none"
           style={{
@@ -183,26 +172,27 @@ export function NecromaProductPage() {
               "radial-gradient(circle, rgba(110,24,179,0.03) 0%, transparent 70%)",
           }}
         />
+
         <Container className="relative max-w-5xl">
           <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
+            variants={blurReveal}
+            initial="hidden"
+            whileInView="visible"
             viewport={{ once: true }}
-            transition={{ duration: 0.5 }}
             className="mb-12"
           >
             <p className="text-label text-rail-purple mb-3">
-              The Unfair Advantage
+              The Infrastructure Gap
             </p>
             <h2 className="text-display-m text-white">
               Everyone else is fighting the wrong war.
             </h2>
           </motion.div>
 
-          {/* Their War vs Our War */}
+          {/* Migration Tools vs Migration Infra */}
           <div className="grid md:grid-cols-2 gap-6 mb-16">
             <motion.div
-              initial={{ opacity: 0, x: -20 }}
+              initial={{ opacity: 0, x: -30 }}
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5 }}
@@ -213,21 +203,23 @@ export function NecromaProductPage() {
                   <X className="w-4 h-4 text-error" />
                 </div>
                 <div>
-                  <span className="text-label text-error">Their War</span>
-                  <p className="text-sm text-white/50 mt-0.5">The Syntax War</p>
+                  <span className="text-label text-error">Migration Tools</span>
+                  <p className="text-sm text-white/50 mt-0.5">
+                    The Syntax War
+                  </p>
                 </div>
               </div>
               <p className="text-gray-300 leading-relaxed mb-4">
-                Competitors fight a Syntax War — converting Code A to Code B,
-                line by line.
+                Migration tools fight a Syntax War — converting Code A to Code
+                B, line by line. They read source code and guess.
               </p>
               <p className="text-white/30 text-sm font-mono">
-                They are blind because they cannot see the screen.
+                They are blind because source code doesn&apos;t capture intent.
               </p>
             </motion.div>
 
             <motion.div
-              initial={{ opacity: 0, x: 20 }}
+              initial={{ opacity: 0, x: 30 }}
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5 }}
@@ -238,7 +230,11 @@ export function NecromaProductPage() {
                 <motion.div
                   className="absolute left-0 right-0 h-px bg-rail-purple/40"
                   animate={{ top: ["0%", "100%"] }}
-                  transition={{ duration: 3, repeat: Infinity, ease: "linear" }}
+                  transition={{
+                    duration: 3,
+                    repeat: Infinity,
+                    ease: "linear",
+                  }}
                 />
               </div>
 
@@ -248,15 +244,18 @@ export function NecromaProductPage() {
                     <Check className="w-4 h-4 text-rail-purple" />
                   </div>
                   <div>
-                    <span className="text-label text-rail-purple">Our War</span>
+                    <span className="text-label text-rail-purple">
+                      Migration Infrastructure
+                    </span>
                     <p className="text-sm text-white/50 mt-0.5">
                       The Behavioral War
                     </p>
                   </div>
                 </div>
                 <p className="text-gray-300 leading-relaxed mb-4">
-                  Necroma fights a Behavioral War — preserving actual user intent
-                  and business behavior.
+                  Necroma is migration infrastructure — preserving actual user
+                  intent and business behavior. It watches the running
+                  application.
                 </p>
                 <p className="text-rail-purple/80 text-sm font-mono">
                   We are not blind. We watch the screen.
@@ -265,7 +264,7 @@ export function NecromaProductPage() {
             </motion.div>
           </div>
 
-          {/* Video-Behavioral Grounding */}
+          {/* Behavior-to-Code Reconstruction */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -273,8 +272,10 @@ export function NecromaProductPage() {
             transition={{ duration: 0.5 }}
             className="relative"
           >
-            {/* HUD brackets */}
-            <div className="absolute -inset-4 pointer-events-none hidden md:block" aria-hidden>
+            <div
+              className="absolute -inset-4 pointer-events-none hidden md:block"
+              aria-hidden
+            >
               <div className="absolute top-0 left-0 w-6 h-6 border-l border-t border-rail-purple/15" />
               <div className="absolute bottom-0 right-0 w-6 h-6 border-r border-b border-rail-purple/15" />
             </div>
@@ -285,21 +286,16 @@ export function NecromaProductPage() {
                   <Monitor className="w-5 h-5 text-rail-purple" />
                 </div>
                 <h3 className="text-xl font-bold text-white font-grotesk">
-                  Video-Behavioral Grounding
+                  Behavior-to-Code Reconstruction
                 </h3>
               </div>
 
               <p className="text-gray-300 leading-relaxed mb-4 max-w-2xl">
                 {NECROMA.pitch}
               </p>
-              <p className="text-white/40 text-sm leading-relaxed mb-12 max-w-2xl">
-                Giant enterprise competitors read legacy source code and attempt to
-                translate it line-by-line. They fail because source code
-                doesn&apos;t capture intent.
-              </p>
 
               {/* Data flow diagram */}
-              <div className="flex flex-col items-center gap-0">
+              <div className="flex flex-col items-center gap-0 mt-12">
                 {/* Input nodes */}
                 <div className="flex flex-wrap justify-center gap-6 md:gap-10">
                   {[
@@ -336,9 +332,30 @@ export function NecromaProductPage() {
                     fill="none"
                     preserveAspectRatio="xMidYMid meet"
                   >
-                    <line x1="50" y1="0" x2="150" y2="44" stroke="rgba(110,24,179,0.3)" strokeWidth="1" />
-                    <line x1="150" y1="0" x2="150" y2="44" stroke="rgba(110,24,179,0.3)" strokeWidth="1" />
-                    <line x1="250" y1="0" x2="150" y2="44" stroke="rgba(110,24,179,0.3)" strokeWidth="1" />
+                    <line
+                      x1="50"
+                      y1="0"
+                      x2="150"
+                      y2="44"
+                      stroke="rgba(110,24,179,0.3)"
+                      strokeWidth="1"
+                    />
+                    <line
+                      x1="150"
+                      y1="0"
+                      x2="150"
+                      y2="44"
+                      stroke="rgba(110,24,179,0.3)"
+                      strokeWidth="1"
+                    />
+                    <line
+                      x1="250"
+                      y1="0"
+                      x2="150"
+                      y2="44"
+                      stroke="rgba(110,24,179,0.3)"
+                      strokeWidth="1"
+                    />
                   </svg>
                 </div>
 
@@ -350,14 +367,11 @@ export function NecromaProductPage() {
                   className="px-10 py-5 rounded-xl border border-rail-purple/40 bg-rail-purple/[0.06] text-center"
                 >
                   <p className="text-sm font-mono text-rail-purple font-medium">
-                    Temporal Graph
-                  </p>
-                  <p className="text-[10px] text-white/40 mt-1">
-                    Behavioral Parity Engine
+                    Temporal Graph + Playwright Test Suite
                   </p>
                 </motion.div>
 
-                {/* Single output line */}
+                {/* Output line */}
                 <div className="h-10 w-px bg-gradient-to-b from-rail-purple/30 to-success/30" />
 
                 {/* Result node */}
@@ -377,33 +391,35 @@ export function NecromaProductPage() {
         </Container>
       </section>
 
-      {/* ── Section 3: Glass Brain View Showcase ── */}
+      {/* ── Section 3: Glass Brain View — The Migration Control Plane ── */}
       <section className="py-24 relative overflow-hidden">
-        {/* Section divider */}
         <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full max-w-4xl h-[1px] bg-gradient-to-r from-transparent via-white/10 to-transparent" />
         <div className="absolute inset-0 bg-grid-pattern opacity-20" />
 
         <Container className="relative">
           <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
+            variants={blurReveal}
+            initial="hidden"
+            whileInView="visible"
             viewport={{ once: true }}
             className="mb-12"
           >
             <p className="text-label text-rail-purple mb-3">Visibility</p>
             <h2 className="text-display-m text-white mb-4">
-              The Migration Portal — Live View
+              The Migration Control Plane
             </h2>
             <p className="text-white/50 max-w-2xl leading-relaxed">
-              The Glass Brain view gives you full visibility into the agent:
-              workspace changes, build console, and AI reasoning — with
-              self-heal cycles and confidence in one place.
+              Full visibility into every autonomous operation: workspace changes,
+              build console, AI reasoning, self-heal cycles, and confidence
+              scoring — in one auditable dashboard.
             </p>
           </motion.div>
 
-          {/* HUD brackets around showcase */}
           <div className="relative">
-            <div className="absolute -inset-4 pointer-events-none hidden md:block" aria-hidden>
+            <div
+              className="absolute -inset-4 pointer-events-none hidden md:block"
+              aria-hidden
+            >
               <div className="absolute top-0 left-0 w-8 h-8 border-l border-t border-rail-purple/10" />
               <div className="absolute top-0 right-0 w-8 h-8 border-r border-t border-rail-purple/10" />
               <div className="absolute bottom-0 left-0 w-8 h-8 border-l border-b border-rail-purple/10" />
@@ -416,19 +432,21 @@ export function NecromaProductPage() {
 
       {/* ── Section 4: Key Capabilities ── */}
       <section className="py-24 relative overflow-hidden">
-        {/* Section divider */}
         <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full max-w-4xl h-[1px] bg-gradient-to-r from-transparent via-white/10 to-transparent" />
 
         <Container className="relative">
           <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
+            variants={blurReveal}
+            initial="hidden"
+            whileInView="visible"
             viewport={{ once: true }}
             className="mb-16"
           >
-            <p className="text-label text-rail-purple mb-3">Capabilities</p>
+            <p className="text-label text-rail-purple mb-3">
+              Infrastructure Capabilities
+            </p>
             <h2 className="text-display-m text-white">
-              How Necroma Works
+              How the Migration Layer Works
             </h2>
           </motion.div>
 
@@ -445,10 +463,12 @@ export function NecromaProductPage() {
                 <motion.article
                   key={feature.title}
                   variants={cardItem}
+                  whileHover={{ scale: 1.02 }}
+                  transition={{ type: "spring", stiffness: 300, damping: 20 }}
                   className={cn(
                     "group relative rounded-xl p-8 overflow-hidden",
                     "bg-white/[0.03] border border-white/10 backdrop-blur-[12px]",
-                    "hover:border-rail-purple/30 transition-all duration-300",
+                    "hover:border-rail-purple/30 transition-colors duration-300",
                   )}
                 >
                   {/* Scanline on hover */}
@@ -456,7 +476,11 @@ export function NecromaProductPage() {
                     <motion.div
                       className="absolute left-0 right-0 h-px bg-rail-purple/30"
                       animate={{ top: ["0%", "100%"] }}
-                      transition={{ duration: 3, repeat: Infinity, ease: "linear" }}
+                      transition={{
+                        duration: 3,
+                        repeat: Infinity,
+                        ease: "linear",
+                      }}
                     />
                   </div>
 
@@ -485,7 +509,6 @@ export function NecromaProductPage() {
 
       {/* ── Section 5: Bottom CTA ── */}
       <section className="py-24 relative">
-        {/* Section divider */}
         <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full max-w-4xl h-[1px] bg-gradient-to-r from-transparent via-white/10 to-transparent" />
 
         <Container>
@@ -495,8 +518,10 @@ export function NecromaProductPage() {
             viewport={{ once: true }}
             className="relative"
           >
-            {/* HUD brackets on CTA card */}
-            <div className="absolute -inset-4 pointer-events-none hidden md:block" aria-hidden>
+            <div
+              className="absolute -inset-4 pointer-events-none hidden md:block"
+              aria-hidden
+            >
               <div className="absolute top-0 left-0 w-8 h-8 border-l border-t border-rail-purple/10" />
               <div className="absolute top-0 right-0 w-8 h-8 border-r border-t border-rail-purple/10" />
               <div className="absolute bottom-0 left-0 w-8 h-8 border-l border-b border-rail-purple/10" />
@@ -504,7 +529,6 @@ export function NecromaProductPage() {
             </div>
 
             <div className="rounded-2xl border border-rail-purple/20 bg-rail-purple/[0.03] p-12 md:p-16 text-center relative overflow-hidden">
-              {/* Subtle background glow */}
               <div
                 className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[400px] h-[400px] pointer-events-none"
                 style={{
@@ -515,12 +539,12 @@ export function NecromaProductPage() {
 
               <div className="relative">
                 <h2 className="text-display-m text-white mb-4">
-                  Secure Your Legacy Systems.
+                  Add the Migration Layer.
                 </h2>
                 <p className="text-white/50 mb-10 max-w-xl mx-auto leading-relaxed">
-                  The Necroma Portal is invite-only. Join the waitlist for early
-                  access to autonomous legacy reclamation with full Glass Brain
-                  visibility.
+                  See a production-ready vertical slice from your own legacy
+                  codebase. No commitment. No &ldquo;Big Bang.&rdquo; Just proof
+                  that autonomous migration works.
                 </p>
                 <button
                   type="button"
@@ -532,7 +556,7 @@ export function NecromaProductPage() {
                     "transition-all duration-300 group/btn",
                   )}
                 >
-                  Get Early Access
+                  {NECROMA.cta.primary}
                   <ArrowRight className="w-4 h-4 group-hover/btn:translate-x-0.5 transition-transform" />
                 </button>
               </div>
@@ -542,28 +566,4 @@ export function NecromaProductPage() {
       </section>
     </>
   )
-}
-
-/* ── Terminal line highlighting ────────────────────────────────────────────── */
-
-function NecromaLine({ line }: { line: string }) {
-  if (line.startsWith(">")) {
-    return <div className="text-rail-purple font-medium">{line}</div>
-  }
-  if (line.includes("✓")) {
-    const parts = line.split("✓")
-    return (
-      <div className="text-rail-purple/80">
-        <span className="text-success">✓</span>
-        {parts[1]}
-      </div>
-    )
-  }
-  if (line.includes("■")) {
-    return <div className="text-white/40">{line}</div>
-  }
-  if (line.trim() === "") {
-    return <div className="h-3" />
-  }
-  return <div className="text-white/40">{line}</div>
 }
