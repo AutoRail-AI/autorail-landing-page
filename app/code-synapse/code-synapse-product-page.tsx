@@ -9,23 +9,62 @@ import {
   GitBranch,
   Network,
   Puzzle,
-  Radar,
   ShieldCheck,
+  Terminal,
+  Workflow,
+  Zap,
 } from "lucide-react"
 import { Container } from "components/ui"
 import { calTriggerProps } from "components/providers"
 import { CODE_SYNAPSE } from "data/products"
 import { SITE_CONFIG } from "lib/constants"
-import {
-  staggerContainer,
-  staggerContainerSlow,
-  cardItem,
-  blurReveal,
-  slideInBlur,
-} from "lib/animations"
+import { staggerContainer, cardItem, blurReveal } from "lib/animations"
 import { cn } from "lib/utils"
 
-const FEATURE_ICONS = [Network, Radar, Puzzle, Brain, ShieldCheck, GitBranch]
+/* ─────────────────────────────────────────────────────────────────────────────
+   Data
+   ───────────────────────────────────────────────────────────────────────────── */
+
+const PIPELINE = [
+  {
+    icon: Terminal,
+    title: "CLI Sidecar",
+    desc: "Runs alongside your IDE",
+  },
+  {
+    icon: Workflow,
+    title: "Knowledge Graph",
+    desc: "Maps your architecture",
+  },
+  {
+    icon: Network,
+    title: "MCP Server",
+    desc: "Serves context to agents",
+  },
+  {
+    icon: Puzzle,
+    title: "Skill Libraries",
+    desc: "Enforces your patterns",
+  },
+]
+
+const CAPABILITIES = [
+  {
+    icon: Brain,
+    title: "Understands Business Intent",
+    desc: "Knows why modules exist, what constraints drove patterns, and what breaks if conventions are violated.",
+  },
+  {
+    icon: ShieldCheck,
+    title: "Pattern Enforcement",
+    desc: "Agents use your internal modules — not generic public packages. DateUtils over moment.js, every time.",
+  },
+  {
+    icon: GitBranch,
+    title: "Drift Prevention",
+    desc: "Catches architectural drift before it merges to main. Alien code gets flagged, not shipped.",
+  },
+]
 
 // Machine-precision easing: fast out, smooth settle
 const snap = [0.16, 1, 0.3, 1] as const
@@ -177,8 +216,107 @@ export function CodeSynapseProductPage() {
         </Container>
       </section>
 
-      {/* ── Section 2: The Gap + The Mechanism ── */}
-      <section className="py-24 relative overflow-hidden">
+      {/* ══════════════════════════════════════════════════════════════════════
+          Section 2: THE PROBLEM — Before / After Code Comparison
+          Two editor panels that slide in from opposite sides.
+          Instantly communicates the value without a single paragraph.
+         ══════════════════════════════════════════════════════════════════════ */}
+      <section className="py-32 relative overflow-hidden">
+        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full max-w-4xl h-[1px] bg-gradient-to-r from-transparent via-white/10 to-transparent" />
+
+        <Container className="relative max-w-5xl">
+          <motion.div
+            variants={blurReveal}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true }}
+            className="text-center mb-20"
+          >
+            <p className="text-label text-white/40 mb-3">The Problem</p>
+            <h2 className="text-display-m text-white">
+              Agents can write code. They can&apos;t write{" "}
+              <span className="text-electric-cyan italic">your</span> code.
+            </h2>
+          </motion.div>
+
+          {/* Before / After — two editor panels */}
+          <div className="grid md:grid-cols-2 gap-5 max-w-4xl mx-auto">
+            {/* ── WITHOUT ── */}
+            <motion.div
+              initial={{ opacity: 0, x: -40, filter: "blur(6px)" }}
+              whileInView={{ opacity: 1, x: 0, filter: "blur(0px)" }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.7, ease: snap }}
+              className="rounded-xl overflow-hidden border border-white/[0.08]"
+            >
+              {/* Title bar */}
+              <div className="flex items-center gap-2.5 px-4 py-2.5 bg-white/[0.03] border-b border-white/[0.06]">
+                <span className="w-[7px] h-[7px] rounded-full bg-red-400/50" />
+                <span className="text-[11px] font-mono text-white/25 tracking-wide">
+                  agent-output.ts — without context
+                </span>
+              </div>
+              {/* Code */}
+              <div className="p-5 bg-void-black/80">
+                <pre className="font-mono text-[13px] leading-[1.7] text-white/25">
+                  <Line><Kw c="text-white/40">import</Kw> moment <Kw c="text-white/40">from</Kw> <Str c="text-amber-300/30">&apos;moment&apos;</Str></Line>
+                  <Line><Kw c="text-white/40">import</Kw> axios <Kw c="text-white/40">from</Kw> <Str c="text-amber-300/30">&apos;axios&apos;</Str></Line>
+                  <Line />
+                  <Line><Kw c="text-white/40">const</Kw> fmt = (d) =&gt; moment(d).format(<Str c="text-amber-300/30">&apos;MM/DD&apos;</Str>)</Line>
+                  <Line><Kw c="text-white/40">const</Kw> res = <Kw c="text-white/40">await</Kw> axios.get(<Str c="text-amber-300/30">&apos;/api/users&apos;</Str>)</Line>
+                </pre>
+              </div>
+              {/* Verdict */}
+              <div className="px-4 py-2.5 bg-white/[0.02] border-t border-white/[0.06] flex items-center gap-2">
+                <span className="w-1 h-1 rounded-full bg-red-400/60" />
+                <span className="text-[10px] font-mono text-white/20">
+                  Wrong packages. Wrong patterns. Compiles, but doesn&apos;t belong.
+                </span>
+              </div>
+            </motion.div>
+
+            {/* ── WITH CODE-SYNAPSE ── */}
+            <motion.div
+              initial={{ opacity: 0, x: 40, filter: "blur(6px)" }}
+              whileInView={{ opacity: 1, x: 0, filter: "blur(0px)" }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.7, ease: snap }}
+              className="rounded-xl overflow-hidden border border-electric-cyan/20"
+            >
+              {/* Title bar */}
+              <div className="flex items-center gap-2.5 px-4 py-2.5 bg-electric-cyan/[0.04] border-b border-electric-cyan/10">
+                <span className="w-[7px] h-[7px] rounded-full bg-electric-cyan" />
+                <span className="text-[11px] font-mono text-electric-cyan/50 tracking-wide">
+                  agent-output.ts — with code-synapse
+                </span>
+              </div>
+              {/* Code */}
+              <div className="p-5 bg-void-black/80">
+                <pre className="font-mono text-[13px] leading-[1.7] text-white/50">
+                  <Line><Kw c="text-electric-cyan/70">import</Kw> {"{ formatDate }"} <Kw c="text-electric-cyan/70">from</Kw> <Str c="text-electric-cyan/50">&apos;@/lib/dates&apos;</Str></Line>
+                  <Line><Kw c="text-electric-cyan/70">import</Kw> {"{ api }"} <Kw c="text-electric-cyan/70">from</Kw> <Str c="text-electric-cyan/50">&apos;@/lib/http-client&apos;</Str></Line>
+                  <Line />
+                  <Line><Kw c="text-electric-cyan/70">const</Kw> date = formatDate(<Kw c="text-electric-cyan/70">new</Kw> Date())</Line>
+                  <Line><Kw c="text-electric-cyan/70">const</Kw> users = <Kw c="text-electric-cyan/70">await</Kw> api.get<Kw c="text-electric-cyan/40">&lt;User[]&gt;</Kw>(<Str c="text-electric-cyan/50">&apos;/users&apos;</Str>)</Line>
+                </pre>
+              </div>
+              {/* Verdict */}
+              <div className="px-4 py-2.5 bg-electric-cyan/[0.03] border-t border-electric-cyan/10 flex items-center gap-2">
+                <span className="w-1 h-1 rounded-full bg-electric-cyan" />
+                <span className="text-[10px] font-mono text-electric-cyan/50">
+                  Your modules. Your types. Your conventions. Code that belongs.
+                </span>
+              </div>
+            </motion.div>
+          </div>
+        </Container>
+      </section>
+
+      {/* ══════════════════════════════════════════════════════════════════════
+          Section 3: HOW IT WORKS — Animated Architecture Pipeline
+          A single horizontal flow with animated connector — NOT cards.
+         ══════════════════════════════════════════════════════════════════════ */}
+      <section className="py-32 relative overflow-hidden">
         <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full max-w-4xl h-[1px] bg-gradient-to-r from-transparent via-white/10 to-transparent" />
         <div
           className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[600px] pointer-events-none"
@@ -189,184 +327,144 @@ export function CodeSynapseProductPage() {
         />
 
         <Container className="relative max-w-5xl">
-          {/* The Gap */}
           <motion.div
             variants={blurReveal}
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true }}
-            className="mb-8"
+            className="text-center mb-20"
           >
-            <p className="text-label text-electric-cyan mb-3">The Gap</p>
-            <h2 className="text-display-m text-white mb-4">
-              Agents can write code. They can&apos;t write{" "}
-              <span className="text-electric-cyan italic">your</span> code.
-            </h2>
-          </motion.div>
-
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.5, delay: 0.1 }}
-            className="mb-16"
-          >
-            {/* HUD brackets */}
-            <div className="absolute -inset-x-4 pointer-events-none hidden md:block" aria-hidden>
-              <div className="absolute top-0 left-0 w-6 h-6 border-l border-t border-electric-cyan/15" />
-              <div className="absolute bottom-0 right-0 w-6 h-6 border-r border-b border-electric-cyan/15" />
-            </div>
-
-            <div className="rounded-xl bg-white/[0.03] border border-white/10 backdrop-blur-[12px] p-8 md:p-10">
-              <p className="text-gray-300 leading-relaxed text-lg mb-6">
-                Current AI tools read your codebase and generate code that
-                compiles — but it doesn&apos;t{" "}
-                <span className="text-electric-cyan font-medium">belong</span>.
-                It uses the wrong patterns, ignores your conventions, and makes
-                decisions a senior dev on your team would never make.
-              </p>
-              <p className="text-gray-300 leading-relaxed text-lg mb-6">
-                Your developers spend more time fixing AI-generated code than
-                they saved by using AI.
-              </p>
-              <p className="text-white/50 leading-relaxed">
-                The root cause isn&apos;t the agent — it&apos;s the
-                infrastructure. There&apos;s no persistent context layer. Every
-                session is a clean slate. Every rule forgotten. Every convention
-                reinvented from scratch.
-              </p>
-            </div>
-          </motion.div>
-
-          {/* The Mechanism */}
-          <motion.div
-            variants={blurReveal}
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true }}
-            className="mb-8"
-          >
-            <p className="text-label text-electric-cyan mb-3">The Mechanism</p>
-            <h2 className="text-display-m text-white mb-4">
-              A CLI sidecar that builds an AST-backed knowledge graph
-              and serves it to any agent via MCP.
-            </h2>
-          </motion.div>
-
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.5, delay: 0.1 }}
-            className="relative"
-          >
-            <div className="absolute -inset-4 pointer-events-none hidden md:block" aria-hidden>
-              <div className="absolute top-0 left-0 w-6 h-6 border-l border-t border-electric-cyan/15" />
-              <div className="absolute bottom-0 right-0 w-6 h-6 border-r border-b border-electric-cyan/15" />
-            </div>
-
-            <div className="rounded-xl bg-white/[0.03] border border-electric-cyan/20 backdrop-blur-[12px] p-8 md:p-10">
-              <p className="text-gray-300 leading-relaxed text-lg mb-6">
-                {CODE_SYNAPSE.pitch}
-              </p>
-              <div className="flex flex-wrap gap-4 text-sm font-mono text-white/40">
-                <span className="px-3 py-1.5 rounded-lg border border-white/10 bg-white/[0.02]">
-                  CLI Sidecar
-                </span>
-                <span className="px-3 py-1.5 rounded-lg border border-white/10 bg-white/[0.02]">
-                  MCP Server
-                </span>
-                <span className="px-3 py-1.5 rounded-lg border border-white/10 bg-white/[0.02]">
-                  Skill Libraries
-                </span>
-                <span className="px-3 py-1.5 rounded-lg border border-white/10 bg-white/[0.02]">
-                  AST Knowledge Graph
-                </span>
-              </div>
-            </div>
-          </motion.div>
-        </Container>
-      </section>
-
-      {/* ── Section 3: Key Capabilities ── */}
-      <section className="py-24 relative overflow-hidden">
-        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full max-w-4xl h-[1px] bg-gradient-to-r from-transparent via-white/10 to-transparent" />
-        <div className="absolute inset-0 bg-grid-pattern opacity-20" />
-
-        <Container className="relative">
-          <motion.div
-            variants={blurReveal}
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true }}
-            className="mb-16"
-          >
-            <p className="text-label text-electric-cyan mb-3">
-              Infrastructure Capabilities
-            </p>
+            <p className="text-label text-white/40 mb-3">How It Works</p>
             <h2 className="text-display-m text-white">
-              What Code-Synapse Does
+              Four components. Zero config.
             </h2>
           </motion.div>
 
-          <motion.div
-            variants={staggerContainerSlow}
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true, margin: "-80px" }}
-            className="grid md:grid-cols-2 lg:grid-cols-3 gap-6"
-          >
-            {CODE_SYNAPSE.features.map((feature, i) => {
-              const Icon = FEATURE_ICONS[i] ?? Brain
-              return (
-                <motion.article
-                  key={feature.title}
+          {/* Pipeline */}
+          <div className="relative max-w-4xl mx-auto">
+            {/* Horizontal animated connector (desktop only) */}
+            <div
+              className="absolute top-[40px] left-[12.5%] right-[12.5%] hidden lg:block"
+              aria-hidden
+            >
+              <div className="h-px bg-white/[0.04] w-full" />
+              <motion.div
+                className="absolute top-0 left-0 h-px bg-gradient-to-r from-electric-cyan/60 to-electric-cyan/20"
+                initial={{ width: "0%" }}
+                whileInView={{ width: "100%" }}
+                viewport={{ once: true }}
+                transition={{ duration: 1.8, delay: 0.4, ease: "easeOut" }}
+              />
+              {/* Travelling pulse */}
+              <motion.div
+                className="absolute top-1/2 -translate-y-1/2 w-2 h-2 rounded-full bg-electric-cyan shadow-[0_0_12px_rgba(0,229,255,0.6)]"
+                initial={{ left: "-1%", opacity: 0 }}
+                whileInView={{
+                  left: ["0%", "100%"],
+                  opacity: [0, 1, 1, 0],
+                }}
+                viewport={{ once: true }}
+                transition={{ duration: 2.5, delay: 0.6, ease: "linear" }}
+              />
+            </div>
+
+            <motion.div
+              variants={staggerContainer}
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true, margin: "-60px" }}
+              className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-12 lg:gap-6"
+            >
+              {PIPELINE.map((step, i) => (
+                <motion.div
+                  key={step.title}
                   variants={cardItem}
-                  whileHover={{ scale: 1.02 }}
-                  transition={{ type: "spring", stiffness: 300, damping: 20 }}
-                  className={cn(
-                    "group relative rounded-xl p-8 overflow-hidden",
-                    "bg-white/[0.03] border border-white/10 backdrop-blur-[12px]",
-                    "hover:border-electric-cyan/30 transition-colors duration-300",
-                  )}
+                  className="text-center"
                 >
-                  {/* Scanline on hover */}
-                  <div className="absolute inset-0 pointer-events-none overflow-hidden opacity-0 group-hover:opacity-100 transition-opacity duration-500">
-                    <motion.div
-                      className="absolute left-0 right-0 h-px bg-electric-cyan/30"
-                      animate={{ top: ["0%", "100%"] }}
-                      transition={{
-                        duration: 3,
-                        repeat: Infinity,
-                        ease: "linear",
-                      }}
-                    />
+                  {/* Icon node */}
+                  <div className="mx-auto mb-5 w-20 h-20 rounded-2xl bg-electric-cyan/[0.05] border border-electric-cyan/10 flex items-center justify-center">
+                    <step.icon className="w-7 h-7 text-electric-cyan" />
                   </div>
-
-                  {/* Step number */}
-                  <div className="absolute top-4 right-4 text-[10px] font-mono text-white/10">
+                  <span className="block text-[10px] font-mono text-white/15 mb-2">
                     {String(i + 1).padStart(2, "0")}
-                  </div>
+                  </span>
+                  <h3 className="text-white font-semibold font-grotesk text-sm mb-1">
+                    {step.title}
+                  </h3>
+                  <p className="text-white/35 text-xs leading-relaxed">
+                    {step.desc}
+                  </p>
+                </motion.div>
+              ))}
+            </motion.div>
+          </div>
 
-                  <div className="relative">
-                    <div className="mb-5 inline-flex p-3 rounded-lg bg-electric-cyan/10 text-electric-cyan group-hover:shadow-[0_0_20px_rgba(0,229,255,0.15)] transition-shadow duration-300">
-                      <Icon className="w-5 h-5" aria-hidden />
-                    </div>
-                    <h3 className="text-lg font-semibold text-white font-grotesk mb-3">
-                      {feature.title}
-                    </h3>
-                    <p className="text-white/50 text-sm leading-relaxed">
-                      {feature.description}
-                    </p>
-                  </div>
-                </motion.article>
-              )
-            })}
+          {/* Result banner */}
+          <motion.div
+            initial={{ opacity: 0, y: 16 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ delay: 0.8 }}
+            className="mt-16 max-w-xl mx-auto rounded-lg border border-electric-cyan/10 bg-electric-cyan/[0.02] px-6 py-3.5 flex items-center justify-center gap-3"
+          >
+            <Zap className="w-3.5 h-3.5 text-electric-cyan shrink-0" />
+            <p className="text-white/40 text-sm">
+              Zero upkeep — auto-updates on every commit.
+            </p>
           </motion.div>
         </Container>
       </section>
 
-      {/* ── Section 4: Bottom CTA ── */}
+      {/* ══════════════════════════════════════════════════════════════════════
+          Section 4: THE RESULT — Capabilities as clean text rows
+          No cards. Just icon + title + description separated by dividers.
+          Visually distinct from everything above.
+         ══════════════════════════════════════════════════════════════════════ */}
+      <section className="py-32 relative overflow-hidden">
+        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full max-w-4xl h-[1px] bg-gradient-to-r from-transparent via-white/10 to-transparent" />
+
+        <Container className="relative max-w-3xl">
+          <motion.div
+            variants={blurReveal}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true }}
+            className="text-center mb-16"
+          >
+            <p className="text-label text-white/40 mb-3">The Result</p>
+            <h2 className="text-display-m text-white">
+              Code That Actually Belongs
+            </h2>
+          </motion.div>
+
+          <div className="divide-y divide-white/[0.06]">
+            {CAPABILITIES.map((cap, i) => (
+              <motion.div
+                key={cap.title}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: i * 0.12, duration: 0.5, ease: snap }}
+                className="flex items-start gap-6 py-10 first:pt-0 last:pb-0"
+              >
+                <div className="shrink-0 mt-1 p-3 rounded-xl bg-electric-cyan/[0.05] text-electric-cyan">
+                  <cap.icon className="w-5 h-5" />
+                </div>
+                <div>
+                  <h3 className="text-white font-semibold font-grotesk text-lg mb-1.5">
+                    {cap.title}
+                  </h3>
+                  <p className="text-white/40 text-[15px] leading-relaxed">
+                    {cap.desc}
+                  </p>
+                </div>
+              </motion.div>
+            ))}
+          </div>
+        </Container>
+      </section>
+
+      {/* ── Section 5: Bottom CTA ── */}
       <section className="py-24 relative">
         <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full max-w-4xl h-[1px] bg-gradient-to-r from-transparent via-white/10 to-transparent" />
 
@@ -428,4 +526,19 @@ export function CodeSynapseProductPage() {
       </section>
     </>
   )
+}
+
+/* ── Helpers — syntax highlighting primitives ─────────────────────────────── */
+
+function Line({ children }: { children?: React.ReactNode }) {
+  if (!children) return <div className="h-3" />
+  return <div>{children}</div>
+}
+
+function Kw({ children, c }: { children: React.ReactNode; c: string }) {
+  return <span className={c}>{children}</span>
+}
+
+function Str({ children, c }: { children: React.ReactNode; c: string }) {
+  return <span className={c}>{children}</span>
 }
