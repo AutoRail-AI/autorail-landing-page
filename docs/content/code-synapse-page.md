@@ -185,6 +185,9 @@ Horizontal pipeline (desktop) / 2x2 grid (tablet) / vertical stack (mobile):
 ### 1. Visual Language: "Industrial Glass"
 - **Base Material:** `bg-white/[0.03]` + `backdrop-blur-[12px]`
 - **Border:** `border-white/10` (default) → `border-electric-cyan/30` (hover/active)
+- **Code Panels:** `bg-[#0e0e14]` (slightly lighter than page bg `#0A0A0F`) with `border-white/[0.15]` and colored `box-shadow` glows to lift off dark background
+- **Glow Shadows:** Comparison panels use colored box-shadows: `0 20px 50px -10px rgba(accent, 0.08–0.15)` + `0 0 0 1px rgba(accent, 0.05–0.1)`. Cyan for "with Code-Synapse" panel, red-tinted for "without context" panel.
+- **Syntax Highlighting:** Neon cyan `#00FFFF` at 60–80% opacity for keywords/strings in Code-Synapse panel. Amber `text-amber-300/50` for "without" panel. Brighter than default to ensure readability against dark backgrounds.
 - **Color Palette:** Full brand palette on Void Black (`#0A0A0F`). Cyan dominant, with purple, yellow, green, white accents.
 - **Typography:** `Space Grotesk` (Headlines), `JetBrains Mono` (Code/Technical), `Inter` (Body).
 
@@ -194,9 +197,9 @@ Each section uses a DISTINCT layout pattern to avoid visual monotony:
 | Section | Layout Type | Visual Pattern |
 |---|---|---|
 | Hero | Asymmetric text + WebGL morph | Left-aligned copy with right-biased 3D chaos→constellation morph |
-| The Problem | Side-by-side editor panels | Two code blocks sliding in from opposite sides |
-| How It Works | Horizontal pipeline flow | Icon nodes connected by animated line + pulse |
-| The Result | Divider-separated text rows | Icon + title + description, no cards or borders |
+| The Problem | Side-by-side editor panels | Two code blocks with `bg-[#0e0e14]`, colored glow shadows, neon syntax highlighting. Slide from opposite sides |
+| How It Works | Horizontal pipeline flow | Icon nodes (`bg-electric-cyan/[0.08] border border-electric-cyan/20`) connected by animated line + pulse. Step numbers at `text-white/30` |
+| The Result | Divider-separated text rows | Icon containers with `bg-electric-cyan/[0.08] border border-electric-cyan/15`. Description text at `text-white/55` |
 | Bottom CTA | Centered glass panel | Single call-to-action with HUD brackets |
 
 ### 3. Animation Library: `framer-motion`

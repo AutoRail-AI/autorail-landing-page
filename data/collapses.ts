@@ -21,15 +21,6 @@ export const COLLAPSES: Collapse[] = [
     icon: BrainCog,
   },
   {
-    id: "context",
-    title: "Context Rot",
-    description:
-      "As the codebase grows, static rules files break down. Agents can't see the full system architecture. They hallucinate solutions that don't compose with anything around them.",
-    solvedBy: "knowledge graph",
-    productId: "knowledge-graph",
-    icon: Layers,
-  },
-  {
     id: "verification",
     title: "The Verification Collapse",
     description:
@@ -37,5 +28,14 @@ export const COLLAPSES: Collapse[] = [
     solvedBy: "migration layer",
     productId: "necroma",
     icon: ShieldX,
+  },
+  {
+    id: "context",
+    title: "Context Rot",
+    description:
+      "As the codebase grows, static rules files break down. Agents can't see the full system architecture. They hallucinate solutions that don't compose with anything around them.",
+    solvedBy: "knowledge graph",
+    productId: "knowledge-graph",
+    icon: Layers,
   },
 ]

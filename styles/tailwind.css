@@ -141,6 +141,16 @@
     50% { box-shadow: inset 0 0 40px rgba(0,229,255,0.08); }
   }
 
+  @keyframes breathing-glow-purple {
+    0%, 100% { box-shadow: inset 0 0 20px rgba(110,24,179,0.03); }
+    50% { box-shadow: inset 0 0 40px rgba(110,24,179,0.08); }
+  }
+
+  @keyframes cursor-blink {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0; }
+  }
+
   @keyframes fade-in {
     from { opacity: 0; }
     to { opacity: 1; }
@@ -200,6 +210,61 @@
     0% { opacity: 0; transform: translateY(-24px) scale(0.98); }
     70% { opacity: 1; transform: translateY(2px) scale(1); }
     100% { opacity: 1; transform: translateY(0) scale(1); }
+  }
+
+  /* ── Cinematic Section Keyframes ──────────────────────────────────────── */
+
+  /* Blinking terminal cursor */
+  --animate-blink: blink 1.2s step-end infinite;
+
+  @keyframes blink {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0; }
+  }
+
+  /* Breathing glow (purple variant) — keyframe defined above */
+  --animate-breathing-glow-purple: breathing-glow-purple 4s ease-in-out infinite;
+
+  /* Orbit ring — rotating border highlight */
+  --animate-orbit: orbit 3s linear infinite;
+
+  @keyframes orbit {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+  }
+
+  /* Dash flow — animated SVG stroke offset */
+  --animate-dash-flow: dash-flow 2s linear infinite;
+
+  @keyframes dash-flow {
+    0% { stroke-dashoffset: 0; }
+    100% { stroke-dashoffset: -20; }
+  }
+
+  /* Shimmer overlay for bars and lines */
+  --animate-shimmer-bar: shimmer-bar 2.5s ease-in-out infinite;
+
+  @keyframes shimmer-bar {
+    0% { background-position: -200% 0; }
+    100% { background-position: 200% 0; }
+  }
+
+  /* Pulse ring — expanding ring around icons */
+  --animate-pulse-ring: pulse-ring 2.5s ease-out infinite;
+
+  @keyframes pulse-ring {
+    0% { transform: scale(1); opacity: 0.4; }
+    100% { transform: scale(1.5); opacity: 0; }
+  }
+
+  /* Vertical particle flow — for backbone lines */
+  --animate-particle-down: particle-down 3s linear infinite;
+
+  @keyframes particle-down {
+    0% { transform: translateY(-10px); opacity: 0; }
+    15% { opacity: 1; }
+    85% { opacity: 1; }
+    100% { transform: translateY(var(--flow-distance-y, 60px)); opacity: 0; }
   }
 }
 
@@ -486,5 +551,90 @@
 
   .glow-success-strong {
     box-shadow: 0 0 60px rgba(0,255,136,0.3);
+  }
+
+  /* ── Cinematic Section Utilities ──────────────────────────────────────── */
+
+  /* Terminal window header bar (3 traffic-light dots) */
+  .terminal-header {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    padding: 10px 14px;
+    background: rgba(255, 255, 255, 0.02);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+    border-radius: var(--radius-xl) var(--radius-xl) 0 0;
+  }
+
+  .terminal-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+  }
+
+  /* Blinking cursor */
+  .cursor-blink::after {
+    content: '▊';
+    animation: cursor-blink 1.2s step-end infinite;
+    color: var(--color-electric-cyan);
+    opacity: 0.7;
+    margin-left: 2px;
+  }
+
+  .cursor-blink-purple::after {
+    content: '▊';
+    animation: cursor-blink 1.2s step-end infinite;
+    color: var(--color-rail-purple);
+    opacity: 0.7;
+    margin-left: 2px;
+  }
+
+  /* Section divider with shimmer */
+  .divider-shimmer {
+    height: 1px;
+    background: linear-gradient(
+      90deg,
+      transparent 0%,
+      rgba(255,255,255,0.06) 20%,
+      rgba(255,255,255,0.15) 50%,
+      rgba(255,255,255,0.06) 80%,
+      transparent 100%
+    );
+    background-size: 200% 100%;
+    animation: shimmer 3s ease-in-out infinite;
+  }
+
+  /* Active glow borders for scroll-driven states */
+  .glow-border-cyan {
+    box-shadow:
+      -2px 0 12px rgba(0,229,255,0.2),
+      inset -2px 0 12px rgba(0,229,255,0.05);
+  }
+
+  .glow-border-purple {
+    box-shadow:
+      -2px 0 12px rgba(110,24,179,0.2),
+      inset -2px 0 12px rgba(110,24,179,0.05);
+  }
+
+  /* Scan line overlay — very subtle horizontal lines */
+  .scan-lines {
+    position: relative;
+  }
+
+  .scan-lines::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: repeating-linear-gradient(
+      to bottom,
+      transparent 0px,
+      transparent 2px,
+      rgba(255,255,255,0.006) 2px,
+      rgba(255,255,255,0.006) 4px
+    );
+    pointer-events: none;
+    z-index: 1;
+    border-radius: inherit;
   }
 }

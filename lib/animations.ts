@@ -129,6 +129,25 @@ export const stepReveal: Variants = {
   },
 }
 
+// Zig-zag item — slides from left (odd) or right (even)
+export const zigzagLeft: Variants = {
+  hidden: { opacity: 0, x: -30 },
+  visible: {
+    opacity: 1,
+    x: 0,
+    transition: { duration: 0.6, ease: [0.16, 1, 0.3, 1] },
+  },
+}
+
+export const zigzagRight: Variants = {
+  hidden: { opacity: 0, x: 30 },
+  visible: {
+    opacity: 1,
+    x: 0,
+    transition: { duration: 0.6, ease: [0.16, 1, 0.3, 1] },
+  },
+}
+
 // Viewport settings for scroll triggers
 export const viewportSettings = {
   once: true,

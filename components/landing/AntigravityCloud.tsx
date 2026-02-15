@@ -174,7 +174,7 @@ function generateTokens(count: number): TokenData[] {
       position: [x, y, z],
       color,
       opacity,
-      fontSize: 0.07 + rng() * 0.07, // 0.07–0.14
+      fontSize: 0.08 + rng() * 0.08, // 0.13–0.26
       rotation: (rng() - 0.5) * 0.5,
       group: i % 4,
     })

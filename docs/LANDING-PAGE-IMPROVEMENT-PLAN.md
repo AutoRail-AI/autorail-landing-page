@@ -105,15 +105,17 @@ NavBar
 
 ### 2.2 Day 2 Problem — "The Mine Collapse" ✅
 
-**New component `Day2Problem.tsx`; data in `data/collapses.ts`.**
+**Rewritten `Day2Problem.tsx`; data in `data/collapses.ts`.**
 
 - [x] **Eyebrow:** "The Problem"
 - [x] **Headline:** "The 'Day 2' Hangover."
 - [x] **Subhead:** As specified
-- [x] **3 Collapses** from `COLLAPSES`: Amnesia (BrainCog, code-synapse), Context (Layers, knowledge graph), Verification (ShieldX, necroma)
-- [x] Each card: product-colored top bar (cyan/purple), icon, "Solved by {product}"
-- [x] Stagger animation via `staggerContainerSlow` / `cardItem`
-- [x] Bottom connector line
+- [x] **3 Collapses** from `COLLAPSES` — reordered: Amnesia (BrainCog, code-synapse) → Verification (ShieldX, necroma) → Context Rot (Layers, knowledge graph)
+- [x] **Layout:** Alternating zig-zag panels (visual + text, 50/50 split)
+- [x] **Cinematic visuals:** Session log terminal (cyan glow), test runner (purple glow), SVG dependency graph (cyan glow) — each with `bg-[#0e0e14]`, `border-white/[0.15]`, colored `box-shadow`, neon `#00FFFF` syntax
+- [x] Step numbers (01/02/03) at 35% accent opacity, icon badges with glow
+- [x] `whileInView` entrance animations
+- [x] Bottom connector line with pulsing dot
 
 ### 2.3 code-synapse — "The Structural Support" ✅
 
@@ -139,21 +141,25 @@ NavBar
 
 ### 2.5 Safety Rating — "Technical Credibility" ✅
 
-**New component `SafetyRating.tsx`; data in `data/safety-pillars.ts`.**
+**Rewritten `SafetyRating.tsx`; data in `data/safety-pillars.ts`.**
 
-- [x] **Eyebrow:** "Enterprise Grade"
+- [x] **Eyebrow:** "Enterprise Infrastructure"
 - [x] **Headline:** "Engineering Rigor for the Agentic Age."
 - [x] **3 Pillars:** Audit Trails (ScrollText), Privacy-First (ShieldCheck), Explainability (Lightbulb)
-- [x] Glass card layout (`.glass-card`), purple accent
+- [x] **Layout:** Zig-zag alternating rows with rich UI snippet demos (change log terminal, network diagram, confidence meter)
+- [x] Glass terminals with colored glow shadows (`bg-[#0e0e14]`, `border-white/[0.15]`, colored `box-shadow`)
+- [x] Purple radial glow behind each snippet
 - [x] No CTA
 
-### 2.6 Ecosystem — Polish ✅ (Minimal)
+### 2.6 Ecosystem — Polish ✅
 
-**`Ecosystem.tsx` retained and wired into new flow.**
+**`Ecosystem.tsx` retained, polished for visibility.**
 
 - [x] Section `id={SECTION_IDS.ecosystem}` and `scroll-mt-20` for nav
 - [x] Heading "Built on the Agentic Stack" unchanged
-- [ ] Dual-row scrolling, logos, hover tooltips (deferred to Phase 4)
+- [x] Dual-row marquee (primary left, secondary right) with diamond separators
+- [x] High-visibility pills: `text-white/60` → hover `text-white` (large), `text-white/50` → hover `text-white/80` (small)
+- [x] Edge-fading gradients on both sides
 
 ---
 
@@ -181,32 +187,40 @@ NavBar
 
 ---
 
-## Phase 4: Visual & Interaction Polish
+## Phase 4: Visual & Interaction Polish ✅ (Mostly Done)
 
 > Elevate every section from functional to premium after copy is right.
 
 ### 4.1 Hero Visual Overhaul
-- [ ] Evolve `HeroVisual.tsx` — construction scaffolding metaphor over the neural network
+- [x] WebGL AntigravityCloud with R3F Canvas, Bloom postprocessing, Fibonacci sphere
 - [ ] Animated text reveal: word-by-word on headline
 - [ ] Magnetic cursor / ripple on CTA buttons
-- [ ] Scroll indicator with animated chevron
+- [x] Scroll indicator with animated chevron
 
-### 4.2 Section Transitions
-- [ ] Animated connector elements between sections (glowing lines that flow down the page)
-- [ ] Each "Collapse" card in Day2Problem links visually to the product that solves it
-- [ ] Parallax effects on background gradients
+### 4.2 Section Transitions & Visual Redesign ✅
+- [x] **Eliminated "card fatigue"** — each section now has a unique layout
+- [x] **Day2Problem:** Zig-zag alternating panels with 3 cinematic visuals (session log terminal, test runner, SVG dependency graph). Each visual has colored glow shadow, `bg-[#0e0e14]` terminal bg, `border-white/[0.15]`, neon `#00FFFF` syntax highlighting
+- [x] **BentoGrid:** Vertically stacked product layers with stats embedded as large `text-4xl/5xl` gradient numbers (not small pills). Code blocks with colored box-shadow glows. HUD corner brackets, scanline on Necroma.
+- [x] **SafetyRating:** Zig-zag layout with rich UI snippet demos (change log, network diagram, confidence meter). Glass terminals with purple/cyan glow shadows.
+- [x] **Ecosystem:** High-visibility marquee pills (`text-white/60` → hover `text-white`)
+- [x] Gradient separator lines between all sections
+- [x] Background noise texture + radial glows per section
 
 ### 4.3 Product Section Visuals
-- [ ] **code-synapse:** Animated knowledge graph (nodes + edges pulsing in cyan)
-- [ ] **necroma:** Glass Brain dashboard mockup with Plan/Execute/Verify flow animation
+- [ ] **code-synapse page:** Animated knowledge graph (nodes + edges pulsing in cyan)
+- [x] **necroma page:** Glass Brain dashboard mockup with boot sequence
 - [ ] 3D tilt effect on hover for product feature cards
-- [ ] Styled terminal component for `npm install` (with cursor blink, syntax highlighting)
+- [x] Styled terminal components with syntax highlighting, macOS chrome, cursor blink
 
 ### 4.4 Micro-interactions
 - [ ] Toast notification on npm command copy
-- [ ] Card hover glow intensification
+- [x] Card hover glow intensification (border brightens on hover)
 - [ ] Button press spring animation
-- [ ] Counter animation on any metric stats
+- [x] Counter animation on metric stats (count-up from 0 on scroll into view)
+- [x] SVG `<animate>` traveling dots on dependency graph edges
+- [x] Pulsing error indicators on broken nodes/failed tests
+- [x] Blinking cursors on terminals
+- [x] Shimmer overlay on confidence bar
 
 ---
 
@@ -451,7 +465,7 @@ Quick-access copy for implementation:
 | Product pages | ✅ Complete | `/code-synapse`, `/necroma` with full product content; necroma includes Glass Brain showcase |
 | Glass Brain | ✅ Complete | BreathingGlow, BootSequence, GlassBrainShowcase per `docs/GLASS_BRAIN_VIEW.md`; used on `/necroma` |
 | Phase 3.2 | Pending | TrustBar — wait for real logos |
-| Phase 4 | Pending | Visual polish, micro-interactions, Hero visual overhaul |
+| Phase 4 | ✅ Mostly Done | Visual redesign complete: zig-zag panels, cinematic terminals, glow shadows, large stats, high-vis marquee. Hero WebGL done. Remaining: text reveal, magnetic cursor, toast |
 | Phase 5 | Pending | Performance, SEO (layout metadata, JsonLd), accessibility |
 | Phase 6 | Partial | Data layer mostly done; Button supports target/rel; Terminal/GlassCard/Tests/Storybook pending |
 
@@ -465,5 +479,5 @@ Quick-access copy for implementation:
 
 ---
 
-*Last updated: 2026-02-10*
+*Last updated: 2026-02-15*
 *Positioning: "Industrial Safety for Vibe Coding" — Shovels with Airbags*

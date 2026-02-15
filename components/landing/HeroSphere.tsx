@@ -47,7 +47,7 @@ export function HeroSphere() {
       {/* ── Layer 1: WebGL Canvas — right-biased, no tokens behind headline ── */}
       <div className="absolute top-0 right-0 w-full h-full md:w-[70%] z-0 overflow-hidden">
         <div className="relative w-full h-full">
-          <AntigravityCloud count={4096} />
+          <AntigravityCloud count={5120} />
 
           {/* Safety fade — gradual dissolve protecting headline readability */}
           <div

@@ -198,6 +198,10 @@ Vertical pipeline with:
 ### 1. Visual Language: "Industrial Glass" (Verification Mode)
 - **Base Material:** `bg-white/[0.03]` + `backdrop-blur-[12px]`
 - **Border:** `border-white/10` (default) → `border-rail-purple/30` (hover/active)
+- **Comparison Panels:** `border-white/[0.15]` with colored `box-shadow` glows to lift off dark background. "Migration Infrastructure" panel has purple glow: `0 20px 50px -10px rgba(110,24,179,0.15)`. "Migration Tools" panel has faint red glow: `0 20px 50px -10px rgba(255,60,60,0.08)`.
+- **Text Contrast:** Brightened across all sections — descriptions at `text-white/55` (up from `text-white/40`), subtitles at `text-white/60`, pipeline step descriptions at `text-white/55`.
+- **Pipeline Nodes:** `bg-rail-purple/[0.10] border border-rail-purple/25` (boosted from `0.06`/`0.15`). Success badge at `bg-success/[0.12] border border-success/30`.
+- **Capability Icons:** `bg-rail-purple/[0.10] border border-rail-purple/20` for better contrast and visual lift.
 - **Color Palette:** Rail Purple (`#6E18B3`) on Void Black (`#0A0A0F`). Success Green for completion states.
 - **Typography:** `Space Grotesk` (Headlines), `JetBrains Mono` (Logs/Data), `Inter` (Body).
 
@@ -207,10 +211,10 @@ Each section uses a DISTINCT layout pattern to avoid visual monotony:
 | Section | Layout Type | Visual Pattern |
 |---|---|---|
 | Hero | Asymmetric text + WebGL morph | Left-aligned copy with right-biased 3D fragment→reclaim morph (cube structure crumbles, flows through gates, reassembles green) |
-| The Gap | Side-by-side statement panels | Two panels with X/Check icons, sliding from opposite sides |
-| How It Works | Vertical numbered pipeline | Step nodes along animated vertical connector line |
-| Control Plane | Full-width dashboard showcase | GlassBrainShowcase with HUD bracket framing |
-| The Result | Divider-separated text rows | Icon + title + description, no cards or borders |
+| The Gap | Side-by-side statement panels | Two panels with colored glow shadows (`border-white/[0.15]`), X/Check icons, sliding from opposite sides. Brighter text contrast. |
+| How It Works | Vertical numbered pipeline | Step nodes (`bg-rail-purple/[0.10] border border-rail-purple/25`) along animated vertical connector. Success badge with boosted contrast. |
+| Control Plane | Full-width dashboard showcase | GlassBrainShowcase with HUD bracket framing. Description at `text-white/55`. |
+| The Result | Divider-separated text rows | Icon containers with `bg-rail-purple/[0.10] border border-rail-purple/20`. Description at `text-white/55`. |
 | Bottom CTA | Centered glass panel | Single call-to-action with HUD brackets |
 
 ### 3. Animation Library: `framer-motion`

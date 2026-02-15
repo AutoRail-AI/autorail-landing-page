@@ -224,25 +224,26 @@ export function NecromaProductPage() {
               whileInView={{ opacity: 1, x: 0, filter: "blur(0px)" }}
               viewport={{ once: true }}
               transition={{ duration: 0.7, ease: snap }}
-              className="rounded-xl overflow-hidden border border-white/[0.08]"
+              className="rounded-xl overflow-hidden border border-white/[0.15]"
+              style={{ boxShadow: "0 20px 50px -10px rgba(255,60,60,0.08), 0 0 0 1px rgba(255,255,255,0.05)" }}
             >
               <div className="flex items-center gap-2.5 px-5 py-3 bg-white/[0.03] border-b border-white/[0.06]">
                 <div className="p-1 rounded-md bg-red-400/10">
                   <X className="w-3.5 h-3.5 text-red-400/60" />
                 </div>
-                <span className="text-[11px] font-mono text-white/25 tracking-wide">
+                <span className="text-[11px] font-mono text-white/40 tracking-wide">
                   Migration Tools
                 </span>
               </div>
               <div className="p-6 md:p-8">
-                <p className="text-white/50 font-grotesk text-lg font-medium mb-3">
+                <p className="text-white/60 font-grotesk text-lg font-medium mb-3">
                   The Syntax War
                 </p>
-                <p className="text-white/30 text-sm leading-relaxed mb-6">
+                <p className="text-white/45 text-sm leading-relaxed mb-6">
                   Convert Code A to Code B, line by line.
                   Read source code and guess intent from syntax.
                 </p>
-                <p className="text-[10px] font-mono text-white/15">
+                <p className="text-[10px] font-mono text-white/30">
                   Blind — source code doesn&apos;t capture intent.
                 </p>
               </div>
@@ -255,6 +256,7 @@ export function NecromaProductPage() {
               viewport={{ once: true }}
               transition={{ duration: 0.7, ease: snap }}
               className="rounded-xl overflow-hidden border border-rail-purple/20"
+              style={{ boxShadow: "0 20px 50px -10px rgba(110,24,179,0.15), 0 0 0 1px rgba(110,24,179,0.1)" }}
             >
               <div className="flex items-center gap-2.5 px-5 py-3 bg-rail-purple/[0.04] border-b border-rail-purple/10">
                 <div className="p-1 rounded-md bg-rail-purple/10">
@@ -265,14 +267,14 @@ export function NecromaProductPage() {
                 </span>
               </div>
               <div className="p-6 md:p-8">
-                <p className="text-rail-purple/80 font-grotesk text-lg font-medium mb-3">
+                <p className="text-rail-purple font-grotesk text-lg font-medium mb-3">
                   The Behavioral War
                 </p>
-                <p className="text-white/50 text-sm leading-relaxed mb-6">
+                <p className="text-white/60 text-sm leading-relaxed mb-6">
                   Watch the running application. Record user flows.
                   Preserve actual behavior, not just syntax.
                 </p>
-                <p className="text-[10px] font-mono text-rail-purple/40">
+                <p className="text-[10px] font-mono text-rail-purple/60">
                   We are not blind. We watch the screen.
                 </p>
               </div>
@@ -339,7 +341,7 @@ export function NecromaProductPage() {
                   className="flex items-start gap-6 md:gap-8"
                 >
                   {/* Step node */}
-                  <div className="shrink-0 w-12 h-12 md:w-16 md:h-16 rounded-2xl bg-rail-purple/[0.06] border border-rail-purple/15 flex items-center justify-center z-10">
+                  <div className="shrink-0 w-12 h-12 md:w-16 md:h-16 rounded-2xl bg-rail-purple/[0.10] border border-rail-purple/25 flex items-center justify-center z-10">
                     <span className="text-rail-purple font-mono text-sm md:text-base font-bold">
                       {step.num}
                     </span>
@@ -348,7 +350,7 @@ export function NecromaProductPage() {
                     <h3 className="text-white font-semibold font-grotesk text-lg mb-1.5">
                       {step.title}
                     </h3>
-                    <p className="text-white/40 text-sm leading-relaxed">
+                    <p className="text-white/55 text-sm leading-relaxed">
                       {step.desc}
                     </p>
                   </div>
@@ -364,10 +366,10 @@ export function NecromaProductPage() {
               transition={{ delay: 0.6 }}
               className="mt-14 ml-0 flex items-center gap-4"
             >
-              <div className="shrink-0 w-12 h-12 md:w-16 md:h-16 rounded-2xl bg-success/[0.08] border border-success/20 flex items-center justify-center z-10">
+              <div className="shrink-0 w-12 h-12 md:w-16 md:h-16 rounded-2xl bg-success/[0.12] border border-success/30 flex items-center justify-center z-10">
                 <Check className="w-5 h-5 md:w-6 md:h-6 text-success" />
               </div>
-              <p className="text-success/70 font-mono text-sm font-medium">
+              <p className="text-success/90 font-mono text-sm font-medium">
                 100% Behavior Preserved
               </p>
             </motion.div>
@@ -394,7 +396,7 @@ export function NecromaProductPage() {
             <h2 className="text-display-m text-white mb-4">
               The Migration Control Plane
             </h2>
-            <p className="text-white/40 max-w-2xl mx-auto leading-relaxed">
+            <p className="text-white/55 max-w-2xl mx-auto leading-relaxed">
               Full visibility into every autonomous operation — workspace
               changes, AI reasoning, self-heal cycles, and confidence scoring
               in one auditable dashboard.
@@ -447,14 +449,14 @@ export function NecromaProductPage() {
                 transition={{ delay: i * 0.12, duration: 0.5, ease: snap }}
                 className="flex items-start gap-6 py-10 first:pt-0 last:pb-0"
               >
-                <div className="shrink-0 mt-1 p-3 rounded-xl bg-rail-purple/[0.06] text-rail-purple">
+                <div className="shrink-0 mt-1 p-3 rounded-xl bg-rail-purple/[0.10] border border-rail-purple/20 text-rail-purple">
                   <cap.icon className="w-5 h-5" />
                 </div>
                 <div>
                   <h3 className="text-white font-semibold font-grotesk text-lg mb-1.5">
                     {cap.title}
                   </h3>
-                  <p className="text-white/40 text-[15px] leading-relaxed">
+                  <p className="text-white/55 text-[15px] leading-relaxed">
                     {cap.desc}
                   </p>
                 </div>
@@ -498,7 +500,7 @@ export function NecromaProductPage() {
                 <h2 className="text-display-m text-white mb-4">
                   Add the Migration Layer.
                 </h2>
-                <p className="text-white/50 mb-10 max-w-xl mx-auto leading-relaxed">
+                <p className="text-white/60 mb-10 max-w-xl mx-auto leading-relaxed">
                   See a production-ready vertical slice from your own legacy
                   codebase. No commitment. No &ldquo;Big Bang.&rdquo; Just proof
                   that autonomous migration works.

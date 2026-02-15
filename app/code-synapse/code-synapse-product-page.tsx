@@ -247,29 +247,30 @@ export function CodeSynapseProductPage() {
               whileInView={{ opacity: 1, x: 0, filter: "blur(0px)" }}
               viewport={{ once: true }}
               transition={{ duration: 0.7, ease: snap }}
-              className="rounded-xl overflow-hidden border border-white/[0.08]"
+              className="rounded-xl overflow-hidden border border-white/[0.15]"
+              style={{ boxShadow: "0 20px 50px -10px rgba(255,60,60,0.08), 0 0 0 1px rgba(255,255,255,0.05)" }}
             >
               {/* Title bar */}
               <div className="flex items-center gap-2.5 px-4 py-2.5 bg-white/[0.03] border-b border-white/[0.06]">
                 <span className="w-[7px] h-[7px] rounded-full bg-red-400/50" />
-                <span className="text-[11px] font-mono text-white/25 tracking-wide">
+                <span className="text-[11px] font-mono text-white/40 tracking-wide">
                   agent-output.ts — without context
                 </span>
               </div>
               {/* Code */}
-              <div className="p-5 bg-void-black/80">
-                <pre className="font-mono text-[13px] leading-[1.7] text-white/25">
-                  <Line><Kw c="text-white/40">import</Kw> moment <Kw c="text-white/40">from</Kw> <Str c="text-amber-300/30">&apos;moment&apos;</Str></Line>
-                  <Line><Kw c="text-white/40">import</Kw> axios <Kw c="text-white/40">from</Kw> <Str c="text-amber-300/30">&apos;axios&apos;</Str></Line>
+              <div className="p-5 bg-[#0e0e14]">
+                <pre className="font-mono text-[13px] leading-[1.7] text-white/40">
+                  <Line><Kw c="text-white/50">import</Kw> moment <Kw c="text-white/50">from</Kw> <Str c="text-amber-300/50">&apos;moment&apos;</Str></Line>
+                  <Line><Kw c="text-white/50">import</Kw> axios <Kw c="text-white/50">from</Kw> <Str c="text-amber-300/50">&apos;axios&apos;</Str></Line>
                   <Line />
-                  <Line><Kw c="text-white/40">const</Kw> fmt = (d) =&gt; moment(d).format(<Str c="text-amber-300/30">&apos;MM/DD&apos;</Str>)</Line>
-                  <Line><Kw c="text-white/40">const</Kw> res = <Kw c="text-white/40">await</Kw> axios.get(<Str c="text-amber-300/30">&apos;/api/users&apos;</Str>)</Line>
+                  <Line><Kw c="text-white/50">const</Kw> fmt = (d) =&gt; moment(d).format(<Str c="text-amber-300/50">&apos;MM/DD&apos;</Str>)</Line>
+                  <Line><Kw c="text-white/50">const</Kw> res = <Kw c="text-white/50">await</Kw> axios.get(<Str c="text-amber-300/50">&apos;/api/users&apos;</Str>)</Line>
                 </pre>
               </div>
               {/* Verdict */}
               <div className="px-4 py-2.5 bg-white/[0.02] border-t border-white/[0.06] flex items-center gap-2">
-                <span className="w-1 h-1 rounded-full bg-red-400/60" />
-                <span className="text-[10px] font-mono text-white/20">
+                <span className="w-1 h-1 rounded-full bg-red-400/80" />
+                <span className="text-[10px] font-mono text-white/35">
                   Wrong packages. Wrong patterns. Compiles, but doesn&apos;t belong.
                 </span>
               </div>
@@ -282,6 +283,7 @@ export function CodeSynapseProductPage() {
               viewport={{ once: true }}
               transition={{ duration: 0.7, ease: snap }}
               className="rounded-xl overflow-hidden border border-electric-cyan/20"
+              style={{ boxShadow: "0 20px 50px -10px rgba(0,229,255,0.15), 0 0 0 1px rgba(0,229,255,0.1)" }}
             >
               {/* Title bar */}
               <div className="flex items-center gap-2.5 px-4 py-2.5 bg-electric-cyan/[0.04] border-b border-electric-cyan/10">
@@ -291,19 +293,19 @@ export function CodeSynapseProductPage() {
                 </span>
               </div>
               {/* Code */}
-              <div className="p-5 bg-void-black/80">
-                <pre className="font-mono text-[13px] leading-[1.7] text-white/50">
-                  <Line><Kw c="text-electric-cyan/70">import</Kw> {"{ formatDate }"} <Kw c="text-electric-cyan/70">from</Kw> <Str c="text-electric-cyan/50">&apos;@/lib/dates&apos;</Str></Line>
-                  <Line><Kw c="text-electric-cyan/70">import</Kw> {"{ api }"} <Kw c="text-electric-cyan/70">from</Kw> <Str c="text-electric-cyan/50">&apos;@/lib/http-client&apos;</Str></Line>
+              <div className="p-5 bg-[#0e0e14]">
+                <pre className="font-mono text-[13px] leading-[1.7] text-white/60">
+                  <Line><Kw c="text-[#00FFFF]/80">import</Kw> {"{ formatDate }"} <Kw c="text-[#00FFFF]/80">from</Kw> <Str c="text-[#00FFFF]/60">&apos;@/lib/dates&apos;</Str></Line>
+                  <Line><Kw c="text-[#00FFFF]/80">import</Kw> {"{ api }"} <Kw c="text-[#00FFFF]/80">from</Kw> <Str c="text-[#00FFFF]/60">&apos;@/lib/http-client&apos;</Str></Line>
                   <Line />
-                  <Line><Kw c="text-electric-cyan/70">const</Kw> date = formatDate(<Kw c="text-electric-cyan/70">new</Kw> Date())</Line>
-                  <Line><Kw c="text-electric-cyan/70">const</Kw> users = <Kw c="text-electric-cyan/70">await</Kw> api.get<Kw c="text-electric-cyan/40">&lt;User[]&gt;</Kw>(<Str c="text-electric-cyan/50">&apos;/users&apos;</Str>)</Line>
+                  <Line><Kw c="text-[#00FFFF]/80">const</Kw> date = formatDate(<Kw c="text-[#00FFFF]/80">new</Kw> Date())</Line>
+                  <Line><Kw c="text-[#00FFFF]/80">const</Kw> users = <Kw c="text-[#00FFFF]/80">await</Kw> api.get<Kw c="text-[#00FFFF]/50">&lt;User[]&gt;</Kw>(<Str c="text-[#00FFFF]/60">&apos;/users&apos;</Str>)</Line>
                 </pre>
               </div>
               {/* Verdict */}
               <div className="px-4 py-2.5 bg-electric-cyan/[0.03] border-t border-electric-cyan/10 flex items-center gap-2">
                 <span className="w-1 h-1 rounded-full bg-electric-cyan" />
-                <span className="text-[10px] font-mono text-electric-cyan/50">
+                <span className="text-[10px] font-mono text-electric-cyan/70">
                   Your modules. Your types. Your conventions. Code that belongs.
                 </span>
               </div>
@@ -382,16 +384,16 @@ export function CodeSynapseProductPage() {
                   className="text-center"
                 >
                   {/* Icon node */}
-                  <div className="mx-auto mb-5 w-20 h-20 rounded-2xl bg-electric-cyan/[0.05] border border-electric-cyan/10 flex items-center justify-center">
+                  <div className="mx-auto mb-5 w-20 h-20 rounded-2xl bg-electric-cyan/[0.08] border border-electric-cyan/20 flex items-center justify-center">
                     <step.icon className="w-7 h-7 text-electric-cyan" />
                   </div>
-                  <span className="block text-[10px] font-mono text-white/15 mb-2">
+                  <span className="block text-[10px] font-mono text-white/30 mb-2">
                     {String(i + 1).padStart(2, "0")}
                   </span>
                   <h3 className="text-white font-semibold font-grotesk text-sm mb-1">
                     {step.title}
                   </h3>
-                  <p className="text-white/35 text-xs leading-relaxed">
+                  <p className="text-white/50 text-xs leading-relaxed">
                     {step.desc}
                   </p>
                 </motion.div>
@@ -405,10 +407,10 @@ export function CodeSynapseProductPage() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ delay: 0.8 }}
-            className="mt-16 max-w-xl mx-auto rounded-lg border border-electric-cyan/10 bg-electric-cyan/[0.02] px-6 py-3.5 flex items-center justify-center gap-3"
+            className="mt-16 max-w-xl mx-auto rounded-lg border border-electric-cyan/20 bg-electric-cyan/[0.04] px-6 py-3.5 flex items-center justify-center gap-3"
           >
             <Zap className="w-3.5 h-3.5 text-electric-cyan shrink-0" />
-            <p className="text-white/40 text-sm">
+            <p className="text-white/55 text-sm">
               Zero upkeep — auto-updates on every commit.
             </p>
           </motion.div>
@@ -447,14 +449,14 @@ export function CodeSynapseProductPage() {
                 transition={{ delay: i * 0.12, duration: 0.5, ease: snap }}
                 className="flex items-start gap-6 py-10 first:pt-0 last:pb-0"
               >
-                <div className="shrink-0 mt-1 p-3 rounded-xl bg-electric-cyan/[0.05] text-electric-cyan">
+                <div className="shrink-0 mt-1 p-3 rounded-xl bg-electric-cyan/[0.08] border border-electric-cyan/15 text-electric-cyan">
                   <cap.icon className="w-5 h-5" />
                 </div>
                 <div>
                   <h3 className="text-white font-semibold font-grotesk text-lg mb-1.5">
                     {cap.title}
                   </h3>
-                  <p className="text-white/40 text-[15px] leading-relaxed">
+                  <p className="text-white/55 text-[15px] leading-relaxed">
                     {cap.desc}
                   </p>
                 </div>
@@ -499,7 +501,7 @@ export function CodeSynapseProductPage() {
                 <h2 className="text-display-m text-white mb-4">
                   Add the Context Layer.
                 </h2>
-                <p className="text-white/50 mb-10 max-w-xl mx-auto leading-relaxed">
+                <p className="text-white/60 mb-10 max-w-xl mx-auto leading-relaxed">
                   Your agents are already writing code. Give them the
                   infrastructure to write it right. A CLI sidecar that connects
                   to any agent via MCP — up and running in minutes.
