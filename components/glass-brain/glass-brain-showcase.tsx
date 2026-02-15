@@ -63,7 +63,7 @@ export function GlassBrainShowcase() {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 0.4 }}
-            className="grid grid-cols-[1fr_2fr_1fr] gap-3 h-full min-h-[600px]"
+            className="grid grid-cols-1 md:grid-cols-[1fr_2fr_1fr] gap-3 h-full min-h-[400px] md:min-h-[600px]"
           >
             {/* Header bar */}
             <div className="col-span-3 glass-panel rounded-lg px-4 py-3 flex items-center justify-between flex-wrap gap-2">
@@ -93,12 +93,12 @@ export function GlassBrainShowcase() {
               </div>
             </div>
 
-            {/* Left: Workspace tree */}
+            {/* Left: Workspace tree — hidden on mobile */}
             <motion.div
               initial={{ opacity: 0, y: 12 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.15, duration: 0.4 }}
-              className="glass-panel rounded-lg flex flex-col overflow-hidden"
+              className="glass-panel rounded-lg flex-col overflow-hidden hidden md:flex"
             >
               <div className="px-3 py-2 border-b border-white/5 flex items-center gap-2">
                 <FolderTree className="w-4 h-4 text-rail-purple" />
@@ -171,12 +171,12 @@ export function GlassBrainShowcase() {
               </div>
             </motion.div>
 
-            {/* Right: Chat */}
+            {/* Right: Chat — hidden on mobile */}
             <motion.div
               initial={{ opacity: 0, y: 12 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.45, duration: 0.4 }}
-              className="glass-panel rounded-lg flex flex-col overflow-hidden"
+              className="glass-panel rounded-lg flex-col overflow-hidden hidden md:flex"
             >
               <div className="px-3 py-2 border-b border-white/5 flex items-center gap-2">
                 <MessageSquare className="w-4 h-4 text-rail-purple" />

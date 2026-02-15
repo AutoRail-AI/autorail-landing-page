@@ -83,15 +83,14 @@ interface FragmentData {
 
 const WARNING_YELLOW = "#FFB800"
 
-/* Final cube palette — matches AntigravityCloud & NeuralConstellation.
-   Same 5 brand colors, same white-hot neon multipliers so the glow
-   language is consistent across all three pages. */
+/* Final cube palette — warm but controlled. Multipliers in 0.8–1.5 range
+   give visible color with only a gentle Bloom halo, not overwhelming neon. */
 const FINAL_PALETTE: { hex: string; mult: number; weight: number }[] = [
-  { hex: CLOUD_WHITE, mult: 1.5, weight: 0.35 },    // structural (majority)
-  { hex: ELECTRIC_CYAN, mult: 5, weight: 0.22 },     // intelligence / spark
-  { hex: RAIL_PURPLE, mult: 4, weight: 0.18 },       // deep context / wire
-  { hex: WARNING_YELLOW, mult: 4, weight: 0.15 },    // caution / warmth sparks
-  { hex: SUCCESS_GREEN, mult: 5, weight: 0.10 },     // rare success sparks
+  { hex: CLOUD_WHITE, mult: 0.85, weight: 0.35 },    // clean silver (majority)
+  { hex: RAIL_PURPLE, mult: 1.4, weight: 0.28 },     // warm purple — matches hero text
+  { hex: "#B8A9D4", mult: 1.0, weight: 0.15 },       // lavender accent
+  { hex: ELECTRIC_CYAN, mult: 1.2, weight: 0.12 },   // cool accent spark
+  { hex: SUCCESS_GREEN, mult: 1.1, weight: 0.10 },   // rare success hint
 ]
 
 function pickFinalColor(rng: () => number): THREE.Color {
@@ -100,7 +99,7 @@ function pickFinalColor(rng: () => number): THREE.Color {
     roll -= entry.weight
     if (roll <= 0) return new THREE.Color(entry.hex).multiplyScalar(entry.mult)
   }
-  return new THREE.Color(CLOUD_WHITE).multiplyScalar(1.4)
+  return new THREE.Color(CLOUD_WHITE).multiplyScalar(0.85)
 }
 
 function generateFragments(): FragmentData[] {
@@ -252,7 +251,7 @@ function Gate({
   const spinSpeed = GATE_SPIN_SPEEDS[index] ?? 0.25
 
   const targetColor = useMemo(
-    () => new THREE.Color(GATE_COLORS_LIST[index] ?? ELECTRIC_CYAN).multiplyScalar(1.6),
+    () => new THREE.Color(GATE_COLORS_LIST[index] ?? ELECTRIC_CYAN).multiplyScalar(1.0),
     [index],
   )
 
@@ -389,7 +388,7 @@ function CubeFrame({
   const faceMats = useRef<(THREE.MeshBasicMaterial | null)[]>([])
 
   const cubeSize = CUBE_EXTENT * 2
-  const edgeColor = useMemo(() => new THREE.Color(CLOUD_WHITE).multiplyScalar(0.9), [])
+  const edgeColor = useMemo(() => new THREE.Color(CLOUD_WHITE).multiplyScalar(0.6), [])
 
   // 6 face definitions: position offset + rotation for each face plane
   const faces = useMemo(() => {
@@ -405,7 +404,7 @@ function CubeFrame({
   }, [])
 
   const faceColors = useMemo(
-    () => faces.map((f) => new THREE.Color(f.color).multiplyScalar(0.6)),
+    () => faces.map((f) => new THREE.Color(f.color).multiplyScalar(0.4)),
     [faces],
   )
 
@@ -497,16 +496,16 @@ function CornerEdges({
     const e = CUBE_EXTENT
     const stub = e * 2 * CORNER_STUB_LENGTH // stub length in world units
 
-    // Brand glow palette — cycled across corners
+    // Corner palette — visible but not overpowering
     const glowPalette = [
-      new THREE.Color(ELECTRIC_CYAN).multiplyScalar(2.2),  // cyan overbright
-      new THREE.Color(RAIL_PURPLE).multiplyScalar(3.0),     // purple overbright
-      new THREE.Color(SUCCESS_GREEN).multiplyScalar(2.2),   // green overbright
-      new THREE.Color(ELECTRIC_CYAN).multiplyScalar(2.0),
-      new THREE.Color(SUCCESS_GREEN).multiplyScalar(2.5),
-      new THREE.Color(RAIL_PURPLE).multiplyScalar(2.8),
-      new THREE.Color(ELECTRIC_CYAN).multiplyScalar(2.4),
-      new THREE.Color(SUCCESS_GREEN).multiplyScalar(2.0),
+      new THREE.Color(CLOUD_WHITE).multiplyScalar(0.8),
+      new THREE.Color(RAIL_PURPLE).multiplyScalar(1.2),
+      new THREE.Color(ELECTRIC_CYAN).multiplyScalar(0.9),
+      new THREE.Color(RAIL_PURPLE).multiplyScalar(1.1),
+      new THREE.Color("#B8A9D4").multiplyScalar(0.9),
+      new THREE.Color(RAIL_PURPLE).multiplyScalar(1.2),
+      new THREE.Color(CLOUD_WHITE).multiplyScalar(0.8),
+      new THREE.Color(ELECTRIC_CYAN).multiplyScalar(0.9),
     ]
 
     const corners: [number, number, number][] = [
@@ -558,8 +557,8 @@ function CornerEdges({
     }
 
     // Gentle breathing pulse on the corner edges
-    const breathe = 1 + Math.sin(time * 1.8) * 0.12
-    matRef.current.opacity = alpha * 0.7 * breathe
+    const breathe = 1 + Math.sin(time * 1.8) * 0.08
+    matRef.current.opacity = alpha * 0.6 * breathe
 
     // Animate individual corner colors with staggered pulse
     const colAttr = lineRef.current?.geometry.getAttribute("color")
@@ -699,9 +698,9 @@ function FragmentSystem({
       // Phase 3: settle into overbright brand color (Bloom glow only here)
       tmpColor.lerp(frag.finalColor, settleIn)
 
-      // Post-morph breathing — gentle luminance pulse (only after settle)
+      // Post-morph breathing — subtle luminance pulse (only after settle)
       if (raw > 0.93) {
-        const breathe = 1 + Math.sin(time * 1.5 + frag.id * 0.35) * 0.08
+        const breathe = 1 + Math.sin(time * 1.5 + frag.id * 0.35) * 0.05
         tmpColor.multiplyScalar(breathe)
       }
 
@@ -994,7 +993,7 @@ export function BehavioralPipeline({ className }: { className?: string }) {
           <PipelineScene reducedMotion={reducedMotion} />
         </Suspense>
         <EffectComposer multisampling={0}>
-          <Bloom luminanceThreshold={0.12} intensity={1.2} mipmapBlur />
+          <Bloom luminanceThreshold={0.4} intensity={0.5} mipmapBlur />
         </EffectComposer>
       </Canvas>
 

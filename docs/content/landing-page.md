@@ -15,14 +15,16 @@
 
 ```
 ┌─────────────────────────────────────────────────────────────────────┐
-│  1. HERO                                                            │
-│  2. THE PROBLEM — "The 'Day 2' Hangover" (sticky scroll narrative) │
-│  3. THE SOLUTION / ROUTER — "The Infrastructure Stack"              │
-│  4. ENTERPRISE TRUST — "Engineering Rigor for the Agentic Age"      │
-│  5. TECH STACK MARQUEE                                              │
+│  1. HERO (WebGL AntigravityCloud)                                   │
+│  2. THE PROBLEM — "The 'Day 2' Hangover" (zig-zag panels)          │
+│  3. THE SOLUTION / ROUTER — BentoGrid ("Two Layers. One Stack.")    │
+│  4. ENTERPRISE TRUST — SafetyRating (zig-zag rows with UI snippets) │
+│  5. TECH STACK — Ecosystem marquee                                  │
 │  6. FOOTER                                                          │
 └─────────────────────────────────────────────────────────────────────┘
 ```
+
+> **Note:** The CodeSynapse and Necroma landing sections (previously between BentoGrid and SafetyRating) are currently **commented out** in `app/page.tsx`. Users navigate directly to `/code-synapse` and `/necroma` via the BentoGrid CTAs.
 
 ---
 
@@ -91,7 +93,7 @@ Each block has: step number (35% accent opacity), icon badge with glow, title, s
 
 ---
 
-## Section 3 — The Solution: "The Infrastructure Stack"
+## Section 3 — The Solution: BentoGrid ("Two Layers. One Stack.")
 
 > **Purpose:** Position the two products as layers of a unified infrastructure stack. Code-Synapse is the low-friction wedge (individual devs install it today). Necroma is the enterprise expansion play (CIO buys it for a $5M migration).
 
@@ -151,7 +153,7 @@ Each product is a **full-width glass panel** with 2-column internal layout (text
 
 ---
 
-## Section 4 — Enterprise Trust: "Engineering Rigor for the Agentic Age"
+## Section 4 — Enterprise Trust: SafetyRating ("Engineering Rigor for the Agentic Age")
 
 ### Layout: Zig-Zag Alternating Rows with UI Snippets
 
@@ -190,7 +192,7 @@ Rows separated by purple gradient line. Odd rows slide from left, even from righ
 
 ---
 
-## Section 5 — Tech Stack Marquee
+## Section 5 — Tech Stack: Ecosystem Marquee
 
 Infinite horizontal scroll with high-visibility text. Dual-row marquee: primary row scrolls left (larger, `text-white/60` → hover `text-white`), secondary row scrolls right (smaller, `text-white/50` → hover `text-white/80`). Diamond separators between pills. Edge-fading gradients.
 
@@ -208,11 +210,12 @@ Infinite horizontal scroll with high-visibility text. Dual-row marquee: primary 
 AutoRail — Autonomous Engineering Infrastructure
 
 Products          Resources          Company
-Code-Synapse      Documentation      About
-Necroma           Blog               Careers
-                  GitHub             Contact
+code-synapse      Documentation      About
+necroma           GitHub             Enterprise
+Safety Rating     Status             Contact
+Ecosystem
 
-© 2026 AutoRail. All rights reserved.
+© 2026 autorail Inc.                 Privacy  Terms
 ```
 
 ---
@@ -222,17 +225,18 @@ Necroma           Blog               Careers
 ```
 ┌──────────────────────────────────────────────────────────────────┐
 │  1. HERO         →  "Autonomous Engineering Infrastructure"      │
+│                     WebGL AntigravityCloud (4096 tokens)          │
 │  2. PROBLEM      →  Zig-zag panels: 3 collapses with cinematic   │
 │                     visuals (terminal/graph) alternating L/R      │
-│  3. STACK        →  Vertically stacked product layers            │
+│  3. STACK        →  BentoGrid: Vertically stacked product layers │
 │                     ├─ Code-Synapse = Context Layer (full-width) │
 │                     │  CTA: "Explore Code-Synapse →" → /code-synapse│
 │                     ├─ Stats embedded as large numbers in cards   │
 │                     └─ Necroma = Migration Layer (full-width)    │
 │                        CTA: "Explore Necroma →" → /necroma       │
-│  4. TRUST        →  Zig-zag rows with UI snippet demos           │
+│  4. TRUST        →  SafetyRating: Zig-zag rows with UI snippets │
 │                     Audit trails, Privacy flow, Explainability   │
-│  5. MARQUEE      →  Real tech stack (MCP, CozoDB, Playwright)   │
+│  5. MARQUEE      →  Ecosystem: Real tech stack (MCP, CozoDB...) │
 │  6. FOOTER       →  Links & legal                                │
 └──────────────────────────────────────────────────────────────────┘
 ```
