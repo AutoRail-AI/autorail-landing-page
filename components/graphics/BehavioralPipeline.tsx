@@ -248,15 +248,8 @@ function Gate({
   const threshold = GATE_THRESHOLDS[index] ?? 0.5
   const spinAngleRef = useRef(0)
 
-  const pipelinePos = useMemo(() => new THREE.Vector3(...position), [position])
-  const cubeCenter = useMemo(() => new THREE.Vector3(0, 0, MODERN_Z), [])
   const gateSize = GATE_SIZES[index] ?? 4.0
   const spinSpeed = GATE_SPIN_SPEEDS[index] ?? 0.25
-  const spinAxis = useMemo(
-    () => new THREE.Vector3(...(GATE_AXES[index] ?? [0, 1, 0])),
-    [index],
-  )
-  const spinQuat = useMemo(() => new THREE.Quaternion(), [])
 
   const targetColor = useMemo(
     () => new THREE.Color(GATE_COLORS_LIST[index] ?? ELECTRIC_CYAN).multiplyScalar(1.6),
@@ -269,32 +262,31 @@ function Gate({
     const dt = Math.min(delta, 0.05)
     const time = elapsed.current
 
-    // Gate appearance (scale in)
+    // Gate appearance (scale in) — appears when fragments reach this gate
     const gp = THREE.MathUtils.smoothstep(morph, threshold, threshold + 0.15)
-    const scaleVal = gp > 0.95 ? 1 : gp * (1 + (1 - gp) * 0.15)
+
+    // Gate DISAPPEARS after reconstruction — no final rings
+    const fadeOut = THREE.MathUtils.smoothstep(morph, 0.82, 0.96)
+    const visibility = gp * (1 - fadeOut)
+
+    const scaleVal = visibility > 0.01
+      ? visibility * (1 + (1 - gp) * 0.15)
+      : 0
     meshRef.current.scale.setScalar(scaleVal)
 
-    // Breathing opacity
-    const breathe = gp > 0.5 ? Math.sin(time * 1.8 + index * 1.2) * 0.04 : 0
-    matRef.current.opacity = gp * 0.28 + breathe
+    // Breathing opacity — gate pulses as fragments flow through
+    const breathe = gp > 0.5 ? Math.sin(time * 1.8 + index * 1.2) * 0.06 : 0
+    // Pulse brighter when fragments are actively passing through
+    const flowPulse = morph > threshold && morph < threshold + 0.25
+      ? 0.12 * Math.sin(time * 4 + index * 2)
+      : 0
+    matRef.current.opacity = visibility * (0.32 + breathe + flowPulse)
 
-    // ── Position: pipeline → cube center ──
-    const ringBlend = THREE.MathUtils.smoothstep(morph, 0.88, 1.0)
-    meshRef.current.position.lerpVectors(pipelinePos, cubeCenter, ringBlend)
-
-    // ── Rotation: pipeline self-spin → Saturn ring spin ──
-    if (!reducedMotion && gp > 0.1) {
-      spinAngleRef.current += dt * spinSpeed * gp
+    // Pipeline phase: slow Y-spin in place
+    if (!reducedMotion && visibility > 0.01) {
+      spinAngleRef.current += dt * spinSpeed * visibility
     }
-
-    if (ringBlend > 0.01) {
-      // Saturn ring: rotate around assigned axis, centered on the gate
-      spinQuat.setFromAxisAngle(spinAxis, spinAngleRef.current)
-      meshRef.current.quaternion.slerp(spinQuat, Math.min(ringBlend * 2, 1))
-    } else {
-      // Pipeline phase: slow Y-spin
-      meshRef.current.rotation.set(0, spinAngleRef.current * 0.3, 0)
-    }
+    meshRef.current.rotation.set(0, spinAngleRef.current * 0.3, 0)
   })
 
   return (
@@ -778,23 +770,82 @@ function ReconstructionPulse({
 }
 
 /* ═══════════════════════════════════════════════════════════════════════════ */
-/*  CAMERA BREATHING                                                         */
+/*  CAMERA DIRECTOR — cinematic front→side→front orbit                       */
+/*                                                                           */
+/*  Phase 1 (morph 0–0.15):   Front view of legacy cube, slight drift       */
+/*  Phase 2 (morph 0.15–0.55): Orbit to side view — pipeline corridor       */
+/*                              visible, fragments flying through gates      */
+/*  Phase 3 (morph 0.55–0.88): Hold side view, watch reconstruction         */
+/*  Phase 4 (morph 0.88–1.0):  Orbit back to front, framing final cube     */
+/*  Phase 5 (post-morph):      Gentle breathing on front view               */
 /* ═══════════════════════════════════════════════════════════════════════════ */
 
-function CameraBreathing({
+const CAM_RADIUS = 14
+const CAM_SCENE_CENTER_Z = (LEGACY_Z + MODERN_Z) / 2 // midpoint of the pipeline
+
+function CameraDirector({
   reducedMotion,
   elapsed,
+  morphProgress,
 }: {
   reducedMotion: boolean
   elapsed: React.MutableRefObject<number>
+  morphProgress: React.MutableRefObject<number>
 }) {
   const { camera } = useThree()
+  const lookTarget = useMemo(() => new THREE.Vector3(), [])
 
   useFrame(() => {
-    if (reducedMotion) return
+    const morph = morphProgress.current
     const time = elapsed.current
-    camera.position.z = 14 + Math.sin(time * 0.3) * 0.25
-    camera.position.y = Math.sin(time * 0.2 + 0.5) * 0.08
+
+    if (reducedMotion) {
+      // Static front view of final cube
+      camera.position.set(0, 0, MODERN_Z + CAM_RADIUS)
+      camera.lookAt(0, 0, MODERN_Z)
+      return
+    }
+
+    // ── Orbit angle: 0 = front, π/2 = side ──
+    // Ramp to side view during flow, hold, then return to front
+    let orbitAngle: number
+    if (morph < 0.15) {
+      // Phase 1: front view
+      orbitAngle = 0
+    } else if (morph < 0.55) {
+      // Phase 2: orbit to side
+      const t = THREE.MathUtils.smoothstep(morph, 0.15, 0.55)
+      orbitAngle = easeInOutCubic(t) * (Math.PI * 0.38) // ~68°, almost side
+    } else if (morph < 0.88) {
+      // Phase 3: hold near side
+      orbitAngle = Math.PI * 0.38
+    } else {
+      // Phase 4: orbit back to front
+      const t = THREE.MathUtils.smoothstep(morph, 0.88, 1.0)
+      orbitAngle = (1 - easeInOutCubic(t)) * (Math.PI * 0.38)
+    }
+
+    // ── LookAt target: pipeline center → final cube ──
+    const lookZ = morph < 0.7
+      ? CAM_SCENE_CENTER_Z
+      : THREE.MathUtils.lerp(CAM_SCENE_CENTER_Z, MODERN_Z, THREE.MathUtils.smoothstep(morph, 0.7, 1.0))
+
+    lookTarget.set(0, 0, lookZ)
+
+    // ── Camera position on orbit circle ──
+    // Negative X = camera orbits LEFT, so scene content stays on the RIGHT of screen
+    const camX = -Math.sin(orbitAngle) * CAM_RADIUS
+    const camZ = lookZ + Math.cos(orbitAngle) * CAM_RADIUS
+
+    // Slight Y elevation during side view for drama
+    const camY = Math.sin(orbitAngle) * 1.5
+
+    // Post-morph breathing
+    const breathX = morph >= 1 ? Math.sin(time * 0.2 + 0.5) * 0.08 : 0
+    const breathZ = morph >= 1 ? Math.sin(time * 0.3) * 0.25 : 0
+
+    camera.position.set(camX + breathX, camY, camZ + breathZ)
+    camera.lookAt(lookTarget)
   })
 
   return null
@@ -858,7 +909,7 @@ function PipelineScene({ reducedMotion }: { reducedMotion: boolean }) {
 
   return (
     <>
-      <CameraBreathing reducedMotion={reducedMotion} elapsed={elapsed} />
+      <CameraDirector reducedMotion={reducedMotion} elapsed={elapsed} morphProgress={morphProgress} />
 
       {/* 3-point lighting for solid cube fragments */}
       <ambientLight intensity={0.25} />
