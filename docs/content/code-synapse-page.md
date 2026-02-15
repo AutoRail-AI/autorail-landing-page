@@ -1,229 +1,238 @@
 # Code-Synapse Page — `/code-synapse`
 
-> **Goal:** Sell the Context Layer of the autonomous engineering infrastructure.
+> **Goal:** Position Code-Synapse as **The AI Tech Lead** — a hosted senior pair programmer that supervises your coding agents (Cursor, Claude Code, Windsurf) so they stop breaking your app.
 >
-> **Product Positioning:** A **CLI Sidecar** that runs alongside your existing agentic IDEs (Cursor, Claude, Windsurf).
-> It builds an AST-backed knowledge graph and serves it to agents via an **MCP server**. Pre-built **skill libraries** let agents enforce patterns, prevent drift, and understand business intent. Not a library you import — real infrastructure that runs beside your IDE.
->
-> **Audience:** VPs of Engineering and Platform teams adopting AI-assisted development at scale.
-> They've tried Cursor/Copilot and are drowning in Alien Code that passes CI but violates architectural standards.
-> Users arrive here from the `Explore Code-Synapse →` link on the main landing page.
->
-> **GTM Strategy:** This is the **wedge product**. Low friction, immediate value. Developers install it today alongside their existing IDE agents. It proves value on Day 1 by stopping hallucinations. Once embedded, it opens the door to the Necroma enterprise play.
+> *"Stop babysitting your AI. Turn your favorite 'Typist' into a Senior Developer."*
 
 ---
 
-## Page Flow
+## Product Definition & Enterprise Posture
+**Code-Synapse** is a fully hosted SaaS that sits invisibly between the developer and their coding agent.
+* **For the User:** It provides the frictionless experience of a No-Code builder with the ownership of a custom-coded application.
+* **The Infrastructure:** A highly secure, low-latency, hosted MCP server that builds a living Business Intent Graph of the repository. It reviews AI output against architectural rules in milliseconds.
 
-```
+---
+
+## Page Flow & Architecture
+
+```text
 ┌─────────────────────────────────────────────────────────────────────┐
-│  1. HERO (WebGL Neural Constellation)                               │
-│  2. THE PROBLEM — Before/After code comparison terminal panels       │
-│  3. HOW IT WORKS — 2×2 glass card grid with Z-flow SVG connector    │
-│  4. THE RESULT — Asymmetric Bento grid with micro-visuals           │
-│  5. BOTTOM CTA — Connect your repo                                  │
-│  6. FOOTER                                                          │
+│  1. HERO — "The AI Tech Lead" + Supported Agents Bar                │
+│  2. METRICS STRIP — Enterprise Credibility (<200ms, SOC2 path)      │
+│  3. THE PROBLEM — "The AI Hostage Situation" (Generic + 4 Pillars)  │
+│  4. THE SOLUTION — "Virtual CTO" (High-Fidelity Bento Grid)        │
+│  5. HOW IT WORKS — 3-Step Pipeline (Connect → Supervise → Ship)     │
+│  6. TRUST & SECURITY — "Your Code Stays Yours" (Glass Cards)        │
+│  7. EARLY ACCESS — "Founding Member" Waitlist                       │
+│  8. FAQ — Objection Handling                                        │
+│  9. BOTTOM CTA & FOOTER                                             │
 └─────────────────────────────────────────────────────────────────────┘
 ```
-
-> **Design Principle:** Every section uses a DIFFERENT layout pattern. No repeating card grids. The page uses visual variety to maintain engagement: terminal editor panels → 2×2 pipeline grid with animated Z-flow → bento grid with micro-visuals → glass CTA.
 
 ---
 
 ## Section 1 — Hero
 
-### Copy
-
 | Element | Content |
-|---|---|
-| **Badges** | `Open Source` · `CLI Sidecar` |
-| **Product name** | `code-synapse` |
-| **Headline** | The Context Layer. |
-| **Subhead** | Persistent memory infrastructure for agents — so they write code that belongs in your codebase, not code that compiles and violates everything. |
-| **CTA 1** | `Connect Your Repo` (Triggers Cal.com booking modal) |
-| **CTA 2** | `View on GitHub →` (external link) |
+| --- | --- |
+| **Badges** | `SaaS` · `Hosted MCP Server` |
+| **Headline** | The AI Tech Lead. |
+| **Tagline** | Stop babysitting your AI. Turn your favorite "Typist" into a Senior Developer. *(styled `text-xl text-white/80 font-medium`)* |
+| **Explanation** | Code-Synapse is a hosted MCP server that supervises your AI coding agent—expanding prompts, reviewing output, and preventing regressions before they reach your files. *(styled `text-lg text-muted-foreground`)* |
+| **Primary CTA** | `Join Waitlist` (scrolls to #early-access) |
+| **Micro-copy** | "Limited early access — founding members get personal onboarding." |
+| **Agent Support Bar** | *Dimmed text under CTA:* `Works with:` Cursor · Claude Code · Windsurf · OpenHands |
 
-### WebGL Hero: Neural Constellation (Chaos → Structure)
-**Symbolic narrative:** Unstructured agent output → organized knowledge graph. The animation starts as a scattered, drifting particle cloud (echoing the landing page's AntigravityCloud) and morphs into a structured constellation — telling Code-Synapse's story visually.
-
-**Morph phases (0.8s delay → 3.2s transition):**
-1. **Chaos (0–0.8s):** 70 icosahedron particles scattered in a larger sphere (radius 11), drifting organically with sine-based wobble. Dim, disconnected — no edges visible.
-2. **Morph (0.8–4.0s):** Particles gravitate to Fibonacci sphere positions via cubic ease-in-out. Scale up from 60% → 100%. Drift fades to zero as structure emerges.
-3. **Connect (55–90% progress):** ~120 color-matched edges draw in between nodes. `lineSegments` with vertex colors, positions dynamically updated every frame to stay attached to morphing nodes.
-4. **Activate (88%+):** 15 pulse particles fade in and begin traveling along edges, carrying "knowledge" through the graph.
-
-**Visual details:**
-- Full brand palette with bicameral clustering: cyan (inner core), purple (outer edge), yellow, green (rare sparks), white (structural)
-- Overbright colors via `THREE.Color.multiplyScalar()` with `toneMapped={false}` for Bloom neon effect
-- Rotation starts slow during morph, accelerates to full speed once graph forms; breathing only after morph completes
-- R3F Canvas + Bloom postprocessing, seeded PRNG (seed=42), mouse parallax, prefers-reduced-motion support (skips morph, shows final state)
-- Dynamic import with `{ ssr: false }`, NOT exported from barrel
+**Visual Asset:** WebGL Neural Constellation. Chaotic particles morphing into a structured, connected graph network. See `components/graphics/NeuralConstellation.tsx`.
 
 ---
 
-## Section 2 — The Problem (Before/After Code Comparison)
+## Section 2 — Enterprise Metrics Strip
 
-> **Purpose:** Show the problem VISUALLY, not with paragraphs. Two terminal-style editor panels slide in from opposite sides. The left shows agent output without context (wrong packages, generic patterns). The right shows agent output with Code-Synapse (internal modules, proper types, team conventions). Users grasp the value in 2 seconds. Each panel has macOS traffic-light dots, filename in title bar, X/Check badge, and a verdict bar at bottom.
+*A horizontal dark-glass strip sitting just below the fold to instantly establish engineering credibility.*
 
-### Layout
-Two side-by-side code editor panels with:
-- **Title bar**: macOS dots (red/yellow/green) + filename + X/Check badge
-- **Code block**: 5 lines of syntax-highlighted TypeScript
-- **Verdict bar**: One-sentence summary at the bottom
+| Value | Label |
+| --- | --- |
+| `< 200ms` | Prompts & Reviews |
+| `4+` | Major AI Agents Supported |
+| `24hr` | Data Deletion Guarantee |
 
-### Copy
+Styled: Cyan values (`text-3xl font-grotesk font-bold text-electric-cyan`) + mono uppercase labels. Glass card grid.
+
+---
+
+## Section 3 — The Problem: "The AI Coding Hostage Situation"
+
+> **Design Directive:** Do not use dense paragraphs. Use bold, scannable text. The red glow on the cards should escalate from faint to aggressive as the user scrolls down.
 
 | Element | Content |
-|---|---|
+| --- | --- |
 | **Eyebrow** | `The Problem` |
-| **Headline** | Agents can write code. They can't write *your* code. |
+| **Headline** | The AI Coding "Hostage Situation." |
+| **Sub-head** | AI agents are incredibly fast typists, but fundamentally unsupervised. They lack architectural judgment, memory, and accountability. The honeymoon phase ends quickly when the cracks start to show. |
 
-**Left Panel — "without context"** (X badge, red glow shadow):
-```typescript
-import moment from 'moment'
-import axios from 'axios'
+**The Critical Failures (Stage Cards):**
 
-const fmt = (d) => moment(d).format('MM/DD')
-const res = await axios.get('/api/users')
-```
-Verdict: "Wrong packages. Wrong patterns. Compiles, but doesn't belong."
+| # | Title | The Pain (Bold) | The Reality |
+| --- | --- | --- | --- |
+| 01 | The "File Folder Terror" | **The Usability Barrier** | You ask the AI for a checkout page. It spits out 500 lines across `middleware.ts` and `api/routes/`. You are forced to approve changes to complex directories you don't actually understand. |
+| 02 | The AI "Loop of Death" | **The Momentum Killer** | You ask the AI to fix the login button. It breaks the cart. You fix the cart—the login breaks again. You spend hours burning tokens just to get back to where you were yesterday. |
+| 03 | Context Rot | **The Technical Debt** | The AI ignores your `.cursorrules` after five messages. It writes "Alien Code" based on generic internet tutorials. Your app becomes a tangled mess too complex for the AI's own context window. |
+| 04 | Handoff Extortion | **The Ultimate Fear** | Your app makes money. You hire a real engineer. They look at the repository and say: *"This AI code is unmaintainable trash. I need $50,000 to rewrite it from scratch."* |
 
-**Right Panel — "with code-synapse"** (Check badge, cyan glow shadow):
-```typescript
-import { formatDate } from '@/lib/dates'
-import { api } from '@/lib/http-client'
+**The Friction Multiplier (Closing Banner):**
 
-const date = formatDate(new Date())
-const users = await api.get<User[]>('/users')
-```
-Verdict: "Your modules. Your types. Your conventions. Code that belongs."
-
-### Styling
-- Left panel: `border-white/[0.15]`, red glow `box-shadow: 0 25px 60px -12px rgba(255,51,102,0.12)`, `bg-[#12101a]`, muted amber `text-amber-300/70` for strings, `text-white/70` for keywords
-- Right panel: `border-electric-cyan/25`, cyan glow `box-shadow: 0 25px 60px -12px rgba(0,229,255,0.18)`, `bg-[#0a1214]`, neon cyan `#00FFFF` at 80–100% opacity for keywords/strings
-
-### Animation
-- Left panel slides in from `x: -40` with blur reveal
-- Right panel slides in from `x: 40` with blur reveal
-- Both trigger on scroll into viewport
+> **...And the friction doesn't stop there.**
+> These four stages are just the breaking points. Every single day, unsupervised AI agents silently introduce security vulnerabilities, ignore dependency guidelines, break UI consistency, hallucinate APIs, and bloat your codebase with redundant logic. You are paying for speed, but spending all your time babysitting the output.
 
 ---
 
-## Section 3 — How It Works (2×2 Glass Card Grid with Z-Flow SVG)
+## Section 4 — The Solution: "Your Cloud-Based Virtual CTO"
 
-> **Purpose:** Show the 4-component architecture as a 2×2 grid with an animated Z-flow SVG connector. The connector draws left→right across top, diagonally to bottom-left, then left→right across bottom — tracing the data flow through the architecture. A looping cyan pulse dot travels the full Z-path. Each card is a glass panel with large step number, icon, title, description, and tech tag.
-
-### Layout
-- 2×2 grid on desktop (`grid-cols-2`), single column on mobile
-- Animated Z-flow SVG connector (desktop only) with 3 segments:
-  - Horizontal top: card 01 → card 02
-  - Diagonal: card 02 → card 03
-  - Horizontal bottom: card 03 → card 04
-- Node dots at each card center, looping cyan pulse dot
-- Step number labels on the SVG path
-
-### Copy
+> **Design Directive (Crucial for Enterprise feel):** This Bento Grid MUST include high-fidelity UI mockups inside the cards. Do not rely on text alone.
 
 | Element | Content |
-|---|---|
-| **Eyebrow** | `How It Works` |
-| **Headline** | Four components. Zero config. |
-| **Sub-head** | A lightweight CLI sidecar that indexes your codebase, builds a knowledge graph, and serves context to any AI agent via MCP. |
+| --- | --- |
+| **Eyebrow** | `The Solution` |
+| **Headline** | You don't need a faster agent. You need a manager. |
+| **Sub-head** | Connect your GitHub repo, and Code-Synapse maps how your app works. We intercept your prompts, enforce architectural rules, and ruthlessly review the AI's code before it ever touches your files. |
 
-**Pipeline Steps:**
+**Bento Grid Cards (1 hero + 2×2):**
 
-| # | Icon | Title | Description | Tag |
-|---|---|---|---|---|
-| 01 | Terminal | CLI Sidecar | Installs in seconds. Watches your repo, indexes on every commit, and runs silently alongside your IDE. | pnpm add -g code-synapse |
-| 02 | Workflow | Knowledge Graph | Builds a living map of your architecture — modules, dependencies, conventions, and the reasons behind them. | CozoDB + AST |
-| 03 | Network | MCP Server | Serves rich, structured context to any AI agent via the Model Context Protocol. One interface, every tool. | MCP v1.0 |
-| 04 | Puzzle | Skill Libraries | Encodes your team's patterns as executable rules. Agents use your internal modules — not public packages. | Auto-generated |
-
-**Result Banner** (Zap icon): "Zero upkeep — auto-updates on every commit." (`border-electric-cyan/20 bg-electric-cyan/[0.04]`)
+| # | Layout | Title | Description | Inline Visual |
+| --- | --- | --- | --- | --- |
+| 01 | Hero (full-width) | The "File-less" Blueprint | Click "Shopping Cart" on your dashboard and type "Add Apple Pay." We translate it into a precise, multi-file structural prompt. You manage features; we manage the files. | **SVG:** Messy file tree (left, red) → Clean feature blocks (right, cyan) with animated arrow. |
+| 02 | 2×2 Grid | The Spaghetti Shield | Our automated cloud PR reviewer checks every AI change against your app's permanent architecture. Wrong library? Instantly blocked and rewritten. | **Terminal:** `pr-review.log` with BLOCKED (red), REWRITTEN (cyan), PASS (green) entries. |
+| 03 | 2×2 Grid | The "Rewind" Button | When the AI hallucinates, one click restores your code to the exact moment it last worked—and permanently blocks the AI from making that mistake again. | **UI:** Timeline scrubber with versioned working-state pills (green/red) and "Restore" button. |
+| 04 | 2×2 Grid | Invisible Testing | Click through your app to "record" hidden behavioral tests. If the AI breaks a feature in the background, we force a fix. Safety without writing tests. | **Terminal:** Animated red REC dot + interaction log with checkmarks. |
+| 05 | 2×2 Grid | Anti-Extortion Export | Generate an enterprise-grade Architecture Report in one click. Hand your hired engineer a perfect map of your codebase. No "$50K rewrite" extortion. | **Terminal:** `architecture-report.pdf` with module counts, decision counts, "Ready for handoff" (green). |
 
 ---
 
-## Section 4 — The Result (Asymmetric Bento Grid with Micro-Visuals)
-
-> **Purpose:** Showcase the 3 strongest differentiators as an asymmetric bento grid with rich inline SVG micro-visuals. Full-width hero card on top (Business Intent + knowledge graph diagram), two half-width cards below (Pattern Enforcement + module enforcement, Drift Prevention + drift line graph).
-
-### Layout
-- Full-width hero card: `space-y-5` with `flex-row` internal (text left, micro-visual right)
-- Two half-width cards: `grid md:grid-cols-2 gap-5`
-- Each card: glass container + inline SVG micro-visual
-
-### Copy
+## Section 5 — How It Works (Three steps. Zero install.)
 
 | Element | Content |
-|---|---|
-| **Eyebrow** | `The Result` |
-| **Headline** | Code That Actually Belongs |
+| --- | --- |
+| **Eyebrow** | `Integration` |
+| **Headline** | Three steps. Zero install. |
 
-| # | Icon | Title | Description | Micro-Visual |
-|---|---|---|---|---|
-| 01 (full-width) | Brain | Understands Business Intent | Knows why modules exist, what constraints drove patterns, and what breaks if conventions are violated. | Knowledge graph SVG: 5 nodes (app, auth, api, db, cache) with animated pulsing edges and traveling data dots. Label: "knowledge-graph · live" |
-| 02 (half-width) | ShieldCheck | Pattern Enforcement | Agents use your internal modules — not generic public packages. DateUtils over moment.js, every time. | Module enforcement: struck-through red `import moment from 'moment'` (X icon) + green `import { formatDate } from '@/lib/dates'` (Check icon) |
-| 03 (half-width) | GitBranch | Drift Prevention | Catches architectural drift before it merges to main. Alien code gets flagged, not shipped. | Drift detection SVG: green "standard" baseline + red dashed "drift" path diverging. Shield icon at branch point. X mark at flagged drift point. Labels: "standard" (green), "drift" (red). |
+* **01. Connect:** Point Code-Synapse at your GitHub repo. Our engine builds a living Business Intent Graph in minutes.
+* **02. Supervise:** Paste your secure Code-Synapse MCP URL into Cursor or Claude Code. Your AI now has a Tech Lead.
+* **03. Ship:** Merge with confidence. Every line is reviewed, scoped, and verified against hidden behavioral tests.
+
+**Banner below steps:** *"Your AI just got a promotion—from unsupervised intern to managed junior dev."*
 
 ---
 
-## Section 5 — Bottom CTA
+## Section 6 — Trust & Security
 
-### Copy
+> **Design Directive:** Use dark glassmorphism. Subtle lock/shield watermark behind the text.
 
 | Element | Content |
-|---|---|
-| **Headline** | Add the Context Layer. |
-| **Description** | Your agents are already writing code. Give them the infrastructure to write it right. A CLI sidecar that connects to any agent via MCP — up and running in minutes. |
-| **CTA** | `Connect Your Repo` (Triggers Cal.com booking modal) |
+| --- | --- |
+| **Eyebrow** | `Trust & Security` |
+| **Headline** | Enterprise security, built for solo hackers. |
+| **Sub-head** | We supervise your code; we don't exploit it. |
 
-### Styling
-- `rounded-2xl border-electric-cyan/20 bg-electric-cyan/[0.03]` with cyan glow shadow
-- HUD bracket framing (4 corners outside the card)
-- Deep radial ambient glow behind the CTA panel
-- Internal radial glow: `rgba(0,229,255,0.08)`
+**Trust Pillars (3-column glass cards):**
+
+| # | Icon | Title | Description |
+| --- | --- | --- | --- |
+| 01 | Lock | End-to-End Encryption | Encrypted in transit (TLS 1.3) and at rest (AES-256). We only process the structural metadata needed to supervise your AI. |
+| 02 | Server | SOC 2 Compliance | Audit logs, strict access controls, and enterprise-grade retention policies from day one. |
+| 03 | Trash2 | Data Deletion Guarantee | Disconnect your repo, and your data is permanently purged within 24 hours. **No model training on your code—ever.** |
+
+**Bottom Statement:** *"We built Code-Synapse for builders who take their code seriously. If you wouldn't trust us with your repo, we haven't earned your business."*
 
 ---
 
-## Section 6 — Footer
+## Section 7 — Early Access / Waitlist
+
+> **Design Directive:** Create an exclusive, invitation-style card layout.
+
+| Element | Content |
+| --- | --- |
+| **Eyebrow** | `Early Access` |
+| **Headline** | Be the first to try Code-Synapse. |
+| **Sub-head** | Join the waitlist. We'll onboard you personally when your seat is ready. |
+
+**Form:** Email input + "Join Waitlist" button → POST `/api/waitlist` → success state with confirmation. Uses reusable `WaitlistForm` component.
+
+**Founding Member Benefits (visible below form when not in success state):**
+* Locked-in early pricing forever.
+* Personal onboarding call with the engineering team.
+* Direct access to shape the product roadmap.
+
+---
+
+## Section 8 — FAQ
+
+| Element | Content |
+| --- | --- |
+| **Eyebrow** | `FAQ` |
+| **Headline** | Questions you're already thinking. |
+
+| # | Question | Answer |
+| --- | --- | --- |
+| 01 | Does Code-Synapse slow down my AI? | No. Code-Synapse operates on the MCP channel with overhead under 200ms. Your coding flow feels identical; the output is just dramatically better. |
+| 02 | Can I still prompt my AI directly when I want to? | Absolutely. You can bypass it, override suggestions, or turn it off for a session. You're always in control. |
+| 03 | My code is proprietary. Is it safe? | Yes. We store your data in an isolated single-tenant partition. We never train models on your code. Disconnect, and your data is wiped within 24 hours. |
+| 04 | Does it work with my IDE? | If your agent supports the open Model Context Protocol (MCP)—like Cursor, Claude Code, or Windsurf—Code-Synapse works out of the box. One URL, any agent. |
+
+---
+
+## Section 9 — Bottom CTA
+
+| Element | Content |
+| --- | --- |
+| **Headline** | You supply the vibe. We supply the Tech Lead. |
+| **Description** | Your coding agent is a brilliant junior developer with no memory and no judgment. Give it a Tech Lead, and never lose a day to the AI Death Spiral again. |
+| **CTA** | Inline `<WaitlistForm />` (email input + "Join Waitlist" button — same reusable component, without benefits list) |
+
+---
+
+## Section 10 — Footer
 
 > Same as main landing page footer.
 
 ---
 
-## Engineering & Design Specs
+## Engineering & UI Directives
 
-> **Reference:** See `app/code-synapse/code-synapse-product-page.tsx` and `components/graphics/NeuralConstellation.tsx` for implementation.
+> **Reference:** See `app/code-synapse/code-synapse-product-page.tsx` and `components/graphics/NeuralConstellation.tsx` for current implementation.
+>
+> **Note:** The page fully reflects the "AI Tech Lead" / SaaS MCP server positioning. All sections are implemented. All 5 capability cards have inline SVG/terminal visuals. Waitlist form is reused in both Early Access and Bottom CTA via the `WaitlistForm` component.
 
-### 1. Visual Language: "Industrial Glass"
+### Visual Language: "Industrial Glass"
 - **Base Material:** `bg-white/[0.04–0.05]` + `backdrop-blur-[12px]`
 - **Border:** `border-white/[0.12–0.15]` (default) → `border-electric-cyan/25` (hover/active)
-- **Terminal Panels:** `bg-[#12101a]` (without context) and `bg-[#0a1214]` (with code-synapse) with colored `box-shadow` glows. Cyan panel: `0 25px 60px -12px rgba(0,229,255,0.18)`. Red panel: `0 25px 60px -12px rgba(255,51,102,0.12)`.
-- **Glass Cards:** `bg-white/[0.04] border border-white/[0.12] backdrop-blur-[12px]` with `box-shadow: 0 8px 30px -8px rgba(0,0,0,0.4)`. Hover: `border-electric-cyan/25 bg-white/[0.06]` + subtle glow.
-- **Syntax Highlighting:** Neon cyan `#00FFFF` at 70–100% opacity for keywords/strings in Code-Synapse panel. Amber `text-amber-300/70` for "without" panel.
-- **Color Palette:** Full brand palette on Void Black (`#0A0A0F`). Cyan dominant, with purple, yellow, green, white accents.
-- **Typography:** `Space Grotesk` (Headlines), `JetBrains Mono` (Code/Technical), `Inter` (Body).
+- **Terminal Panels:** `bg-[#0e0e14]` with colored `box-shadow` glows
+- **Glass Cards:** `bg-white/[0.04] border border-white/[0.12] backdrop-blur-[12px]`
+- **Color Palette:** Cyan dominant on Void Black (`#0A0A0F`)
 
-### 2. Section Layout Variety
-Each section uses a DISTINCT layout pattern to avoid visual monotony:
+### Typography & Spacing (The "Enterprise" Feel)
+- **Inter** for body text — highly legible, clean lines
+- **Space Grotesk** for headlines — technical, modern edge
+- **JetBrains Mono** for code/technical elements
+- **Whitespace:** Generous padding between sections. Enterprise sites breathe.
 
-| Section | Layout Type | Visual Pattern |
-|---|---|---|
-| Hero | Asymmetric text + WebGL morph | Left-aligned copy with right-biased 3D chaos→constellation morph |
-| The Problem | Side-by-side terminal panels | Two code blocks with macOS dots, X/Check badges, colored glow shadows, neon syntax highlighting. Slide from opposite sides |
-| How It Works | 2×2 glass card grid | Four cards with large step numbers + icons, connected by animated Z-flow SVG (3 segments + looping pulse dot). Tech tags at bottom of each card. |
-| The Result | Asymmetric bento grid | 1 full-width hero card + 2 half-width cards. Each card has glass container + inline SVG micro-visual (knowledge graph / module enforcement / drift line graph). |
-| Bottom CTA | Centered glass panel | Single call-to-action with HUD brackets and deep cyan ambient glow |
+### Section Layout Variety
 
-### 3. Animation Library: `framer-motion`
-- **Hero copy:** Staggered blur-reveal with "The Snap" easing `[0.16, 1, 0.3, 1]`
-- **Hero WebGL:** Chaos→Structure morph (0.8s delay, 3.2s duration). Nodes lerp from scattered positions to Fibonacci sphere via `easeInOutCubic`. Edges draw in at 55% progress via `lineSegments` with per-frame position updates. Pulse particles activate at 88%. Organic drift during chaos fades to zero.
-- **Before/After:** Panels slide from `x: ±40` with blur, opposite directions
-- **Pipeline:** Z-flow SVG animates 3 segments sequentially (0.8s each). Node dots scale in with stagger. Looping pulse dot travels full Z-path on repeat. Cards use `staggerContainer` + `cardItem` variants.
-- **Bento grid:** Cards stagger `y: 30 → 0`. Knowledge graph has pulsing edges + traveling dots (native SVG `<animate>`). Drift graph animates `pathLength: 0 → 1`. Module enforcement is static.
-- **Headlines:** `blurReveal` variant throughout
+| Section | Layout Type |
+| --- | --- |
+| Hero | Asymmetric text + WebGL constellation morph + agent bar |
+| Metrics Strip | 3-column glass stat cards with cyan values |
+| The Problem | 4 vertically stacked stage cards with escalating red glow |
+| The Solution | Bento grid (1 hero full-width + 2×2) with inline visuals |
+| How It Works | Horizontal 3-step pipeline with arrow connectors |
+| Trust & Security | 3-column trust pillar cards (horizontal row) |
+| Early Access | Centered glass card with email form + benefits list |
+| FAQ | Accordion inside glass container |
+| Bottom CTA | Centered glass panel with HUD brackets + inline waitlist form |
 
-### 4. Helper Components
-- `Line`: Renders a code line (empty = spacer `h-3`)
-- `Kw`: Keyword span with custom color class
-- `Str`: String literal span with custom color class
+### Animation Restrictions
+- Keep animations purposeful. Do not bounce or over-animate text.
+- Use Framer Motion's `opacity` and `transform: translateY(10px)` for subtle scroll-reveals.
+- "The Snap" easing: `[0.16, 1, 0.3, 1]`
+- Ensure the WebGL background in the Hero is dimmed enough that the primary CTA holds the highest contrast.
+- `blurReveal` variant for section headers throughout.

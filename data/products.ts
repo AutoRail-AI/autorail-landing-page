@@ -6,47 +6,42 @@ export const CODE_SYNAPSE = {
   id: "code-synapse",
   name: "code-synapse",
   tagline:
-    "Persistent memory infrastructure for agents — so they write code that belongs in your codebase, not code that compiles and violates everything.",
-  headline: "The Context Layer.",
+    "Stop babysitting your AI. Turn your favorite \"Typist\" into a Senior Developer.",
+  headline: "The AI Tech Lead.",
   pitch:
-    "Code-Synapse is a CLI sidecar that runs alongside your IDE. It builds a living knowledge graph from your AST, commit history, and architectural decisions — then serves it to any agent via an MCP server. Pre-built skill libraries let agents go further: enforcing patterns, preventing drift, and understanding business intent. Zero manual upkeep. It watches your commits and updates the graph in real-time.",
+    "Code-Synapse is a fully hosted SaaS that sits invisibly between you and your AI coding agent. Connect your GitHub repo, and our cloud engine builds a living Business Intent Graph of your app. It acts as your Virtual CTO — intercepting your vague prompts, enforcing your rules, and ruthlessly reviewing the AI's code before it ever touches your files.",
   color: "cyan" as const,
   cli: "code-synapse",
-  badges: ["Open Source", "CLI Sidecar"],
+  badges: ["SaaS", "Hosted MCP Server"],
   cta: {
-    primary: "Connect Your Repo",
-    secondary: "View on GitHub",
+    primary: "Join Waitlist",
+    secondary: "Book a Demo",
   },
   features: [
     {
-      title: "Universal Knowledge Graph",
+      title: "File-less Blueprint",
       description:
-        "Runs as a CLI sidecar alongside any agentic IDE — Cursor, Claude Desktop, Windsurf. Agents connect via an MCP server that exposes your codebase's knowledge graph. No vendor lock-in.",
+        "Click a feature block, type what you want, and Code-Synapse generates precise multi-file prompts for the AI. You manage features; we manage the files.",
     },
     {
-      title: "Cure Context Rot",
+      title: "Spaghetti Shield",
       description:
-        "Static rules files get ignored after five messages. Code-Synapse maintains a persistent knowledge graph that auto-updates on every commit. Zero manual maintenance — the sidecar watches your repo.",
+        "Automated cloud PR reviewer. Checks every AI change against your app's permanent architecture. Wrong library? Instantly blocked and rewritten.",
     },
     {
-      title: "Understands Business Intent",
+      title: "Rewind Button",
       description:
-        "Goes beyond codebase structure to understand the actual business intent of your software. Why does this module exist? What constraint drove this pattern? What happens if you violate this convention?",
+        "One click restores your code to the exact moment it last worked — and permanently blocks the AI from making that mistake again.",
     },
     {
-      title: "Hyper-Personalized Generation",
+      title: "Invisible Testing",
       description:
-        "Agents write code that looks like a senior developer on your team wrote it. Pre-built skill libraries teach them your internal patterns, naming conventions, and architectural decisions.",
+        "Click through your app to record hidden behavioral tests. If the AI breaks a feature, we force a fix. Safety without writing tests.",
     },
     {
-      title: "Pattern Enforcement",
+      title: "Anti-Extortion Export",
       description:
-        "Skill libraries ensure agents use your internal modules and conventions, not generic public alternatives. The agent knows you have a DateUtils module — it won't import moment.js.",
-    },
-    {
-      title: "Drift Prevention",
-      description:
-        "Catches architectural drift before it merges to main. Your codebase stays coherent as agents and developers scale. Alien Code gets flagged, not merged.",
+        "Generate an enterprise-grade Architecture Report in one click. Hand your hired engineer a perfect map of your codebase.",
     },
   ],
 } as const
