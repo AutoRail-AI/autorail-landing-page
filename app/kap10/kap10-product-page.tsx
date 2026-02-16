@@ -1,13 +1,16 @@
 "use client"
 
+import { useEffect, useRef, useState } from "react"
 import dynamic from "next/dynamic"
-import { motion } from "framer-motion"
+import { motion, AnimatePresence } from "framer-motion"
 import {
   ArrowRight,
   FileText,
+  GitPullRequest,
   Layout,
   Link,
   Lock,
+  MessageSquare,
   Rocket,
   RotateCcw,
   Server,
@@ -127,6 +130,63 @@ const PIPELINE_STEPS = [
   },
 ]
 
+const LIFECYCLE_STEPS = [
+  {
+    num: "01",
+    title: "The Intent",
+    subtitle: "The Prompt Compiler",
+    icon: MessageSquare,
+    description:
+      'You type "Add Apple Pay to checkout." kap10 intercepts the vague prompt on the MCP channel and compiles it into a precise, multi-file structural prompt — injecting your conventions, file paths, and architectural rules before the AI writes a single line.',
+    detail: "Your intent in. A battle plan out.",
+  },
+  {
+    num: "02",
+    title: "Boundary Setting",
+    subtitle: "Scope Locking",
+    icon: Lock,
+    description:
+      "Before the AI touches code, kap10 locks the blast radius. Only the directories relevant to your feature are unlocked — everything else is read-only. No accidental rewrites to your payment logic when you asked for a UI tweak.",
+    detail: "Surgical precision. Zero collateral damage.",
+  },
+  {
+    num: "03",
+    title: "Code Generation",
+    subtitle: "The Spaghetti Shield",
+    icon: ShieldCheck,
+    description:
+      "The AI generates code. kap10's cloud PR reviewer checks every line against your permanent architecture — wrong library? Blocked. Deprecated pattern? Rewritten. Convention violation? Auto-fixed before it reaches your files.",
+    detail: "You never see the bad code.",
+  },
+  {
+    num: "04",
+    title: "Vibe Verification",
+    subtitle: "Testing & Rewinding",
+    icon: RotateCcw,
+    description:
+      "Click through your app to record hidden behavioral tests. If the AI breaks a feature in the background, kap10 catches it instantly. One click restores your code to the exact moment it last worked — and permanently blocks the AI from repeating the mistake.",
+    detail: "The Death Spiral becomes impossible.",
+  },
+  {
+    num: "05",
+    title: "Code Review",
+    subtitle: "Business-Aware Merging",
+    icon: GitPullRequest,
+    description:
+      "Every PR gets a business-layer review — not just syntax checks. kap10 scores impact across domain boundaries, verifies test coverage, and checks Golden Path compliance. Merge with the confidence of a senior engineering team.",
+    detail: "Architecture-aware. Not just lint-aware.",
+  },
+  {
+    num: "06",
+    title: "Post-Release",
+    subtitle: "Handoff & Compliance",
+    icon: FileText,
+    description:
+      'Generate an enterprise-grade Architecture Report in one click. Modules documented, decisions logged, dependency graphs generated, VEX compliance stamped. Hand your hired engineer a perfect map — no "$50K rewrite" extortion.',
+    detail: "Your codebase, fully explained.",
+  },
+]
+
 const TRUST_PILLARS = [
   {
     icon: Lock,
@@ -196,6 +256,545 @@ const NeuralConstellation = dynamic(
   },
 )
 
+
+/* ─────────────────────────────────────────────────────────────────────────────
+   Lifecycle Section — Sticky Visual + Scrolling Steps
+   ───────────────────────────────────────────────────────────────────────────── */
+
+function LifecycleSection() {
+  const [active, setActive] = useState(0)
+  const stepRefs = useRef<(HTMLDivElement | null)[]>([])
+
+  useEffect(() => {
+    const observers: IntersectionObserver[] = []
+    stepRefs.current.forEach((el, i) => {
+      if (!el) return
+      const obs = new IntersectionObserver(
+        ([entry]) => {
+          if (entry?.isIntersecting) setActive(i)
+        },
+        { rootMargin: "-45% 0px -45% 0px", threshold: 0 },
+      )
+      obs.observe(el)
+      observers.push(obs)
+    })
+    return () => observers.forEach((o) => o.disconnect())
+  }, [])
+
+  return (
+    <section className="py-24 relative overflow-x-clip">
+      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full max-w-4xl h-[1px] bg-gradient-to-r from-transparent via-white/10 to-transparent" />
+
+      <Container className="relative max-w-6xl">
+        {/* Header */}
+        <motion.div
+          variants={blurReveal}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true }}
+          className="text-center mb-16"
+        >
+          <p className="text-xs font-mono uppercase tracking-[0.2em] text-electric-cyan/50 mb-3">
+            Under the Hood
+          </p>
+          <h2 className="text-display-m text-white">
+            Six stages. Full lifecycle. Zero blind spots.
+          </h2>
+        </motion.div>
+
+        {/* ── Desktop: sticky visual + scrolling steps ── */}
+        <div className="hidden lg:grid lg:grid-cols-[1fr_340px] gap-10 items-start">
+          {/* LEFT — Sticky visual panel */}
+          <div className="sticky top-24 h-[calc(100vh-8rem)] flex items-center">
+            <div
+              className="w-full rounded-2xl bg-[#0e0e14] border border-white/[0.10] overflow-hidden relative"
+              style={{
+                boxShadow: "0 24px 80px -16px rgba(0,0,0,0.6), 0 0 0 1px rgba(255,255,255,0.04), 0 0 60px rgba(0,229,255,0.04)",
+                minHeight: "420px",
+              }}
+            >
+              <AnimatePresence mode="wait">
+                <motion.div
+                  key={active}
+                  initial={{ opacity: 0, y: 12, filter: "blur(6px)" }}
+                  animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
+                  exit={{ opacity: 0, y: -12, filter: "blur(6px)" }}
+                  transition={{ duration: 0.4, ease: snap }}
+                  className="absolute inset-0"
+                >
+                  <LifecycleVisual step={active} />
+                </motion.div>
+              </AnimatePresence>
+            </div>
+          </div>
+
+          {/* RIGHT — Scrolling step list */}
+          <div className="flex flex-col py-[40vh]">
+            {LIFECYCLE_STEPS.map((step, i) => (
+              <div
+                key={step.num}
+                ref={(el) => { stepRefs.current[i] = el }}
+                className="min-h-[40vh] flex items-center"
+              >
+                <div
+                  className={cn(
+                    "w-full rounded-xl border p-5 transition-all duration-500 cursor-default",
+                    active === i
+                      ? "bg-white/[0.05] border-electric-cyan/20 shadow-[0_0_30px_rgba(0,229,255,0.06)]"
+                      : "bg-transparent border-white/[0.06] opacity-40",
+                  )}
+                >
+                  <div className="flex items-center gap-3 mb-2">
+                    <div
+                      className={cn(
+                        "p-2 rounded-lg border transition-all duration-500",
+                        active === i
+                          ? "bg-electric-cyan/[0.10] border-electric-cyan/25"
+                          : "bg-white/[0.03] border-white/[0.08]",
+                      )}
+                    >
+                      <step.icon className={cn("w-4 h-4 transition-colors duration-500", active === i ? "text-electric-cyan" : "text-white/30")} />
+                    </div>
+                    <span className="text-[11px] font-mono text-electric-cyan/40">{step.num}</span>
+                  </div>
+                  <h3 className="text-base font-bold text-white font-grotesk mb-1">
+                    {step.title}
+                  </h3>
+                  <p className="text-[11px] font-mono text-electric-cyan/50 uppercase tracking-wider mb-2">
+                    {step.subtitle}
+                  </p>
+                  <p className="text-sm text-white/50 leading-relaxed">
+                    {step.detail}
+                  </p>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        {/* ── Mobile: stacked cards ── */}
+        <div className="flex flex-col gap-6 lg:hidden">
+          {LIFECYCLE_STEPS.map((step, i) => (
+            <motion.div
+              key={step.num}
+              initial={{ opacity: 0, y: 24 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-40px" }}
+              transition={{ duration: 0.5, ease: snap }}
+              className="rounded-xl bg-white/[0.03] border border-white/[0.12] overflow-hidden"
+              style={{ boxShadow: "0 12px 40px -10px rgba(0,0,0,0.4)" }}
+            >
+              {/* Header */}
+              <div className="flex items-center gap-3 px-5 py-4">
+                <div className="p-2 rounded-lg bg-electric-cyan/[0.10] border border-electric-cyan/25">
+                  <step.icon className="w-4 h-4 text-electric-cyan" />
+                </div>
+                <div>
+                  <div className="flex items-center gap-2">
+                    <span className="text-[10px] font-mono text-electric-cyan/40">{step.num}</span>
+                    <h3 className="text-base font-bold text-white font-grotesk">{step.title}</h3>
+                  </div>
+                  <p className="text-[10px] font-mono text-electric-cyan/50 uppercase tracking-wider">{step.subtitle}</p>
+                </div>
+              </div>
+              {/* Visual */}
+              <div className="px-4 pb-4">
+                <div className="rounded-lg bg-[#0e0e14] border border-white/[0.10] overflow-hidden" style={{ minHeight: "220px" }}>
+                  <LifecycleVisual step={i} />
+                </div>
+              </div>
+            </motion.div>
+          ))}
+        </div>
+      </Container>
+    </section>
+  )
+}
+
+/* ─── Large-format visuals for each lifecycle step ─── */
+function LifecycleVisual({ step }: { step: number }) {
+  switch (step) {
+    /* ── Step 1: Prompt Compiler ── */
+    case 0:
+      return (
+        <div className="h-full flex flex-col">
+          <div className="px-5 py-3 border-b border-white/[0.06] flex items-center gap-2">
+            <MessageSquare className="w-3.5 h-3.5 text-electric-cyan/50" />
+            <span className="text-[11px] font-mono text-white/30">prompt-compiler</span>
+          </div>
+          <div className="flex-1 grid grid-cols-[1fr_auto_1fr] items-stretch">
+            {/* Before */}
+            <div className="flex flex-col items-center justify-center p-6 lg:p-8">
+              <p className="text-[10px] font-mono text-white/20 uppercase tracking-wider mb-4">Your prompt</p>
+              <div className="rounded-xl bg-white/[0.04] border border-white/10 px-6 py-5 max-w-[200px]">
+                <p className="text-base font-mono text-white/60 text-center leading-relaxed">
+                  &quot;Add Apple Pay to checkout&quot;
+                </p>
+              </div>
+              <p className="text-[10px] font-mono text-white/15 mt-3">12 characters</p>
+            </div>
+
+            {/* Arrow */}
+            <div className="flex flex-col items-center justify-center gap-1 px-2">
+              <motion.div
+                animate={{ x: [0, 4, 0] }}
+                transition={{ duration: 1.5, repeat: Infinity, ease: "easeInOut" }}
+              >
+                <ArrowRight className="w-5 h-5 text-electric-cyan/40" />
+              </motion.div>
+              <span className="text-[9px] font-mono text-electric-cyan/25">kap10</span>
+            </div>
+
+            {/* After */}
+            <div className="border-l border-white/[0.06] p-5 lg:p-6 flex flex-col justify-center">
+              <p className="text-[10px] font-mono text-electric-cyan/50 uppercase tracking-wider mb-3 font-bold">Compiled prompt</p>
+              <div className="flex flex-col gap-1.5">
+                {[
+                  { text: "scope: checkout/", c: "text-electric-cyan/60" },
+                  { text: "modify: PaymentForm.tsx", c: "text-white/45" },
+                  { text: "modify: api/payments.ts", c: "text-white/45" },
+                  { text: "convention: stripe-v3", c: "text-electric-cyan/45" },
+                  { text: "pattern: form-hooks", c: "text-electric-cyan/45" },
+                  { text: "lock: auth/        ⛔", c: "text-red-400/45" },
+                  { text: "lock: database/    ⛔", c: "text-red-400/45" },
+                  { text: "tests: checkout.spec ✓", c: "text-success/45" },
+                  { text: "review: enabled      ✓", c: "text-success/45" },
+                ].map((line, idx) => (
+                  <motion.p
+                    key={idx}
+                    className={cn("text-xs font-mono leading-relaxed", line.c)}
+                    initial={{ opacity: 0, x: 6 }}
+                    animate={{ opacity: 1, x: 0 }}
+                    transition={{ delay: 0.1 + idx * 0.05 }}
+                  >
+                    {line.text}
+                  </motion.p>
+                ))}
+              </div>
+              <p className="text-[10px] font-mono text-white/15 mt-3">9 directives injected</p>
+            </div>
+          </div>
+        </div>
+      )
+
+    /* ── Step 2: Scope Locking ── */
+    case 1:
+      return (
+        <div className="h-full flex flex-col">
+          <div className="px-5 py-3 border-b border-white/[0.06] flex items-center gap-2">
+            <Lock className="w-3.5 h-3.5 text-electric-cyan/50" />
+            <span className="text-[11px] font-mono text-white/30">scope-lock · checkout feature</span>
+          </div>
+          <div className="flex-1 p-5 lg:p-6 flex flex-col gap-2.5">
+            {/* Unlocked */}
+            <motion.div
+              initial={{ opacity: 0, y: 8 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.1 }}
+              className="flex items-center gap-4 rounded-lg px-5 py-3.5 bg-electric-cyan/[0.06] border border-electric-cyan/20"
+            >
+              <span className="text-xl">📂</span>
+              <div className="flex-1">
+                <p className="text-sm font-mono text-electric-cyan/80 font-medium">checkout/</p>
+                <p className="text-[10px] font-mono text-electric-cyan/40">PaymentForm.tsx · api.ts · hooks.ts</p>
+              </div>
+              <motion.div
+                className="px-3 py-1 rounded-md bg-electric-cyan/[0.12] border border-electric-cyan/25"
+                animate={{ boxShadow: ["0 0 0px rgba(0,229,255,0)", "0 0 12px rgba(0,229,255,0.15)", "0 0 0px rgba(0,229,255,0)"] }}
+                transition={{ duration: 2.5, repeat: Infinity }}
+              >
+                <span className="text-[10px] font-mono font-bold text-electric-cyan/80 uppercase">Writable</span>
+              </motion.div>
+            </motion.div>
+            {/* Locked */}
+            {[
+              { name: "auth/", files: "login.ts · session.ts · middleware.ts" },
+              { name: "payments/", files: "stripe.ts · webhooks.ts · refunds.ts" },
+              { name: "database/", files: "schema.prisma · migrations/" },
+              { name: "ui/components/", files: "Button.tsx · Modal.tsx · Layout.tsx" },
+            ].map((folder, idx) => (
+              <motion.div
+                key={idx}
+                initial={{ opacity: 0, y: 8 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.2 + idx * 0.08 }}
+                className="flex items-center gap-4 rounded-lg px-5 py-3 bg-white/[0.015] border border-white/[0.05]"
+              >
+                <span className="text-xl opacity-30">🔒</span>
+                <div className="flex-1 min-w-0">
+                  <p className="text-sm font-mono text-white/25">{folder.name}</p>
+                  <p className="text-[10px] font-mono text-white/12 truncate">{folder.files}</p>
+                </div>
+                <span className="text-[10px] font-mono text-red-400/30 uppercase shrink-0">Read-only</span>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      )
+
+    /* ── Step 3: Spaghetti Shield ── */
+    case 2:
+      return (
+        <div className="h-full flex flex-col">
+          <div className="px-5 py-3 border-b border-white/[0.06] flex items-center gap-2">
+            <div className="flex gap-1.5">
+              <span className="w-2.5 h-2.5 rounded-full bg-red-400/60" />
+              <span className="w-2.5 h-2.5 rounded-full bg-yellow-400/60" />
+              <span className="w-2.5 h-2.5 rounded-full bg-green-400/60" />
+            </div>
+            <span className="text-[11px] font-mono text-white/30">spaghetti-shield.log</span>
+          </div>
+          <div className="flex-1 p-5 lg:p-6 flex flex-col gap-2">
+            {[
+              { status: "SCAN", color: "text-white/40", bg: "bg-white/[0.02]", border: "border-white/[0.04]", msg: "Reviewing 4 files, 127 lines changed..." },
+              { status: "BLOCKED", color: "text-red-400", bg: "bg-red-400/[0.05]", border: "border-red-400/[0.12]", msg: "auth/login.ts:14 — deprecated bcrypt v2" },
+              { status: "BLOCKED", color: "text-red-400", bg: "bg-red-400/[0.05]", border: "border-red-400/[0.12]", msg: "api/routes.ts:42 — bypasses rate limiter" },
+              { status: "REWRITE", color: "text-electric-cyan", bg: "bg-electric-cyan/[0.03]", border: "border-electric-cyan/[0.10]", msg: "auth/login.ts:14 → argon2 + salt rounds" },
+              { status: "REWRITE", color: "text-electric-cyan", bg: "bg-electric-cyan/[0.03]", border: "border-electric-cyan/[0.10]", msg: "api/routes.ts:42 → rate-limit middleware" },
+              { status: "PASS", color: "text-success", bg: "bg-success/[0.03]", border: "border-success/[0.10]", msg: "checkout/form.tsx — hooks pattern ✓" },
+              { status: "PASS", color: "text-success", bg: "bg-success/[0.03]", border: "border-success/[0.10]", msg: "checkout/api.ts — stripe-v3 convention ✓" },
+            ].map((line, idx) => (
+              <motion.div
+                key={idx}
+                className={cn("flex items-center gap-3 rounded-md px-4 py-2 border", line.bg, line.border)}
+                initial={{ opacity: 0, x: -10 }}
+                animate={{ opacity: 1, x: 0 }}
+                transition={{ delay: 0.1 + idx * 0.1 }}
+              >
+                <span className={cn("text-xs font-mono font-bold shrink-0 w-20", line.color)}>{line.status}</span>
+                <span className="text-xs font-mono text-white/40 truncate">{line.msg}</span>
+              </motion.div>
+            ))}
+            <motion.div
+              className="mt-auto pt-3 border-t border-white/[0.05] flex items-center justify-center gap-2"
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ delay: 0.9 }}
+            >
+              <div className="w-2 h-2 rounded-full bg-success" />
+              <span className="text-sm font-mono text-success/70 font-bold">2 caught · 2 auto-fixed · clean merge</span>
+            </motion.div>
+          </div>
+        </div>
+      )
+
+    /* ── Step 4: Testing & Rewinding ── */
+    case 3:
+      return (
+        <div className="h-full flex flex-col">
+          <div className="px-5 py-3 border-b border-white/[0.06] flex items-center gap-2">
+            <RotateCcw className="w-3.5 h-3.5 text-electric-cyan/50" />
+            <span className="text-[11px] font-mono text-white/30">vibe-verification</span>
+          </div>
+          <div className="flex-1 grid grid-cols-1 md:grid-cols-2">
+            {/* Recording */}
+            <div className="p-5 lg:p-6 border-b md:border-b-0 md:border-r border-white/[0.06]">
+              <div className="flex items-center gap-2 mb-4">
+                <motion.span
+                  animate={{ opacity: [1, 0.3, 1] }}
+                  transition={{ duration: 1.5, repeat: Infinity }}
+                  className="w-3 h-3 rounded-full bg-red-500"
+                />
+                <span className="text-xs font-mono font-bold text-red-400/80">REC</span>
+                <span className="text-[10px] font-mono text-white/20 ml-auto">recording tests</span>
+              </div>
+              <div className="flex flex-col gap-2">
+                {[
+                  { action: "click", target: "Login button" },
+                  { action: "type", target: "email input" },
+                  { action: "click", target: "Add to Cart" },
+                  { action: "navigate", target: "/checkout" },
+                  { action: "click", target: "Pay Now" },
+                ].map((s, idx) => (
+                  <motion.div
+                    key={idx}
+                    initial={{ opacity: 0 }}
+                    animate={{ opacity: 1 }}
+                    transition={{ delay: 0.2 + idx * 0.1 }}
+                    className="flex items-center gap-3 text-xs font-mono"
+                  >
+                    <span className="text-white/20 w-16">{s.action}</span>
+                    <span className="text-white/45 flex-1">{s.target}</span>
+                    <span className="text-success">✓</span>
+                  </motion.div>
+                ))}
+                <p className="text-[10px] font-mono text-electric-cyan/40 mt-2 pt-2 border-t border-white/[0.05]">
+                  5 interactions → hidden test suite
+                </p>
+              </div>
+            </div>
+
+            {/* Rewind */}
+            <div className="p-5 lg:p-6">
+              <p className="text-[10px] font-mono text-white/20 uppercase tracking-wider mb-4">Version Timeline</p>
+              <div className="flex flex-col gap-3">
+                {[
+                  { label: "v1.2", status: "good", time: "2h ago" },
+                  { label: "v1.3", status: "good", time: "1h ago", restore: true },
+                  { label: "v1.4", status: "bad", time: "45m ago" },
+                  { label: "v1.5", status: "bad", time: "now" },
+                ].map((state, idx) => (
+                  <motion.div
+                    key={idx}
+                    initial={{ opacity: 0, x: 8 }}
+                    animate={{ opacity: 1, x: 0 }}
+                    transition={{ delay: 0.15 + idx * 0.08 }}
+                    className="flex items-center gap-3"
+                  >
+                    <div className={cn("w-3 h-3 rounded-full shrink-0", state.status === "good" ? "bg-success" : "bg-red-400")} />
+                    <span className={cn("text-sm font-mono flex-1", state.status === "good" ? "text-success/60" : "text-red-400/40")}>{state.label}</span>
+                    <span className="text-[10px] font-mono text-white/15">{state.time}</span>
+                    {state.restore && (
+                      <motion.span
+                        className="text-[10px] font-mono text-electric-cyan/70 px-2.5 py-1 rounded-md bg-electric-cyan/[0.08] border border-electric-cyan/20"
+                        animate={{ boxShadow: ["0 0 0px rgba(0,229,255,0)", "0 0 10px rgba(0,229,255,0.12)", "0 0 0px rgba(0,229,255,0)"] }}
+                        transition={{ duration: 2, repeat: Infinity }}
+                      >
+                        Restore
+                      </motion.span>
+                    )}
+                  </motion.div>
+                ))}
+              </div>
+              <p className="text-[10px] font-mono text-red-400/30 mt-3 pt-2 border-t border-white/[0.05]">
+                AI blocked from repeating v1.4 pattern
+              </p>
+            </div>
+          </div>
+        </div>
+      )
+
+    /* ── Step 5: Business-Aware Merging ── */
+    case 4:
+      return (
+        <div className="h-full flex flex-col">
+          <div className="px-5 py-3 border-b border-white/[0.06] flex items-center gap-2">
+            <GitPullRequest className="w-3.5 h-3.5 text-electric-cyan/50" />
+            <span className="text-[11px] font-mono text-white/30">PR #247 — Add Apple Pay</span>
+            <span className="ml-auto text-[10px] font-mono text-success/50 px-2 py-0.5 rounded bg-success/[0.06] border border-success/[0.12]">Ready</span>
+          </div>
+          <div className="flex-1 p-5 lg:p-6 flex flex-col gap-5">
+            {/* Layer badges */}
+            <div className="flex flex-wrap gap-2">
+              <span className="px-3 py-1.5 rounded-md text-xs font-mono bg-electric-cyan/[0.06] border border-electric-cyan/15 text-electric-cyan/60">Domain: Checkout</span>
+              <span className="px-3 py-1.5 rounded-md text-xs font-mono bg-white/[0.03] border border-white/[0.06] text-white/30">Infra: Payments API</span>
+              <span className="px-3 py-1.5 rounded-md text-xs font-mono bg-white/[0.03] border border-white/[0.06] text-white/30">Files: 4 changed</span>
+            </div>
+
+            {/* Progress bars */}
+            <div className="space-y-4">
+              <div>
+                <div className="flex justify-between mb-2">
+                  <span className="text-xs font-mono text-white/35">Impact Score</span>
+                  <span className="text-sm font-mono text-electric-cyan/70 font-bold">72 / 100</span>
+                </div>
+                <div className="h-2.5 rounded-full bg-white/[0.05] overflow-hidden">
+                  <motion.div
+                    className="h-full rounded-full bg-electric-cyan/30"
+                    initial={{ width: 0 }}
+                    animate={{ width: "72%" }}
+                    transition={{ duration: 1, delay: 0.2, ease: snap }}
+                  />
+                </div>
+              </div>
+              <div>
+                <div className="flex justify-between mb-2">
+                  <span className="text-xs font-mono text-white/35">Test Coverage</span>
+                  <span className="text-sm font-mono text-success/70 font-bold">94%</span>
+                </div>
+                <div className="h-2.5 rounded-full bg-white/[0.05] overflow-hidden">
+                  <motion.div
+                    className="h-full rounded-full bg-success/30"
+                    initial={{ width: 0 }}
+                    animate={{ width: "94%" }}
+                    transition={{ duration: 1, delay: 0.4, ease: snap }}
+                  />
+                </div>
+              </div>
+            </div>
+
+            {/* Compliance */}
+            <div className="flex flex-wrap gap-2 pt-3 border-t border-white/[0.05] mt-auto">
+              {["Golden Path ✓", "No Regressions ✓", "Convention Match ✓", "Safe to Merge ✓"].map((badge) => (
+                <span key={badge} className="px-3 py-1.5 rounded-md text-xs font-mono bg-success/[0.06] border border-success/[0.12] text-success/50">{badge}</span>
+              ))}
+            </div>
+          </div>
+        </div>
+      )
+
+    /* ── Step 6: Handoff & Compliance ── */
+    case 5:
+      return (
+        <div className="h-full flex flex-col">
+          <div className="px-5 py-3 border-b border-white/[0.06] flex items-center gap-2">
+            <div className="flex gap-1.5">
+              <span className="w-2.5 h-2.5 rounded-full bg-red-400/60" />
+              <span className="w-2.5 h-2.5 rounded-full bg-yellow-400/60" />
+              <span className="w-2.5 h-2.5 rounded-full bg-green-400/60" />
+            </div>
+            <span className="text-[11px] font-mono text-white/30">architecture-report.pdf</span>
+          </div>
+          <div className="flex-1 p-5 lg:p-6 flex flex-col gap-5">
+            {/* Big stats */}
+            <div className="grid grid-cols-3 gap-3">
+              {[
+                { value: "12", label: "Modules" },
+                { value: "47", label: "Decisions" },
+                { value: "3", label: "Dep Graphs" },
+              ].map((stat, idx) => (
+                <motion.div
+                  key={idx}
+                  initial={{ opacity: 0, scale: 0.9 }}
+                  animate={{ opacity: 1, scale: 1 }}
+                  transition={{ delay: 0.1 + idx * 0.08 }}
+                  className="text-center rounded-xl bg-white/[0.03] border border-white/[0.06] py-4"
+                >
+                  <p className="text-2xl font-grotesk font-bold text-electric-cyan/70">{stat.value}</p>
+                  <p className="text-[10px] font-mono text-white/25 uppercase tracking-wider mt-1">{stat.label}</p>
+                </motion.div>
+              ))}
+            </div>
+
+            {/* Report items */}
+            <div className="flex flex-col gap-1.5">
+              {[
+                "Module dependency graph",
+                "Architectural decision log",
+                "Convention compliance report",
+                "Security vulnerability assessment",
+              ].map((item, idx) => (
+                <motion.div
+                  key={idx}
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 1 }}
+                  transition={{ delay: 0.3 + idx * 0.06 }}
+                  className="flex items-center gap-2 text-xs font-mono text-white/35"
+                >
+                  <span className="text-success/50">✓</span>
+                  {item}
+                </motion.div>
+              ))}
+            </div>
+
+            {/* Compliance + Export */}
+            <div className="mt-auto flex flex-col gap-3 pt-3 border-t border-white/[0.05]">
+              <div className="flex flex-wrap gap-2">
+                <span className="px-3 py-1.5 rounded-md text-xs font-mono bg-success/[0.06] border border-success/[0.12] text-success/50">VEX Compliant ✓</span>
+                <span className="px-3 py-1.5 rounded-md text-xs font-mono bg-success/[0.06] border border-success/[0.12] text-success/50">Handoff Ready ✓</span>
+              </div>
+              <div className="rounded-lg bg-electric-cyan/[0.06] border border-electric-cyan/15 px-5 py-3 text-center">
+                <span className="text-sm font-mono text-electric-cyan/60">↓ Export Full Report</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      )
+
+    default:
+      return null
+  }
+}
 
 function EarlyAccessSection() {
   return (
@@ -840,105 +1439,10 @@ export function Kap10ProductPage() {
       </section>
 
       {/* ══════════════════════════════════════════════════════════════════════
-          Section 4: HOW IT WORKS — 3-Step Horizontal Pipeline
+          Section 4: UNDER THE HOOD — Sticky Visual Lifecycle
          ══════════════════════════════════════════════════════════════════════ */}
-      <section className="py-24 relative overflow-hidden">
-        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full max-w-4xl h-[1px] bg-gradient-to-r from-transparent via-white/10 to-transparent" />
-        <div
-          className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[600px] pointer-events-none"
-          style={{
-            background:
-              "radial-gradient(circle, rgba(0,229,255,0.04) 0%, transparent 70%)",
-          }}
-        />
+      <LifecycleSection />
 
-        <Container className="relative max-w-5xl">
-          <motion.div
-            variants={blurReveal}
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true }}
-            className="text-center mb-20"
-          >
-            <p className="text-xs font-mono uppercase tracking-[0.2em] text-electric-cyan/50 mb-3">
-              Integration
-            </p>
-            <h2 className="text-display-m text-white mb-4">
-              Three steps. Zero install.
-            </h2>
-            <p className="text-white/50 text-lg max-w-2xl mx-auto leading-relaxed">
-              kap10 is a hosted MCP server. Connect your repo, add the
-              endpoint to your IDE, and your AI has a Tech Lead.
-            </p>
-          </motion.div>
-
-          <div className="flex flex-col md:flex-row gap-6 max-w-5xl mx-auto">
-            {PIPELINE_STEPS.map((step, i) => (
-              <div key={step.title} className="contents">
-                {/* Arrow connector between cards (desktop only) */}
-                {i > 0 && (
-                  <div className="hidden md:flex items-center justify-center shrink-0">
-                    <ArrowRight className="w-5 h-5 text-electric-cyan/30" />
-                  </div>
-                )}
-
-                <motion.div
-                  initial={{ opacity: 0, y: 30 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.6, delay: i * 0.15, ease: snap }}
-                  className={cn(
-                    "flex-1 group/pipe relative rounded-xl p-7 overflow-hidden",
-                    "bg-white/[0.05] border border-white/[0.12] backdrop-blur-[12px]",
-                    "hover:border-electric-cyan/25 hover:bg-white/[0.06] transition-all duration-300",
-                  )}
-                  style={{
-                    boxShadow:
-                      "0 12px 40px -10px rgba(0,0,0,0.4), 0 0 0 1px rgba(255,255,255,0.05)",
-                  }}
-                >
-                  <div className="flex items-center gap-3 mb-4">
-                    <div
-                      className="p-2.5 rounded-xl bg-electric-cyan/[0.10] border border-electric-cyan/25"
-                      style={{ boxShadow: "0 0 24px rgba(0,229,255,0.10)" }}
-                    >
-                      <step.icon className="w-5 h-5 text-electric-cyan" />
-                    </div>
-                    <span className="text-[10px] font-mono text-white/40">
-                      {String(i + 1).padStart(2, "0")} · {step.title.toUpperCase()}
-                    </span>
-                  </div>
-                  <h3 className="text-lg font-bold text-white mb-2 font-grotesk">
-                    {step.title}
-                  </h3>
-                  <p className="text-white/70 text-sm leading-relaxed mb-4">
-                    {step.description}
-                  </p>
-                  <span className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-md bg-electric-cyan/[0.06] border border-electric-cyan/15 text-[10px] font-mono text-electric-cyan/60">
-                    <span className="w-1 h-1 rounded-full bg-electric-cyan/60" />
-                    {step.detail}
-                  </span>
-                </motion.div>
-              </div>
-            ))}
-          </div>
-
-          {/* Result badge */}
-          <motion.div
-            initial={{ opacity: 0, y: 16 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ delay: 0.6 }}
-            className="mt-8 max-w-xl mx-auto rounded-lg border border-success/20 bg-success/[0.04] px-6 py-3.5 flex items-center justify-center gap-3"
-            style={{ boxShadow: "0 0 30px rgba(0,255,136,0.06)" }}
-          >
-            <Zap className="w-3.5 h-3.5 text-success shrink-0" />
-            <p className="text-white/70 text-sm">
-              Your AI just got a promotion — from unsupervised intern to managed junior dev.
-            </p>
-          </motion.div>
-        </Container>
-      </section>
 
       {/* ══════════════════════════════════════════════════════════════════════
           Section 6: TRUST & SECURITY — 3-Column Trust Pillars
