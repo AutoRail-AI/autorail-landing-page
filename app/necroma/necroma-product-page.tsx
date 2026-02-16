@@ -143,14 +143,17 @@ export function NecromaProductPage() {
               {NECROMA.headline}
             </motion.p>
 
-            {/* Tagline */}
+            {/* Tagline — snippet-extractable definition woven into brand voice (§2.5) */}
             <motion.p
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.2, ease: snap }}
               className="font-sans text-lg text-muted-foreground max-w-xl mb-10 leading-relaxed"
             >
-              {NECROMA.tagline}
+              necroma is an autonomous legacy migration tool that records live
+              application behavior, generates Playwright tests, then forces AI
+              to rewrite until every test passes. See your first modernized,
+              production-ready feature in days, not quarters.
             </motion.p>
 
             {/* CTA */}

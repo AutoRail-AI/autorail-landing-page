@@ -1,72 +1,208 @@
 import { SITE_CONFIG } from "lib/constants"
 
+type JsonLdType =
+  | "organization"
+  | "software-kap10"
+  | "software-necroma"
+  | "webpage"
+  | "faq-kap10"
+  | "howto-spaghetti"
+
 interface JsonLdProps {
-  type: "organization" | "software" | "webpage"
+  type: JsonLdType
 }
 
-export function JsonLd({ type }: JsonLdProps) {
-  const schemas = {
-    organization: {
-      "@context": "https://schema.org",
-      "@type": "Organization",
-      name: SITE_CONFIG.name,
-      url: SITE_CONFIG.url,
-      logo: `${SITE_CONFIG.url}/icon-wordmark.svg`,
-      description: SITE_CONFIG.description,
-      foundingDate: "2024",
-      email: "jaswanth@autorail.dev",
-      contactPoint: {
-        "@type": "ContactPoint",
-        email: "jaswanth@autorail.dev",
-        contactType: "Customer Support",
-        availableLanguage: "English",
-      },
-      sameAs: [
-        SITE_CONFIG.twitterUrl,
-        SITE_CONFIG.linkedinUrl,
-      ],
+/* eslint-disable @typescript-eslint/no-explicit-any */
+const schemas: Record<JsonLdType, Record<string, any>> = {
+  organization: {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    name: "autorail",
+    url: SITE_CONFIG.url,
+    logo: `${SITE_CONFIG.url}/icon-wordmark.svg`,
+    email: SITE_CONFIG.contactEmail,
+    description:
+      "Governance infrastructure for AI-powered development. Automated code review and behavioral verification for AI coding tools.",
+    foundingDate: "2024",
+    founder: {
+      "@type": "Person",
+      name: "Jaswanth",
     },
-    software: {
-      "@context": "https://schema.org",
+    sameAs: [SITE_CONFIG.twitterUrl, SITE_CONFIG.linkedinUrl],
+    knowsAbout: [
+      "automated code review",
+      "AI code quality",
+      "MCP servers",
+      "AI coding agent supervision",
+      "vibe coding",
+      "legacy code migration",
+      "code architecture enforcement",
+      "AI code governance",
+    ],
+  },
+
+  "software-kap10": {
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    name: "kap10",
+    applicationCategory: "DeveloperApplication",
+    applicationSubCategory: "Automated Code Review Tool",
+    operatingSystem: "Cloud (SaaS)",
+    description:
+      "An automated code review tool that supervises AI coding agents like Cursor, Claude Code, and Windsurf. Reviews every line, enforces architecture, locks scope, and prevents regressions via the MCP channel.",
+    featureList: [
+      "Prompt compilation — expands vague prompts into structural instructions",
+      "Scope locking — restricts AI to relevant directories only",
+      "Spaghetti Shield — automated architectural code review",
+      "Behavioral testing — click-to-record hidden test suites",
+      "Business-aware merging — PR scoring by domain impact",
+      "Architecture export — one-click handoff documentation",
+    ],
+    offers: {
+      "@type": "Offer",
+      price: "0",
+      priceCurrency: "USD",
+      description:
+        "Early access waitlist — founding members get personal onboarding",
+    },
+    isAccessibleForFree: true,
+  },
+
+  "software-necroma": {
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    name: "necroma",
+    applicationCategory: "DeveloperApplication",
+    applicationSubCategory: "Legacy Code Migration Tool",
+    operatingSystem: "Cloud (SaaS)",
+    description:
+      "Autonomous legacy migration engine. Records live application behavior, generates Playwright tests, forces AI to rewrite until every test passes.",
+    featureList: [
+      "Behavioral recording — captures DOM events, network calls, and user flows",
+      "Test generation — creates Playwright tests from observed behavior",
+      "AI-driven rewriting — forces modern code until all tests pass",
+      "Vertical slice delivery — ship modernized features incrementally",
+    ],
+  },
+
+  webpage: {
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    name: "autorail — Automated Code Review & Governance for AI Coding Tools",
+    description:
+      "autorail makes AI-powered development safe for production. kap10 is an automated code review tool that supervises Cursor, Claude Code, and Windsurf.",
+    url: SITE_CONFIG.url,
+    mainEntity: {
       "@type": "SoftwareApplication",
-      name: "kap10",
+      name: "autorail",
       applicationCategory: "DeveloperApplication",
-      operatingSystem: "Any",
-      description: SITE_CONFIG.description,
-      offers: {
-        "@type": "Offer",
-        price: "0",
-        priceCurrency: "USD",
-        description: "Open source institutional memory layer for AI-assisted development",
-      },
-      featureList: [
-        "Pattern Enforcement",
-        "Self-Reinforcing Knowledge Graph",
-        "Drift Prevention",
-      ],
     },
-    webpage: {
-      "@context": "https://schema.org",
-      "@type": "WebPage",
-      name: `${SITE_CONFIG.name} — ${SITE_CONFIG.tagline}`,
-      description: SITE_CONFIG.description,
-      url: SITE_CONFIG.url,
-      mainEntity: {
-        "@type": "SoftwareApplication",
-        name: SITE_CONFIG.name,
-        applicationCategory: "DeveloperApplication",
-      },
-      speakable: {
-        "@type": "SpeakableSpecification",
-        cssSelector: ["#hero h1"],
-      },
+    speakable: {
+      "@type": "SpeakableSpecification",
+      cssSelector: ["#hero h1", "#hero p"],
     },
-  }
+  },
+
+  "faq-kap10": {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    mainEntity: [
+      {
+        "@type": "Question",
+        name: "What is kap10?",
+        acceptedAnswer: {
+          "@type": "Answer",
+          text: "kap10 is an automated code review tool that acts as an AI Tech Lead for coding agents like Cursor, Claude Code, and Windsurf. It reviews every AI-generated change — compiling prompts, locking scope, enforcing architecture, and preventing regressions — with under 200ms overhead on the MCP channel.",
+        },
+      },
+      {
+        "@type": "Question",
+        name: "Does kap10 slow down my AI coding agent?",
+        acceptedAnswer: {
+          "@type": "Answer",
+          text: "No. kap10 operates on the MCP channel with overhead under 200ms. Your coding flow feels identical; the output is dramatically better quality.",
+        },
+      },
+      {
+        "@type": "Question",
+        name: "Does kap10 work with Cursor?",
+        acceptedAnswer: {
+          "@type": "Answer",
+          text: "Yes. kap10 works with any MCP-compatible AI coding agent, including Cursor, Claude Code, Windsurf, and OpenHands. One URL, any agent.",
+        },
+      },
+      {
+        "@type": "Question",
+        name: "Is my code safe with kap10?",
+        acceptedAnswer: {
+          "@type": "Answer",
+          text: "Yes. Your code is encrypted in transit (TLS 1.3) and at rest (AES-256). kap10 processes only structural metadata, never raw source code. Disconnect your repo, and all data is purged within 24 hours. No model training on your code — ever.",
+        },
+      },
+      {
+        "@type": "Question",
+        name: "How is kap10 different from .cursorrules?",
+        acceptedAnswer: {
+          "@type": "Answer",
+          text: "Unlike .cursorrules files which the AI ignores after a few messages, kap10 enforces your conventions on the MCP channel — every prompt, every time. It also adds scope locking, automated code review, behavioral testing, and architecture documentation that .cursorrules cannot provide.",
+        },
+      },
+      {
+        "@type": "Question",
+        name: "What is vibe coding?",
+        acceptedAnswer: {
+          "@type": "Answer",
+          text: "Vibe coding is a development approach where developers describe features in natural language and AI coding tools like Cursor generate the code. While fast for prototyping, unsupervised vibe coding leads to architectural drift, regressions, and unmaintainable repositories.",
+        },
+      },
+    ],
+  },
+
+  "howto-spaghetti": {
+    "@context": "https://schema.org",
+    "@type": "HowTo",
+    name: "How to prevent AI-generated spaghetti code",
+    description:
+      "A step-by-step guide to maintaining code quality when using AI coding agents like Cursor, Claude Code, or Windsurf.",
+    step: [
+      {
+        "@type": "HowToStep",
+        name: "Enforce conventions automatically",
+        text: "Use MCP-level enforcement instead of .cursorrules files, which AI ignores after a few messages.",
+      },
+      {
+        "@type": "HowToStep",
+        name: "Lock file scope",
+        text: "Restrict AI to only the directories relevant to the current feature to prevent collateral changes.",
+      },
+      {
+        "@type": "HowToStep",
+        name: "Run automated architectural review",
+        text: "Review every AI-generated change against your repository's architecture and conventions.",
+      },
+      {
+        "@type": "HowToStep",
+        name: "Record behavioral tests",
+        text: "Capture click-through tests to detect silent regressions that unit tests miss.",
+      },
+      {
+        "@type": "HowToStep",
+        name: "Use MCP-level governance",
+        text: "Deploy a governance tool like kap10 that sits on the MCP channel and reviews AI output end-to-end.",
+      },
+    ],
+  },
+}
+/* eslint-enable @typescript-eslint/no-explicit-any */
+
+export function JsonLd({ type }: JsonLdProps) {
+  const schema = schemas[type]
+  if (!schema) return null
 
   return (
     <script
       type="application/ld+json"
-      dangerouslySetInnerHTML={{ __html: JSON.stringify(schemas[type]) }}
+      dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }}
     />
   )
 }

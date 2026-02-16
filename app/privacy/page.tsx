@@ -80,7 +80,7 @@ export default function PrivacyPage() {
                     Provide &amp; improve services:
                   </strong>{" "}
                   Deliver kap10 pattern enforcement, necroma legacy
-                  reclamation, and continuously improve the accuracy and
+                  modernization, and continuously improve the accuracy and
                   usefulness of our AI agents.
                 </li>
                 <li>
@@ -123,7 +123,7 @@ export default function PrivacyPage() {
                 <li>
                   <strong className="text-cloud-white">necroma</strong> processes
                   legacy codebases to verify behavioral equivalence during
-                  reclamation, ensuring functional integrity is preserved.
+                  modernization, ensuring functional integrity is preserved.
                 </li>
               </ul>
               <p className="mt-4 rounded-lg border border-electric-cyan/20 bg-white/[0.03] px-4 py-3 text-sm">

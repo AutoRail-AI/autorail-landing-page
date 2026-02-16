@@ -52,7 +52,7 @@ export default function TermsPage() {
                 </li>
                 <li>
                   <strong className="text-cloud-white">necroma</strong> —
-                  Autonomous Legacy Reclamation. Verifies behavioral equivalence
+                  Autonomous Legacy Modernization. Verifies behavioral equivalence
                   when modernizing or refactoring legacy code, ensuring
                   functional integrity is preserved.
                 </li>
@@ -162,7 +162,7 @@ export default function TermsPage() {
                   output before incorporating it into your codebase.
                 </li>
                 <li>
-                  Autonomous agents (e.g., necroma reclamation agents) operate
+                  Autonomous agents (e.g., necroma modernization agents) operate
                   within user-defined boundaries and configurations. You are
                   responsible for setting appropriate scope and reviewing agent
                   actions.

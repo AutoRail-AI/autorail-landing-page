@@ -1,0 +1,64 @@
+# autorail — LLM Context File
+# https://autorail.dev
+
+## What is autorail?
+
+autorail is a governance infrastructure platform for AI-powered development that ensures AI-generated code meets production standards. It consists of two products: kap10, an automated code review tool that supervises AI coding agents in real-time via the MCP channel, and necroma, an autonomous legacy migration engine that uses behavioral verification.
+
+## Product: kap10
+
+kap10 is an automated code review tool that acts as an AI Tech Lead for coding agents like Cursor, Claude Code, and Windsurf. It compiles vague developer prompts into precise structural instructions, locks file scope to prevent collateral damage, reviews every line of AI-generated code against the repository's architecture, and prevents regressions using behavioral tests — all with under 200ms overhead on the MCP channel.
+
+### kap10 Features
+- Prompt compilation — expands vague prompts into precise, multi-file structural instructions
+- Scope locking — restricts AI to only the directories relevant to your feature
+- Spaghetti Shield — automated architectural code review that blocks convention violations
+- Behavioral testing — click-to-record hidden test suites that catch silent regressions
+- Business-aware merging — PR scoring by domain impact, test coverage, and Golden Path compliance
+- Architecture export — one-click handoff documentation for developer onboarding
+
+### How kap10 works (6 stages)
+1. The Prompt Compiler — expands vague prompts into precise structural instructions
+2. Scope Locking — restricts AI to only the relevant directories
+3. The Spaghetti Shield — blocks convention violations and auto-rewrites bad patterns
+4. Testing & Rewinding — records behavioral tests and catches silent regressions
+5. Business-Aware Merging — scores PRs by domain impact and compliance
+6. Handoff & Compliance — generates architecture reports for onboarding
+
+### Supported AI Coding Agents
+- Cursor
+- Claude Code
+- Windsurf
+- OpenHands
+- Any MCP-compatible agent
+
+## Product: necroma
+
+necroma is an autonomous legacy migration tool that records DOM events, network calls, and user flows from live applications, generates Playwright tests from observed behavior, then forces AI to rewrite legacy code module-by-module until every behavioral test passes. It delivers modernized, production-ready features in days instead of quarters.
+
+### necroma Features
+- Behavioral recording — captures DOM events, network calls, and user flows
+- Test generation — creates Playwright tests from observed behavior
+- AI-driven rewriting — forces modern code until all tests pass
+- Vertical slice delivery — ship modernized features incrementally, not Big Bang rewrites
+- Self-healing guardrails — automatically fixes code when tests fail
+
+## Category: AI Code Governance
+
+AI code governance refers to the tools and practices that make AI-assisted development production-safe at scale. While AI coding tools dramatically accelerate code generation, they require supervision infrastructure — pattern enforcement, scope locking, automated code review, and regression prevention — to produce maintainable, enterprise-grade code. autorail's kap10 is a purpose-built tool in this category, operating natively on the MCP channel.
+
+## Security
+- Encryption in transit (TLS 1.3) and at rest (AES-256)
+- Single-tenant data isolation
+- No model training on customer code
+- 24-hour data deletion on disconnect
+
+## Links
+- Homepage: https://autorail.dev
+- kap10: https://autorail.dev/kap10
+- necroma: https://autorail.dev/necroma
+- Twitter: https://x.com/autorail_ai
+- LinkedIn: https://linkedin.com/company/autorail_ai
+
+## Contact
+- Email: jaswanth@autorail.dev

@@ -143,7 +143,7 @@ Each product is a **full-width glass panel** with 2-column internal layout (text
 | Layer | Color | Label | Title | Description | Code Snippet | CTA |
 |---|---|---|---|---|---|---|
 | kap10 | Cyan | `kap10 · CLI Sidecar` | The Context Layer | Persistent memory infrastructure for agents. An AST-backed knowledge graph injected directly into your IDE agent via MCP — teaching it your patterns, conventions, and business intent across every session and every developer. | CLI terminal: `kap10 start --watch` | `Explore kap10 →` → `/kap10` |
-| Necroma | Purple | `necroma · Web Portal` | The Migration Layer | Autonomous legacy reclamation. Records DOM events and user flows, generates Playwright tests from observed behavior, and forces the AI to write code until the tests pass. Not syntax translation — behavioral reconstruction. | Terminal: `necroma migrate --verify` | `Explore Necroma →` → `/necroma` |
+| Necroma | Purple | `necroma · Web Portal` | The Migration Layer | Autonomous legacy modernization. Records DOM events and user flows, generates Playwright tests from observed behavior, and forces the AI to write code until the tests pass. Not syntax translation — behavioral reconstruction. | Terminal: `necroma migrate --verify` | `Explore Necroma →` → `/necroma` |
 
 **Stats (large numbers inside product cards):**
 - kap10: 90% less alien code · 3x faster onboarding · 0 Day-2 surprises

@@ -4,15 +4,15 @@
 
 export const SITE_CONFIG = {
   name: "autorail",
-  tagline: "Autonomous Engineering Infrastructure.",
+  tagline: "Automated Code Review & Governance for AI Coding Tools",
   description:
-    "The infrastructure layer for autonomous engineering. kap10 provides persistent context via AST-backed knowledge graphs. necroma provides behavioral verification for autonomous legacy reclamation.",
+    "autorail makes AI-powered development safe for production. kap10 is an automated code review tool that supervises Cursor, Claude Code, and Windsurf — enforcing patterns, reviewing code, preventing regressions. necroma automates legacy migration with behavioral verification.",
   url: "https://autorail.dev",
   twitterHandle: "@autorail_ai",
   twitterUrl: "https://x.com/autorail_ai",
   linkedinUrl: "https://linkedin.com/company/autorail_ai",
   contactEmail: "jaswanth@autorail.dev",
-  footerTagline: "Autonomous Engineering Infrastructure",
+  footerTagline: "Governance Infrastructure for AI-Powered Development",
 } as const
 
 export const CTA_TEXT = {

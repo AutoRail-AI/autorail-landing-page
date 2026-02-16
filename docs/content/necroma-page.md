@@ -2,7 +2,7 @@
 
 > **Goal:** Sell the Migration Layer of the autonomous engineering infrastructure.
 >
-> **Product Positioning:** A **Web Portal** for autonomous legacy reclamation and system migration.
+> **Product Positioning:** A **Web Portal** for autonomous legacy modernization and system migration.
 > The infrastructure that makes legacy modernization work — behavioral verification, self-healing guardrails, and vertical slice delivery.
 > This is not a migration tool. This is migration infrastructure.
 >
@@ -11,7 +11,7 @@
 >
 > **GTM Strategy:** This is the **enterprise expansion play**. High-ticket, high-trust. Sold via Migration Pilots that demonstrate a production-ready vertical slice in days, not quarters.
 >
-> **Terminology:** Use "Autonomous Legacy Reclamation" publicly. Never "Necromancer." Use "Guardrails" not "Airbag" (rail metaphor consistency). Use "autonomously" never "instantly."
+> **Terminology:** Use "Autonomous Legacy Modernization" publicly. Never "Necromancer." Use "Guardrails" not "Airbag" (rail metaphor consistency). Use "autonomously" never "instantly."
 
 ---
 
@@ -46,7 +46,7 @@
 | **CTA** | `Request a Migration Pilot` (Triggers Cal.com booking modal) |
 
 ### WebGL Hero: Behavioral Pipeline (Fragment → Reclaim)
-**Symbolic narrative:** Dead legacy system → behavioral verification pipeline → living modern system. A crumbling cube structure fragments, passes through verification gates, and reassembles into a clean, subtly colored structure. Reclamation, not just migration.
+**Symbolic narrative:** Dead legacy system → behavioral verification pipeline → living modern system. A crumbling cube structure fragments, passes through verification gates, and reassembles into a clean, subtly colored structure. Modernization, not just migration.
 
 **Morph phases (1.0s delay → 4.0s transition):**
 1. **Legacy Structure (0–1.0s):** A 5×5×5 grid of cube fragments sits in scene — dim gray with decay jitter and subtle wobble vibration. A faint warm-gray wireframe outline delineates the boundary. The dying legacy system.

@@ -21,7 +21,7 @@
 │  2. METRICS STRIP — Enterprise Credibility (<200ms, SOC2 path)      │
 │  3. THE PROBLEM — "The AI Hostage Situation" (Generic + 4 Pillars)  │
 │  4. THE SOLUTION — "Virtual CTO" (High-Fidelity Bento Grid)        │
-│  5. HOW IT WORKS — 3-Step Pipeline (Connect → Supervise → Ship)     │
+│  5. UNDER THE HOOD — 6-Step Lifecycle (Sticky Visual + Scroll)      │
 │  6. TRUST & SECURITY — "Your Code Stays Yours" (Glass Cards)        │
 │  7. EARLY ACCESS — "Founding Member" Waitlist                       │
 │  8. FAQ — Objection Handling                                        │
@@ -109,18 +109,71 @@ Styled: Cyan values (`text-3xl font-grotesk font-bold text-electric-cyan`) + mon
 
 ---
 
-## Section 5 — How It Works (Three steps. Zero install.)
+## Section 5 — Under the Hood: 6-Step Lifecycle
+
+> **Design Directive:** Apple-style **sticky visual + scroll** layout. The left panel stays pinned with a large crossfading illustration; the right column scrolls through 6 step cards. Each step card triggers the corresponding visual via IntersectionObserver. On mobile, falls back to stacked cards with inline visuals.
+>
+> **Critical CSS:** The parent `<section>` must use `overflow-x-clip` (NOT `overflow-hidden`) to preserve `position: sticky` on the left panel.
 
 | Element | Content |
 | --- | --- |
-| **Eyebrow** | `Integration` |
-| **Headline** | Three steps. Zero install. |
+| **Eyebrow** | `Under the Hood` |
+| **Headline** | Six stages. Full lifecycle. Zero blind spots. |
 
-* **01. Connect:** Point kap10 at your GitHub repo. Our engine builds a living Business Intent Graph in minutes.
-* **02. Supervise:** Paste your secure kap10 MCP URL into Cursor or Claude Code. Your AI now has a Tech Lead.
-* **03. Ship:** Merge with confidence. Every line is reviewed, scoped, and verified against hidden behavioral tests.
+### Desktop Layout (`lg:`)
 
-**Banner below steps:** *"Your AI just got a promotion—from unsupervised intern to managed junior dev."*
+```text
+┌──────────────────────────────┬──────────────┐
+│                              │  01 ░░░░░░░  │
+│   STICKY VISUAL PANEL        │  02 ░░░░░░░  │
+│   (crossfades on scroll)     │  03 ░░░░░░░  │  ← scrolls
+│   position: sticky; top: 6rem│  04 ░░░░░░░  │
+│                              │  05 ░░░░░░░  │
+│                              │  06 ░░░░░░░  │
+└──────────────────────────────┴──────────────┘
+```
+
+- Grid: `lg:grid-cols-[1fr_340px]`
+- Visual panel: `sticky top-24`, dark `#0e0e14` bg, `min-height: 420px`, cyan glow shadow
+- Transitions: `AnimatePresence mode="wait"` with blur+slide in/out
+- Each step card wrapper: `min-h-[40vh]` with `flex items-center` for proper scroll spacing
+- Observer: `rootMargin: "-45% 0px -45% 0px"` — 10% center trigger band
+- Active card: `bg-white/[0.05] border-electric-cyan/20` + cyan glow; inactive: `opacity-40`
+
+### The 6 Steps
+
+| # | Title | Subtitle | Icon | Visual (Left Panel) | One-liner |
+| --- | --- | --- | --- | --- | --- |
+| 01 | The Intent | The Prompt Compiler | `MessageSquare` | **Before/after split:** vague chat bubble → compiled structural prompt with scope, file paths, conventions, locks, tests | Your intent in. A battle plan out. |
+| 02 | Boundary Setting | Scope Locking | `Lock` | **File tree with locks:** one folder unlocked (cyan, "Writable" badge with pulsing glow) + 4 folders locked (dimmed, red "Read-only") | Surgical precision. Zero collateral damage. |
+| 03 | Code Generation | The Spaghetti Shield | `ShieldCheck` | **Terminal log:** `spaghetti-shield.log` with SCAN → BLOCKED (red) → REWRITE (cyan) → PASS (green) entries, staggered line-by-line reveal, summary footer | You never see the bad code. |
+| 04 | Vibe Verification | Testing & Rewinding | `RotateCcw` | **Split panel:** Left = REC dot + interaction log (click/type/navigate with ✓); Right = version timeline (v1.2–v1.5 good/bad nodes) with "Restore" button | The Death Spiral becomes impossible. |
+| 05 | Code Review | Business-Aware Merging | `GitPullRequest` | **PR scorecard:** PR #247 header + domain/infra badges + animated Impact Score bar (72/100) + animated Test Coverage bar (94%) + compliance badges (Golden Path ✓, No Regressions ✓, Safe to Merge ✓) | Architecture-aware. Not just lint-aware. |
+| 06 | Post-Release | Handoff & Compliance | `FileText` | **Architecture report:** 3-stat grid (12 Modules, 47 Decisions, 3 Dep Graphs) + checklist items + VEX/Handoff badges + "Export Full Report" CTA button | Your codebase, fully explained. |
+
+### Mobile Layout
+
+Falls back to vertically stacked cards (`lg:hidden`). Each card has a compact header row (icon + step number + title + subtitle) followed by the full visual inline below.
+
+**Banner below section:** *"From unsupervised intern to managed junior dev."*
+
+### Data
+
+```ts
+const LIFECYCLE_STEPS = [
+  { num: "01", title: "The Intent",          subtitle: "The Prompt Compiler",    icon: MessageSquare, detail: "Your intent in. A battle plan out." },
+  { num: "02", title: "Boundary Setting",    subtitle: "Scope Locking",          icon: Lock,          detail: "Surgical precision. Zero collateral damage." },
+  { num: "03", title: "Code Generation",     subtitle: "The Spaghetti Shield",   icon: ShieldCheck,   detail: "You never see the bad code." },
+  { num: "04", title: "Vibe Verification",   subtitle: "Testing & Rewinding",    icon: RotateCcw,     detail: "The Death Spiral becomes impossible." },
+  { num: "05", title: "Code Review",         subtitle: "Business-Aware Merging", icon: GitPullRequest, detail: "Architecture-aware. Not just lint-aware." },
+  { num: "06", title: "Post-Release",        subtitle: "Handoff & Compliance",   icon: FileText,      detail: "Your codebase, fully explained." },
+]
+```
+
+### Components
+
+- `LifecycleSection` — Stateful component with `useState(active)`, `useRef(stepRefs)`, `useEffect` IntersectionObserver. Renders desktop sticky layout + mobile fallback.
+- `LifecycleVisual({ step })` — Switch-case component returning the large-format visual for each step (0–5).
 
 ---
 
@@ -201,7 +254,7 @@ Styled: Cyan values (`text-3xl font-grotesk font-bold text-electric-cyan`) + mon
 
 > **Reference:** See `app/kap10/kap10-product-page.tsx` and `components/graphics/NeuralConstellation.tsx` for current implementation.
 >
-> **Note:** The page fully reflects the "AI Tech Lead" / SaaS MCP server positioning. All sections are implemented. All 5 capability cards have inline SVG/terminal visuals. Waitlist form is reused in both Early Access and Bottom CTA via the `WaitlistForm` component.
+> **Note:** The page fully reflects the "AI Tech Lead" / SaaS MCP server positioning. All sections are implemented. Section 4 (Solution) has 5 capability cards with inline SVG/terminal visuals. Section 5 (Under the Hood) uses a sticky visual + scroll layout with 6 lifecycle steps — implemented as `LifecycleSection` and `LifecycleVisual` components within the page file. Waitlist form is reused in both Early Access and Bottom CTA via the `WaitlistForm` component.
 
 ### Visual Language: "Industrial Glass"
 - **Base Material:** `bg-white/[0.04–0.05]` + `backdrop-blur-[12px]`
@@ -224,7 +277,7 @@ Styled: Cyan values (`text-3xl font-grotesk font-bold text-electric-cyan`) + mon
 | Metrics Strip | 3-column glass stat cards with cyan values |
 | The Problem | 4 vertically stacked stage cards with escalating red glow |
 | The Solution | Bento grid (1 hero full-width + 2×2) with inline visuals |
-| How It Works | Horizontal 3-step pipeline with arrow connectors |
+| Under the Hood | Sticky visual + scrolling steps (6-step lifecycle, `LifecycleSection`) |
 | Trust & Security | 3-column trust pillar cards (horizontal row) |
 | Early Access | Centered glass card with email form + benefits list |
 | FAQ | Accordion inside glass container |

@@ -210,7 +210,7 @@ export function BentoGrid() {
               product="necroma"
               label="necroma · Web Portal"
               title="The Migration Layer"
-              description="Autonomous legacy reclamation. Records DOM events and user flows, generates Playwright tests from observed behavior, and forces the AI to write code until the tests pass. Not syntax translation — behavioral reconstruction."
+              description="Autonomous legacy modernization. Records DOM events and user flows, generates Playwright tests from observed behavior, and forces the AI to write code until the tests pass. Not syntax translation — behavioral reconstruction."
               code={NECROMA_CODE}
               renderLine={NecromaLine}
               href="/necroma"

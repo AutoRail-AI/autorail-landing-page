@@ -5,11 +5,13 @@ import { SITE_CONFIG } from "lib/constants"
 import { NecromaProductPage } from "./necroma-product-page"
 
 export const metadata: Metadata = {
-  title: `${NECROMA.name} — The Migration Layer | ${SITE_CONFIG.name}`,
-  description: `${NECROMA.tagline} ${NECROMA.pitch}`,
+  title: "necroma — AI Legacy Code Migration Tool | autorail",
+  description:
+    "necroma records live application behavior, generates Playwright tests, then forces AI to rewrite legacy code until every test passes. See your first modernized feature in days, not quarters.",
   openGraph: {
-    title: `${NECROMA.name} — The Migration Layer | ${SITE_CONFIG.name}`,
-    description: NECROMA.tagline,
+    title: "necroma — AI Legacy Code Migration Tool | autorail",
+    description:
+      "necroma records live application behavior, generates Playwright tests, then forces AI to rewrite legacy code until every test passes. See your first modernized feature in days, not quarters.",
   },
 }
 

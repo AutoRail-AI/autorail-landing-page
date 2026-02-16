@@ -925,7 +925,7 @@ export function Kap10ProductPage() {
               {KAP10.headline}
             </motion.p>
 
-            {/* Tagline */}
+            {/* Tagline + page-top definition woven in (§2.5) */}
             <motion.p
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
@@ -935,7 +935,7 @@ export function Kap10ProductPage() {
               {KAP10.tagline}
             </motion.p>
 
-            {/* Explanation */}
+            {/* Explanation — snippet-extractable definition for SEO/AEO */}
             <motion.p
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}

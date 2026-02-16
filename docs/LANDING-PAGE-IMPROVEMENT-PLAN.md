@@ -25,7 +25,7 @@ Landing page has been restructured to the new "Industrial Safety" narrative. New
 | Hero | `Hero.tsx` | **"Permission to Run"** — Validate speed, sell safety | ✅ Done |
 | Day 2 Problem | `Day2Problem.tsx` | **"The Day 2 Hangover"** (3 Collapses) | ✅ Done |
 | kap10 | `Kap10.tsx` | **"The Institutional Memory Layer"** (full-width) | ✅ Done |
-| necroma | `Necroma.tsx` | **"Autonomous Legacy Reclamation"** (full-width) | ✅ Done |
+| necroma | `Necroma.tsx` | **"Autonomous Legacy Modernization"** (full-width) | ✅ Done |
 | Safety Rating | `SafetyRating.tsx` | **"Engineering Rigor"** (3 trust pillars) | ✅ Done |
 | Ecosystem | `Ecosystem.tsx` | **"Built on the Agentic Stack"** | ✅ Done (id + scroll-mt) |
 | CTA | `CTASection.tsx` | Split terminal + waitlist | ✅ Done |
@@ -39,7 +39,7 @@ NavBar
 ├── Hero: "Vibe Coding, Industrialized."
 ├── Day2Problem: "The Day 2 Hangover" (3 Collapses)
 ├── Kap10: "The Institutional Memory Layer"
-├── necroma: "Autonomous Legacy Reclamation"
+├── necroma: "Autonomous Legacy Modernization"
 ├── SafetyRating: "Engineering Rigor for the Agentic Age"
 ├── Ecosystem: "Built on the Agentic Stack"
 ├── CTA: Split — npm install (synapse) + Waitlist (necroma)
@@ -237,7 +237,7 @@ NavBar
 ### 5.2 SEO
 - [ ] Update `app/layout.tsx` metadata:
   - Title: `"autorail — Vibe Coding, Industrialized"`
-  - Description: `"The Context and Verification layers that make AI-powered development safe for the enterprise. kap10 for pattern enforcement, necroma for autonomous legacy reclamation."`
+  - Description: `"The Context and Verification layers that make AI-powered development safe for the enterprise. kap10 for pattern enforcement, necroma for autonomous legacy modernization."`
 - [ ] Update OpenGraph/Twitter Card images and meta
 - [ ] Update `JsonLd` structured data
 - [ ] Add `JsonLd` for SoftwareApplication (kap10)
@@ -445,7 +445,7 @@ Quick-access copy for implementation:
 | kap10 tagline | "The Institutional Memory Layer." |
 | kap10 headline | "Stop AI From Writing 'Alien Code.'" |
 | kap10 pitch | "You wouldn't let a contractor build without blueprints. Don't let AI build without Context." |
-| necroma tagline | "Autonomous Legacy Reclamation." |
+| necroma tagline | "Autonomous Legacy Modernization." |
 | necroma headline | "Verify Behavior, Not Just Syntax." |
 | necroma pitch | "Legacy migration is the most dangerous part of the mine. necroma is the autonomous unit that goes in, verifies the structural integrity, and reinforces it." |
 | Safety headline | "Engineering Rigor for the Agentic Age." |

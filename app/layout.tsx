@@ -15,25 +15,11 @@ import "styles/tailwind.css"
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_CONFIG.url),
   title: {
-    default: `${SITE_CONFIG.name} | ${SITE_CONFIG.tagline}`,
+    default: "autorail — Automated Code Review & Governance for AI Coding Tools",
     template: `%s | ${SITE_CONFIG.name}`,
   },
-  description: SITE_CONFIG.description,
-  keywords: [
-    "vibe-coded apps infrastructure",
-    "backend primitives automation",
-    "AI agent infrastructure",
-    "SaaS infrastructure",
-    "e-commerce backend",
-    "dashboard infrastructure",
-    "rapid app deployment",
-    "automated backend provisioning",
-    "production app infrastructure",
-    "scalable app hosting",
-    "bolt.new infrastructure",
-    "lovable backend",
-    "replit production",
-  ],
+  description:
+    "autorail makes AI-powered development safe for production. kap10 is an automated code review tool that supervises Cursor, Claude Code, and Windsurf — enforcing patterns, reviewing code, preventing regressions. necroma automates legacy migration with behavioral verification.",
   authors: [{ name: SITE_CONFIG.name }],
   creator: SITE_CONFIG.name,
   openGraph: {
@@ -41,23 +27,24 @@ export const metadata: Metadata = {
     locale: "en_US",
     url: SITE_CONFIG.url,
     siteName: SITE_CONFIG.name,
-    title: `${SITE_CONFIG.name} — ${SITE_CONFIG.tagline}`,
-    description: SITE_CONFIG.description,
+    title: "autorail — Automated Code Review for AI Coding Tools",
+    description:
+      "Your AI coding agent is fast but unsupervised. autorail reviews every line automatically. Pattern enforcement, code review, regression prevention — all on the MCP channel.",
     images: [
       {
         url: `${SITE_CONFIG.url}/og-image.png`,
         width: 1200,
         height: 630,
-        alt: `${SITE_CONFIG.name} — ${SITE_CONFIG.tagline}`,
+        alt: "autorail — Automated Code Review & Governance for AI Coding Tools",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
     site: SITE_CONFIG.twitterHandle,
-    title: `${SITE_CONFIG.name} — ${SITE_CONFIG.tagline}`,
+    title: "autorail — Automated Code Review for AI Coding Tools",
     description:
-      "Frontend generation gives you momentum. autorail gives you the infrastructure to sustain it.",
+      "Stop babysitting your AI. kap10 automatically reviews every line Cursor, Claude Code, and Windsurf write — enforcing your architecture in real time.",
     images: [`${SITE_CONFIG.url}/twitter-card.png`],
   },
   robots: {
@@ -90,7 +77,8 @@ export default function RootLayout({
     <html lang="en" className="scroll-smooth">
       <head>
         <JsonLd type="organization" />
-        <JsonLd type="software" />
+        <JsonLd type="software-kap10" />
+        <JsonLd type="software-necroma" />
         <JsonLd type="webpage" />
       </head>
       <body className="min-h-screen bg-background text-foreground font-sans antialiased">

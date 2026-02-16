@@ -6,7 +6,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 Landing page for **autorail** — **Industrial Safety for Vibe Coding**. Positioning: the structural engineering for the AI gold mine. Two core products:
 1. **kap10** (cyan `#00E5FF`): The Institutional Memory Layer — pattern enforcement so AI doesn't write "alien code."
-2. **necroma** (purple `#6E18B3`): Autonomous Legacy Reclamation — verify behavior, not just syntax.
+2. **necroma** (purple `#6E18B3`): Autonomous Legacy Modernization — verify behavior, not just syntax.
 
 ## Commands
 
