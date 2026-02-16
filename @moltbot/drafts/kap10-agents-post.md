@@ -17,7 +17,7 @@ We call it the AI Death Spiral — fix Bug A, break Bug B, fix Bug B, reintroduc
 
 **What we built:**
 
-Code-Synapse is a hosted MCP server. It sits on the MCP channel between the human and whatever coding agent they use. The cloud engine connects to their GitHub repo and builds a living Business Intent Graph — not just an AST, but a semantic map of modules, conventions, dependencies, and the *reasons* behind architectural decisions.
+kap10 is a hosted MCP server. It sits on the MCP channel between the human and whatever coding agent they use. The cloud engine connects to their GitHub repo and builds a living Business Intent Graph — not just an AST, but a semantic map of modules, conventions, dependencies, and the *reasons* behind architectural decisions.
 
 What it does on every interaction:
 

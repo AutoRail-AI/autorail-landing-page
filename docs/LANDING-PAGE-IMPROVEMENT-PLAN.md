@@ -10,7 +10,7 @@
 *"Go ahead, let your teams use AI. Let them run fast. We are the safety infrastructure that ensures the code they generate doesn't bury you in technical debt."*
 
 **Analogy framework:**
-- *code-synapse* = **Lane Keep Assist** (keeps you on the road/standard)
+- *kap10* = **Lane Keep Assist** (keeps you on the road/standard)
 - *necroma* = **Collision Avoidance System** (brakes/steers when a crash is imminent)
 - *autorail* = **The adult in the room** of AI coding tools
 
@@ -24,7 +24,7 @@ Landing page has been restructured to the new "Industrial Safety" narrative. New
 |---------|-----------|------|--------|
 | Hero | `Hero.tsx` | **"Permission to Run"** — Validate speed, sell safety | ✅ Done |
 | Day 2 Problem | `Day2Problem.tsx` | **"The Day 2 Hangover"** (3 Collapses) | ✅ Done |
-| code-synapse | `CodeSynapse.tsx` | **"The Institutional Memory Layer"** (full-width) | ✅ Done |
+| kap10 | `Kap10.tsx` | **"The Institutional Memory Layer"** (full-width) | ✅ Done |
 | necroma | `Necroma.tsx` | **"Autonomous Legacy Reclamation"** (full-width) | ✅ Done |
 | Safety Rating | `SafetyRating.tsx` | **"Engineering Rigor"** (3 trust pillars) | ✅ Done |
 | Ecosystem | `Ecosystem.tsx` | **"Built on the Agentic Stack"** | ✅ Done (id + scroll-mt) |
@@ -38,7 +38,7 @@ Legacy `components/sections/`, `lp-items.tsx`, `data/capabilities.ts`, and `data
 NavBar
 ├── Hero: "Vibe Coding, Industrialized."
 ├── Day2Problem: "The Day 2 Hangover" (3 Collapses)
-├── CodeSynapse: "The Institutional Memory Layer"
+├── Kap10: "The Institutional Memory Layer"
 ├── necroma: "Autonomous Legacy Reclamation"
 ├── SafetyRating: "Engineering Rigor for the Agentic Age"
 ├── Ecosystem: "Built on the Agentic Stack"
@@ -64,12 +64,12 @@ NavBar
   - `SITE_CONFIG.description` → new positioning copy
   - `SITE_CONFIG.footerTagline` → `"Build Fast. Don't Crash."` (new)
   - `CTA_TEXT.primary` → `"Install the Safety Kit"`, `CTA_TEXT.secondary` → `"Secure Your Legacy"`
-  - `SECTION_IDS` → `hero`, `day2Problem`, `codeSynapse`, `necroma`, `safetyRating`, `ecosystem`, `cta`
-- [x] Update `data/navigation.ts` — `NAV_LINKS` (code-synapse, necroma, Docs, GitHub) and `FOOTER_COLUMNS` use `SECTION_IDS` for hrefs; Product column includes Safety Rating and Ecosystem
-- [x] Create `data/products.ts` — `CODE_SYNAPSE` and `NECROMA` with taglines, headlines, pitch, features, badges, CTAs, `npmPackage` (Synapse)
+  - `SECTION_IDS` → `hero`, `day2Problem`, `kap10`, `necroma`, `safetyRating`, `ecosystem`, `cta`
+- [x] Update `data/navigation.ts` — `NAV_LINKS` (kap10, necroma, Docs, GitHub) and `FOOTER_COLUMNS` use `SECTION_IDS` for hrefs; Product column includes Safety Rating and Ecosystem
+- [x] Create `data/products.ts` — `KAP10` and `NECROMA` with taglines, headlines, pitch, features, badges, CTAs, `npmPackage` (Synapse)
 
 ### 1.3 Update NavBar
-- [x] Navigation links from `NAV_LINKS`: code-synapse, necroma, Docs, GitHub (external)
+- [x] Navigation links from `NAV_LINKS`: kap10, necroma, Docs, GitHub (external)
 - [x] CTA button: `"Get the Safety Kit"` linking to `#cta`
 - [x] NavBar uses `SITE_CONFIG` and `SECTION_IDS` from `lib/constants`; scroll state implemented with local `useState` + `useEffect` (no `@uidotdev/usehooks`)
 
@@ -80,7 +80,7 @@ NavBar
 
 ### 1.5 Update CLAUDE.md
 - [x] Project overview rewritten for "Industrial Safety for Vibe Coding"
-- [x] Page Section Order updated to: Hero → Day2Problem → CodeSynapse → Necroma → SafetyRating → Ecosystem → CTASection
+- [x] Page Section Order updated to: Hero → Day2Problem → Kap10 → Necroma → SafetyRating → Ecosystem → CTASection
 - [x] Key directories and data files (products) noted
 
 ---
@@ -96,7 +96,7 @@ NavBar
 - [x] **Badge:** "Industrial Safety for AI Development" (Shield icon)
 - [x] **Headline:** "Vibe Coding, Industrialized." with gradient on "Industrialized."
 - [x] **Subhead:** Full copy as specified
-- [x] **Primary CTA:** Terminal-style button `npm install code-synapse` with copy-to-clipboard (check icon on copy)
+- [x] **Primary CTA:** Terminal-style button `npm install kap10` with copy-to-clipboard (check icon on copy)
 - [x] **Secondary CTA:** "Secure Your Legacy Systems" → `#necroma`
 - [x] Animated text reveal via `staggerContainer` / `cardItem` from `lib/animations.ts`
 - [x] Scroll indicator: "See what breaks without guardrails" + chevron linking to `#day2-problem`
@@ -110,22 +110,22 @@ NavBar
 - [x] **Eyebrow:** "The Problem"
 - [x] **Headline:** "The 'Day 2' Hangover."
 - [x] **Subhead:** As specified
-- [x] **3 Collapses** from `COLLAPSES` — reordered: Amnesia (BrainCog, code-synapse) → Verification (ShieldX, necroma) → Context Rot (Layers, knowledge graph)
+- [x] **3 Collapses** from `COLLAPSES` — reordered: Amnesia (BrainCog, kap10) → Verification (ShieldX, necroma) → Context Rot (Layers, knowledge graph)
 - [x] **Layout:** Alternating zig-zag panels (visual + text, 50/50 split)
 - [x] **Cinematic visuals:** Session log terminal (cyan glow), test runner (purple glow), SVG dependency graph (cyan glow) — each with `bg-[#0e0e14]`, `border-white/[0.15]`, colored `box-shadow`, neon `#00FFFF` syntax
 - [x] Step numbers (01/02/03) at 35% accent opacity, icon badges with glow
 - [x] `whileInView` entrance animations
 - [x] Bottom connector line with pulsing dot
 
-### 2.3 code-synapse — "The Structural Support" ✅
+### 2.3 kap10 — "The Structural Support" ✅
 
-**New full-width section `CodeSynapse.tsx`; copy from `data/products.ts` (CODE_SYNAPSE).**
+**New full-width section `Kap10.tsx`; copy from `data/products.ts` (KAP10).**
 
 - [x] Eyebrow, tagline, headline, pitch
 - [x] Badges: "Open Source", "MCP-Native"
 - [x] 3 features: Pattern Enforcement, Self-Reinforcing, Drift Prevention
 - [x] Cyan theme; 2×2 brain grid visual with connecting lines
-- [x] Terminal block `npm install code-synapse` with copy button
+- [x] Terminal block `npm install kap10` with copy button
 - [x] CTA: GitHub link (secondary button with `target="_blank"` / `rel`)
 - [ ] Toast on copy (deferred to Phase 4)
 
@@ -170,7 +170,7 @@ NavBar
 **Implemented in `components/landing/CTASection.tsx`** — placed before Footer.
 
 - [x] Two-column split (responsive grid):
-  - **Left (Cyan):** code-synapse — terminal `npm install code-synapse` with copy button, "Start in 30 seconds", "View on GitHub" link
+  - **Left (Cyan):** kap10 — terminal `npm install kap10` with copy button, "Start in 30 seconds", "View on GitHub" link
   - **Right (Purple):** necroma — email input, "Secure your legacy systems", "Join Waitlist" submit
 - [x] Background: `GradientMesh` with `variant="cta"`
 - [x] Heading: "Ready to Industrialize?"
@@ -207,7 +207,7 @@ NavBar
 - [x] Background noise texture + radial glows per section
 
 ### 4.3 Product Section Visuals
-- [ ] **code-synapse page:** Animated knowledge graph (nodes + edges pulsing in cyan)
+- [ ] **kap10 page:** Animated knowledge graph (nodes + edges pulsing in cyan)
 - [x] **necroma page:** Glass Brain dashboard mockup with boot sequence
 - [ ] 3D tilt effect on hover for product feature cards
 - [x] Styled terminal components with syntax highlighting, macOS chrome, cursor blink
@@ -237,10 +237,10 @@ NavBar
 ### 5.2 SEO
 - [ ] Update `app/layout.tsx` metadata:
   - Title: `"autorail — Vibe Coding, Industrialized"`
-  - Description: `"The Context and Verification layers that make AI-powered development safe for the enterprise. code-synapse for pattern enforcement, necroma for autonomous legacy reclamation."`
+  - Description: `"The Context and Verification layers that make AI-powered development safe for the enterprise. kap10 for pattern enforcement, necroma for autonomous legacy reclamation."`
 - [ ] Update OpenGraph/Twitter Card images and meta
 - [ ] Update `JsonLd` structured data
-- [ ] Add `JsonLd` for SoftwareApplication (code-synapse)
+- [ ] Add `JsonLd` for SoftwareApplication (kap10)
 - [ ] Review `docs/seo-aeo-geo-strategy.md` — add "vibe coding", "AI safety", "technical debt prevention", "Day 2 AI" keywords
 
 ### 5.3 Accessibility
@@ -263,7 +263,7 @@ NavBar
 - [ ] Create `GlassCard.tsx` — reusable glassmorphism card
 
 ### 6.2 Data Layer
-- [x] `data/products.ts` — CODE_SYNAPSE and NECROMA (name, tagline, headline, pitch, features, badges, CTA, npmPackage)
+- [x] `data/products.ts` — KAP10 and NECROMA (name, tagline, headline, pitch, features, badges, CTA, npmPackage)
 - [x] `data/collapses.ts` — Day 2 problem content (3 collapses with icon, productId, solvedBy)
 - [x] `data/safety-pillars.ts` — Safety Rating section (3 pillars with icon)
 - [ ] `data/ecosystem.ts` — tech stack with icons and descriptions (Ecosystem still uses inline TECH_STACK array)
@@ -289,7 +289,7 @@ How current files map to the new structure (all implemented):
 |-------------|-----------------|--------|--------|
 | Hero | `Hero.tsx` | Rewrite copy — keep animation structure | ✅ |
 | Day2Problem | New `Day2Problem.tsx` | New component + `data/collapses.ts` (replaces FeatureGrid in page) | ✅ |
-| CodeSynapse | New `CodeSynapse.tsx` | New full-width section; copy from `data/products.ts` | ✅ |
+| Kap10 | New `Kap10.tsx` | New full-width section; copy from `data/products.ts` | ✅ |
 | necroma | New `Necroma.tsx` | New full-width section; copy from `data/products.ts` | ✅ |
 | SafetyRating | New `SafetyRating.tsx` | New component + `data/safety-pillars.ts` (replaces Mission in page) | ✅ |
 | Ecosystem | `Ecosystem.tsx` | Retained; added `id` and `scroll-mt-20` | ✅ |
@@ -299,14 +299,14 @@ How current files map to the new structure (all implemented):
 
 **Implemented:**
 
-- `components/landing/index.ts` exports: `Hero`, `Day2Problem`, `CodeSynapse`, `Necroma`, `SafetyRating`, `Ecosystem`, `CTASection` (no longer exports `FeatureGrid`, `Mission`, `ProductSplit`).
+- `components/landing/index.ts` exports: `Hero`, `Day2Problem`, `Kap10`, `Necroma`, `SafetyRating`, `Ecosystem`, `CTASection` (no longer exports `FeatureGrid`, `Mission`, `ProductSplit`).
 - `app/page.tsx` section order:
 ```tsx
 <NavBar />
 <main>
   <Hero />
   <Day2Problem />
-  <CodeSynapse />
+  <Kap10 />
   <Necroma />
   <SafetyRating />
   <Ecosystem />
@@ -325,7 +325,7 @@ Applied so that **`pnpm build`** and **`pnpm dev`** / **`pnpm start`** run witho
 1. **Production build:** `package.json` script `"build": "next build --webpack"` — Next.js 16 defaults to Turbopack for build, which was hitting an internal error; using Webpack for build avoids it.
 2. **NavBar:** Removed dependency on `@uidotdev/usehooks`. Scroll state is implemented with `useState(0)` and `useEffect` listening to `window.scroll` (passive).
 3. **JsonLd:** Removed `data/faq` (file was deleted in Phase 1). Dropped `"faq"` from `JsonLdProps` and from `schemas`; updated `software` and `webpage` schema copy to match new positioning; removed `#faq` from `speakable.cssSelector`.
-4. **Button:** When `href` is set, the component renders an `<a>`. Added optional `target` and `rel` to `ButtonProps` and pass only `href`, `onClick`, `className`, `target`, `rel` to the anchor (no spreading of button-only props) so TypeScript and DOM are correct for external links (e.g. GitHub in CodeSynapse).
+4. **Button:** When `href` is set, the component renders an `<a>`. Added optional `target` and `rel` to `ButtonProps` and pass only `href`, `onClick`, `className`, `target`, `rel` to the anchor (no spreading of button-only props) so TypeScript and DOM are correct for external links (e.g. GitHub in Kap10).
 
 ### Run verification
 
@@ -344,23 +344,23 @@ Applied so that **`pnpm build`** and **`pnpm dev`** / **`pnpm start`** run witho
 
 | Route | Type | Description |
 |-------|------|-------------|
-| `/` | Static | Home — single-page landing with all sections (Hero → Day2Problem → CodeSynapse → Necroma → SafetyRating → Ecosystem → CTASection). |
-| `/code-synapse` | Static | Dedicated product page for code-synapse. |
+| `/` | Static | Home — single-page landing with all sections (Hero → Day2Problem → Kap10 → Necroma → SafetyRating → Ecosystem → CTASection). |
+| `/kap10` | Static | Dedicated product page for kap10. |
 | `/necroma` | Static | Dedicated product page for necroma, including Glass Brain view showcase. |
 | `/api/health` | Dynamic | Health check endpoint. |
 
 ### Product pages (dedicated routes)
 
-**code-synapse — `/code-synapse`**
+**kap10 — `/kap10`**
 
-- **Files:** `app/code-synapse/page.tsx` (route + metadata), `app/code-synapse/code-synapse-product-page.tsx` (client content).
+- **Files:** `app/kap10/page.tsx` (route + metadata), `app/kap10/kap10-product-page.tsx` (client content).
 - **Layout:** NavBar + main + Footer (same as home).
-- **Metadata:** `title: "${CODE_SYNAPSE.name} | ${SITE_CONFIG.name}"`, description and OpenGraph from product copy.
+- **Metadata:** `title: "${KAP10.name} | ${SITE_CONFIG.name}"`, description and OpenGraph from product copy.
 - **Content:**
-  - **Hero:** Back link to `/`, badges (Open Source, MCP-Native), product name, headline, tagline, pitch; primary CTA = `npm install code-synapse` (copy button), secondary CTA = GitHub link.
-  - **Key capabilities:** Three glass cards from `data/products.ts` (CODE_SYNAPSE.features): Pattern Enforcement, Self-Reinforcing, Drift Prevention; cyan accent, Brain icon.
+  - **Hero:** Back link to `/`, badges (Open Source, MCP-Native), product name, headline, tagline, pitch; primary CTA = `npm install kap10` (copy button), secondary CTA = GitHub link.
+  - **Key capabilities:** Three glass cards from `data/products.ts` (KAP10.features): Pattern Enforcement, Self-Reinforcing, Drift Prevention; cyan accent, Brain icon.
   - **Bottom CTA:** “Start in 30 seconds” + repeat npm install + copy.
-- **Data:** All copy from `data/products.ts` (CODE_SYNAPSE). No new data files.
+- **Data:** All copy from `data/products.ts` (KAP10). No new data files.
 
 **necroma — `/necroma`**
 
@@ -393,16 +393,16 @@ Implementation follows **`docs/GLASS_BRAIN_VIEW.md`** (Void Black + Rail Purple,
 
 ### Navigation and links
 
-- **NavBar:** “code-synapse” and “necroma” links go to **`#code-synapse`** and **`#necroma`** on the **home page** (in-page scroll). “Get the Safety Kit” → `#cta`.
-- **Footer (Product column):** “code-synapse” → **`/code-synapse`**, “necroma” → **`/necroma`** (dedicated product pages). “Safety Rating” → `#safety-rating`, “Ecosystem” → `#ecosystem` (home anchors).
-- **Product page CTAs:** “Back to home” → `/`. code-synapse: GitHub and npm copy. necroma: “Join Waitlist” / “Secure your legacy systems” → `/#cta`.
+- **NavBar:** “kap10” and “necroma” links go to **`#kap10`** and **`#necroma`** on the **home page** (in-page scroll). “Get the Safety Kit” → `#cta`.
+- **Footer (Product column):** “kap10” → **`/kap10`**, “necroma” → **`/necroma`** (dedicated product pages). “Safety Rating” → `#safety-rating`, “Ecosystem” → `#ecosystem` (home anchors).
+- **Product page CTAs:** “Back to home” → `/`. kap10: GitHub and npm copy. necroma: “Join Waitlist” / “Secure your legacy systems” → `/#cta`.
 
 ### File inventory (product pages & Glass Brain)
 
 | Path | Purpose |
 |------|---------|
-| `app/code-synapse/page.tsx` | Route + metadata for code-synapse. |
-| `app/code-synapse/code-synapse-product-page.tsx` | Client UI for code-synapse page. |
+| `app/kap10/page.tsx` | Route + metadata for kap10. |
+| `app/kap10/kap10-product-page.tsx` | Client UI for kap10 page. |
 | `app/necroma/page.tsx` | Route + metadata for necroma. |
 | `app/necroma/necroma-product-page.tsx` | Client UI for necroma page (includes GlassBrainShowcase). |
 | `components/glass-brain/breathing-glow.tsx` | Confidence-based ambient glow wrapper. |
@@ -410,7 +410,7 @@ Implementation follows **`docs/GLASS_BRAIN_VIEW.md`** (Void Black + Rail Purple,
 | `components/glass-brain/glass-brain-showcase.tsx` | Demo dashboard (header + 3-pane layout, mock data). |
 | `components/glass-brain/index.ts` | Barrel export. |
 
-**Modified for product pages:** `data/navigation.ts` — Footer Product links for “code-synapse” and “necroma” now point to `/code-synapse` and `/necroma` instead of home anchors.
+**Modified for product pages:** `data/navigation.ts` — Footer Product links for “kap10” and “necroma” now point to `/kap10` and `/necroma` instead of home anchors.
 
 ---
 
@@ -421,7 +421,7 @@ Implementation follows **`docs/GLASS_BRAIN_VIEW.md`** (Void Black + Rail Purple,
 | P0 | Phase 1 | Foundation Cleanup | Delete legacy, update constants |
 | P0 | Phase 2.1 | Hero Rewrite | New copy + badge + CTAs |
 | P0 | Phase 2.2 | Day 2 Problem | The 3 Collapses section |
-| P0 | Phase 2.3–2.4 | Product Sections | code-synapse + necroma as full-width |
+| P0 | Phase 2.3–2.4 | Product Sections | kap10 + necroma as full-width |
 | P0 | Phase 2.5 | Safety Rating | Trust pillars section |
 | P1 | Phase 3.1 | CTA Section | Split terminal + waitlist |
 | P1 | Phase 4 | Visual Polish | Animations, transitions, micro-interactions |
@@ -442,15 +442,15 @@ Quick-access copy for implementation:
 | Hero subhead | "Your team is already using AI agents to move fast. But speed without standards is just a faster path to technical debt. autorail provides the Context and Verification layers that make autonomous development safe for the enterprise." |
 | Day 2 headline | "The 'Day 2' Hangover." |
 | Day 2 subhead | "AI agents are incredible at Day 1 creation. They are terrible at Day 2 maintenance. Without guardrails, the gold mine collapses:" |
-| code-synapse tagline | "The Institutional Memory Layer." |
-| code-synapse headline | "Stop AI From Writing 'Alien Code.'" |
-| code-synapse pitch | "You wouldn't let a contractor build without blueprints. Don't let AI build without Context." |
+| kap10 tagline | "The Institutional Memory Layer." |
+| kap10 headline | "Stop AI From Writing 'Alien Code.'" |
+| kap10 pitch | "You wouldn't let a contractor build without blueprints. Don't let AI build without Context." |
 | necroma tagline | "Autonomous Legacy Reclamation." |
 | necroma headline | "Verify Behavior, Not Just Syntax." |
 | necroma pitch | "Legacy migration is the most dangerous part of the mine. necroma is the autonomous unit that goes in, verifies the structural integrity, and reinforces it." |
 | Safety headline | "Engineering Rigor for the Agentic Age." |
 | Footer tagline | "Build Fast. Don't Crash." |
-| Primary CTA | `npm install code-synapse` |
+| Primary CTA | `npm install kap10` |
 | Secondary CTA | "Secure Your Legacy Systems" |
 
 ---
@@ -460,20 +460,20 @@ Quick-access copy for implementation:
 | Phase | Status | Notes |
 |-------|--------|------|
 | Phase 1 | ✅ Complete | Legacy cleanup, constants, navigation, products data, NavBar, Footer, CLAUDE.md |
-| Phase 2 | ✅ Complete | Hero, Day2Problem, code-synapse, necroma, SafetyRating, Ecosystem (minimal polish) |
+| Phase 2 | ✅ Complete | Hero, Day2Problem, kap10, necroma, SafetyRating, Ecosystem (minimal polish) |
 | Phase 3.1 | ✅ Complete | CTASection with terminal + waitlist, GradientMesh |
-| Product pages | ✅ Complete | `/code-synapse`, `/necroma` with full product content; necroma includes Glass Brain showcase |
+| Product pages | ✅ Complete | `/kap10`, `/necroma` with full product content; necroma includes Glass Brain showcase |
 | Glass Brain | ✅ Complete | BreathingGlow, BootSequence, GlassBrainShowcase per `docs/GLASS_BRAIN_VIEW.md`; used on `/necroma` |
 | Phase 3.2 | Pending | TrustBar — wait for real logos |
 | Phase 4 | ✅ Mostly Done | Visual redesign complete: zig-zag panels, cinematic terminals, glow shadows, large stats, high-vis marquee. Hero WebGL done. Remaining: text reveal, magnetic cursor, toast |
 | Phase 5 | Pending | Performance, SEO (layout metadata, JsonLd), accessibility |
 | Phase 6 | Partial | Data layer mostly done; Button supports target/rel; Terminal/GlassCard/Tests/Storybook pending |
 
-**Files created (landing):** `Day2Problem.tsx`, `CodeSynapse.tsx`, `Necroma.tsx`, `SafetyRating.tsx`, `CTASection.tsx`, `data/products.ts`, `data/collapses.ts`, `data/safety-pillars.ts`.
+**Files created (landing):** `Day2Problem.tsx`, `Kap10.tsx`, `Necroma.tsx`, `SafetyRating.tsx`, `CTASection.tsx`, `data/products.ts`, `data/collapses.ts`, `data/safety-pillars.ts`.
 
-**Files created (product pages & Glass Brain):** `app/code-synapse/page.tsx`, `app/code-synapse/code-synapse-product-page.tsx`, `app/necroma/page.tsx`, `app/necroma/necroma-product-page.tsx`, `components/glass-brain/breathing-glow.tsx`, `components/glass-brain/boot-sequence.tsx`, `components/glass-brain/glass-brain-showcase.tsx`, `components/glass-brain/index.ts`.
+**Files created (product pages & Glass Brain):** `app/kap10/page.tsx`, `app/kap10/kap10-product-page.tsx`, `app/necroma/page.tsx`, `app/necroma/necroma-product-page.tsx`, `components/glass-brain/breathing-glow.tsx`, `components/glass-brain/boot-sequence.tsx`, `components/glass-brain/glass-brain-showcase.tsx`, `components/glass-brain/index.ts`.
 
-**Files modified:** `Hero.tsx`, `Ecosystem.tsx`, `lib/constants.ts`, `data/navigation.ts` (footer product links to `/code-synapse`, `/necroma`), `data/process-steps.ts`, `components/layout/NavBar.tsx`, `components/layout/Footer.tsx`, `components/shared/JsonLd.tsx`, `components/ui/Button.tsx`, `components/landing/index.ts`, `app/page.tsx`, `CLAUDE.md`, `package.json` (build script).
+**Files modified:** `Hero.tsx`, `Ecosystem.tsx`, `lib/constants.ts`, `data/navigation.ts` (footer product links to `/kap10`, `/necroma`), `data/process-steps.ts`, `components/layout/NavBar.tsx`, `components/layout/Footer.tsx`, `components/shared/JsonLd.tsx`, `components/ui/Button.tsx`, `components/landing/index.ts`, `app/page.tsx`, `CLAUDE.md`, `package.json` (build script).
 
 **Build & run:** `pnpm build` (Webpack) and `pnpm start` / `pnpm dev` verified. See [Run verification](#run-verification) above.
 

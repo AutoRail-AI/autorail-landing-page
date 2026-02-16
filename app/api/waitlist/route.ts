@@ -55,7 +55,7 @@ export async function POST(request: Request) {
         "Content-Type": "application/json",
       },
       body: JSON.stringify({
-        values: [[email, new Date().toISOString(), "code-synapse"]],
+        values: [[email, new Date().toISOString(), "kap10"]],
       }),
     })
 

@@ -24,13 +24,12 @@ export function JsonLd({ type }: JsonLdProps) {
       sameAs: [
         SITE_CONFIG.twitterUrl,
         SITE_CONFIG.linkedinUrl,
-        SITE_CONFIG.githubUrl,
       ],
     },
     software: {
       "@context": "https://schema.org",
       "@type": "SoftwareApplication",
-      name: "code-synapse",
+      name: "kap10",
       applicationCategory: "DeveloperApplication",
       operatingSystem: "Any",
       description: SITE_CONFIG.description,

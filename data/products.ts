@@ -2,16 +2,16 @@
  * Centralized product definitions for autorail — Industrial Safety for Vibe Coding.
  */
 
-export const CODE_SYNAPSE = {
-  id: "code-synapse",
-  name: "code-synapse",
+export const KAP10 = {
+  id: "kap10",
+  name: "kap10",
   tagline:
     "Stop babysitting your AI. Turn your favorite \"Typist\" into a Senior Developer.",
   headline: "The AI Tech Lead.",
   pitch:
-    "Code-Synapse is a fully hosted SaaS that sits invisibly between you and your AI coding agent. Connect your GitHub repo, and our cloud engine builds a living Business Intent Graph of your app. It acts as your Virtual CTO — intercepting your vague prompts, enforcing your rules, and ruthlessly reviewing the AI's code before it ever touches your files.",
+    "kap10 is a fully hosted SaaS that sits invisibly between you and your AI coding agent. Connect your GitHub repo, and our cloud engine builds a living Business Intent Graph of your app. It acts as your Virtual CTO — intercepting your vague prompts, enforcing your rules, and ruthlessly reviewing the AI's code before it ever touches your files.",
   color: "cyan" as const,
-  cli: "code-synapse",
+  cli: "kap10",
   badges: ["SaaS", "Hosted MCP Server"],
   cta: {
     primary: "Join Waitlist",
@@ -21,7 +21,7 @@ export const CODE_SYNAPSE = {
     {
       title: "File-less Blueprint",
       description:
-        "Click a feature block, type what you want, and Code-Synapse generates precise multi-file prompts for the AI. You manage features; we manage the files.",
+        "Click a feature block, type what you want, and kap10 generates precise multi-file prompts for the AI. You manage features; we manage the files.",
     },
     {
       title: "Spaghetti Shield",
@@ -79,4 +79,4 @@ export const NECROMA = {
   ],
 } as const
 
-export const PRODUCTS = [CODE_SYNAPSE, NECROMA] as const
+export const PRODUCTS = [KAP10, NECROMA] as const

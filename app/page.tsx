@@ -3,10 +3,11 @@ import {
   HeroSphere,
   Day2Problem,
   BentoGrid,
-  CodeSynapse,
+  Kap10,
   Necroma,
   SafetyRating,
   Ecosystem,
+  WaitlistSection,
 } from "components/landing"
 import { JsonLd } from "components/shared"
 
@@ -18,10 +19,11 @@ export default function HomePage() {
         <HeroSphere />
         <Day2Problem />
         <BentoGrid />
-        {/* <CodeSynapse /> */}
+        {/* <Kap10 /> */}
         {/* <Necroma /> */}
         <SafetyRating />
         <Ecosystem />
+        <WaitlistSection />
       </main>
       <Footer />
       <JsonLd type="organization" />

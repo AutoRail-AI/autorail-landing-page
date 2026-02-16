@@ -12,13 +12,13 @@ import { cn } from "lib/utils"
 /* ─────────────────────────────────────────────────────────────────────────────
    BentoGrid — Vertically Stacked Architecture Layers
 
-   "Two Layers. One Stack." — Code Synapse (Cyan) on top, Necroma (Purple)
+   "Two Layers. One Stack." — kap10 (Cyan) on top, Necroma (Purple)
    below, connected by a stats backbone. Each product is a full-width glass
    panel with 2-col internal layout (text + code), mirrored for variety.
    ───────────────────────────────────────────────────────────────────────────── */
 
-const SYNAPSE_CODE = `# code-synapse runs alongside your IDE
-$ code-synapse start --watch
+const SYNAPSE_CODE = `# kap10 runs alongside your IDE
+$ kap10 start --watch
 
   ■ MCP server running on stdio
   ■ Knowledge graph: 1,247 nodes
@@ -162,7 +162,7 @@ export function BentoGrid() {
         </div>
 
         <div className="max-w-6xl mx-auto space-y-0">
-          {/* ── Code Synapse Layer ─────────────────────────────────── */}
+          {/* ── kap10 Layer ─────────────────────────────────── */}
           <motion.div
             variants={blurReveal}
             initial="hidden"
@@ -171,13 +171,13 @@ export function BentoGrid() {
           >
             <ProductLayer
               product="synapse"
-              label="code-synapse · CLI Sidecar"
+              label="kap10 · CLI Sidecar"
               title="The Context Layer"
               description="Persistent memory infrastructure for agents. An AST-backed knowledge graph injected directly into your IDE agent via MCP — teaching it your patterns, conventions, and business intent across every session and every developer."
               code={SYNAPSE_CODE}
               renderLine={SynapseLine}
-              href="/code-synapse"
-              ctaText="Explore Code-Synapse"
+              href="/kap10"
+              ctaText="Explore kap10"
               layout="text-left"
               stats={SYNAPSE_STATS}
             />
@@ -335,7 +335,7 @@ function ProductLayer({
             <div className="w-2 h-2 rounded-full bg-[#28C840]" />
           </div>
           <span className="flex-1 text-center text-[10px] font-mono text-white/30 tracking-wider uppercase">
-            {isCyan ? "code-synapse" : "necroma"}
+            {isCyan ? "kap10" : "necroma"}
           </span>
           <div className="w-[52px]" /> {/* Spacer to center the title */}
         </div>
@@ -481,7 +481,7 @@ function SynapseLine({ line, lineNumber, isLast }: { line: string; lineNumber: n
   // Syntax highlighting
   const highlighted = line
     .replace(/(import|from|const|await|async)/g, '<cyan>$1</cyan>')
-    .replace(/("code-synapse"|"payments-api"|"strict")/g, '<str>$1</str>')
+    .replace(/("kap10"|"payments-api"|"strict")/g, '<str>$1</str>')
 
   if (highlighted.includes("<cyan>") || highlighted.includes("<str>")) {
     const parts = highlighted.split(/(<cyan>.*?<\/cyan>|<str>.*?<\/str>)/g)

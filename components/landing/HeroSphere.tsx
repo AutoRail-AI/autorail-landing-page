@@ -4,7 +4,6 @@ import dynamic from "next/dynamic"
 import { motion } from "framer-motion"
 import { ArrowRight, ChevronDown } from "lucide-react"
 import { Container } from "components/ui"
-import { calTriggerProps } from "components/providers"
 import { SECTION_IDS } from "lib/constants"
 import { cn } from "lib/utils"
 
@@ -156,18 +155,18 @@ export function HeroSphere() {
             transition={{ duration: 0.8, delay: 0.36, ease: snap }}
             className="mb-14"
           >
-            <button
-              {...calTriggerProps}
+            <a
+              href="#waitlist"
               className={cn(
-                "inline-flex items-center gap-2 px-8 py-3 rounded-lg font-medium text-sm cursor-pointer",
+                "inline-flex items-center gap-2 px-8 py-3 rounded-lg font-medium text-sm",
                 "bg-transparent border border-electric-cyan/30 text-electric-cyan",
                 "hover:glow-cyan hover:bg-electric-cyan/5",
                 "transition-all duration-300 group",
               )}
             >
-              Get Early Access
+              Join Waitlist
               <ArrowRight className="w-4 h-4 group-hover:translate-x-0.5 transition-transform" />
-            </button>
+            </a>
           </motion.div>
 
           {/* ── Scroll indicator ── */}

@@ -19,13 +19,13 @@ const DAY2 = {
 /* ── Accent Colors ─────────────────────────────────────────────────────── */
 
 const ACCENT = {
-  "code-synapse": { color: "#00E5FF", rgb: "0,229,255", class: "text-electric-cyan", glow: "0 20px 50px -10px rgba(0,229,255,0.15), 0 0 0 1px rgba(255,255,255,0.06)" },
+  "kap10": { color: "#00E5FF", rgb: "0,229,255", class: "text-electric-cyan", glow: "0 20px 50px -10px rgba(0,229,255,0.15), 0 0 0 1px rgba(255,255,255,0.06)" },
   "knowledge-graph": { color: "#00E5FF", rgb: "0,229,255", class: "text-electric-cyan", glow: "0 20px 50px -10px rgba(0,229,255,0.15), 0 0 0 1px rgba(255,255,255,0.06)" },
   necroma: { color: "#6E18B3", rgb: "110,24,179", class: "text-rail-purple", glow: "0 20px 50px -10px rgba(110,24,179,0.2), 0 0 0 1px rgba(255,255,255,0.06)" },
 } as const
 
 function getAccent(productId: string) {
-  return ACCENT[productId as keyof typeof ACCENT] ?? ACCENT["code-synapse"]
+  return ACCENT[productId as keyof typeof ACCENT] ?? ACCENT["kap10"]
 }
 
 const SUBTITLES = [

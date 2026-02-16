@@ -1,16 +1,12 @@
 "use client"
 
-import { useState } from "react"
 import dynamic from "next/dynamic"
 import { motion } from "framer-motion"
 import {
   ArrowRight,
-  Check,
-  CheckCircle,
   FileText,
   Layout,
   Link,
-  Loader2,
   Lock,
   Rocket,
   RotateCcw,
@@ -28,8 +24,8 @@ import {
   AccordionTrigger,
   AccordionContent,
 } from "components/ui"
-import { CODE_SYNAPSE } from "data/products"
-import { SITE_CONFIG } from "lib/constants"
+import { WaitlistForm } from "components/shared"
+import { KAP10 } from "data/products"
 import { blurReveal } from "lib/animations"
 import { cn } from "lib/utils"
 
@@ -112,14 +108,14 @@ const PIPELINE_STEPS = [
     icon: Link,
     title: "Connect",
     description:
-      "Point Code-Synapse at your GitHub/GitLab repo. Our cloud engine indexes your codebase and builds a living Business Intent Graph — modules, conventions, dependencies, and the reasons behind them.",
+      "Point kap10 at your GitHub/GitLab repo. Our cloud engine indexes your codebase and builds a living Business Intent Graph — modules, conventions, dependencies, and the reasons behind them.",
     detail: "Takes minutes. Updates on every push.",
   },
   {
     icon: Shield,
     title: "Supervise",
     description:
-      "Paste your secure Code-Synapse MCP URL into Cursor's settings (or Claude Code, Windsurf, OpenHands). Code-Synapse now sits on the MCP channel — expanding prompts, locking scope, and reviewing every line.",
+      "Paste your secure kap10 MCP URL into Cursor's settings (or Claude Code, Windsurf, OpenHands). kap10 now sits on the MCP channel — expanding prompts, locking scope, and reviewing every line.",
     detail: "One URL. Works with any MCP-compatible agent.",
   },
   {
@@ -154,9 +150,9 @@ const TRUST_PILLARS = [
 
 const FAQ_ITEMS = [
   {
-    question: "Does Code-Synapse slow down my AI?",
+    question: "Does kap10 slow down my AI?",
     answer:
-      "No. Code-Synapse operates on the MCP channel with overhead under 200ms. Your coding flow feels identical; the output is just dramatically better.",
+      "No. kap10 operates on the MCP channel with overhead under 200ms. Your coding flow feels identical; the output is just dramatically better.",
   },
   {
     question: "Can I still prompt my AI directly when I want to?",
@@ -171,7 +167,7 @@ const FAQ_ITEMS = [
   {
     question: "Does it work with my IDE?",
     answer:
-      "If your agent supports the open Model Context Protocol (MCP)\u2014like Cursor, Claude Code, or Windsurf\u2014Code-Synapse works out of the box. One URL, any agent.",
+      "If your agent supports the open Model Context Protocol (MCP)\u2014like Cursor, Claude Code, or Windsurf\u2014kap10 works out of the box. One URL, any agent.",
   },
 ]
 
@@ -200,126 +196,6 @@ const NeuralConstellation = dynamic(
   },
 )
 
-type FormState = "idle" | "loading" | "success" | "error"
-
-function WaitlistForm({ showBenefits = false }: { showBenefits?: boolean }) {
-  const [email, setEmail] = useState("")
-  const [state, setState] = useState<FormState>("idle")
-  const [errorMsg, setErrorMsg] = useState("")
-
-  async function handleSubmit(e: React.FormEvent) {
-    e.preventDefault()
-    if (!email) return
-
-    setState("loading")
-    setErrorMsg("")
-
-    try {
-      const res = await fetch("/api/waitlist", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ email }),
-      })
-
-      const data = (await res.json()) as { success?: boolean; error?: string }
-
-      if (!res.ok) {
-        setState("error")
-        setErrorMsg(data.error || "Something went wrong.")
-        return
-      }
-
-      setState("success")
-    } catch {
-      setState("error")
-      setErrorMsg("Network error. Please try again.")
-    }
-  }
-
-  return (
-    <div>
-      {state === "success" ? (
-        <div className="flex flex-col items-center gap-3 py-4">
-          <CheckCircle className="w-8 h-8 text-success" />
-          <p className="text-white font-medium text-lg">
-            You&apos;re on the list.
-          </p>
-          <p className="text-white/50 text-sm">
-            We&apos;ll reach out when your seat is ready.
-          </p>
-        </div>
-      ) : (
-        <form
-          onSubmit={handleSubmit}
-          className="flex flex-col sm:flex-row gap-3"
-        >
-          <input
-            type="email"
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
-            placeholder="you@company.com"
-            required
-            disabled={state === "loading"}
-            className={cn(
-              "flex-1 px-4 py-3 rounded-lg text-sm text-white placeholder:text-white/30 font-mono",
-              "bg-white/[0.04] border border-white/[0.12]",
-              "focus:outline-none focus:border-electric-cyan/40 focus:ring-1 focus:ring-electric-cyan/20",
-              "transition-all duration-200",
-              "disabled:opacity-50",
-            )}
-          />
-          <button
-            type="submit"
-            disabled={state === "loading"}
-            className={cn(
-              "inline-flex items-center justify-center gap-2 px-6 py-3 rounded-lg font-medium text-sm cursor-pointer shrink-0",
-              "bg-transparent border border-electric-cyan/30 text-electric-cyan",
-              "hover:glow-cyan hover:bg-electric-cyan/5",
-              "transition-all duration-300",
-              "disabled:opacity-50 disabled:cursor-not-allowed",
-            )}
-          >
-            {state === "loading" ? (
-              <>
-                <Loader2 className="w-4 h-4 animate-spin" />
-                Joining...
-              </>
-            ) : (
-              <>
-                Join Waitlist
-                <ArrowRight className="w-4 h-4" />
-              </>
-            )}
-          </button>
-        </form>
-      )}
-
-      {state === "error" && (
-        <p className="mt-3 text-sm text-red-400">{errorMsg}</p>
-      )}
-
-      {showBenefits && state !== "success" && (
-        <div className="mt-6 pt-5 border-t border-white/[0.06]">
-          <p className="text-xs font-mono uppercase tracking-wider text-white/30 mb-3">
-            Why join early?
-          </p>
-          <ul className="flex flex-col gap-2">
-            {[
-              "Founding member pricing — locked in forever",
-              "Personal onboarding call with the team",
-              "Shape the product roadmap with direct access",
-            ].map((benefit) => (
-              <li key={benefit} className="flex items-center gap-2 text-sm text-white/50">
-                <Check className="w-3.5 h-3.5 text-electric-cyan/60 shrink-0" />
-                {benefit}
-              </li>
-            ))}
-          </ul>
-        </div>
-      )}
-    </div>
-  )
-}
 
 function EarlyAccessSection() {
   return (
@@ -338,7 +214,7 @@ function EarlyAccessSection() {
             Early Access
           </p>
           <h2 className="text-display-m text-white mb-4">
-            Be the first to try Code-Synapse.
+            Be the first to try kap10.
           </h2>
           <p className="text-white/50 text-lg max-w-xl mx-auto leading-relaxed">
             Join the waitlist. We&apos;ll onboard you personally when your seat
@@ -364,7 +240,7 @@ function EarlyAccessSection() {
   )
 }
 
-export function CodeSynapseProductPage() {
+export function Kap10ProductPage() {
   return (
     <>
       {/* ══════════════════════════════════════════════════════════════════════
@@ -420,7 +296,7 @@ export function CodeSynapseProductPage() {
               transition={{ duration: 0.5, ease: snap }}
               className="flex flex-wrap gap-2 mb-6"
             >
-              {CODE_SYNAPSE.badges.map((badge) => (
+              {KAP10.badges.map((badge) => (
                 <span
                   key={badge}
                   className="px-3 py-1 rounded-full text-xs font-medium bg-electric-cyan/10 text-electric-cyan border border-electric-cyan/20"
@@ -437,7 +313,7 @@ export function CodeSynapseProductPage() {
               transition={{ duration: 0.6, delay: 0.05, ease: snap }}
               className="text-electric-cyan font-mono text-sm tracking-wider uppercase mb-4"
             >
-              {CODE_SYNAPSE.name}
+              {KAP10.name}
             </motion.p>
 
             {/* Headline */}
@@ -447,7 +323,7 @@ export function CodeSynapseProductPage() {
               transition={{ duration: 1.1, delay: 0.1, ease: snap }}
               className="text-display-xl tracking-[-0.03em] mb-6 leading-[0.95]"
             >
-              <span className="text-electric-cyan">{CODE_SYNAPSE.headline}</span>
+              <span className="text-electric-cyan">{KAP10.headline}</span>
             </motion.h1>
 
             {/* Tagline */}
@@ -457,7 +333,7 @@ export function CodeSynapseProductPage() {
               transition={{ duration: 0.8, delay: 0.2, ease: snap }}
               className="font-sans text-xl text-white/80 font-medium max-w-xl mb-3 leading-relaxed"
             >
-              {CODE_SYNAPSE.tagline}
+              {KAP10.tagline}
             </motion.p>
 
             {/* Explanation */}
@@ -467,7 +343,7 @@ export function CodeSynapseProductPage() {
               transition={{ duration: 0.8, delay: 0.3, ease: snap }}
               className="font-sans text-lg text-muted-foreground max-w-xl mb-10 leading-relaxed"
             >
-              Code-Synapse is a hosted MCP server that supervises your AI coding
+              kap10 is a hosted MCP server that supervises your AI coding
               agent — expanding prompts, reviewing output, and preventing
               regressions before they reach your files.
             </motion.p>
@@ -671,7 +547,7 @@ export function CodeSynapseProductPage() {
               You don&apos;t need a faster agent. You need a manager.
             </h2>
             <p className="text-white/50 text-lg max-w-2xl mx-auto leading-relaxed">
-              Connect your GitHub repo, and Code-Synapse maps how your app
+              Connect your GitHub repo, and kap10 maps how your app
               works. We intercept your prompts, enforce architectural rules,
               and ruthlessly review the AI&apos;s code before it ever touches
               your files.
@@ -757,7 +633,7 @@ export function CodeSynapseProductPage() {
                           </motion.g>
 
                           {/* Right side: clean feature blocks */}
-                          <text x="172" y="18" fill="rgba(0,229,255,0.6)" fontSize="8" fontWeight="bold" className="font-mono">Code-Synapse</text>
+                          <text x="172" y="18" fill="rgba(0,229,255,0.6)" fontSize="8" fontWeight="bold" className="font-mono">kap10</text>
                           <rect x="168" y="26" width="120" height="140" rx="4" fill="rgba(0,229,255,0.02)" stroke="rgba(0,229,255,0.12)" strokeWidth="0.5" />
                           {[
                             { y: 38, h: 28, label: "User Login", color: "rgba(0,229,255,0.15)", border: "rgba(0,229,255,0.25)" },
@@ -991,7 +867,7 @@ export function CodeSynapseProductPage() {
               Three steps. Zero install.
             </h2>
             <p className="text-white/50 text-lg max-w-2xl mx-auto leading-relaxed">
-              Code-Synapse is a hosted MCP server. Connect your repo, add the
+              kap10 is a hosted MCP server. Connect your repo, add the
               endpoint to your IDE, and your AI has a Tech Lead.
             </p>
           </motion.div>
@@ -1130,7 +1006,7 @@ export function CodeSynapseProductPage() {
             transition={{ delay: 0.4 }}
             className="mt-10 text-center text-white/40 text-sm italic max-w-xl mx-auto"
           >
-            &ldquo;We built Code-Synapse for builders who take their code
+            &ldquo;We built kap10 for builders who take their code
             seriously. If you wouldn&apos;t trust us with your repo, we
             haven&apos;t earned your business.&rdquo;
           </motion.p>

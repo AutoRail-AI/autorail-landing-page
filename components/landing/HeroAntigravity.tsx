@@ -81,7 +81,7 @@ const HERO = {
   headline: "Vibe Coding, Industrialized.",
   subhead:
     "Stop AI from writing Alien Code. We provide the Context and Verification layers that make autonomous development safe for the enterprise.",
-  primaryCommand: "npm install code-synapse",
+  primaryCommand: "npm install kap10",
   secondaryCta: "Request Necroma Access",
   scrollHint: "See what we stabilize",
 }

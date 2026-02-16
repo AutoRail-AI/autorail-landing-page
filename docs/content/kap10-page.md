@@ -1,13 +1,13 @@
-# Code-Synapse Page — `/code-synapse`
+# kap10 Page — `/kap10`
 
-> **Goal:** Position Code-Synapse as **The AI Tech Lead** — a hosted senior pair programmer that supervises your coding agents (Cursor, Claude Code, Windsurf) so they stop breaking your app.
+> **Goal:** Position kap10 as **The AI Tech Lead** — a hosted senior pair programmer that supervises your coding agents (Cursor, Claude Code, Windsurf) so they stop breaking your app.
 >
 > *"Stop babysitting your AI. Turn your favorite 'Typist' into a Senior Developer."*
 
 ---
 
 ## Product Definition & Enterprise Posture
-**Code-Synapse** is a fully hosted SaaS that sits invisibly between the developer and their coding agent.
+**kap10** is a fully hosted SaaS that sits invisibly between the developer and their coding agent.
 * **For the User:** It provides the frictionless experience of a No-Code builder with the ownership of a custom-coded application.
 * **The Infrastructure:** A highly secure, low-latency, hosted MCP server that builds a living Business Intent Graph of the repository. It reviews AI output against architectural rules in milliseconds.
 
@@ -38,7 +38,7 @@
 | **Badges** | `SaaS` · `Hosted MCP Server` |
 | **Headline** | The AI Tech Lead. |
 | **Tagline** | Stop babysitting your AI. Turn your favorite "Typist" into a Senior Developer. *(styled `text-xl text-white/80 font-medium`)* |
-| **Explanation** | Code-Synapse is a hosted MCP server that supervises your AI coding agent—expanding prompts, reviewing output, and preventing regressions before they reach your files. *(styled `text-lg text-muted-foreground`)* |
+| **Explanation** | kap10 is a hosted MCP server that supervises your AI coding agent—expanding prompts, reviewing output, and preventing regressions before they reach your files. *(styled `text-lg text-muted-foreground`)* |
 | **Primary CTA** | `Join Waitlist` (scrolls to #early-access) |
 | **Micro-copy** | "Limited early access — founding members get personal onboarding." |
 | **Agent Support Bar** | *Dimmed text under CTA:* `Works with:` Cursor · Claude Code · Windsurf · OpenHands |
@@ -95,7 +95,7 @@ Styled: Cyan values (`text-3xl font-grotesk font-bold text-electric-cyan`) + mon
 | --- | --- |
 | **Eyebrow** | `The Solution` |
 | **Headline** | You don't need a faster agent. You need a manager. |
-| **Sub-head** | Connect your GitHub repo, and Code-Synapse maps how your app works. We intercept your prompts, enforce architectural rules, and ruthlessly review the AI's code before it ever touches your files. |
+| **Sub-head** | Connect your GitHub repo, and kap10 maps how your app works. We intercept your prompts, enforce architectural rules, and ruthlessly review the AI's code before it ever touches your files. |
 
 **Bento Grid Cards (1 hero + 2×2):**
 
@@ -116,8 +116,8 @@ Styled: Cyan values (`text-3xl font-grotesk font-bold text-electric-cyan`) + mon
 | **Eyebrow** | `Integration` |
 | **Headline** | Three steps. Zero install. |
 
-* **01. Connect:** Point Code-Synapse at your GitHub repo. Our engine builds a living Business Intent Graph in minutes.
-* **02. Supervise:** Paste your secure Code-Synapse MCP URL into Cursor or Claude Code. Your AI now has a Tech Lead.
+* **01. Connect:** Point kap10 at your GitHub repo. Our engine builds a living Business Intent Graph in minutes.
+* **02. Supervise:** Paste your secure kap10 MCP URL into Cursor or Claude Code. Your AI now has a Tech Lead.
 * **03. Ship:** Merge with confidence. Every line is reviewed, scoped, and verified against hidden behavioral tests.
 
 **Banner below steps:** *"Your AI just got a promotion—from unsupervised intern to managed junior dev."*
@@ -142,7 +142,7 @@ Styled: Cyan values (`text-3xl font-grotesk font-bold text-electric-cyan`) + mon
 | 02 | Server | SOC 2 Compliance | Audit logs, strict access controls, and enterprise-grade retention policies from day one. |
 | 03 | Trash2 | Data Deletion Guarantee | Disconnect your repo, and your data is permanently purged within 24 hours. **No model training on your code—ever.** |
 
-**Bottom Statement:** *"We built Code-Synapse for builders who take their code seriously. If you wouldn't trust us with your repo, we haven't earned your business."*
+**Bottom Statement:** *"We built kap10 for builders who take their code seriously. If you wouldn't trust us with your repo, we haven't earned your business."*
 
 ---
 
@@ -153,7 +153,7 @@ Styled: Cyan values (`text-3xl font-grotesk font-bold text-electric-cyan`) + mon
 | Element | Content |
 | --- | --- |
 | **Eyebrow** | `Early Access` |
-| **Headline** | Be the first to try Code-Synapse. |
+| **Headline** | Be the first to try kap10. |
 | **Sub-head** | Join the waitlist. We'll onboard you personally when your seat is ready. |
 
 **Form:** Email input + "Join Waitlist" button → POST `/api/waitlist` → success state with confirmation. Uses reusable `WaitlistForm` component.
@@ -174,10 +174,10 @@ Styled: Cyan values (`text-3xl font-grotesk font-bold text-electric-cyan`) + mon
 
 | # | Question | Answer |
 | --- | --- | --- |
-| 01 | Does Code-Synapse slow down my AI? | No. Code-Synapse operates on the MCP channel with overhead under 200ms. Your coding flow feels identical; the output is just dramatically better. |
+| 01 | Does kap10 slow down my AI? | No. kap10 operates on the MCP channel with overhead under 200ms. Your coding flow feels identical; the output is just dramatically better. |
 | 02 | Can I still prompt my AI directly when I want to? | Absolutely. You can bypass it, override suggestions, or turn it off for a session. You're always in control. |
 | 03 | My code is proprietary. Is it safe? | Yes. We store your data in an isolated single-tenant partition. We never train models on your code. Disconnect, and your data is wiped within 24 hours. |
-| 04 | Does it work with my IDE? | If your agent supports the open Model Context Protocol (MCP)—like Cursor, Claude Code, or Windsurf—Code-Synapse works out of the box. One URL, any agent. |
+| 04 | Does it work with my IDE? | If your agent supports the open Model Context Protocol (MCP)—like Cursor, Claude Code, or Windsurf—kap10 works out of the box. One URL, any agent. |
 
 ---
 
@@ -199,7 +199,7 @@ Styled: Cyan values (`text-3xl font-grotesk font-bold text-electric-cyan`) + mon
 
 ## Engineering & UI Directives
 
-> **Reference:** See `app/code-synapse/code-synapse-product-page.tsx` and `components/graphics/NeuralConstellation.tsx` for current implementation.
+> **Reference:** See `app/kap10/kap10-product-page.tsx` and `components/graphics/NeuralConstellation.tsx` for current implementation.
 >
 > **Note:** The page fully reflects the "AI Tech Lead" / SaaS MCP server positioning. All sections are implemented. All 5 capability cards have inline SVG/terminal visuals. Waitlist form is reused in both Early Access and Bottom CTA via the `WaitlistForm` component.
 

@@ -29,7 +29,7 @@ export default function TermsPage() {
               </h2>
               <p>
                 By accessing or using the autorail platform, including
-                code-synapse and necroma services (collectively, the
+                kap10 and necroma services (collectively, the
                 &quot;Services&quot;), you agree to be bound by these Terms of
                 Service (&quot;Terms&quot;). If you are using the Services on
                 behalf of an organization, you represent that you have authority
@@ -45,7 +45,7 @@ export default function TermsPage() {
               <p>AutoRail provides AI-powered developer tools:</p>
               <ul className="mt-4 list-disc space-y-2 pl-6">
                 <li>
-                  <strong className="text-cloud-white">code-synapse</strong> —
+                  <strong className="text-cloud-white">kap10</strong> —
                   The Institutional Memory Layer. Enforces coding patterns and
                   conventions so AI-assisted development stays consistent with
                   your established codebase architecture.

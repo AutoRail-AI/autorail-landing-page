@@ -47,7 +47,7 @@ This document outlines the search optimization strategy for the autorail landing
 #### Homepage
 ```html
 <title>autorail | Vibe Coding, Industrialized</title>
-<meta name="description" content="autorail provides the Context and Verification layers that make AI-powered development safe for the enterprise. code-synapse for pattern enforcement, necroma for autonomous legacy reclamation.">
+<meta name="description" content="autorail provides the Context and Verification layers that make AI-powered development safe for the enterprise. kap10 for pattern enforcement, necroma for autonomous legacy reclamation.">
 <meta name="keywords" content="AI agent infrastructure, agent orchestration, stateful AI memory, AI deployment, production AI">
 <link rel="canonical" href="https://autorail.dev">
 ```
@@ -191,7 +191,7 @@ Design content to be extracted and cited by AI models:
 
 #### Entity Definition
 ```
-autorail is the Context and Verification layers for AI-powered development—pattern enforcement (code-synapse) and autonomous legacy reclamation (necroma).
+autorail is the Context and Verification layers for AI-powered development—pattern enforcement (kap10) and autonomous legacy reclamation (necroma).
 ```
 
 #### Problem Statement
@@ -257,7 +257,7 @@ Unlike generic tooling, autorail is purpose-built for industrial safety in vibe 
       "name": "What is autorail?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "autorail is the Context and Verification layers for AI-powered development—code-synapse for pattern enforcement, necroma for autonomous legacy reclamation."
+        "text": "autorail is the Context and Verification layers for AI-powered development—kap10 for pattern enforcement, necroma for autonomous legacy reclamation."
       }
     },
     {
@@ -281,7 +281,7 @@ Unlike generic tooling, autorail is purpose-built for industrial safety in vibe 
 
 Example:
 ```
-autorail is the Context and Verification layers for AI-powered development, including pattern enforcement (code-synapse) and autonomous legacy reclamation (necroma).
+autorail is the Context and Verification layers for AI-powered development, including pattern enforcement (kap10) and autonomous legacy reclamation (necroma).
 ```
 
 #### Comparison Pattern
@@ -301,7 +301,7 @@ Unlike traditional BaaS platforms, autorail is purpose-built for industrial safe
 
 Example:
 ```
-autorail works via code-synapse (pattern enforcement, knowledge graph) and necroma (legacy migration with behavior verification).
+autorail works via kap10 (pattern enforcement, knowledge graph) and necroma (legacy migration with behavior verification).
 ```
 
 ### 3.4 Semantic Clarity Rules

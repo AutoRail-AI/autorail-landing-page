@@ -14,7 +14,7 @@ autorail is the nervous system for the next generation of software engineering�
 
 ## Products
 
-### 🧠 code-synapse — *The Cognitive Engine*
+### 🧠 kap10 — *The Cognitive Engine*
 
 A living knowledge graph that turns your codebase into structured memory for AI agents. Eliminate "Alien Code" with hyper-personalized generation that respects your team's patterns.
 
@@ -22,7 +22,7 @@ A living knowledge graph that turns your codebase into structured memory for AI 
 - **Living Knowledge Graph** — Business intent, not just syntax
 - **Persistent Team Memory** — Context that survives across sessions
 
-> `npm install code-synapse` • [GitHub](https://github.com/AutoRail-AI)
+> `npm install kap10` • [GitHub](https://github.com/AutoRail-AI)
 
 ### 💀 necroma — *The Autonomous Workforce*
 
@@ -81,7 +81,7 @@ pnpm test           # Run unit tests
 | Token | Value | Usage |
 |-------|-------|-------|
 | Void Black | `#0A0A0F` | Background |
-| Electric Cyan | `#00E5FF` | code-synapse |
+| Electric Cyan | `#00E5FF` | kap10 |
 | Rail Purple | `#6E18B3` | necroma |
 | Quantum Violet | `#8134CE` | Accents |
 | Cloud White | `#FAFAFA` | Text |

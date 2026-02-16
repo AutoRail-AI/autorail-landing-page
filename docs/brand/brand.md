@@ -64,7 +64,7 @@ To communicate the **Two Brains** architecture instantly, we separate color usag
 
 | Color | Represents | Use for |
 | :--- | :--- | :--- |
-| **Electric Cyan (`#00E5FF`)** | **New Intelligence** — Code Synapse, Generation, Forward Momentum | Primary buttons, active cursors, generated code, "Ship Ready" confidence |
+| **Electric Cyan (`#00E5FF`)** | **New Intelligence** — kap10, Generation, Forward Momentum | Primary buttons, active cursors, generated code, "Ship Ready" confidence |
 | **Rail Purple (`#6E18B3`)** | **Deep Context** — Necroma, Legacy Analysis, Structure | Background borders, knowledge-graph nodes, "Self-Healing" diagnosis, historical logs |
 
 **Rule:** *Cyan is the Spark. Purple is the Wire.*

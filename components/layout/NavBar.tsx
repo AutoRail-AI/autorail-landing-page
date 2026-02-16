@@ -1,35 +1,22 @@
 "use client"
 
 import { AnimatePresence, motion } from "framer-motion"
-import { Github, Menu, X } from "lucide-react"
+import { Menu, X } from "lucide-react"
 import Image from "next/image"
 import Link from "next/link"
 import { usePathname } from "next/navigation"
 import { useCallback, useEffect, useRef, useState } from "react"
 import { calTriggerProps } from "components/providers"
 import { Container } from "components/ui/Container"
-import { SECTION_IDS, SITE_CONFIG } from "lib/constants"
+import { SECTION_IDS } from "lib/constants"
 import { cn } from "lib/utils"
 
 /* ─────────────────────────────────────────────────────────────────────────────
    NavBar — Context-Aware Sticky Navigation
 
-   Three states driven by pathname + scroll position:
-
-   State A  Home @ Top (scroll < HERO_THRESHOLD)
-            Left: Logo   Center: (empty)   Right: GitHub + CTA
-            Goal → Keep the Hero clean.
-
-   State B  Home @ Scrolled (scroll ≥ HERO_THRESHOLD)
-            Left: Logo   Center: "Products" (fade in)   Right: GitHub + CTA
-            Goal → Allow navigation after user has seen the vision.
-
-   State C  Sub-pages (/code-synapse, /necroma, etc.)
-            Left: Logo → /   Center: (always empty)   Right: GitHub + CTA
-            Goal → Keep user focused on the sub-product content.
-
-   Transitions use pure Tailwind (opacity + pointer-events), no JS animation
-   library for the center link — simpler, fewer dependencies in the hot path.
+   Home @ Top:      Left: Logo   Center: (hidden)      Right: Join Waitlist + Contact Us
+   Home @ Scrolled: Left: Logo   Center: "Products"   Right: Join Waitlist + Contact Us
+   Sub-pages:       Left: Logo → /   Center: (empty)   Right: Join Waitlist + Contact Us
    ───────────────────────────────────────────────────────────────────────────── */
 
 const HERO_THRESHOLD = 600
@@ -58,15 +45,12 @@ export function NavBar() {
   // Derived state
   const isHome = pathname === "/"
   const isScrolled = scrollY > 20
-  const isPastHero = scrollY >= HERO_THRESHOLD
-
-  // State B: home AND past the hero fold
-  const showCenterLink = isHome && isPastHero
+  const showCenterLink = isHome && scrollY >= HERO_THRESHOLD
 
   /* ── Mobile menu ─────────────────────────────────────────────────────── */
 
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
-  const firstFocusRef = useRef<HTMLButtonElement>(null)
+  const firstFocusRef = useRef<HTMLAnchorElement>(null)
 
   const closeMobileMenu = useCallback(() => setIsMobileMenuOpen(false), [])
   const toggleMobileMenu = useCallback(
@@ -136,7 +120,7 @@ export function NavBar() {
             />
           </Link>
 
-          {/* ── Center: "Products" — only on home, fades in past hero ── */}
+          {/* ── Center: "Products" — fades in after scrolling past hero ── */}
           <nav className="hidden md:flex items-center">
             <a
               href={`#${SECTION_IDS.twoBrains}`}
@@ -144,7 +128,7 @@ export function NavBar() {
                 "px-4 py-1.5 rounded-md text-sm font-medium tracking-wide",
                 "transition-all duration-300 ease-out",
                 showCenterLink
-                  ? "opacity-100 translate-y-0 pointer-events-auto text-white/50 hover:text-white/80"
+                  ? "opacity-100 translate-y-0 pointer-events-auto text-white/80 hover:text-white"
                   : "opacity-0 -translate-y-2 pointer-events-none",
               )}
             >
@@ -152,23 +136,19 @@ export function NavBar() {
             </a>
           </nav>
 
-          {/* ── Right: GitHub + CTA ────────────────────────────────────── */}
+          {/* ── Right: CTA ────────────────────────────────────────────── */}
           <div className="hidden md:flex items-center gap-3">
-            <Link
-              href={SITE_CONFIG.githubUrl}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="flex items-center justify-center w-9 h-9 rounded-md bg-white/[0.02] glow-yellow transition-all duration-200 text-warning hover:text-electric-cyan hover:border-electric-cyan/50 hover:shadow-[0_0_15px_rgba(0,229,255,0.2)]"
-              aria-label="GitHub"
+            <a
+              href="#waitlist"
+              className="inline-flex items-center justify-center h-9 px-4 rounded-lg text-sm font-medium font-[family-name:var(--font-grotesk)] bg-transparent border border-electric-cyan/30 text-electric-cyan transition-all duration-200 hover:glow-cyan hover:bg-electric-cyan/5 active:scale-[0.98]"
             >
-              <Github className="w-4 h-4" />
-            </Link>
-
+              Join Waitlist
+            </a>
             <button
               {...calTriggerProps}
-              className="inline-flex items-center justify-center h-9 px-4 rounded-lg text-sm font-medium font-[family-name:var(--font-grotesk)] bg-transparent border border-electric-cyan/30 text-electric-cyan transition-all duration-200 hover:glow-yellow hover:text-warning hover:border-warning/50 hover:bg-warning/5 active:scale-[0.98] cursor-pointer"
+              className="inline-flex items-center justify-center h-9 px-4 rounded-lg text-sm font-medium font-[family-name:var(--font-grotesk)] bg-transparent border border-warning/30 text-warning transition-all duration-200 hover:glow-yellow hover:bg-warning/5 active:scale-[0.98] cursor-pointer"
             >
-              Get Early Access
+              Contact Us
             </button>
           </div>
 
@@ -214,7 +194,7 @@ export function NavBar() {
                 </motion.div>
               )}
 
-              {/* GitHub + CTA */}
+              {/* CTAs */}
               <motion.div
                 initial={{ opacity: 0, x: -16 }}
                 animate={{ opacity: 1, x: 0 }}
@@ -223,26 +203,22 @@ export function NavBar() {
                   duration: 0.25,
                   ease: "easeOut",
                 }}
-                className="flex items-center gap-3 mt-6"
+                className="flex flex-col gap-3 mt-6"
               >
-                <Link
-                  href={SITE_CONFIG.githubUrl}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  onClick={closeMobileMenu}
-                  className="flex items-center justify-center w-11 h-11 rounded-md bg-white/[0.02] glow-yellow transition-all text-warning hover:text-electric-cyan hover:border-electric-cyan/50 hover:shadow-[0_0_15px_rgba(0,229,255,0.2)]"
-                  aria-label="GitHub"
-                >
-                  <Github className="w-5 h-5" />
-                </Link>
-
-                <button
+                <a
                   ref={firstFocusRef}
+                  href="#waitlist"
+                  onClick={closeMobileMenu}
+                  className="flex-1 inline-flex items-center justify-center h-11 px-4 rounded-lg text-sm font-medium font-[family-name:var(--font-grotesk)] bg-transparent border border-electric-cyan/30 text-electric-cyan transition-all duration-200 hover:glow-cyan hover:bg-electric-cyan/5 active:scale-[0.98]"
+                >
+                  Join Waitlist
+                </a>
+                <button
                   {...calTriggerProps}
                   onClick={closeMobileMenu}
-                  className="flex-1 inline-flex items-center justify-center h-11 px-4 rounded-lg text-sm font-medium font-[family-name:var(--font-grotesk)] bg-transparent border border-electric-cyan/30 text-electric-cyan transition-all duration-200 hover:glow-yellow hover:text-warning hover:border-warning/50 hover:bg-warning/5 active:scale-[0.98] cursor-pointer"
+                  className="flex-1 inline-flex items-center justify-center h-11 px-4 rounded-lg text-sm font-medium font-[family-name:var(--font-grotesk)] bg-transparent border border-warning/30 text-warning transition-all duration-200 hover:glow-yellow hover:bg-warning/5 active:scale-[0.98] cursor-pointer"
                 >
-                  Get Early Access
+                  Contact Us
                 </button>
               </motion.div>
             </div>

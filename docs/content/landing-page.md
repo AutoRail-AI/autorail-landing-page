@@ -4,7 +4,7 @@
 > The platform that makes autonomous engineering seamless — persistent context, behavioral verification, and self-healing built into the development lifecycle.
 >
 > **Products:**
-> - Code-Synapse (CLI Sidecar for IDEs) — The Context Layer
+> - kap10 (CLI Sidecar for IDEs) — The Context Layer
 > - Necroma (Web Portal for Legacy) — The Migration Layer
 >
 > **Audience:** Engineering leaders evaluating AI-assisted development at scale. They've tried Cursor/Copilot and hit the "Day 2" wall.
@@ -24,7 +24,7 @@
 └─────────────────────────────────────────────────────────────────────┘
 ```
 
-> **Note:** The CodeSynapse and Necroma landing sections (previously between BentoGrid and SafetyRating) are currently **commented out** in `app/page.tsx`. Users navigate directly to `/code-synapse` and `/necroma` via the BentoGrid CTAs.
+> **Note:** The Kap10 and Necroma landing sections (previously between BentoGrid and SafetyRating) are currently **commented out** in `app/page.tsx`. Users navigate directly to `/kap10` and `/necroma` via the BentoGrid CTAs.
 
 ---
 
@@ -95,17 +95,17 @@ Each block has: step number (35% accent opacity), icon badge with glow, title, s
 
 ## Section 3 — The Solution: BentoGrid ("Two Layers. One Stack.")
 
-> **Purpose:** Position the two products as layers of a unified infrastructure stack. Code-Synapse is the low-friction wedge (individual devs install it today). Necroma is the enterprise expansion play (CIO buys it for a $5M migration).
+> **Purpose:** Position the two products as layers of a unified infrastructure stack. kap10 is the low-friction wedge (individual devs install it today). Necroma is the enterprise expansion play (CIO buys it for a $5M migration).
 
 ### Layout: Vertically Stacked Layers with Prominent Stats
 
-Each product is a **full-width glass panel** with 2-column internal layout (text + code snippet). Code-Synapse has text left / code right; Necroma mirrors with code left / text right. Stats are embedded directly inside each product card as large, prominent numbers. A particle backbone divider connects the two layers.
+Each product is a **full-width glass panel** with 2-column internal layout (text + code snippet). kap10 has text left / code right; Necroma mirrors with code left / text right. Stats are embedded directly inside each product card as large, prominent numbers. A particle backbone divider connects the two layers.
 
 ```
 ┌─────────────────────────────────────────────┐
 │            Header: "Two Layers. One Stack." │
 ├─────────────────────────────────────────────┤
-│  ┌─ Code-Synapse Layer ──────────────────┐  │
+│  ┌─ kap10 Layer ──────────────────┐  │
 │  │  Description + CTA  |  [CLI snippet]  │  │
 │  │  ─── 90%  3x  0 (large numbers) ──── │  │
 │  └───────────────────────────────────────┘  │
@@ -142,11 +142,11 @@ Each product is a **full-width glass panel** with 2-column internal layout (text
 
 | Layer | Color | Label | Title | Description | Code Snippet | CTA |
 |---|---|---|---|---|---|---|
-| Code-Synapse | Cyan | `code-synapse · CLI Sidecar` | The Context Layer | Persistent memory infrastructure for agents. An AST-backed knowledge graph injected directly into your IDE agent via MCP — teaching it your patterns, conventions, and business intent across every session and every developer. | CLI terminal: `code-synapse start --watch` | `Explore Code-Synapse →` → `/code-synapse` |
+| kap10 | Cyan | `kap10 · CLI Sidecar` | The Context Layer | Persistent memory infrastructure for agents. An AST-backed knowledge graph injected directly into your IDE agent via MCP — teaching it your patterns, conventions, and business intent across every session and every developer. | CLI terminal: `kap10 start --watch` | `Explore kap10 →` → `/kap10` |
 | Necroma | Purple | `necroma · Web Portal` | The Migration Layer | Autonomous legacy reclamation. Records DOM events and user flows, generates Playwright tests from observed behavior, and forces the AI to write code until the tests pass. Not syntax translation — behavioral reconstruction. | Terminal: `necroma migrate --verify` | `Explore Necroma →` → `/necroma` |
 
 **Stats (large numbers inside product cards):**
-- Code-Synapse: 90% less alien code · 3x faster onboarding · 0 Day-2 surprises
+- kap10: 90% less alien code · 3x faster onboarding · 0 Day-2 surprises
 - Necroma: 147 modules scanned · 99.7% behavior preserved
 
 **Tech Stack (bottom pills):** MCP, CozoDB, LangGraph, TypeScript, OpenHands
@@ -210,7 +210,7 @@ Infinite horizontal scroll with high-visibility text. Dual-row marquee: primary 
 AutoRail — Autonomous Engineering Infrastructure
 
 Products          Resources          Company
-code-synapse      Documentation      About
+kap10      Documentation      About
 necroma           GitHub             Enterprise
 Safety Rating     Status             Contact
 Ecosystem
@@ -229,8 +229,8 @@ Ecosystem
 │  2. PROBLEM      →  Zig-zag panels: 3 collapses with cinematic   │
 │                     visuals (terminal/graph) alternating L/R      │
 │  3. STACK        →  BentoGrid: Vertically stacked product layers │
-│                     ├─ Code-Synapse = Context Layer (full-width) │
-│                     │  CTA: "Explore Code-Synapse →" → /code-synapse│
+│                     ├─ kap10 = Context Layer (full-width) │
+│                     │  CTA: "Explore kap10 →" → /kap10│
 │                     ├─ Stats embedded as large numbers in cards   │
 │                     └─ Necroma = Migration Layer (full-width)    │
 │                        CTA: "Explore Necroma →" → /necroma       │
