@@ -15,7 +15,12 @@ const config: NextConfig = {
     { source: "/api/healthz", destination: "/api/health" },
     { source: "/health", destination: "/api/health" },
     { source: "/ping", destination: "/api/health" },
+    // PostHog reverse proxy
+    { source: "/ingest/static/:path*", destination: "https://us-assets.i.posthog.com/static/:path*" },
+    { source: "/ingest/:path*", destination: "https://us.i.posthog.com/:path*" },
   ],
+  // Required to support PostHog trailing slash API requests
+  skipTrailingSlashRedirect: true,
 }
 
 export default env.ANALYZE ? withBundleAnalyzer({ enabled: env.ANALYZE })(config) : config

@@ -2,6 +2,7 @@ import { NextResponse } from "next/server"
 import { z } from "zod"
 import { GoogleAuth } from "google-auth-library"
 import { env } from "../../../env.mjs"
+import { getPostHogClient } from "lib/posthog-server"
 
 const bodySchema = z.object({
   email: z.string().email(),
@@ -62,15 +63,64 @@ export async function POST(request: Request) {
     if (!res.ok) {
       const text = await res.text()
       console.error("Google Sheets API error:", text)
+
+      // Track server-side signup failure
+      const posthog = getPostHogClient()
+      posthog.capture({
+        distinctId: email,
+        event: "waitlist_signup_failed",
+        properties: {
+          email_domain: email.split("@")[1],
+          error_type: "google_sheets_api_error",
+          source: "server",
+        },
+      })
+      await posthog.shutdown()
+
       return NextResponse.json(
         { error: "Failed to join waitlist. Please try again." },
         { status: 500 },
       )
     }
 
+    // Track successful server-side signup and identify user
+    const posthog = getPostHogClient()
+    posthog.capture({
+      distinctId: email,
+      event: "waitlist_signup_completed",
+      properties: {
+        email_domain: email.split("@")[1],
+        product: "kap10",
+        source: "server",
+      },
+    })
+    posthog.identify({
+      distinctId: email,
+      properties: {
+        email: email,
+        waitlist_joined_at: new Date().toISOString(),
+        product_interest: "kap10",
+      },
+    })
+    await posthog.shutdown()
+
     return NextResponse.json({ success: true })
   } catch (err) {
     console.error("Waitlist error:", err)
+
+    // Track unexpected server error
+    const posthog = getPostHogClient()
+    posthog.capture({
+      distinctId: "anonymous",
+      event: "waitlist_signup_failed",
+      properties: {
+        error_type: "unexpected_error",
+        error_message: err instanceof Error ? err.message : "Unknown error",
+        source: "server",
+      },
+    })
+    await posthog.shutdown()
+
     return NextResponse.json(
       { error: "Something went wrong. Please try again." },
       { status: 500 },

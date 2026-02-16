@@ -2,6 +2,7 @@
 
 import { useState } from "react"
 import { ArrowRight, Check, CheckCircle, Loader2 } from "lucide-react"
+import posthog from "posthog-js"
 import { cn } from "lib/utils"
 
 type FormState = "idle" | "loading" | "success" | "error"
@@ -30,13 +31,38 @@ export function WaitlistForm({ showBenefits = false }: { showBenefits?: boolean 
       if (!res.ok) {
         setState("error")
         setErrorMsg(data.error || "Something went wrong.")
+
+        // Track waitlist form error
+        posthog.capture("waitlist_form_error", {
+          error_message: data.error || "Something went wrong.",
+          email_domain: email.split("@")[1],
+        })
         return
       }
 
       setState("success")
-    } catch {
+
+      // Track successful waitlist submission and identify user
+      posthog.capture("waitlist_form_submitted", {
+        email_domain: email.split("@")[1],
+        has_benefits_shown: showBenefits,
+      })
+
+      // Identify user by email for future tracking
+      posthog.identify(email, {
+        email: email,
+        source: "waitlist",
+      })
+    } catch (error) {
       setState("error")
       setErrorMsg("Network error. Please try again.")
+
+      // Track network error
+      posthog.capture("waitlist_form_error", {
+        error_message: "Network error",
+        email_domain: email.split("@")[1],
+      })
+      posthog.captureException(error)
     }
   }
 

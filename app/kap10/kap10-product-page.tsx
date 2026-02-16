@@ -20,6 +20,7 @@ import {
   Video,
   Zap,
 } from "lucide-react"
+import posthog from "posthog-js"
 import {
   Container,
   Accordion,
@@ -957,6 +958,13 @@ export function Kap10ProductPage() {
               <div className="flex flex-wrap items-center gap-4">
                 <a
                   href="#early-access"
+                  onClick={() => {
+                    posthog.capture("product_page_cta_clicked", {
+                      product: "kap10",
+                      cta_text: "Join Waitlist",
+                      cta_location: "hero",
+                    })
+                  }}
                   className={cn(
                     "inline-flex items-center gap-2 px-8 py-3 rounded-lg font-medium text-sm cursor-pointer",
                     "bg-transparent border border-electric-cyan/30 text-electric-cyan",

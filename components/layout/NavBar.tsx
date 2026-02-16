@@ -5,6 +5,7 @@ import { Menu, X } from "lucide-react"
 import Image from "next/image"
 import Link from "next/link"
 import { usePathname } from "next/navigation"
+import posthog from "posthog-js"
 import { useCallback, useEffect, useRef, useState } from "react"
 import { calTriggerProps } from "components/providers"
 import { Container } from "components/ui/Container"
@@ -146,6 +147,12 @@ export function NavBar() {
             </a>
             <button
               {...calTriggerProps}
+              onClick={() => {
+                posthog.capture("contact_us_clicked", {
+                  location: "navbar_desktop",
+                  page: pathname,
+                })
+              }}
               className="inline-flex items-center justify-center h-9 px-4 rounded-lg text-sm font-medium font-[family-name:var(--font-grotesk)] bg-transparent border border-warning/30 text-warning transition-all duration-200 hover:glow-yellow hover:bg-warning/5 active:scale-[0.98] cursor-pointer"
             >
               Contact Us
@@ -154,7 +161,14 @@ export function NavBar() {
 
           {/* ── Mobile hamburger ───────────────────────────────────────── */}
           <button
-            onClick={toggleMobileMenu}
+            onClick={() => {
+              if (!isMobileMenuOpen) {
+                posthog.capture("mobile_menu_opened", {
+                  page: pathname,
+                })
+              }
+              toggleMobileMenu()
+            }}
             className="md:hidden text-white p-2"
             aria-label={isMobileMenuOpen ? "Close menu" : "Open menu"}
             aria-expanded={isMobileMenuOpen}
@@ -215,7 +229,13 @@ export function NavBar() {
                 </a>
                 <button
                   {...calTriggerProps}
-                  onClick={closeMobileMenu}
+                  onClick={() => {
+                    posthog.capture("contact_us_clicked", {
+                      location: "navbar_mobile",
+                      page: pathname,
+                    })
+                    closeMobileMenu()
+                  }}
                   className="flex-1 inline-flex items-center justify-center h-11 px-4 rounded-lg text-sm font-medium font-[family-name:var(--font-grotesk)] bg-transparent border border-warning/30 text-warning transition-all duration-200 hover:glow-yellow hover:bg-warning/5 active:scale-[0.98] cursor-pointer"
                 >
                   Contact Us

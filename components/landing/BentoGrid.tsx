@@ -4,6 +4,7 @@ import { useEffect, useRef, useState } from "react"
 import Link from "next/link"
 import { motion, useInView, useMotionValue, animate } from "framer-motion"
 import { ArrowRight } from "lucide-react"
+import posthog from "posthog-js"
 import { Container } from "components/ui"
 import { SECTION_IDS } from "lib/constants"
 import { blurReveal, staggerContainer, cardItem } from "lib/animations"
@@ -305,6 +306,13 @@ function ProductLayer({
       </p>
       <Link
         href={href}
+        onClick={() => {
+          posthog.capture("product_explored", {
+            product: product === "synapse" ? "kap10" : "necroma",
+            cta_text: ctaText,
+            source: "bento_grid",
+          })
+        }}
         className={cn(
           "inline-flex items-center gap-2 px-6 py-2.5 rounded-lg font-medium text-sm",
           "bg-transparent border", ctaBorder, labelColor,

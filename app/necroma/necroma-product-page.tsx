@@ -13,6 +13,7 @@ import {
   ShieldCheck,
   X,
 } from "lucide-react"
+import posthog from "posthog-js"
 import { Container } from "components/ui"
 import { calTriggerProps } from "components/providers"
 import { GlassBrainShowcase } from "components/glass-brain"
@@ -165,6 +166,13 @@ export function NecromaProductPage() {
               <button
                 type="button"
                 {...calTriggerProps}
+                onClick={() => {
+                  posthog.capture("necroma_demo_requested", {
+                    product: "necroma",
+                    cta_location: "hero",
+                    cta_text: NECROMA.cta.primary,
+                  })
+                }}
                 className={cn(
                   "inline-flex items-center gap-2 px-8 py-3 rounded-lg font-medium text-sm cursor-pointer",
                   "bg-transparent border border-rail-purple/30 text-rail-purple",
@@ -842,6 +850,13 @@ export function NecromaProductPage() {
                 <button
                   type="button"
                   {...calTriggerProps}
+                  onClick={() => {
+                    posthog.capture("necroma_demo_requested", {
+                      product: "necroma",
+                      cta_location: "bottom_cta",
+                      cta_text: NECROMA.cta.primary,
+                    })
+                  }}
                   className={cn(
                     "inline-flex items-center gap-2 px-8 py-4 rounded-lg font-medium text-sm cursor-pointer",
                     "border border-rail-purple/30 bg-transparent text-rail-purple",

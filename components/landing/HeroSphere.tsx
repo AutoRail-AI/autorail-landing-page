@@ -3,6 +3,7 @@
 import dynamic from "next/dynamic"
 import { motion } from "framer-motion"
 import { ArrowRight, ChevronDown } from "lucide-react"
+import posthog from "posthog-js"
 import { Container } from "components/ui"
 import { SECTION_IDS } from "lib/constants"
 import { cn } from "lib/utils"
@@ -157,6 +158,13 @@ export function HeroSphere() {
           >
             <a
               href="#waitlist"
+              onClick={() => {
+                posthog.capture("cta_clicked", {
+                  cta_text: "Join Waitlist",
+                  cta_location: "hero",
+                  destination: "#waitlist",
+                })
+              }}
               className={cn(
                 "inline-flex items-center gap-2 px-8 py-3 rounded-lg font-medium text-sm",
                 "bg-transparent border border-electric-cyan/30 text-electric-cyan",
