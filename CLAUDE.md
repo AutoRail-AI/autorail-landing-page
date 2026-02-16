@@ -31,19 +31,33 @@ pnpm format              # Prettier write
 - `components/landing/` — Page sections: Hero, Day2Problem, Kap10, Necroma, SafetyRating, Ecosystem, CTASection (barrel export via `index.ts`)
 - `components/layout/` — NavBar, Footer
 - `components/ui/` — Shared primitives (Button, Badge, Card, Container, SectionHeader, Accordion, Icon) with barrel export
-- `components/shared/` — GradientText, JsonLd
+- `components/shared/` — GradientText, JsonLd, WaitlistForm
 - `components/graphics/` — HeroVisual, FlowDiagram, GradientMesh, ProcessSteps
 - `components/providers/` — MotionProvider (wraps app in `LazyMotion` with `domAnimation`)
-- `lib/` — `utils.ts` (cn helper), `constants.ts` (SITE_CONFIG, CTA_TEXT, SECTION_IDS), `animations.ts` (Framer Motion variant presets)
+- `lib/` — `utils.ts` (cn helper), `constants.ts` (SITE_CONFIG, CTA_TEXT, SECTION_IDS), `animations.ts` (Framer Motion variant presets), `posthog-server.ts` (server-side PostHog client)
 - `data/` — Content data files (navigation, personas, process-steps, products)
 
 - `styles/tailwind.css` — Design system: Tailwind v4 `@theme` block with all color tokens, fonts, animations, and utility classes
+
+### Analytics — PostHog
+- **Client-side**: Initialized via `instrumentation-client.ts` (Next.js 16 pattern). Import `posthog` from `posthog-js` directly in client components — do NOT use a provider/context wrapper.
+- **Server-side**: `lib/posthog-server.ts` exports `getPostHogClient()` for API routes (uses `posthog-node`).
+- **Reverse proxy**: `/ingest` path rewrites to PostHog in `next.config.ts` to avoid ad blockers.
+- **Env vars**: `NEXT_PUBLIC_POSTHOG_KEY`, `NEXT_PUBLIC_POSTHOG_HOST` in `.env.local`.
+- **Events tracked**: `cta_clicked`, `product_page_cta_clicked`, `necroma_demo_requested`, `product_explored`, `contact_us_clicked`, `mobile_menu_opened`, `waitlist_form_submitted`, `waitlist_form_error`, `waitlist_signup_completed`, `waitlist_signup_failed`.
+
+### SEO Infrastructure
+- `public/robots.txt` — AI bots (GPTBot, ClaudeBot, PerplexityBot) explicitly allowed
+- `public/llms.txt` — Entity definitions, features, links for LLM crawlers
+- `public/sitemap.xml` — Auto-generated via `next-sitemap` on `postbuild`
+- `components/shared/JsonLd.tsx` — 6 schema types: `organization`, `software-kap10`, `software-necroma`, `webpage`, `faq-kap10`, `howto-spaghetti`
+- Strategy doc: `docs/seo-aeo-geo-strategy.md`
 
 ### Component Patterns
 - UI components use `cva` (class-variance-authority) for variants with `cn()` for merging
 - All animated components are `"use client"` and use `framer-motion` directly
 - Import from barrel files: `components/ui`, `components/landing`, `components/layout`, `components/shared`
-- Environment variables validated via `@t3-oss/env-nextjs` in `env.mjs` (only `ANALYZE` currently)
+- Environment variables validated via `@t3-oss/env-nextjs` in `env.mjs` (`ANALYZE`, `NEXT_PUBLIC_POSTHOG_KEY`, `NEXT_PUBLIC_POSTHOG_HOST`)
 
 ### Styling System
 Tailwind CSS v4 with custom `@theme` tokens in `styles/tailwind.css`. Key custom utilities:
