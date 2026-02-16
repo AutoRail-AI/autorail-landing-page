@@ -41,8 +41,8 @@ export const FOOTER_COLUMNS: FooterColumn[] = [
   {
     title: "Company",
     links: [
-      { label: "About", href: "/about", comingSoon: true },
-      { label: "Enterprise", href: "mailto:enterprise@autorail.dev", external: true },
+      { label: "About", href: "/team" },
+      { label: "Enterprise", href: "mailto:jaswanth@autorail.dev", external: true },
       { label: "Contact", href: "mailto:jaswanth@autorail.dev", external: true },
     ],
   },

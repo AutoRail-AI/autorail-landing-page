@@ -307,24 +307,24 @@ export function Kap10ProductPage() {
             </motion.div>
 
             {/* Product name */}
-            <motion.p
+            <motion.h1
               initial={{ opacity: 0, y: 16, filter: "blur(6px)" }}
               animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
               transition={{ duration: 0.6, delay: 0.05, ease: snap }}
-              className="text-electric-cyan font-mono text-sm tracking-wider uppercase mb-4"
+              className="text-display-xl tracking-[-0.03em] leading-[0.95] mb-3 text-electric-cyan font-grotesk"
             >
               {KAP10.name}
-            </motion.p>
+            </motion.h1>
 
-            {/* Headline */}
-            <motion.h1
+            {/* Headline / tagline */}
+            <motion.p
               initial={{ opacity: 0, y: 32, filter: "blur(10px)" }}
               animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
               transition={{ duration: 1.1, delay: 0.1, ease: snap }}
-              className="text-display-xl tracking-[-0.03em] mb-6 leading-[0.95]"
+              className="text-xl md:text-2xl font-medium text-white/50 mb-6 font-grotesk"
             >
-              <span className="text-electric-cyan">{KAP10.headline}</span>
-            </motion.h1>
+              {KAP10.headline}
+            </motion.p>
 
             {/* Tagline */}
             <motion.p
