@@ -1,8 +1,8 @@
-# Project Lazarus Brand Guidelines
+# autorail Brand Guidelines
 
-**"The Legacy Code Necromancer"**
+**Autonomous Engineering Infrastructure**
 
-This document defines the visual identity for **Project Lazarus**. The aesthetic is "Void Black + Rail Purple"—utilizing a deep void-black palette with rail purple and electric cyan accents to create a "Glass Brain" aesthetic that conveys autonomous intelligence, transmutation, and modern software engineering.
+This document defines the visual identity for **autorail**. The aesthetic is "Void Black + Industrial Glass"—utilizing a deep void-black palette with rail purple and electric cyan accents to create a structural, engineering-grade interface that conveys governance, verification, and machine precision. Two products share this system: **kap10** (Electric Cyan) and **necroma** (Rail Purple).
 
 ---
 
@@ -27,47 +27,68 @@ This limited palette is implemented in `styles/tailwind.css` and across all land
 
 | Element | Definition |
 | :--- | :--- |
-| **Name** | Project Lazarus |
-| **Tagline** | The Legacy Code Necromancer |
-| **Concept** | Autonomous AI platform that transmutes legacy software into modern web applications |
-| **Vibe** | Void Black, Glass Brain, Rail Purple, Electric Cyan, Transmutation |
+| **Name** | autorail |
+| **Tagline** | Autonomous Engineering Infrastructure |
+| **Products** | kap10 (The AI Tech Lead — cyan) · necroma (The Migration Layer — purple) |
+| **Concept** | Platform providing governance infrastructure for AI-powered development — persistent context, behavioral verification, and self-healing built into the development lifecycle |
+| **Vibe** | Void Black, Industrial Glass, Rail Purple, Electric Cyan, Machine Precision |
 
 ---
 
-## 2. Brand Voice: The "Civilized Alchemist"
+## 2. Brand Voice: Three-Tier System
 
-We use the language of **transmutation**, with the tone of a **structural engineer**—so we don't scare off the bank manager.
+autorail speaks with three distinct voices depending on context. All three share the same structural-engineering tone — authoritative, matter-of-fact, proof-driven — but differ in register and terminology.
+
+### 2.1 Platform Voice: The Structural Engineer
+
+**Tone:** Authoritative, matter-of-fact, infrastructure-grade. This is the voice of the parent brand — used for the main landing page, company-level messaging, and cross-product content.
+
+**Keywords:** *Infrastructure, Governance, Autonomous, Verification, Self-Healing.*
+
+### 2.2 kap10 Voice: The AI Tech Lead
+
+**Tone:** Direct, confident, developer-friendly. Speaks to individual developers and small teams who are already using AI coding agents (Cursor, Claude Code, Windsurf) and hitting the "Day 2" wall.
+
+**Keywords:** *Supervise, Review, Enforce, Ship, Context.*
+
+### 2.3 necroma Voice: The Migration Architect
+
+**Tone:** Precise, enterprise-confident, proof-driven. Speaks to CIOs and enterprise architects managing legacy Java/COBOL/.NET systems. Every claim is backed by behavioral verification.
+
+**Keywords:** *Behavioral, Reconstruct, Verify, Modernize, Vertical Slice.*
+
+### Do / Don't
 
 | Don't say | Do say |
 | :--- | :--- |
-| "We use magic to fix your code." | "We transmute legacy debt into modern assets using deterministic verification." |
-| "The AI guesses the fix." | "The agent diagnoses the root cause and synthesizes a correction." |
-
-**Keywords:** *Transmute, Synthesize, Verify, Ground Truth, Deterministic, Reincarnate.*
+| "We use magic to fix your code." | "We provide the execution infrastructure to test, verify, and reliably ship autonomous code." |
+| "The AI guesses the fix." | "The agent is supervised by architectural rules and behavioral verification." |
+| "Instant migration." | "See your first production-ready feature in days, not quarters." |
+| "We replace your developers." | "We provide the guardrails so your team ships faster with AI." |
 
 ---
 
 ## 3. Color Philosophy
 
-### The "Glass Brain" Aesthetic
+### The "Industrial Glass" Aesthetic
 
-Our color system creates a deep, immersive environment where **void black backgrounds** provide high contrast for **rail purple** and **electric cyan** elements. The "Glass Brain" concept visualizes the AI's cognition (Plan, Work, Thoughts) through translucent panels and glowing accents.
+Our color system creates a deep, immersive environment where **void black backgrounds** provide high contrast for **rail purple** and **electric cyan** elements. The Industrial Glass concept frames the UI as a structural, engineering-grade HUD — translucent panels, sharp borders, and confidence-reactive glows.
 
-**Why this works for Project Lazarus:**
-- **Void Black (#0A0A0F)**: Represents the "void" from which legacy code is brought back to life.
-- **Rail Purple (#6E18B3)**: Represents the "rail" or guided path of transmutation.
-- **Electric Cyan (#00E5FF)**: Represents the spark of intelligence and modern technology.
+**Why this works for autorail:**
+- **Void Black (#0A0A0F)**: The production floor. The dark, stable foundation on which everything is built and tested.
+- **Rail Purple (#6E18B3)**: necroma's domain — deep context, legacy analysis, structural verification, the "wire" that connects past to future.
+- **Electric Cyan (#00E5FF)**: kap10's domain — new intelligence, supervision, forward momentum, the "spark" of modern engineering.
 
 #### The "Bicameral" Color Logic
 
-To communicate the **Two Brains** architecture instantly, we separate color usage by function—every color has a *cognitive, engineering purpose*:
+To communicate the **two-product** architecture instantly, we separate color usage by function — every color has a *cognitive, engineering purpose*:
 
 | Color | Represents | Use for |
 | :--- | :--- | :--- |
 | **Electric Cyan (`#00E5FF`)** | **New Intelligence** — kap10, Generation, Forward Momentum | Primary buttons, active cursors, generated code, "Ship Ready" confidence |
-| **Rail Purple (`#6E18B3`)** | **Deep Context** — Necroma, Legacy Analysis, Structure | Background borders, knowledge-graph nodes, "Self-Healing" diagnosis, historical logs |
+| **Rail Purple (`#6E18B3`)** | **Deep Context** — necroma, Legacy Analysis, Structure | Background borders, knowledge-graph nodes, "Self-Healing" diagnosis, historical logs |
 
-**Rule:** *Cyan is the Spark. Purple is the Wire.*
+**Rule:** *Cyan is the Spark. Purple is the Wire.* Never blend cyan-to-purple gradients.
 
 For the full **Glass Brain View** design and UX patterns (boot sequence, breathing glow, event colors, animations), see **Section 10**.
 
@@ -96,12 +117,12 @@ For the full **Glass Brain View** design and UX patterns (boot sequence, breathi
 
 ## 5. Background Palette (Void Black & Glass)
 
-These are the structural colors—the canvas on which Project Lazarus operates.
+These are the structural colors — the canvas on which autorail operates.
 
 | Token | Hex | Role |
 | :--- | :--- | :--- |
 | **Background** | `#0A0A0F` | Main canvas, page background |
-| **Card** | `rgba(30, 30, 40, 0.4)` | Glass panels (Glass Brain panes) |
+| **Card** | `rgba(30, 30, 40, 0.4)` | Glass panels (Industrial Glass panes) |
 | **Muted** | `rgba(30, 30, 40, 0.5)` | Secondary backgrounds, inputs |
 | **Border** | `rgba(250, 250, 250, 0.1)` | Borders, dividers (subtle) |
 
@@ -134,7 +155,7 @@ The gradients represent the flow of data and the transformation process.
 | :--- | :--- | :--- |
 | **Rail Purple** | `#6E18B3` | Primary actions, brand identity |
 | **Electric Cyan** | `#00E5FF` | Active states, code execution, "intelligence" |
-| **Success** | `#00FF88` | Successful transmutation/test (semantic only) |
+| **Success** | `#00FF88` | Successful verification/test (semantic only) |
 | **Warning** | `#FFB800` | Issues requiring attention (semantic only) |
 | **Error** | `#FF3366` | Critical failures (semantic only) |
 
@@ -163,7 +184,7 @@ Use these glows for clear, beautiful framing across the landing page (e.g. confi
 ### Usage
 
 - **40–70%:** Caution or in-progress state; soft yellow keeps the frame visible without dominating.
-- **70–85%:** Strong confidence; Electric Cyan aligns with brand “intelligence” and stays on-palette.
+- **70–85%:** Strong confidence; Electric Cyan aligns with brand "intelligence" and stays on-palette.
 - **≥ 85%:** High confidence / success; green glow with `animate-pulse-glow` for a clear, positive signal.
 
 Implement in `styles/tailwind.css` via `.glow-yellow`, `.glow-cyan`, and `.glow-success-pulse`.
@@ -365,8 +386,8 @@ import Image from "next/image"
    - **Texture:** Use a subtle grid overlay on the deepest backgrounds (e.g. `bg-grid-pattern`) for a sense of "spatial mapping."
 4. **Motion Physics: Machine Precision:** Animations should feel like high-end machinery, not organic fluid.
    - **The Snap:** Use `ease-out` (fast → slow) for entrances. It shows responsiveness.
-   - **The Pulse:** Status lights (e.g. Project Pulse) should use a "heartbeat" rhythm (double beat) rather than a sine wave—more biological/alive.
-   - **The Glitch:** Use `animate-glitch` *only* for "Transformation Events" (Legacy → Modern) or "Self-Healing" triggers. It visualizes the Necromancy—breaking the old reality to form the new.
+   - **The Pulse:** Status lights should use a "heartbeat" rhythm (double beat) rather than a sine wave — more biological/alive.
+   - **The Glitch:** Use `animate-glitch` *only* for "Transformation Events" (Legacy → Modern) or "Self-Healing" triggers. It visualizes self-healing — diagnosing the root cause and applying the fix.
 5. **Information Density:** High density (dashboard style), `text-sm` base size. CTOs want data; see **§7.6 The Flight Deck Rule**.
 6. **Glow Effects:** Use `glow-purple` or `glow-cyan` for active states/focus. For confidence/framing tiers use the **Confidence Glows** (§6.1): `glow-yellow` (40–70%), `glow-cyan` (70–85%), `glow-success-pulse` (≥ 85%).
 
@@ -376,18 +397,18 @@ import Image from "next/image"
 
 *Reference: `docs/GLASS_BRAIN_VIEW.md`*
 
-The Glass Brain is our production-grade, immersive dashboard aesthetic: Void Black + Rail Purple + Electric Cyan, with translucent panels and confidence-reactive glows. Use these patterns for any agent-facing or build-monitoring UI to keep the experience consistent and spectacular.
+The Glass Brain is the production-grade, immersive dashboard aesthetic: Void Black + Rail Purple + Electric Cyan, with translucent panels and confidence-reactive glows. Use these patterns for any agent-facing or build-monitoring UI to keep the experience consistent and spectacular.
 
 ### 10.1 Theatrical Entry (Boot & First Impression)
 
-**Boot sequence** establishes the “brain coming online” feel. A short, staged intro (e.g. 3–4 seconds) builds anticipation:
+**Boot sequence** establishes the "brain coming online" feel. A short, staged intro (e.g. 3–4 seconds) builds anticipation:
 
 | Phase | Visual |
 | :--- | :--- |
 | 0 | Pulsing cyan dot (opacity oscillates) |
 | 1 | Dot grows + radial lines (e.g. 6 lines, 60° apart) |
-| 2 | “Neural Link Established” (Electric Cyan, letter-spacing) |
-| 3 | “Materializing panes…” (muted, smaller) |
+| 2 | "Neural Link Established" (Electric Cyan, letter-spacing) |
+| 3 | "Materializing panes…" (muted, smaller) |
 | 4 | Overlay fades out; main content appears |
 
 Respect `prefers-reduced-motion`: skip to final state immediately.
@@ -406,7 +427,7 @@ This creates a living, reactive frame that makes the UI feel alive without distr
 
 - **Grid:** Three-column layout, e.g. `grid-cols-[1fr_2fr_1fr]`, with `gap-3` and `p-3`.
 - **Panes:** Use `glass-panel` or `glass-card` for each column; stagger entrance (e.g. 0.15s delay per column) for a materializing effect.
-- **Density:** High information density, `text-sm` base; keep the “terminal/dashboard” feel.
+- **Density:** High information density, `text-sm` base; keep the "terminal/dashboard" feel.
 
 ### 10.4 Event Type Colors (Logs & Badges)
 
@@ -582,4 +603,26 @@ Maintain brand immersion with styled selection:
 
 ---
 
-*Project Lazarus Brand Guidelines — The Legacy Code Necromancer*
+## 15. Product Visual Language
+
+Codifies the per-product visual rules used across landing pages and product UIs. Each product owns a distinct visual lane within the shared autorail design system.
+
+| Property | kap10 | necroma |
+| :--- | :--- | :--- |
+| **Primary accent** | Electric Cyan `#00E5FF` | Rail Purple `#6E18B3` |
+| **Glow shadow** | `rgba(0,229,255,0.15)` | `rgba(110,24,179,0.15)` |
+| **Active border** | `border-electric-cyan/25` | `border-rail-purple/25` |
+| **Terminal bg** | `bg-[#0e0e14]` | `bg-[#12101a]` or `bg-[#0e0a14]` |
+| **Visual metaphor** | CLI terminals, file trees, PR reviews | Code comparison panels, pipeline flows, dashboards |
+| **WebGL hero** | AntigravityCloud (token sphere) | BehavioralPipeline (fragment → reclaim morph) |
+| **Terminology** | "Supervise", "Tech Lead", "Spaghetti Shield" | "Behavioral Reconstruction", "Vertical Slice", "Guardrails" |
+
+### Usage Rules
+
+- **Never mix product accents** within a single section. A kap10 section is cyan; a necroma section is purple. Cross-product sections (e.g. the main landing BentoGrid) use the platform palette with clear per-card product association.
+- **Terminal backgrounds** are slightly tinted toward the product color to reinforce ownership without breaking the Void Black rule.
+- **WebGL heroes** are product-specific — each product page has its own Three.js scene with distinct motion language and color palette.
+
+---
+
+*autorail Brand Guidelines — Autonomous Engineering Infrastructure*
