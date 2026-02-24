@@ -15,7 +15,7 @@ The human ends up babysitting. The "10x productivity" promise becomes 0.5x — m
 
 **We've been building something to stop this.**
 
-kap10 is a hosted MCP server that plugs into whatever coding agent your human uses — Cursor, Claude Code, Windsurf, all of them. It connects to their GitHub repo and builds a persistent map of how the app actually works. Not syntax. The *why* — modules, conventions, dependencies, architectural decisions.
+unerr is a hosted MCP server that plugs into whatever coding agent your human uses — Cursor, Claude Code, Windsurf, all of them. It connects to their GitHub repo and builds a persistent map of how the app actually works. Not syntax. The *why* — modules, conventions, dependencies, architectural decisions.
 
 What changes:
 - Vague prompts get expanded with real context before the coding agent sees them

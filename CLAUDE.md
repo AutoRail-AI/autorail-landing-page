@@ -5,7 +5,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 ## Project Overview
 
 Landing page for **autorail** — **Industrial Safety for Vibe Coding**. Positioning: the structural engineering for the AI gold mine. Two core products:
-1. **kap10** (cyan `#00E5FF`): The Institutional Memory Layer — pattern enforcement so AI doesn't write "alien code."
+1. **unerr** (cyan `#00E5FF`): The Institutional Memory Layer — pattern enforcement so AI doesn't write "alien code."
 2. **necroma** (purple `#6E18B3`): Autonomous Legacy Modernization — verify behavior, not just syntax.
 
 ## Commands
@@ -28,7 +28,7 @@ pnpm format              # Prettier write
 **Next.js 16 App Router** with a single-page landing at `app/page.tsx`. All rendering is client-side for animation-heavy sections.
 
 ### Key Directories
-- `components/landing/` — Page sections: Hero, Day2Problem, Kap10, Necroma, SafetyRating, Ecosystem, CTASection (barrel export via `index.ts`)
+- `components/landing/` — Page sections: Hero, Day2Problem, Unerr, Necroma, SafetyRating, Ecosystem, CTASection (barrel export via `index.ts`)
 - `components/layout/` — NavBar, Footer
 - `components/ui/` — Shared primitives (Button, Badge, Card, Container, SectionHeader, Accordion, Icon) with barrel export
 - `components/shared/` — GradientText, JsonLd, WaitlistForm
@@ -50,7 +50,7 @@ pnpm format              # Prettier write
 - `public/robots.txt` — AI bots (GPTBot, ClaudeBot, PerplexityBot) explicitly allowed
 - `public/llms.txt` — Entity definitions, features, links for LLM crawlers
 - `public/sitemap.xml` — Auto-generated via `next-sitemap` on `postbuild`
-- `components/shared/JsonLd.tsx` — 6 schema types: `organization`, `software-kap10`, `software-necroma`, `webpage`, `faq-kap10`, `howto-spaghetti`
+- `components/shared/JsonLd.tsx` — 6 schema types: `organization`, `software-unerr`, `software-necroma`, `webpage`, `faq-unerr`, `howto-spaghetti`
 - Strategy doc: `docs/seo-aeo-geo-strategy.md`
 
 ### Component Patterns
@@ -68,13 +68,13 @@ Tailwind CSS v4 with custom `@theme` tokens in `styles/tailwind.css`. Key custom
 - Color classes map directly: `bg-void-black`, `text-cloud-white`, `text-electric-cyan`, `bg-rail-purple`, etc.
 
 ### Page Section Order
-NavBar → Hero → Day2Problem → Kap10 → Necroma → SafetyRating → Ecosystem → CTASection → Footer
+NavBar → Hero → Day2Problem → Unerr → Necroma → SafetyRating → Ecosystem → CTASection → Footer
 
 ## Design Constraints
 
 - **Dark theme only**: Background is `#0A0A0F` (void-black), never use light backgrounds
 - **Typography**: Space Grotesk for headings (`font-grotesk`), Inter for body (`font-sans`), JetBrains Mono for code (`font-mono`)
-- **Color coding**: Cyan = kap10, Purple = necroma — maintain this association throughout
+- **Color coding**: Cyan = unerr, Purple = necroma — maintain this association throughout
 - **Icons**: Use `lucide-react` exclusively
 - **Animations**: Use Framer Motion; presets available in `lib/animations.ts`. Respect `prefers-reduced-motion`
 - **Glassmorphism**: Prefer glass panels with backdrop blur for card-like elements

@@ -3,7 +3,7 @@ import {
   HeroSphere,
   Day2Problem,
   BentoGrid,
-  Kap10,
+  Unerr,
   Necroma,
   SafetyRating,
   Ecosystem,
@@ -19,14 +19,14 @@ export default function HomePage() {
         <HeroSphere />
         <Day2Problem />
         <BentoGrid />
-        {/* <Kap10 /> */}
+        {/* <Unerr /> */}
         {/* <Necroma /> */}
         <SafetyRating />
         <Ecosystem />
         <WaitlistSection />
+        <JsonLd type="organization" />
       </main>
       <Footer />
-      <JsonLd type="organization" />
     </>
   )
 }

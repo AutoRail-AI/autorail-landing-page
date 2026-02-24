@@ -2,46 +2,46 @@
  * Centralized product definitions for autorail — Industrial Safety for Vibe Coding.
  */
 
-export const KAP10 = {
-  id: "kap10",
-  name: "kap10",
+export const UNERR = {
+  id: "unerr",
+  name: "unerr",
   tagline:
-    "Stop babysitting your AI. Turn your favorite \"Typist\" into a Senior Developer.",
-  headline: "The AI Tech Lead.",
+    "Code as fast as your AI can type. unerr will catch the mistakes.",
+  headline: "The Missing Backend for AI Coding Agents.",
   pitch:
-    "kap10 is a fully hosted SaaS that sits invisibly between you and your AI coding agent. Connect your GitHub repo, and our cloud engine builds a living Business Intent Graph of your app. It acts as your Virtual CTO — intercepting your vague prompts, enforcing your rules, and ruthlessly reviewing the AI's code before it ever touches your files.",
+    "unerr connects to your repo — GitHub, GitLab, Bitbucket, or even a local directory — and injects your actual architecture, conventions, and blast radius into your AI agent's context window. One command. Zero workflow changes.",
   color: "cyan" as const,
-  cli: "kap10",
+  cli: "unerr",
   badges: ["SaaS", "Hosted MCP Server"],
   cta: {
-    primary: "Join Waitlist",
-    secondary: "Book a Demo",
+    primary: "Get Started Free",
+    secondary: "Join Waitlist",
   },
   features: [
     {
-      title: "File-less Blueprint",
+      title: "Blast Radius Visualization",
       description:
-        "Click a feature block, type what you want, and kap10 generates precise multi-file prompts for the AI. You manage features; we manage the files.",
+        "Before any change merges, unerr traverses the call graph N hops outward to every API boundary and UI component it reaches.",
     },
     {
       title: "Spaghetti Shield",
       description:
-        "Automated cloud PR reviewer. Checks every AI change against your app's permanent architecture. Wrong library? Instantly blocked and rewritten.",
+        "Automated PR review: Semgrep rules → knowledge graph impact analysis → line-level review comments for BLOCKER items only.",
     },
     {
-      title: "Rewind Button",
+      title: "Rewind & Circuit Breaker",
       description:
-        "One click restores your code to the exact moment it last worked — and permanently blocks the AI from making that mistake again.",
+        "One click restores to last known-good state. Auto-generates anti-pattern rules. Circuit breaker halts hallucination loops.",
     },
     {
-      title: "Invisible Testing",
+      title: "Drift Detection",
       description:
-        "Click through your app to record hidden behavioral tests. If the AI breaks a feature, we force a fix. Safety without writing tests.",
+        "When a file changes, unerr computes semantic drift — the function silently becoming something it shouldn't be. Drift Alerts fire automatically.",
     },
     {
-      title: "Anti-Extortion Export",
+      title: "Auto-Generated ADRs",
       description:
-        "Generate an enterprise-grade Architecture Report in one click. Hand your hired engineer a perfect map of your codebase.",
+        "When a PR merges significant new topology, unerr auto-generates and commits an Architecture Decision Record as a follow-up PR.",
     },
   ],
 } as const
@@ -79,4 +79,4 @@ export const NECROMA = {
   ],
 } as const
 
-export const PRODUCTS = [KAP10, NECROMA] as const
+export const PRODUCTS = [UNERR, NECROMA] as const

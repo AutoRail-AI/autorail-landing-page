@@ -19,7 +19,7 @@ export const metadata: Metadata = {
     template: `%s | ${SITE_CONFIG.name}`,
   },
   description:
-    "autorail makes AI-powered development safe for production. kap10 is an automated code review tool that supervises Cursor, Claude Code, and Windsurf — enforcing patterns, reviewing code, preventing regressions. necroma automates legacy migration with behavioral verification.",
+    "autorail makes AI-powered development safe for production. unerr is a hosted MCP server that injects your actual architecture into your AI agent's context window — works with Cursor, Claude Code, Copilot, Windsurf, and Devin. necroma automates legacy migration with behavioral verification.",
   authors: [{ name: SITE_CONFIG.name }],
   creator: SITE_CONFIG.name,
   openGraph: {
@@ -44,7 +44,7 @@ export const metadata: Metadata = {
     site: SITE_CONFIG.twitterHandle,
     title: "autorail — Automated Code Review for AI Coding Tools",
     description:
-      "Stop babysitting your AI. kap10 automatically reviews every line Cursor, Claude Code, and Windsurf write — enforcing your architecture in real time.",
+      "Stop babysitting your AI. unerr injects your actual architecture into your AI agent's context window — so it stops hallucinating your codebase.",
     images: [`${SITE_CONFIG.url}/twitter-card.png`],
   },
   robots: {
@@ -77,7 +77,7 @@ export default function RootLayout({
     <html lang="en" className="scroll-smooth">
       <head>
         <JsonLd type="organization" />
-        <JsonLd type="software-kap10" />
+        <JsonLd type="software-unerr" />
         <JsonLd type="software-necroma" />
         <JsonLd type="webpage" />
       </head>

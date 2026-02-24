@@ -6,7 +6,7 @@ import { Suspense, useEffect, useMemo, useRef, useState } from "react"
 import * as THREE from "three"
 
 /* ─────────────────────────────────────────────────────────────────────────────
-   NeuralConstellation — WebGL knowledge graph for kap10 hero.
+   NeuralConstellation — WebGL knowledge graph for unerr hero.
 
    Visual narrative — Chaos → Structure:
 
@@ -14,7 +14,7 @@ import * as THREE from "three"
    visual language as the landing page's AntigravityCloud. Over ~3 seconds,
    particles gravitate to Fibonacci sphere positions, edges draw in between
    newly connected nodes, and pulse particles begin carrying "knowledge"
-   along edges. The transformation tells kap10's story visually:
+   along edges. The transformation tells unerr's story visually:
    unstructured agent output → organized knowledge graph.
 
    Same infrastructure as AntigravityCloud: R3F Canvas, Bloom postprocessing,

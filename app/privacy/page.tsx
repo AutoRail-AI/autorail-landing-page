@@ -26,7 +26,7 @@ export default function PrivacyPage() {
             <p>
               AutoRail Inc. (&quot;AutoRail,&quot; &quot;we,&quot;
               &quot;us,&quot; or &quot;our&quot;) operates the autorail platform,
-              including kap10 and necroma services. This Privacy Policy
+              including unerr and necroma services. This Privacy Policy
               explains how we collect, use, disclose, and safeguard your
               information when you use our services.
             </p>
@@ -56,7 +56,7 @@ export default function PrivacyPage() {
                 AI Interaction Data
               </h3>
               <p>
-                When you use kap10 or necroma, we collect data about your
+                When you use unerr or necroma, we collect data about your
                 interactions with our AI agents, including queries, configuration
                 preferences, and feedback you provide on AI-generated outputs.
               </p>
@@ -79,7 +79,7 @@ export default function PrivacyPage() {
                   <strong className="text-cloud-white">
                     Provide &amp; improve services:
                   </strong>{" "}
-                  Deliver kap10 pattern enforcement, necroma legacy
+                  Deliver unerr pattern enforcement, necroma legacy
                   modernization, and continuously improve the accuracy and
                   usefulness of our AI agents.
                 </li>
@@ -115,7 +115,7 @@ export default function PrivacyPage() {
               </p>
               <ul className="mt-4 list-disc space-y-2 pl-6">
                 <li>
-                  <strong className="text-cloud-white">kap10</strong>{" "}
+                  <strong className="text-cloud-white">unerr</strong>{" "}
                   analyzes your codebase to build an institutional memory layer,
                   enforcing patterns and preventing AI from writing code that
                   deviates from your established conventions.

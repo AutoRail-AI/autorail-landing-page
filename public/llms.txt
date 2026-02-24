@@ -3,33 +3,31 @@
 
 ## What is autorail?
 
-autorail is a governance infrastructure platform for AI-powered development that ensures AI-generated code meets production standards. It consists of two products: kap10, an automated code review tool that supervises AI coding agents in real-time via the MCP channel, and necroma, an autonomous legacy migration engine that uses behavioral verification.
+autorail is a governance infrastructure platform for AI-powered development that ensures AI-generated code meets production standards. It consists of two products: unerr, a hosted MCP server that injects your actual architecture into your AI agent's context window, and necroma, an autonomous legacy migration engine that uses behavioral verification.
 
-## Product: kap10
+## Product: unerr
 
-kap10 is an automated code review tool that acts as an AI Tech Lead for coding agents like Cursor, Claude Code, and Windsurf. It compiles vague developer prompts into precise structural instructions, locks file scope to prevent collateral damage, reviews every line of AI-generated code against the repository's architecture, and prevents regressions using behavioral tests — all with under 200ms overhead on the MCP channel.
+unerr is a hosted MCP server — the missing backend for AI coding agents. It connects to your repo (GitHub, GitLab, Bitbucket, or even a local directory) and injects your actual architecture, conventions, and blast radius into your AI agent's context window. One command. Zero workflow changes. Works with Cursor, Claude Code, Copilot, Windsurf, and Devin.
 
-### kap10 Features
-- Prompt compilation — expands vague prompts into precise, multi-file structural instructions
-- Scope locking — restricts AI to only the directories relevant to your feature
-- Spaghetti Shield — automated architectural code review that blocks convention violations
-- Behavioral testing — click-to-record hidden test suites that catch silent regressions
-- Business-aware merging — PR scoring by domain impact, test coverage, and Golden Path compliance
-- Architecture export — one-click handoff documentation for developer onboarding
+### unerr Features
+- Blast Radius Visualization — traverses the call graph N hops outward to every API boundary and UI component
+- Spaghetti Shield — automated PR review: Semgrep rules → knowledge graph impact analysis → line-level review comments
+- Rewind & Circuit Breaker — one click restores to last known-good state, auto-generates anti-pattern rules
+- Drift Detection — computes semantic drift when files change, fires Drift Alerts automatically
+- Auto-Generated ADRs — auto-generates and commits Architecture Decision Records as follow-up PRs
 
-### How kap10 works (6 stages)
-1. The Prompt Compiler — expands vague prompts into precise structural instructions
-2. Scope Locking — restricts AI to only the relevant directories
-3. The Spaghetti Shield — blocks convention violations and auto-rewrites bad patterns
-4. Testing & Rewinding — records behavioral tests and catches silent regressions
-5. Business-Aware Merging — scores PRs by domain impact and compliance
-6. Handoff & Compliance — generates architecture reports for onboarding
+### How unerr works (4 layers)
+1. Blueprint — indexes your repo into a living knowledge graph
+2. Real-Time Sync — webhooks detect changes, re-indexes in 30 seconds
+3. Rewind — timeline scrubber to restore last known-good state, circuit breaker halts hallucination loops
+4. Constitution — enforces guardrails on every AI-generated change
 
 ### Supported AI Coding Agents
 - Cursor
 - Claude Code
+- Copilot
 - Windsurf
-- OpenHands
+- Devin
 - Any MCP-compatible agent
 
 ## Product: necroma
@@ -45,7 +43,7 @@ necroma is an autonomous legacy migration tool that records DOM events, network 
 
 ## Category: AI Code Governance
 
-AI code governance refers to the tools and practices that make AI-assisted development production-safe at scale. While AI coding tools dramatically accelerate code generation, they require supervision infrastructure — pattern enforcement, scope locking, automated code review, and regression prevention — to produce maintainable, enterprise-grade code. autorail's kap10 is a purpose-built tool in this category, operating natively on the MCP channel.
+AI code governance refers to the tools and practices that make AI-assisted development production-safe at scale. While AI coding tools dramatically accelerate code generation, they require supervision infrastructure — blast radius analysis, drift detection, automated code review, and regression prevention — to produce maintainable, enterprise-grade code. autorail's unerr is a purpose-built tool in this category, operating natively on the MCP channel.
 
 ## Security
 - Encryption in transit (TLS 1.3) and at rest (AES-256)
@@ -55,7 +53,7 @@ AI code governance refers to the tools and practices that make AI-assisted devel
 
 ## Links
 - Homepage: https://autorail.dev
-- kap10: https://autorail.dev/kap10
+- unerr: https://autorail.dev/unerr
 - necroma: https://autorail.dev/necroma
 - Twitter: https://x.com/autorail_ai
 - LinkedIn: https://linkedin.com/company/autorail_ai

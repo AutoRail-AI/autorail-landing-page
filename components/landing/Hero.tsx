@@ -15,7 +15,7 @@ const HERO = {
   headline: "Vibe Coding, Industrialized.",
   subhead:
     "Scale your AI engineering without compounding technical debt. autorail provides the Context (Left Brain) and Verification (Right Brain) required for enterprise-grade autonomous development.",
-  primaryCommand: "npm install kap10",
+  primaryCommand: "npx @autorail/unerr",
   secondaryCta: "Get Early Access",
   scrollHint: "See what breaks without guardrails",
 }

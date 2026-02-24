@@ -2,10 +2,10 @@ import { SITE_CONFIG } from "lib/constants"
 
 type JsonLdType =
   | "organization"
-  | "software-kap10"
+  | "software-unerr"
   | "software-necroma"
   | "webpage"
-  | "faq-kap10"
+  | "faq-unerr"
   | "howto-spaghetti"
 
 interface JsonLdProps {
@@ -41,15 +41,15 @@ const schemas: Record<JsonLdType, Record<string, any>> = {
     ],
   },
 
-  "software-kap10": {
+  "software-unerr": {
     "@context": "https://schema.org",
     "@type": "SoftwareApplication",
-    name: "kap10",
+    name: "unerr",
     applicationCategory: "DeveloperApplication",
     applicationSubCategory: "Automated Code Review Tool",
     operatingSystem: "Cloud (SaaS)",
     description:
-      "An automated code review tool that supervises AI coding agents like Cursor, Claude Code, and Windsurf. Reviews every line, enforces architecture, locks scope, and prevents regressions via the MCP channel.",
+      "A hosted MCP server that injects your actual architecture, conventions, and blast radius into your AI agent's context window. Works with Cursor, Claude Code, Copilot, Windsurf, and Devin. Zero workflow changes.",
     featureList: [
       "Prompt compilation — expands vague prompts into structural instructions",
       "Scope locking — restricts AI to relevant directories only",
@@ -90,7 +90,7 @@ const schemas: Record<JsonLdType, Record<string, any>> = {
     "@type": "WebPage",
     name: "autorail — Automated Code Review & Governance for AI Coding Tools",
     description:
-      "autorail makes AI-powered development safe for production. kap10 is an automated code review tool that supervises Cursor, Claude Code, and Windsurf.",
+      "autorail makes AI-powered development safe for production. unerr is a hosted MCP server that injects your actual architecture into your AI agent's context window.",
     url: SITE_CONFIG.url,
     mainEntity: {
       "@type": "SoftwareApplication",
@@ -103,48 +103,48 @@ const schemas: Record<JsonLdType, Record<string, any>> = {
     },
   },
 
-  "faq-kap10": {
+  "faq-unerr": {
     "@context": "https://schema.org",
     "@type": "FAQPage",
     mainEntity: [
       {
         "@type": "Question",
-        name: "What is kap10?",
+        name: "What is unerr?",
         acceptedAnswer: {
           "@type": "Answer",
-          text: "kap10 is an automated code review tool that acts as an AI Tech Lead for coding agents like Cursor, Claude Code, and Windsurf. It reviews every AI-generated change — compiling prompts, locking scope, enforcing architecture, and preventing regressions — with under 200ms overhead on the MCP channel.",
+          text: "unerr is a hosted MCP server that injects your actual architecture, conventions, and blast radius into your AI agent's context window. It works with Cursor, Claude Code, Copilot, Windsurf, and Devin — zero workflow changes.",
         },
       },
       {
         "@type": "Question",
-        name: "Does kap10 slow down my AI coding agent?",
+        name: "Does unerr slow down my AI coding agent?",
         acceptedAnswer: {
           "@type": "Answer",
-          text: "No. kap10 operates on the MCP channel with overhead under 200ms. Your coding flow feels identical; the output is dramatically better quality.",
+          text: "No. unerr operates on the MCP channel with overhead under 200ms. Your coding flow feels identical; the output is dramatically better quality.",
         },
       },
       {
         "@type": "Question",
-        name: "Does kap10 work with Cursor?",
+        name: "Does unerr work with Cursor?",
         acceptedAnswer: {
           "@type": "Answer",
-          text: "Yes. kap10 works with any MCP-compatible AI coding agent, including Cursor, Claude Code, Windsurf, and OpenHands. One URL, any agent.",
+          text: "Yes. unerr works with any MCP-compatible AI coding agent, including Cursor, Claude Code, Copilot, Windsurf, and Devin. One URL, any agent.",
         },
       },
       {
         "@type": "Question",
-        name: "Is my code safe with kap10?",
+        name: "Is my code safe with unerr?",
         acceptedAnswer: {
           "@type": "Answer",
-          text: "Yes. Your code is encrypted in transit (TLS 1.3) and at rest (AES-256). kap10 processes only structural metadata, never raw source code. Disconnect your repo, and all data is purged within 24 hours. No model training on your code — ever.",
+          text: "Yes. Your code is encrypted in transit (TLS 1.3) and at rest (AES-256). unerr processes only structural metadata, never raw source code. Disconnect your repo, and all data is purged within 24 hours. No model training on your code — ever.",
         },
       },
       {
         "@type": "Question",
-        name: "How is kap10 different from .cursorrules?",
+        name: "How is unerr different from .cursorrules?",
         acceptedAnswer: {
           "@type": "Answer",
-          text: "Unlike .cursorrules files which the AI ignores after a few messages, kap10 enforces your conventions on the MCP channel — every prompt, every time. It also adds scope locking, automated code review, behavioral testing, and architecture documentation that .cursorrules cannot provide.",
+          text: "Unlike .cursorrules files which the AI ignores after a few messages, unerr enforces your conventions on the MCP channel — every prompt, every time. It also adds blast radius visualization, automated code review, drift detection, and auto-generated ADRs that .cursorrules cannot provide.",
         },
       },
       {
@@ -188,7 +188,7 @@ const schemas: Record<JsonLdType, Record<string, any>> = {
       {
         "@type": "HowToStep",
         name: "Use MCP-level governance",
-        text: "Deploy a governance tool like kap10 that sits on the MCP channel and reviews AI output end-to-end.",
+        text: "Deploy a governance tool like unerr that sits on the MCP channel and reviews AI output end-to-end.",
       },
     ],
   },
@@ -201,6 +201,7 @@ export function JsonLd({ type }: JsonLdProps) {
 
   return (
     <script
+      id={`jsonld-${type}`}
       type="application/ld+json"
       dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }}
     />

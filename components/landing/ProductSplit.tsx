@@ -11,7 +11,7 @@ export function ProductSplit() {
     const [copied, setCopied] = useState(false)
 
     const copyCommand = () => {
-        navigator.clipboard.writeText("npm install kap10")
+        navigator.clipboard.writeText("npx @autorail/unerr")
         setCopied(true)
         setTimeout(() => setCopied(false), 2000)
     }
@@ -20,7 +20,7 @@ export function ProductSplit() {
         <section className="py-24 bg-void-black relative overflow-hidden">
             <Container>
                 <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12">
-                    {/* Left Card: kap10 */}
+                    {/* Left Card: unerr */}
                     <motion.div
                         initial={{ opacity: 0, x: -50 }}
                         whileInView={{ opacity: 1, x: 0 }}
@@ -87,7 +87,7 @@ export function ProductSplit() {
                                     onClick={copyCommand}
                                     className="w-full flex items-center justify-between px-4 py-3 rounded-lg bg-white/5 border border-white/10 hover:border-electric-cyan/50 transition-colors group/cmd"
                                 >
-                                    <code className="text-electric-cyan font-mono text-sm">npm install kap10</code>
+                                    <code className="text-electric-cyan font-mono text-sm">npx @autorail/unerr</code>
                                     {copied ? (
                                         <Check className="w-4 h-4 text-electric-cyan" />
                                     ) : (

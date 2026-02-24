@@ -6,7 +6,7 @@ export const SITE_CONFIG = {
   name: "autorail",
   tagline: "Automated Code Review & Governance for AI Coding Tools",
   description:
-    "autorail makes AI-powered development safe for production. kap10 is an automated code review tool that supervises Cursor, Claude Code, and Windsurf — enforcing patterns, reviewing code, preventing regressions. necroma automates legacy migration with behavioral verification.",
+    "autorail makes AI-powered development safe for production. unerr is a hosted MCP server that injects your actual architecture into your AI agent's context window — works with Cursor, Claude Code, Copilot, Windsurf, and Devin. necroma automates legacy migration with behavioral verification.",
   url: "https://autorail.dev",
   twitterHandle: "@autorail_ai",
   twitterUrl: "https://x.com/autorail_ai",
@@ -24,7 +24,7 @@ export const SECTION_IDS = {
   hero: "hero",
   day2Problem: "day2-problem",
   twoBrains: "two-brains",
-  kap10: "kap10",
+  unerr: "unerr",
   necroma: "necroma",
   safetyRating: "safety-rating",
   ecosystem: "ecosystem",

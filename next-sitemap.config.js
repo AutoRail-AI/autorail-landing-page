@@ -9,7 +9,7 @@ module.exports = {
   exclude: ["/icon.svg", "/icon.png", "/apple-icon.png"],
   transform: async (config, path) => {
     // Higher priority for key pages
-    const highPriority = ["/", "/kap10", "/necroma"]
+    const highPriority = ["/", "/unerr", "/necroma"]
     return {
       loc: path,
       changefreq: config.changefreq,

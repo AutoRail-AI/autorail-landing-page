@@ -33,9 +33,9 @@ PostHog credentials have been configured in `.env.local`:
 | `waitlist_signup_failed` | Server-side event when waitlist signup fails | `app/api/waitlist/route.ts` |
 | `cta_clicked` | Tracks clicks on primary CTA buttons (Join Waitlist) in hero | `components/landing/HeroSphere.tsx` |
 | `contact_us_clicked` | Tracks clicks on Contact Us button that opens Cal.com booking modal | `components/layout/NavBar.tsx` |
-| `product_page_cta_clicked` | Tracks CTA clicks on kap10 product page (Join Waitlist button) | `app/kap10/kap10-product-page.tsx` |
+| `product_page_cta_clicked` | Tracks CTA clicks on unerr product page (Join Waitlist button) | `app/unerr/unerr-product-page.tsx` |
 | `necroma_demo_requested` | Tracks when user clicks to request a necroma demo via Cal.com | `app/necroma/necroma-product-page.tsx` |
-| `product_explored` | Tracks when user clicks to explore a product (kap10 or necroma) from the BentoGrid | `components/landing/BentoGrid.tsx` |
+| `product_explored` | Tracks when user clicks to explore a product (unerr or necroma) from the BentoGrid | `components/landing/BentoGrid.tsx` |
 | `mobile_menu_opened` | Tracks when user opens the mobile navigation menu | `components/layout/NavBar.tsx` |
 
 ## Next steps
@@ -48,7 +48,7 @@ We've built some insights and a dashboard for you to keep an eye on user behavio
 ### Insights
 - [Waitlist Signups Trend](https://us.posthog.com/project/315466/insights/cGdcsmv2) - Daily trend of waitlist form submissions
 - [CTA to Waitlist Conversion Funnel](https://us.posthog.com/project/315466/insights/tmw9dkZg) - Conversion funnel from CTA click to signup
-- [Product Interest by Type](https://us.posthog.com/project/315466/insights/B3mIdvtR) - Breakdown of product exploration (kap10 vs necroma)
+- [Product Interest by Type](https://us.posthog.com/project/315466/insights/B3mIdvtR) - Breakdown of product exploration (unerr vs necroma)
 - [Necroma Demo Requests](https://us.posthog.com/project/315466/insights/JKqaAGSW) - Daily trend of necroma demo requests
 - [Waitlist Success vs Errors](https://us.posthog.com/project/315466/insights/EjOMku4f) - Compare successful signups against form errors
 

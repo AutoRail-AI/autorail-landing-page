@@ -20,9 +20,9 @@ const SAFETY = {
 function AuditTrailSnippet() {
   const rows = [
     { time: "14:32:01", agent: "cursor-agent", action: "modified auth/login.ts" },
-    { time: "14:32:03", agent: "kap10", action: "pattern check: PASS" },
+    { time: "14:32:03", agent: "unerr", action: "pattern check: PASS" },
     { time: "14:32:04", agent: "cursor-agent", action: "refactored /api/users.ts" },
-    { time: "14:32:05", agent: "kap10", action: "drift detected: WARNING" },
+    { time: "14:32:05", agent: "unerr", action: "drift detected: WARNING" },
     { time: "14:32:07", agent: "cursor-agent", action: "created tests/login.spec.ts" },
   ]
 

@@ -4,7 +4,7 @@ export * from "./HeroSphere"
 // break SSR since Three.js requires browser APIs (WebGL, canvas, window).
 export * from "./Day2Problem"
 export * from "./BentoGrid"
-export * from "./Kap10"
+export * from "./Unerr"
 export * from "./Necroma"
 export * from "./SafetyRating"
 export * from "./Ecosystem"

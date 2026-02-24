@@ -4,13 +4,13 @@ import { motion } from "framer-motion"
 import { Brain } from "lucide-react"
 import { Button, Container } from "components/ui"
 import { SECTION_IDS } from "lib/constants"
-import { KAP10 } from "data/products"
+import { UNERR } from "data/products"
 import { staggerContainer, cardItem } from "lib/animations"
 
-export function Kap10() {
+export function Unerr() {
   return (
     <section
-      id={SECTION_IDS.kap10}
+      id={SECTION_IDS.unerr}
       className="py-24 bg-void-black relative overflow-hidden scroll-mt-20"
     >
       {/* Crisp radial glow — not full-screen wash */}
@@ -28,27 +28,27 @@ export function Kap10() {
           className="max-w-5xl mx-auto"
         >
           <p className="text-label text-electric-cyan mb-2">
-            {KAP10.name}
+            {UNERR.name}
           </p>
           <motion.p variants={cardItem} className="text-electric-cyan/90 text-lg mb-4">
-            {KAP10.tagline}
+            {UNERR.tagline}
           </motion.p>
           <motion.h2
             variants={cardItem}
             className="text-display-m text-white mb-6"
           >
-            {KAP10.headline}
+            {UNERR.headline}
           </motion.h2>
           <motion.p
             variants={cardItem}
             className="text-gray-300 text-lg mb-10 max-w-2xl"
           >
-            {KAP10.pitch}
+            {UNERR.pitch}
           </motion.p>
 
           {/* Badges */}
           <motion.div variants={cardItem} className="flex flex-wrap gap-2 mb-10">
-            {KAP10.badges.map((badge) => (
+            {UNERR.badges.map((badge) => (
               <span
                 key={badge}
                 className="px-3 py-1 rounded-lg text-xs font-medium bg-electric-cyan/10 text-electric-cyan border border-electric-cyan/20"
@@ -60,7 +60,7 @@ export function Kap10() {
 
           {/* Features */}
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-12">
-            {KAP10.features.map((feature) => (
+            {UNERR.features.map((feature) => (
               <motion.div
                 key={feature.title}
                 variants={cardItem}

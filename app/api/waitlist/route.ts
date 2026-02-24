@@ -56,7 +56,7 @@ export async function POST(request: Request) {
         "Content-Type": "application/json",
       },
       body: JSON.stringify({
-        values: [[email, new Date().toISOString(), "kap10"]],
+        values: [[email, new Date().toISOString(), "unerr"]],
       }),
     })
 
@@ -90,7 +90,7 @@ export async function POST(request: Request) {
       event: "waitlist_signup_completed",
       properties: {
         email_domain: email.split("@")[1],
-        product: "kap10",
+        product: "unerr",
         source: "server",
       },
     })
@@ -99,7 +99,7 @@ export async function POST(request: Request) {
       properties: {
         email: email,
         waitlist_joined_at: new Date().toISOString(),
-        product_interest: "kap10",
+        product_interest: "unerr",
       },
     })
     await posthog.shutdown()

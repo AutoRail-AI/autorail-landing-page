@@ -6,7 +6,7 @@ export interface Collapse {
   title: string
   description: string
   solvedBy: string
-  productId: "kap10" | "knowledge-graph" | "necroma"
+  productId: "unerr" | "knowledge-graph" | "necroma"
   icon: LucideIcon
 }
 
@@ -17,7 +17,7 @@ export const COLLAPSES: Collapse[] = [
     description:
       "Agents forget your architectural decisions. Every session is a clean slate. Patterns get reinvented. Conventions drift. Your developers spend more time fixing AI-generated code than they saved by using AI.",
     solvedBy: "context layer",
-    productId: "kap10",
+    productId: "unerr",
     icon: BrainCog,
   },
   {

@@ -25,7 +25,7 @@ export const FOOTER_COLUMNS: FooterColumn[] = [
   {
     title: "Product",
     links: [
-      { label: "kap10", href: "/kap10" },
+      { label: "unerr", href: "/unerr" },
       { label: "necroma", href: "/necroma" },
       { label: "Safety Rating", href: `#${SECTION_IDS.safetyRating}` },
       { label: "Ecosystem", href: `#${SECTION_IDS.ecosystem}` },
