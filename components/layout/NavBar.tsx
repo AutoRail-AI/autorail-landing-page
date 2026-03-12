@@ -9,7 +9,7 @@ import posthog from "posthog-js"
 import { useCallback, useEffect, useRef, useState } from "react"
 import { calTriggerProps } from "components/providers"
 import { Container } from "components/ui/Container"
-import { SECTION_IDS } from "lib/constants"
+import { DOMAINS, SECTION_IDS } from "lib/constants"
 import { cn } from "lib/utils"
 
 /* ─────────────────────────────────────────────────────────────────────────────
@@ -18,6 +18,8 @@ import { cn } from "lib/utils"
    Home @ Top:      Left: Logo   Center: (hidden)      Right: Join Waitlist + Contact Us
    Home @ Scrolled: Left: Logo   Center: "Products"   Right: Join Waitlist + Contact Us
    Sub-pages:       Left: Logo → /   Center: (empty)   Right: Join Waitlist + Contact Us
+
+   On unerr.dev:    Left: unerr logo   Center: (hidden)   Right: Join Waitlist + Contact Us
    ───────────────────────────────────────────────────────────────────────────── */
 
 const HERO_THRESHOLD = 600
@@ -37,16 +39,36 @@ function useScrollPosition() {
   return scrollY
 }
 
+/* ── Hook: detect unerr domain ───────────────────────────────────────────── */
+
+function useIsUnerrDomain() {
+  const [isUnerr, setIsUnerr] = useState(false)
+
+  useEffect(() => {
+    const h = window.location.hostname.toLowerCase()
+    setIsUnerr(h === DOMAINS.unerr || h === `www.${DOMAINS.unerr}`)
+  }, [])
+
+  return isUnerr
+}
+
 /* ── Component ───────────────────────────────────────────────────────────── */
 
 export function NavBar() {
   const pathname = usePathname()
   const scrollY = useScrollPosition()
+  const isUnerr = useIsUnerrDomain()
 
   // Derived state
-  const isHome = pathname === "/"
+  // On unerr.dev, "/" is rewritten to "/unerr" by middleware, so pathname = "/unerr"
+  const isHome = isUnerr ? pathname === "/unerr" || pathname === "/" : pathname === "/"
   const isScrolled = scrollY > 20
-  const showCenterLink = isHome && scrollY >= HERO_THRESHOLD
+  const showCenterLink = !isUnerr && isHome && scrollY >= HERO_THRESHOLD
+
+  // Logo config based on domain
+  const logoSrc = isUnerr ? "/unerr-wordmark.svg" : "/icon-wordmark.svg"
+  const logoAlt = isUnerr ? "unerr" : "autorail"
+  const logoHref = "/"
 
   /* ── Mobile menu ─────────────────────────────────────────────────────── */
 
@@ -103,7 +125,7 @@ export function NavBar() {
         <div className="flex items-center justify-between">
           {/* ── Left: Logo ─────────────────────────────────────────────── */}
           <Link
-            href="/"
+            href={logoHref}
             className="flex items-center px-4 py-2 -ml-8 rounded-xl transition-opacity hover:opacity-80"
             style={{
               background:
@@ -112,8 +134,8 @@ export function NavBar() {
             onClick={closeMobileMenu}
           >
             <Image
-              src="/icon-wordmark.svg"
-              alt="autorail"
+              src={logoSrc}
+              alt={logoAlt}
               width={233}
               height={77}
               className="h-16 w-auto"
@@ -121,7 +143,7 @@ export function NavBar() {
             />
           </Link>
 
-          {/* ── Center: "Products" — fades in after scrolling past hero ── */}
+          {/* ── Center: "Products" — fades in after scrolling past hero (autorail only) ── */}
           <nav className="hidden md:flex items-center">
             <a
               href={`#${SECTION_IDS.twoBrains}`}
@@ -151,6 +173,7 @@ export function NavBar() {
                 posthog.capture("contact_us_clicked", {
                   location: "navbar_desktop",
                   page: pathname,
+                  domain: isUnerr ? "unerr.dev" : "autorail.dev",
                 })
               }}
               className="inline-flex items-center justify-center h-9 px-4 rounded-lg text-sm font-medium font-[family-name:var(--font-grotesk)] bg-transparent border border-warning/30 text-warning transition-all duration-200 hover:glow-yellow hover:bg-warning/5 active:scale-[0.98] cursor-pointer"
@@ -165,6 +188,7 @@ export function NavBar() {
               if (!isMobileMenuOpen) {
                 posthog.capture("mobile_menu_opened", {
                   page: pathname,
+                  domain: isUnerr ? "unerr.dev" : "autorail.dev",
                 })
               }
               toggleMobileMenu()
@@ -191,8 +215,8 @@ export function NavBar() {
             className="fixed inset-0 top-[60px] z-40 bg-void-black/95 backdrop-blur-xl flex flex-col pt-8 px-6 md:hidden overflow-y-auto"
           >
             <div className="flex flex-col gap-2">
-              {/* Products link — only on home */}
-              {isHome && (
+              {/* Products link — only on autorail home */}
+              {!isUnerr && isHome && (
                 <motion.div
                   initial={{ opacity: 0, x: -16 }}
                   animate={{ opacity: 1, x: 0 }}
@@ -213,7 +237,7 @@ export function NavBar() {
                 initial={{ opacity: 0, x: -16 }}
                 animate={{ opacity: 1, x: 0 }}
                 transition={{
-                  delay: isHome ? 0.1 : 0.05,
+                  delay: !isUnerr && isHome ? 0.1 : 0.05,
                   duration: 0.25,
                   ease: "easeOut",
                 }}
@@ -233,6 +257,7 @@ export function NavBar() {
                     posthog.capture("contact_us_clicked", {
                       location: "navbar_mobile",
                       page: pathname,
+                      domain: isUnerr ? "unerr.dev" : "autorail.dev",
                     })
                     closeMobileMenu()
                   }}

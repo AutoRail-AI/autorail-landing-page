@@ -15,6 +15,27 @@ export const SITE_CONFIG = {
   footerTagline: "Governance Infrastructure for AI-Powered Development",
 } as const
 
+/**
+ * Domain configuration for multi-domain hosting
+ */
+export const DOMAINS = {
+  autorail: "autorail.dev",
+  unerr: "unerr.dev",
+} as const
+
+export const UNERR_SITE_CONFIG = {
+  name: "unerr",
+  tagline: "The Missing Backend for AI Coding Agents",
+  description:
+    "unerr is a hosted MCP server that injects your actual architecture, conventions, and blast radius into your AI agent's context window. Works with Cursor, Claude Code, Copilot, Windsurf, and Devin.",
+  url: "https://unerr.dev",
+  twitterHandle: "@autorail_ai",
+  twitterUrl: "https://x.com/autorail_ai",
+  linkedinUrl: "https://linkedin.com/company/autorail_ai",
+  contactEmail: "jaswanth@autorail.dev",
+  footerTagline: "The Missing Backend for AI Coding Agents — by autorail",
+} as const
+
 export const CTA_TEXT = {
   primary: "Join Waitlist",
   secondary: "Contact Us",

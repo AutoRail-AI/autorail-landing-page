@@ -47,3 +47,34 @@ export const FOOTER_COLUMNS: FooterColumn[] = [
     ],
   },
 ]
+
+/**
+ * Footer columns for unerr.dev domain.
+ * Focuses on unerr product, links back to autorail for company pages.
+ */
+export const UNERR_FOOTER_COLUMNS: FooterColumn[] = [
+  {
+    title: "Product",
+    links: [
+      { label: "Features", href: "#capabilities" },
+      { label: "Pricing", href: "#pricing" },
+      { label: "FAQ", href: "#faq" },
+    ],
+  },
+  {
+    title: "Resources",
+    links: [
+      { label: "Documentation", href: "/docs", comingSoon: true },
+      { label: "autorail Platform", href: "https://autorail.dev", external: true },
+      { label: "necroma", href: "https://autorail.dev/necroma", external: true },
+    ],
+  },
+  {
+    title: "Company",
+    links: [
+      { label: "About", href: "https://autorail.dev/team", external: true },
+      { label: "Enterprise", href: "mailto:jaswanth@autorail.dev", external: true },
+      { label: "Contact", href: "mailto:jaswanth@autorail.dev", external: true },
+    ],
+  },
+]

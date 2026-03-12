@@ -10,56 +10,114 @@ import "@fontsource/space-grotesk/700.css"
 import { CalProvider, MotionProvider } from "components/providers"
 import { JsonLd } from "components/shared"
 import { SITE_CONFIG } from "lib/constants"
+import { getActiveDomain, getActiveSiteConfig } from "lib/hostname"
 import "styles/tailwind.css"
 
-export const metadata: Metadata = {
-  metadataBase: new URL(SITE_CONFIG.url),
-  title: {
-    default: "autorail — Automated Code Review & Governance for AI Coding Tools",
-    template: `%s | ${SITE_CONFIG.name}`,
-  },
-  description:
-    "autorail makes AI-powered development safe for production. unerr is a hosted MCP server that injects your actual architecture into your AI agent's context window — works with Cursor, Claude Code, Copilot, Windsurf, and Devin. necroma automates legacy migration with behavioral verification.",
-  authors: [{ name: SITE_CONFIG.name }],
-  creator: SITE_CONFIG.name,
-  openGraph: {
-    type: "website",
-    locale: "en_US",
-    url: SITE_CONFIG.url,
-    siteName: SITE_CONFIG.name,
-    title: "autorail — Automated Code Review for AI Coding Tools",
-    description:
-      "Your AI coding agent is fast but unsupervised. autorail reviews every line automatically. Pattern enforcement, code review, regression prevention — all on the MCP channel.",
-    images: [
-      {
-        url: `${SITE_CONFIG.url}/og-image.png`,
-        width: 1200,
-        height: 630,
-        alt: "autorail — Automated Code Review & Governance for AI Coding Tools",
+export async function generateMetadata(): Promise<Metadata> {
+  const domain = await getActiveDomain()
+  const config = await getActiveSiteConfig()
+
+  if (domain === "unerr") {
+    return {
+      metadataBase: new URL(config.url),
+      title: {
+        default: "unerr — The Missing Backend for AI Coding Agents",
+        template: "%s | unerr",
       },
-    ],
-  },
-  twitter: {
-    card: "summary_large_image",
-    site: SITE_CONFIG.twitterHandle,
-    title: "autorail — Automated Code Review for AI Coding Tools",
+      description: config.description,
+      authors: [{ name: "autorail" }],
+      creator: "autorail",
+      openGraph: {
+        type: "website",
+        locale: "en_US",
+        url: config.url,
+        siteName: "unerr",
+        title: "unerr — The Missing Backend for AI Coding Agents",
+        description:
+          "unerr injects your actual architecture into your AI agent's context window — so it stops hallucinating your codebase. Deterministic guardrails, blast radius analysis, and rewind in one MCP connection.",
+        images: [
+          {
+            url: `${config.url}/og-image.png`,
+            width: 1200,
+            height: 630,
+            alt: "unerr — The Missing Backend for AI Coding Agents",
+          },
+        ],
+      },
+      twitter: {
+        card: "summary_large_image",
+        site: config.twitterHandle,
+        title: "unerr — The Missing Backend for AI Coding Agents",
+        description:
+          "Stop babysitting your AI. unerr injects your actual architecture into your AI agent's context window — so it stops hallucinating your codebase.",
+        images: [`${config.url}/twitter-card.png`],
+      },
+      robots: {
+        index: true,
+        follow: true,
+        googleBot: {
+          index: true,
+          follow: true,
+          "max-snippet": -1,
+          "max-image-preview": "large",
+        },
+      },
+      alternates: {
+        canonical: config.url,
+      },
+    }
+  }
+
+  // Default: autorail.dev
+  return {
+    metadataBase: new URL(SITE_CONFIG.url),
+    title: {
+      default: "autorail — Automated Code Review & Governance for AI Coding Tools",
+      template: `%s | ${SITE_CONFIG.name}`,
+    },
     description:
-      "Stop babysitting your AI. unerr injects your actual architecture into your AI agent's context window — so it stops hallucinating your codebase.",
-    images: [`${SITE_CONFIG.url}/twitter-card.png`],
-  },
-  robots: {
-    index: true,
-    follow: true,
-    googleBot: {
+      "autorail makes AI-powered development safe for production. unerr is a hosted MCP server that injects your actual architecture into your AI agent's context window — works with Cursor, Claude Code, Copilot, Windsurf, and Devin. necroma automates legacy migration with behavioral verification.",
+    authors: [{ name: SITE_CONFIG.name }],
+    creator: SITE_CONFIG.name,
+    openGraph: {
+      type: "website",
+      locale: "en_US",
+      url: SITE_CONFIG.url,
+      siteName: SITE_CONFIG.name,
+      title: "autorail — Automated Code Review for AI Coding Tools",
+      description:
+        "Your AI coding agent is fast but unsupervised. autorail reviews every line automatically. Pattern enforcement, code review, regression prevention — all on the MCP channel.",
+      images: [
+        {
+          url: `${SITE_CONFIG.url}/og-image.png`,
+          width: 1200,
+          height: 630,
+          alt: "autorail — Automated Code Review & Governance for AI Coding Tools",
+        },
+      ],
+    },
+    twitter: {
+      card: "summary_large_image",
+      site: SITE_CONFIG.twitterHandle,
+      title: "autorail — Automated Code Review for AI Coding Tools",
+      description:
+        "Stop babysitting your AI. unerr injects your actual architecture into your AI agent's context window — so it stops hallucinating your codebase.",
+      images: [`${SITE_CONFIG.url}/twitter-card.png`],
+    },
+    robots: {
       index: true,
       follow: true,
-      "max-snippet": -1,
-      "max-image-preview": "large",
+      googleBot: {
+        index: true,
+        follow: true,
+        "max-snippet": -1,
+        "max-image-preview": "large",
+      },
     },
-  },
-  alternates: {
-    canonical: SITE_CONFIG.url,
-  },
+    alternates: {
+      canonical: SITE_CONFIG.url,
+    },
+  }
 }
 
 export const viewport: Viewport = {
@@ -68,17 +126,20 @@ export const viewport: Viewport = {
   initialScale: 1,
 }
 
-export default function RootLayout({
+export default async function RootLayout({
   children,
 }: {
   children: React.ReactNode
 }) {
+  const domain = await getActiveDomain()
+  const isUnerr = domain === "unerr"
+
   return (
     <html lang="en" className="scroll-smooth">
       <head>
         <JsonLd type="organization" />
         <JsonLd type="software-unerr" />
-        <JsonLd type="software-necroma" />
+        {!isUnerr && <JsonLd type="software-necroma" />}
         <JsonLd type="webpage" />
       </head>
       <body className="min-h-screen bg-background text-foreground font-sans antialiased">

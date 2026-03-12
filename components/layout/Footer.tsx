@@ -2,11 +2,21 @@ import { ExternalLink } from "lucide-react"
 import Image from "next/image"
 import Link from "next/link"
 import { Container } from "components/ui"
-import { FOOTER_COLUMNS } from "data/navigation"
-import { SITE_CONFIG } from "lib/constants"
+import { FOOTER_COLUMNS, UNERR_FOOTER_COLUMNS } from "data/navigation"
+import { SITE_CONFIG, UNERR_SITE_CONFIG } from "lib/constants"
+import { getActiveDomain } from "lib/hostname"
 import { cn } from "lib/utils"
 
-export function Footer() {
+export async function Footer() {
+  const domain = await getActiveDomain()
+  const isUnerr = domain === "unerr"
+
+  const config = isUnerr ? UNERR_SITE_CONFIG : SITE_CONFIG
+  const columns = isUnerr ? UNERR_FOOTER_COLUMNS : FOOTER_COLUMNS
+
+  const logoSrc = isUnerr ? "/unerr-wordmark.svg" : "/icon-wordmark.svg"
+  const logoAlt = isUnerr ? "unerr" : "autorail"
+
   const currentYear = new Date().getFullYear()
 
   return (
@@ -24,20 +34,20 @@ export function Footer() {
               }}
             >
               <Image
-                src="/icon-wordmark.svg"
-                alt="autorail"
+                src={logoSrc}
+                alt={logoAlt}
                 width={233}
                 height={77}
                 className="h-14 w-auto"
               />
             </Link>
             <p className="mt-4 max-w-xs text-sm text-foreground-secondary leading-relaxed">
-              {SITE_CONFIG.footerTagline}
+              {config.footerTagline}
             </p>
           </div>
 
           {/* Link Columns */}
-          {FOOTER_COLUMNS.map((column) => (
+          {columns.map((column) => (
             <div key={column.title}>
               <h4 className="mb-4 text-sm font-semibold text-cloud-white font-[family-name:var(--font-grotesk)]">
                 {column.title}
@@ -56,7 +66,7 @@ export function Footer() {
         {/* Bottom Bar */}
         <div className="mt-12 flex flex-col items-center justify-between gap-4 border-t border-border-default pt-8 md:flex-row">
           <p className="text-xs text-foreground-muted">
-            &copy; {currentYear} {SITE_CONFIG.name} Inc.
+            &copy; {currentYear} {isUnerr ? "autorail" : SITE_CONFIG.name} Inc.
           </p>
           <div className="flex items-center gap-6">
             <a
