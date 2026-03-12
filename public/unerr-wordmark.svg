@@ -1,12 +1,82 @@
-<svg width="200" height="80" viewBox="0 0 200 80" fill="none" xmlns="http://www.w3.org/2000/svg">
+<svg width="220" height="80" viewBox="0 0 220 80" fill="none" xmlns="http://www.w3.org/2000/svg">
   <defs>
-    <filter id="glow" x="-20%" y="-20%" width="140%" height="140%">
-      <feGaussianBlur stdDeviation="4" result="blur"/>
-      <feComposite in="SourceGraphic" in2="blur" operator="over"/>
+    <!-- Subtle purple ambient glow — industrial glass depth -->
+    <filter id="unerr-glow" x="-30%" y="-30%" width="160%" height="160%" color-interpolation-filters="sRGB">
+      <feGaussianBlur in="SourceGraphic" stdDeviation="6" result="blur1"/>
+      <feColorMatrix in="blur1" type="matrix"
+        values="0 0 0 0 0.431
+                0 0 0 0 0.094
+                0 0 0 0 0.702
+                0 0 0 0.45 0"
+        result="purpleBlur"/>
+      <feMerge>
+        <feMergeNode in="purpleBlur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
     </filter>
+
+    <!-- Tighter inner glow for crispness -->
+    <filter id="unerr-inner" x="-10%" y="-10%" width="120%" height="120%" color-interpolation-filters="sRGB">
+      <feGaussianBlur in="SourceGraphic" stdDeviation="1.5" result="softBlur"/>
+      <feColorMatrix in="softBlur" type="matrix"
+        values="0 0 0 0 0.510
+                0 0 0 0 0.204
+                0 0 0 0 0.808
+                0 0 0 0.35 0"
+        result="innerGlow"/>
+      <feMerge>
+        <feMergeNode in="innerGlow"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+
+    <!-- Graph-node accent gradient -->
+    <radialGradient id="node-pulse" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#8134CE" stop-opacity="0.9"/>
+      <stop offset="60%" stop-color="#6E18B3" stop-opacity="0.6"/>
+      <stop offset="100%" stop-color="#5B0B96" stop-opacity="0"/>
+    </radialGradient>
+
+    <!-- Structural underline gradient — left to right fade -->
+    <linearGradient id="rail-line" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#6E18B3" stop-opacity="0"/>
+      <stop offset="15%" stop-color="#6E18B3" stop-opacity="0.8"/>
+      <stop offset="85%" stop-color="#8134CE" stop-opacity="0.6"/>
+      <stop offset="100%" stop-color="#8134CE" stop-opacity="0"/>
+    </linearGradient>
   </defs>
-  <g filter="url(#glow)">
-    <text x="16" y="55" font-family="'Space Grotesk', 'Inter', system-ui, sans-serif" font-size="48" font-weight="700" fill="#00E5FF" letter-spacing="-1">unerr</text>
+
+  <!-- Architectural accent: the "rail" — a thin structural line below the text -->
+  <rect x="18" y="62" width="160" height="1.5" rx="0.75" fill="url(#rail-line)"/>
+
+  <!-- Graph node accent — subtle dot before the 'u', hinting at knowledge graph origin -->
+  <circle cx="12" cy="46" r="3" fill="url(#node-pulse)"/>
+
+  <!-- Primary wordmark with ambient glow -->
+  <g filter="url(#unerr-glow)">
+    <text
+      x="22"
+      y="54"
+      font-family="'Space Grotesk', 'Inter', -apple-system, system-ui, sans-serif"
+      font-size="46"
+      font-weight="700"
+      fill="#6E18B3"
+      letter-spacing="-0.5"
+      text-rendering="geometricPrecision"
+    >unerr</text>
   </g>
-  <text x="16" y="55" font-family="'Space Grotesk', 'Inter', system-ui, sans-serif" font-size="48" font-weight="700" fill="#00E5FF" letter-spacing="-1">unerr</text>
+
+  <!-- Crisp text overlay for sharp edges on top of the glow -->
+  <g filter="url(#unerr-inner)">
+    <text
+      x="22"
+      y="54"
+      font-family="'Space Grotesk', 'Inter', -apple-system, system-ui, sans-serif"
+      font-size="46"
+      font-weight="700"
+      fill="#6E18B3"
+      letter-spacing="-0.5"
+      text-rendering="geometricPrecision"
+    >unerr</text>
+  </g>
 </svg>
